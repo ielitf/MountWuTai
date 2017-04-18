@@ -20,7 +20,7 @@
         android:paddingTop="5dp">
 
         <RelativeLayout
-            android:id="@+id/r1"
+            android:id="@+id/summary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,7 +46,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/r2"
+            android:id="@+id/guide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -72,7 +72,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/r3"
+            android:id="@+id/buddhist"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -98,7 +98,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/r4"
+            android:id="@+id/service"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -124,7 +124,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/r5"
+            android:id="@+id/specialty"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

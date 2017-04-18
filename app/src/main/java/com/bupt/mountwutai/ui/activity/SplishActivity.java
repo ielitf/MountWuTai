@@ -1,10 +1,10 @@
 package com.bupt.mountwutai.ui.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
+import com.bupt.mountwutai.util.LogUtil;
 
 public class SplishActivity extends BaseActivity {
 
@@ -19,7 +19,7 @@ public class SplishActivity extends BaseActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Log.i(TAG, "-----");
+                LogUtil.i(TAG, "-----");
                 intent2Activity(MainActivity.class);
                 finish();
             }
