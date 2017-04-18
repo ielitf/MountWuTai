@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.util.LogUtil;
 
-
 /**
  * Created by joycezhao on 16/10/25.
  */
