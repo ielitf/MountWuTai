@@ -3,6 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="title_grey">#666666</color>
-    <color name="main_skin">#000000</color>
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+    <color name="blue">#25b6ed</color>
+    <color name="module_title_gray">#666666</color>
 </resources>
