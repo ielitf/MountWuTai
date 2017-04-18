@@ -493,25 +493,25 @@ public class Utils {
      * @param path  文件路径
      * @return
      */
-    public static String fileTobuffer(String path) {
-        String uploadBuffer = null;
-        try {
-            FileInputStream fis = new FileInputStream(path);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
-            int count = 0;
-            while ((count = fis.read(buffer)) >= 0) {
-                baos.write(buffer, 0, count);
-            }
-            BASE64Encoder encoder = new BASE64Encoder();
-            uploadBuffer = new String(encoder.encode(baos.toByteArray()));
-            fis.close();
-            baos.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return uploadBuffer;
-    }
+//    public static String fileTobuffer(String path) {
+//        String uploadBuffer = null;
+//        try {
+//            FileInputStream fis = new FileInputStream(path);
+//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//            byte[] buffer = new byte[1024];
+//            int count = 0;
+//            while ((count = fis.read(buffer)) >= 0) {
+//                baos.write(buffer, 0, count);
+//            }
+//            BASE64Encoder encoder = new BASE64Encoder();
+//            uploadBuffer = new String(encoder.encode(baos.toByteArray()));
+//            fis.close();
+//            baos.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return uploadBuffer;
+//    }
 
 
 	public static boolean hasSdcard() {
