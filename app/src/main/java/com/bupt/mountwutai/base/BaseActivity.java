@@ -40,6 +40,8 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
 //        AppManager.getAppManager().addActivity(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setLayout();
+        init();
+        initView();
 //        ButterKnife.bind(this);
 //        init();
 //        initArgs();
@@ -69,6 +71,7 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
     }
 
     abstract protected void setLayout();
+    abstract protected void initView();
 
     abstract protected boolean isNeedInitBack();
 

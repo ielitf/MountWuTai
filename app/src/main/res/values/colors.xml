@@ -7,4 +7,6 @@
     <color name="transparent">#00000000</color>
     <color name="blue">#25b6ed</color>
     <color name="module_title_gray">#666666</color>
+    <color name="navigation_unselect">#ffffff</color>
+    <color name="navigation_select">#f97526</color>
 </resources>
