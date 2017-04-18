@@ -7,9 +7,10 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 
-import com.bupt.chengde.R;
-import com.bupt.chengde.control.CodeConstants;
-import com.bupt.chengde.util.LogUtil;
+import com.bupt.mountwutai.R;
+import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.util.LogUtil;
+
 
 /**
  * Created by joycezhao on 16/10/25.
