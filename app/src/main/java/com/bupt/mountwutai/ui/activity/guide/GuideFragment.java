@@ -51,7 +51,8 @@ public class GuideFragment extends BaseFragment {
             public void onClick(View v) {
                 if (isup) {
                     isup = false;
-                    popImage.setImageResource(R.mipmap.spinner_bg);
+                    myButton.setBackgroundResource(R.mipmap.sanjiao);
+                    popImage.setImageResource(R.mipmap.up);
                 }
 
                 Utils.showPopupwindow(activity, list, inflater,
@@ -88,7 +89,8 @@ public class GuideFragment extends BaseFragment {
                             @Override
                             public void dismiss() {
                                 isup = true;
-                                popImage.setImageResource(R.mipmap.spinner_bg_press);
+                                myButton.setBackgroundResource(R.color.transparent);
+                                popImage.setImageResource(R.mipmap.down);
                             }
                         });
 

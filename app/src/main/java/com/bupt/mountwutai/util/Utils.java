@@ -76,7 +76,7 @@ public class Utils {
 
 		pw.setBackgroundDrawable(context.getResources().getDrawable(
 				//此处为popwindow 设置背景，同事做到点击外部区域，popwindow消失
-				R.color.colorPrimary));
+				R.color.popcolor));
 		//设置焦点为可点击
 		pw.setFocusable(true);//可以试试设为false的结果
 		//将window视图显示在myButton下面
