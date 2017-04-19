@@ -1,19 +1,17 @@
 package com.bupt.mountwutai.ui.activity.summary;
 
-import android.location.LocationListener;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.PopAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
+import com.bupt.mountwutai.widget.NoScrollListView;
 
 import java.util.ArrayList;
 
@@ -21,13 +19,13 @@ import java.util.ArrayList;
  * Created by Wyf on 2017/4/18.
  */
 
-public class SummaruFragment extends BaseFragment {
+public class SummaryFragment extends BaseFragment {
 
     //下拉按钮
     TextView myButton;
     ImageView popImage;
     LinearLayout mypoplayout;
-    Boolean isup=true;
+    Boolean isup = true;
     //PopupWindow对象声明
     PopupWindow pw;
 
@@ -42,7 +40,7 @@ public class SummaruFragment extends BaseFragment {
     }
 
     private void initView() {
-        mypoplayout= (LinearLayout) findViewById(R.id.mypoplayout);
+        mypoplayout = (LinearLayout) findViewById(R.id.mypoplayout);
         myButton = (TextView) findViewById(R.id.myButton);
         popImage = (ImageView) findViewById(R.id.popimg);
         //获得要显示的数据
@@ -54,25 +52,25 @@ public class SummaruFragment extends BaseFragment {
 
             @Override
             public void onClick(View v) {
-                if (isup){
-                    isup=false;
+                if (isup) {
+                    isup = false;
                     popImage.setImageResource(R.mipmap.spinner_bg);
                 }
 
                 //通过布局注入器，注入布局给View对象
                 View myView = inflater.inflate(R.layout.pop, null);
                 //通过view 和宽·高，构造PopopWindow
-                pw = new PopupWindow(myView, 240, 300, true);
+                pw = new PopupWindow(myView, 300, LinearLayout.LayoutParams.WRAP_CONTENT, true);
 
                 pw.setBackgroundDrawable(getResources().getDrawable(
                         //此处为popwindow 设置背景，同事做到点击外部区域，popwindow消失
-                R.color.blue));
+                        R.color.blue));
                 //设置焦点为可点击
                 pw.setFocusable(true);//可以试试设为false的结果
                 //将window视图显示在myButton下面
                 pw.showAsDropDown(mypoplayout);
 
-                ListView lv = (ListView) myView.findViewById(R.id.lv_pop);
+                NoScrollListView lv = (NoScrollListView) myView.findViewById(R.id.lv_pop);
                 lv.setAdapter(new PopAdapter(getActivity(), list));
                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -89,7 +87,7 @@ public class SummaruFragment extends BaseFragment {
                 pw.setOnDismissListener(new PopupWindow.OnDismissListener() {
                     @Override
                     public void onDismiss() {
-                        isup=true;
+                        isup = true;
                         popImage.setImageResource(R.mipmap.spinner_bg_press);
                     }
                 });
@@ -98,8 +96,10 @@ public class SummaruFragment extends BaseFragment {
         });
 
     }
+
     /**
      * 得到list集合的方法
+     *
      * @return
      */
     public ArrayList<String> getList() {
