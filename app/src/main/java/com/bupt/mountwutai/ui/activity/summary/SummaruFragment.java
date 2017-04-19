@@ -1,16 +1,21 @@
 package com.bupt.mountwutai.ui.activity.summary;
 
+import android.location.LocationListener;
 import android.os.Bundle;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
+import com.bupt.mountwutai.adapter.PopAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
-import com.bupt.mountwutai.util.LogUtil;
+
+import java.util.ArrayList;
 
 /**
  * Created by Wyf on 2017/4/18.
@@ -18,10 +23,17 @@ import com.bupt.mountwutai.util.LogUtil;
 
 public class SummaruFragment extends BaseFragment {
 
-    private Spinner topSpinner;
-    private boolean isSelect;
-    private TextView arrawTextView;
-    private static final String[] name = {"寺庙一览", "地方风情", "佛教圣地", "历史传说"};
+    //下拉按钮
+    TextView myButton;
+    ImageView popImage;
+    LinearLayout mypoplayout;
+    Boolean isup=true;
+    //PopupWindow对象声明
+    PopupWindow pw;
+
+    ArrayList<String> list;
+    //当前选中的列表项位置
+    int clickPsition = -1;
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
@@ -30,44 +42,72 @@ public class SummaruFragment extends BaseFragment {
     }
 
     private void initView() {
-        topSpinner = (Spinner) findViewById(R.id.topspinner);
-        arrawTextView = (TextView) findViewById(R.id.arraw);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(activity, R.layout.spinner_item, name);
-        arrayAdapter.setDropDownViewResource(R.layout.dropdown_stytle);
-        topSpinner.setAdapter(arrayAdapter);
+        mypoplayout= (LinearLayout) findViewById(R.id.mypoplayout);
+        myButton = (TextView) findViewById(R.id.myButton);
+        popImage = (ImageView) findViewById(R.id.popimg);
+        //获得要显示的数据
+        list = getList();
+        //设置默认显示的Text
+        myButton.setText(list.get(0));
 
-        topSpinner.setOnTouchListener(new View.OnTouchListener() {
+        mypoplayout.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    LogUtil.i(TAG, "========");
-                    if (isSelect) {
-                        arrawTextView.setBackgroundResource(R.mipmap.geren_normal);
-                        isSelect = false;
-                    } else {
-                        arrawTextView.setBackgroundResource(R.mipmap.geren_selected);
-                        isSelect = true;
-                    }
+            public void onClick(View v) {
+                if (isup){
+                    isup=false;
+                    popImage.setImageResource(R.mipmap.spinner_bg);
                 }
-                return false;
+
+                //通过布局注入器，注入布局给View对象
+                View myView = inflater.inflate(R.layout.pop, null);
+                //通过view 和宽·高，构造PopopWindow
+                pw = new PopupWindow(myView, 240, 300, true);
+
+                pw.setBackgroundDrawable(getResources().getDrawable(
+                        //此处为popwindow 设置背景，同事做到点击外部区域，popwindow消失
+                R.color.blue));
+                //设置焦点为可点击
+                pw.setFocusable(true);//可以试试设为false的结果
+                //将window视图显示在myButton下面
+                pw.showAsDropDown(mypoplayout);
+
+                ListView lv = (ListView) myView.findViewById(R.id.lv_pop);
+                lv.setAdapter(new PopAdapter(getActivity(), list));
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
+                        myButton.setText(list.get(position));
+                        if (clickPsition != position) {
+                            clickPsition = position;
+                        }
+                        pw.dismiss();
+                    }
+                });
+                pw.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                    @Override
+                    public void onDismiss() {
+                        isup=true;
+                        popImage.setImageResource(R.mipmap.spinner_bg_press);
+                    }
+                });
             }
+
         });
 
-        topSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                arrawTextView.setBackgroundResource(R.mipmap.geren_normal);
-                isSelect = false;
-                showToast(name[position]);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                LogUtil.i(TAG,"nothing");
-                arrawTextView.setBackgroundResource(R.mipmap.geren_normal);
-                isSelect = false;
-            }
-        });
-
+    }
+    /**
+     * 得到list集合的方法
+     * @return
+     */
+    public ArrayList<String> getList() {
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("寺庙一览");
+        list.add("地方风情");
+        list.add("佛教圣地");
+        list.add("历史传说");
+        return list;
     }
 }

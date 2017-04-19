@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/module_title_gray">
+    android:layout_height="50dp"
+    android:background="#fff000"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/topspinner"
-        android:spinnerMode="dropdown"
-        android:dropDownVerticalOffset="50dp"
-        android:layout_centerInParent="true"
+    <LinearLayout
+        android:id="@+id/mypoplayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/transparent"/>
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/myButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:text="寺庙一览"
+            android:textColor="#000"
+            android:textSize="@dimen/space_18" />
 
-    <TextView
-        android:id="@+id/arraw"
-        android:background="@mipmap/geren_normal"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_toRightOf="@id/topspinner"
-        android:layout_centerVertical="true"/>
-
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/popimg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/spinner_bg_press" />
+    </LinearLayout>
+</LinearLayout>
