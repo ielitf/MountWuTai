@@ -2,7 +2,6 @@ package com.bupt.mountwutai.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
@@ -10,6 +9,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,8 +38,17 @@ import android.net.wifi.WifiManager;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.TypedValue;
-import android.view.TextureView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+
+import com.bupt.mountwutai.R;
+import com.bupt.mountwutai.adapter.PopAdapter;
+import com.bupt.mountwutai.consts.CallBack;
+import com.bupt.mountwutai.widget.NoScrollListView;
 
 /**
  * @author: wyf
@@ -47,6 +56,50 @@ import android.widget.ImageView;
  * @version 1.0
  */
 public class Utils {
+
+	/**
+	 *
+	 * @param context
+	 * @param list     数据源
+	 * @param inflater
+	 * @param mypoplayout 父控件
+	 * @param callBack 回调
+	 */
+	public static void showPopupwindow(Context context, final ArrayList<String> list,
+									   LayoutInflater inflater,
+									   View mypoplayout,
+									   final CallBack callBack){
+		//通过布局注入器，注入布局给View对象
+		View myView = inflater.inflate(R.layout.pop, null,false);
+		//通过view 和宽·高，构造PopopWindow
+		final PopupWindow pw = new PopupWindow(myView, 300, LinearLayout.LayoutParams.WRAP_CONTENT, true);
+
+		pw.setBackgroundDrawable(context.getResources().getDrawable(
+				//此处为popwindow 设置背景，同事做到点击外部区域，popwindow消失
+				R.color.popcolor));
+		//设置焦点为可点击
+		pw.setFocusable(true);//可以试试设为false的结果
+		//将window视图显示在myButton下面
+		pw.showAsDropDown(mypoplayout);
+
+		NoScrollListView lv = (NoScrollListView) myView.findViewById(R.id.lv_pop);
+		lv.setAdapter(new PopAdapter(context, list));
+		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+									int position, long id) {
+				callBack.itemClick(position);
+				pw.dismiss();
+			}
+		});
+		pw.setOnDismissListener(new PopupWindow.OnDismissListener() {
+			@Override
+			public void onDismiss() {
+				callBack.dismiss();
+			}
+		});
+	}
 
 	/**
 	 * 获取文件夹大小
@@ -490,7 +543,6 @@ public class Utils {
 	
 	/**
      * 将文件转化为流的形式
-     * @param path  文件路径
      * @return
      */
 //    public static String fileTobuffer(String path) {

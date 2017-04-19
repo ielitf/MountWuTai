@@ -1,5 +1,6 @@
 package com.bupt.mountwutai.ui.activity.summary;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.PopAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
+import com.bupt.mountwutai.consts.CallBack;
+import com.bupt.mountwutai.util.Utils;
 import com.bupt.mountwutai.widget.NoScrollListView;
 
 import java.util.ArrayList;
@@ -25,7 +28,7 @@ public class SummaryFragment extends BaseFragment {
     TextView myButton;
     ImageView popImage;
     LinearLayout mypoplayout;
-    Boolean isup = true;
+    Boolean isdown = true;
     //PopupWindow对象声明
     PopupWindow pw;
 
@@ -47,61 +50,60 @@ public class SummaryFragment extends BaseFragment {
         list = getList();
         //设置默认显示的Text
         myButton.setText(list.get(0));
-
         mypoplayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                if (isup) {
-                    isup = false;
-                    popImage.setImageResource(R.mipmap.spinner_bg);
-                }
+                showPopWindow();
+            }
+        });
+    }
 
-                //通过布局注入器，注入布局给View对象
-                View myView = inflater.inflate(R.layout.pop, null);
-                //通过view 和宽·高，构造PopopWindow
-                pw = new PopupWindow(myView, 300, LinearLayout.LayoutParams.WRAP_CONTENT, true);
-
-                pw.setBackgroundDrawable(getResources().getDrawable(
-                        //此处为popwindow 设置背景，同事做到点击外部区域，popwindow消失
-                        R.color.blue));
-                //设置焦点为可点击
-                pw.setFocusable(true);//可以试试设为false的结果
-                //将window视图显示在myButton下面
-                pw.showAsDropDown(mypoplayout);
-
-                NoScrollListView lv = (NoScrollListView) myView.findViewById(R.id.lv_pop);
-                lv.setAdapter(new PopAdapter(getActivity(), list));
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+    //展示popwindow
+    private void showPopWindow() {
+        if (isdown) {
+            isdown = false;
+            myButton.setBackgroundResource(R.mipmap.sanjiao);
+            popImage.setImageResource(R.mipmap.up);
+        }
+        Utils.showPopupwindow(activity, list, inflater,
+                mypoplayout, new CallBack() {
                     @Override
-                    public void onItemClick(AdapterView<?> parent, View view,
-                                            int position, long id) {
+                    public void itemClick(int position) {
                         myButton.setText(list.get(position));
+                        switch (position) {
+                            case 0://寺庙一览
+
+                                break;
+
+                            case 1://地方风情
+
+                                break;
+
+                            case 2://佛教圣地
+
+                                break;
+
+                            case 3://历史传说
+
+                                break;
+                        }
                         if (clickPsition != position) {
                             clickPsition = position;
                         }
-                        pw.dismiss();
                     }
-                });
-                pw.setOnDismissListener(new PopupWindow.OnDismissListener() {
-                    @Override
-                    public void onDismiss() {
-                        isup = true;
-                        popImage.setImageResource(R.mipmap.spinner_bg_press);
-                    }
-                });
-            }
 
-        });
+                    @Override
+                    public void dismiss() {
+                        isdown = true;
+                        myButton.setBackgroundResource(R.color.transparent);
+                        popImage.setImageResource(R.mipmap.down);
+                    }
+                });
 
     }
 
-    /**
-     * 得到list集合的方法
-     *
-     * @return
-     */
+    //得到list集合的方法
     public ArrayList<String> getList() {
         ArrayList<String> list = new ArrayList<String>();
         list.add("寺庙一览");
