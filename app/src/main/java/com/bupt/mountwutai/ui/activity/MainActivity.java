@@ -9,16 +9,21 @@ import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
-import com.bupt.mountwutai.ui.activity.summary.SummaruFragment;
+import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
+import com.bupt.mountwutai.ui.activity.summary.SummaryFragment;
 import com.bupt.mountwutai.util.LogUtil;
 
+/**
+ * 主页面
+ */
 public class MainActivity extends BaseActivity {
 
     private TextView[] textViews = new TextView[5];// 图标下面的文字
     private ImageView[] imageButtons = new ImageView[5];// 显示图标
 
     private FragmentManager fragmentManager;
-    private SummaruFragment summaruFragment = null;
+    private SummaryFragment summaryFragment = null;
+    private GuideFragment guideFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +80,11 @@ public class MainActivity extends BaseActivity {
                 imageButtons[2].setBackgroundResource(R.mipmap.yakongqi_normal);
                 imageButtons[3].setBackgroundResource(R.mipmap.yewu_normal);
                 imageButtons[4].setBackgroundResource(R.mipmap.geren_normal);
-                if (summaruFragment == null) {
-                    summaruFragment = new SummaruFragment();
-                    transaction.add(R.id.container, summaruFragment);
+                if (summaryFragment == null) {
+                    summaryFragment = new SummaryFragment();
+                    transaction.add(R.id.container, summaryFragment);
                 } else {
-                    transaction.show(summaruFragment);
+                    transaction.show(summaryFragment);
                 }
                 break;
 
@@ -90,6 +95,12 @@ public class MainActivity extends BaseActivity {
                 imageButtons[2].setBackgroundResource(R.mipmap.yakongqi_normal);
                 imageButtons[3].setBackgroundResource(R.mipmap.yewu_normal);
                 imageButtons[4].setBackgroundResource(R.mipmap.geren_normal);
+                if (guideFragment == null) {
+                    guideFragment = new GuideFragment();
+                    transaction.add(R.id.container, guideFragment);
+                } else {
+                    transaction.show(guideFragment);
+                }
                 break;
 
             case R.id.buddhist://佛事
@@ -127,8 +138,11 @@ public class MainActivity extends BaseActivity {
 
     private void hideFragments(FragmentTransaction transaction) {
         LogUtil.i(TAG, "hideFragments is called");
-        if (summaruFragment != null) {
-            transaction.hide(summaruFragment);
+        if (summaryFragment != null) {
+            transaction.hide(summaryFragment);
+        }
+        if (guideFragment != null) {
+            transaction.hide(guideFragment);
         }
     }
 
