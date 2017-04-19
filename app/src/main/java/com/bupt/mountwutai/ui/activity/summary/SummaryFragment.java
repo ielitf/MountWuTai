@@ -1,22 +1,24 @@
 package com.bupt.mountwutai.ui.activity.summary;
 
-import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import com.bupt.mountwutai.R;
-import com.bupt.mountwutai.adapter.PopAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CallBack;
+import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.ui.activity.CommonFragment;
 import com.bupt.mountwutai.util.Utils;
-import com.bupt.mountwutai.widget.NoScrollListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Wyf on 2017/4/18.
@@ -36,13 +38,28 @@ public class SummaryFragment extends BaseFragment {
     //当前选中的列表项位置
     int clickPsition = -1;
 
+    private FrameLayout frameLayout;
+    private List<CommonFragment> frgmentList;
+    private FragmentManager fManager;
+
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_summary);
+        fManager = getChildFragmentManager();
+        FragmentTransaction fTransaction = fManager.beginTransaction();
+        frameLayout = (FrameLayout) findViewById(R.id.fragment_summary);
         initView();
+        fTransaction.add(R.id.fragment_summary,frgmentList.get(0));
+        fTransaction.commitAllowingStateLoss();
     }
 
     private void initView() {
+        frgmentList = new ArrayList<>();
+        frgmentList.add(CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY));
+        frgmentList.add(CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY));
+        frgmentList.add(CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY));
+        frgmentList.add(CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY));
+
         mypoplayout = (LinearLayout) findViewById(R.id.mypoplayout);
         myButton = (TextView) findViewById(R.id.myButton);
         popImage = (ImageView) findViewById(R.id.popimg);
