@@ -9,6 +9,7 @@
     <color name="module_title_gray">#666666</color>
     <color name="title_gray">#333333</color>
     <color name="text_gray">#666666</color>
+    <color name="divider_list">#666666</color>
     <color name="navigation_unselect">#ffffff</color>
     <color name="white">#ffffff</color>
     <color name="navigation_select">#f97526</color>

@@ -12,15 +12,13 @@ import com.bupt.mountwutai.entity.CommonBean;
 
 import java.util.ArrayList;
 
-public abstract class CommonAdapter extends android.widget.BaseAdapter {
+public class CommonAdapter extends android.widget.BaseAdapter {
 
     private Context mContext;
-    private Activity activity;
     private ArrayList<CommonBean> mData;
 
-    public CommonAdapter(Activity context,ArrayList<CommonBean> mData) {
+    public CommonAdapter(Context context,ArrayList<CommonBean> mData) {
         this.mContext = context;
-        activity = context;
         this.mData = mData;
     }
 

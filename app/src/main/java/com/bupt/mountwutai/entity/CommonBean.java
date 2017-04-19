@@ -9,6 +9,12 @@ public class CommonBean {
     private String title;
     private String content;
 
+    public CommonBean (int icon,String title,String content){
+        this.icon = icon;
+        this.title = title;
+        this.content = content;
+    }
+
     public int getIcon() {
         return icon;
     }
