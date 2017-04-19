@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="wrap_content"
     android:background="#fff000"
     android:gravity="center"
     android:orientation="vertical">
@@ -9,25 +9,25 @@
     <LinearLayout
         android:id="@+id/mypoplayout"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
         <TextView
             android:id="@+id/myButton"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical"
-            android:padding="10dp"
+            android:padding="15dp"
             android:text="寺庙一览"
             android:textColor="@color/white"
-            android:textSize="@dimen/space_15"
+            android:textSize="@dimen/space_16"
             />
 
         <ImageView
             android:id="@+id/popimg"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:layout_marginLeft="10dp"
             android:src="@mipmap/down" />
     </LinearLayout>

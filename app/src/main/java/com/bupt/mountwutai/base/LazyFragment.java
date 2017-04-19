@@ -8,6 +8,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 
 import com.bupt.mountwutai.R;
+import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.util.LogUtil;
 
 /**
