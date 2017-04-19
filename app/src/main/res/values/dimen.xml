@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="space_12">12sp</dimen>
+    <dimen name="space_14">14sp</dimen>
     <dimen name="space_15">15sp</dimen>
+    <dimen name="space_16">16sp</dimen>
+    <dimen name="space_17">17sp</dimen>
+    <dimen name="space_18">18sp</dimen>
+    <dimen name="space_20">20sp</dimen>
+    <dimen name="space_22">22sp</dimen>
 </resources>
