@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="60dp"
     android:background="#fff000"
     android:gravity="center"
     android:orientation="vertical">
@@ -18,16 +18,17 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical"
-            android:paddingLeft="5dp"
+            android:padding="10dp"
             android:text="寺庙一览"
             android:textColor="#000"
-            android:textSize="@dimen/space_18" />
+            android:textSize="@dimen/space_15"
+            />
 
         <ImageView
             android:id="@+id/popimg"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
             android:layout_marginLeft="10dp"
-            android:src="@mipmap/spinner_bg_press" />
+            android:src="@mipmap/down" />
     </LinearLayout>
 </LinearLayout>
