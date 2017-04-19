@@ -6,6 +6,8 @@ import android.widget.ListView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.CommonAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
+import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.customdata.SummaryData;
 import com.bupt.mountwutai.entity.CommonBean;
 
 import java.util.ArrayList;
@@ -20,26 +22,39 @@ public class CommonFragment extends BaseFragment {
     private ArrayList<CommonBean> mData;
     private ListView listView;
     private CommonAdapter adapter;
-    private int [] icon;
-    private String [] title;
-    private String [] content;
+    private String type;//代表当前是哪一个，比如寺庙还是美食，以添加不同的数据
+
+    public CommonFragment(){
+    }
+
+    public static CommonFragment newFragment(String type){
+        CommonFragment commonFragment = new CommonFragment();
+        Bundle args = new Bundle();
+        args.putString(CodeConstants.TYPE,type);
+        commonFragment.setArguments(args);
+        return commonFragment;
+    }
+
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_common);
         context = getActivity();
+        type = getArguments().getString(CodeConstants.TYPE);
         listView = (ListView) findViewById(R.id.common_list);
         addData();
         adapter = new CommonAdapter(context,mData) ;
         listView.setAdapter(adapter);
     }
-
     private void addData() {
         mData = new ArrayList<>();
-        icon = new int[]{R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
-        title = new String[]{"国安酒店1","国安酒店2","国安酒店3","国安酒店4"};
-        content = new String[]{"未成年人禁止入内1","未成年人禁止入内2","未成年人禁止入内3","未成年人禁止入内4"};
-        for (int i = 0;i<icon.length;i++){
-            mData.add(new CommonBean(icon[i],title[i],content[i]));
+        switch (type){
+            case CodeConstants.TEPMLE_SUMMARY://寺庙一览
+                for (int i = 0; i< SummaryData.icon.length; i++){
+                    mData.add(new CommonBean(SummaryData.icon[i],SummaryData.title[i],SummaryData.content[i]));
+                }
+                break;
+            default:
+                break;
         }
     }
 }
