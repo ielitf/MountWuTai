@@ -20,7 +20,6 @@ public abstract class BaseFragment extends Fragment {
     public BaseActivity activity;
     public Context mContext;
     protected String TAG = getClass().getName();
-    ;
     protected LayoutInflater inflater;
     protected View contentView;
     protected ViewGroup container;
