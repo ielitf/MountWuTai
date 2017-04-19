@@ -20,6 +20,9 @@ public class CommonFragment extends BaseFragment {
     private ArrayList<CommonBean> mData;
     private ListView listView;
     private CommonAdapter adapter;
+    private int [] icon;
+    private String [] title;
+    private String [] content;
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_common);
@@ -27,16 +30,16 @@ public class CommonFragment extends BaseFragment {
         listView = (ListView) findViewById(R.id.common_list);
         addData();
         adapter = new CommonAdapter(context,mData) ;
+        listView.setAdapter(adapter);
     }
 
     private void addData() {
         mData = new ArrayList<>();
-        mData.add(new CommonBean(R.mipmap.ic_launcher,"国安酒店1","未成年人禁止入内1"));
-        mData.add(new CommonBean(R.mipmap.ic_launcher,"国安酒店2","未成年人禁止入内2"));
-        mData.add(new CommonBean(R.mipmap.ic_launcher,"国安酒店3","未成年人禁止入内3"));
-        mData.add(new CommonBean(R.mipmap.ic_launcher,"国安酒店4","未成年人禁止入内4"));
-        mData.add(new CommonBean(R.mipmap.ic_launcher,"国安酒店5","未成年人禁止入内5"));
-        mData.add(new CommonBean(R.mipmap.ic_launcher,"国安酒店6","未成年人禁止入内6"));
-
+        icon = new int[]{R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
+        title = new String[]{"国安酒店1","国安酒店2","国安酒店3","国安酒店4"};
+        content = new String[]{"未成年人禁止入内1","未成年人禁止入内2","未成年人禁止入内3","未成年人禁止入内4"};
+        for (int i = 0;i<icon.length;i++){
+            mData.add(new CommonBean(icon[i],title[i],content[i]));
+        }
     }
 }
