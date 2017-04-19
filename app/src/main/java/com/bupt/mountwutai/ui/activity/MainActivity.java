@@ -101,7 +101,7 @@ public class MainActivity extends BaseActivity {
                 imageButtons[4].setBackgroundResource(R.mipmap.geren_normal);
                 break;
 
-            case R.id.service://服务
+            case R.id.specialty://土特产
                 setBack(3);
                 imageButtons[0].setBackgroundResource(R.mipmap.home_normal);
                 imageButtons[1].setBackgroundResource(R.mipmap.live_normal);
@@ -110,7 +110,7 @@ public class MainActivity extends BaseActivity {
                 imageButtons[4].setBackgroundResource(R.mipmap.geren_normal);
                 break;
 
-            case R.id.specialty://土特产
+            case R.id.service://服务
                 setBack(4);
                 imageButtons[0].setBackgroundResource(R.mipmap.home_normal);
                 imageButtons[1].setBackgroundResource(R.mipmap.live_normal);
