@@ -7,7 +7,7 @@
 
     <com.bupt.mountwutai.widget.NoScrollListView
         android:id="@+id/lv_pop"
-        android:divider="@color/colorPrimary"
+        android:divider="@color/popcolor"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
