@@ -6,12 +6,12 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
 
 /**
- * 交通指南
+ * 行程规划
  */
 
-public class TrafficGuideFragment extends BaseFragment {
+public class TravelPlanFragment extends BaseFragment {
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_guide_traffic);
+        setContentView(R.layout.fragment_travel_plan);
     }
 }

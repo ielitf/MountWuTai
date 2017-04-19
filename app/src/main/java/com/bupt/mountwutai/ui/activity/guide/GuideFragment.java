@@ -1,6 +1,8 @@
 package com.bupt.mountwutai.ui.activity.guide;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CallBack;
+import com.bupt.mountwutai.util.LogUtil;
 import com.bupt.mountwutai.util.Utils;
 
 import java.util.ArrayList;
@@ -29,7 +32,9 @@ public class GuideFragment extends BaseFragment {
     //当前选中的列表项位置
     int clickPsition = -1;
 
+    private FragmentManager fragmentManager;
     TrafficGuideFragment trafficGuideFragment = null;
+    TravelPlanFragment travelPlanFragment = null;
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
@@ -37,7 +42,18 @@ public class GuideFragment extends BaseFragment {
         initView();
     }
 
+    private void hideFragments(FragmentTransaction transaction) {
+        LogUtil.i(TAG, "hideFragments is called");
+        if (trafficGuideFragment != null) {
+            transaction.hide(trafficGuideFragment);
+        }
+        if (travelPlanFragment != null) {
+            transaction.hide(travelPlanFragment);
+        }
+    }
+
     private void initView() {
+        fragmentManager = getChildFragmentManager();
         mypoplayout = (LinearLayout) findViewById(R.id.mypoplayout);
         myButton = (TextView) findViewById(R.id.myButton);
         popImage = (ImageView) findViewById(R.id.popimg);
@@ -45,6 +61,12 @@ public class GuideFragment extends BaseFragment {
         list = getList();
         //设置默认显示的Text
         myButton.setText(list.get(0));
+        //初始化显示的页面
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        travelPlanFragment = new TravelPlanFragment();
+        transaction.add(R.id.guide_container, travelPlanFragment);
+        transaction.commitAllowingStateLoss();
+
         mypoplayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -60,13 +82,25 @@ public class GuideFragment extends BaseFragment {
                             @Override
                             public void itemClick(int position) {
                                 myButton.setText(list.get(position));
+                                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                                hideFragments(transaction);
                                 switch (position){
                                     case 0://行程规划
-
+                                        if (travelPlanFragment == null) {
+                                            travelPlanFragment = new TravelPlanFragment();
+                                            transaction.add(R.id.guide_container, travelPlanFragment);
+                                        } else {
+                                            transaction.show(travelPlanFragment);
+                                        }
                                         break;
 
                                     case 1://交通指南
-
+                                        if (trafficGuideFragment == null) {
+                                            trafficGuideFragment = new TrafficGuideFragment();
+                                            transaction.add(R.id.guide_container, trafficGuideFragment);
+                                        } else {
+                                            transaction.show(trafficGuideFragment);
+                                        }
                                         break;
 
                                     case 2://酒店
@@ -81,6 +115,7 @@ public class GuideFragment extends BaseFragment {
 
                                         break;
                                 }
+                                transaction.commitAllowingStateLoss();
                                 if (clickPsition != position) {
                                     clickPsition = position;
                                 }
