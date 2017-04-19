@@ -98,7 +98,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/service"
+            android:id="@+id/specialty"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -118,13 +118,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb4"
                 android:layout_centerHorizontal="true"
-                android:text="服务"
+                android:text="土特产"
                 android:textColor="@color/navigation_unselect"
                 android:textSize="@dimen/space_12" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/specialty"
+            android:id="@+id/service"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -144,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb5"
                 android:layout_centerHorizontal="true"
-                android:text="土特产"
+                android:text="服务"
                 android:textColor="@color/navigation_unselect"
                 android:textSize="@dimen/space_12" />
         </RelativeLayout>
