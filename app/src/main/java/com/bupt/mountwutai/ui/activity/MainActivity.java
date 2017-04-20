@@ -24,6 +24,7 @@ public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private SummaryFragment summaryFragment = null;
     private GuideFragment guideFragment = null;
+    private ImageView start_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        start_img= (ImageView) findViewById(R.id.start_img);
         textViews[0] = (TextView) findViewById(R.id.text1);
         textViews[1] = (TextView) findViewById(R.id.text2);
         textViews[2] = (TextView) findViewById(R.id.text3);
@@ -65,12 +67,13 @@ public class MainActivity extends BaseActivity {
         imageButtons[4] = (ImageView) findViewById(R.id.rb5);
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        showFragment(transaction, R.id.summary);
+        //showFragment(transaction, R.id.summary);
     }
 
     private void showFragment(FragmentTransaction transaction, int tag) {
         LogUtil.d(TAG, "showFragment is called and tag=" + tag + "transaction==null is " + (transaction == null));
         hideFragments(transaction);
+        start_img.setVisibility(View.GONE);
 
         switch (tag) {
             case R.id.summary://概述
