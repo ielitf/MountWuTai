@@ -21,7 +21,6 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.MainActivity"/>
@@ -37,8 +36,8 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="1dca3533274a42aa05cf7e440a1b34b6" />
-        <service android:name="com.amap.api.location.APSService" >
-        </service>
+        <!--<service android:name="com.amap.api.location.APSService" >-->
+        <!--</service>-->
     </application>
 
 </manifest>

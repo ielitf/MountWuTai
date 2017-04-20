@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/corners_bg"
+            android:background="@drawable/corners_left_unselected"
             android:text="到达与离开" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/corners_bg2"
+            android:background="@drawable/corners_right_unselected"
             android:text="内部交通" />
 
     </LinearLayout>
