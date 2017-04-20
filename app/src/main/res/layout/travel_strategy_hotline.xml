@@ -56,8 +56,7 @@
             android:layout_marginRight="27dp"
             android:layout_marginTop="15dp"
             android:text="很多游客会只在五台山游玩一天，时间有些短，但只要时间抓紧，就可以将五台山的精华都玩遍。景区内有观光车可以到达大部分主要寺庙，很多寺庙间相距很近，步行游览完全没有问题。"
-            android:textColor="@color/black"
-            android:textSize="@dimen/space_16" />
+            android:textSize="@dimen/space_14" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,8 +74,7 @@
             android:layout_marginRight="27dp"
             android:layout_marginTop="15dp"
             android:text="早上先坐景区的观光车到“中心区”站下车，去公路以西游玩。先去香火最旺的五爷庙，然后去隔壁的塔院寺，寺中的大白塔已经成为五台山的标志。塔院寺后面就是显通寺，五台山历史最悠久的寺庙，罗睺寺和殊像寺也在附近。"
-            android:textColor="@color/black"
-            android:textSize="@dimen/space_16" />
+            android:textSize="@dimen/space_14" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -94,7 +92,6 @@
             android:layout_marginRight="27dp"
             android:layout_marginTop="15dp"
             android:text="中午可以在中心区附近找家饭店填饱肚子，然后顺着山路步行约20分钟走到菩萨顶，这是藏传佛教寺庙，达赖和班禅都在这里居住过。"
-            android:textColor="@color/black"
-            android:textSize="@dimen/space_16" />
+            android:textSize="@dimen/space_14" />
     </LinearLayout>
 </LinearLayout>

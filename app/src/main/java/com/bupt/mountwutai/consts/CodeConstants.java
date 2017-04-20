@@ -15,4 +15,6 @@ public class CodeConstants {
     public static final String LOCAL_CUSTOM = "local_custom";//地方风情
     public static final String BUDDHIST_HOLY_LAND = "buddhist_holy_land";//佛教圣地
     public static final String HISTORIC_LEGENDS = " historic_legends";//历史传说
+
+    public static final String WUTAI_RECIPES="wutai_recipes";//五台食谱
 }

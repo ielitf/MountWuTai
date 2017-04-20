@@ -55,6 +55,12 @@ public class CommonFragment extends BaseFragment implements AdapterView.OnItemCl
                     mData.add(new CommonBean(SummaryData.temple_icon[i],SummaryData.temple_title[i],SummaryData.temple_content[i]));
                 }
                 break;
+
+            case CodeConstants.WUTAI_RECIPES://五台食谱
+                for (int i = 0; i< SummaryData.wutai_icon.length; i++){
+                    mData.add(new CommonBean(SummaryData.wutai_icon[i],SummaryData.wutai_title[i],SummaryData.wutai_content[i]));
+                }
+                break;
             default:
                 break;
         }
