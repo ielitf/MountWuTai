@@ -10,6 +10,7 @@ import com.bupt.mountwutai.adapter.CommonAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.SummaryData;
+import com.bupt.mountwutai.customdata.WutaiData;
 import com.bupt.mountwutai.entity.CommonBean;
 
 import java.util.ArrayList;
@@ -57,8 +58,8 @@ public class CommonFragment extends BaseFragment implements AdapterView.OnItemCl
                 break;
 
             case CodeConstants.WUTAI_RECIPES://五台食谱
-                for (int i = 0; i< SummaryData.wutai_icon.length; i++){
-                    mData.add(new CommonBean(SummaryData.wutai_icon[i],SummaryData.wutai_title[i],SummaryData.wutai_content[i]));
+                for (int i = 0; i< WutaiData.wutai_icon.length; i++){
+                    mData.add(new CommonBean(WutaiData.wutai_icon[i],WutaiData.wutai_title[i],WutaiData.wutai_content[i]));
                 }
                 break;
             default:
