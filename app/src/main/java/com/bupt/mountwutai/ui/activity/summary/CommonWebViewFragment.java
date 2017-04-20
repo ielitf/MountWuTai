@@ -22,7 +22,6 @@ import java.util.ArrayList;
  */
 
 public class CommonWebViewFragment extends BaseFragment {
-    private Context context;
     private String type;//代表当前是哪一个，比如地方风情，佛教圣地，历史传说，以添加不同的数据
     private ImageView imageView;
     private TextView textView;
@@ -40,7 +39,6 @@ public class CommonWebViewFragment extends BaseFragment {
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_common_webview);
-        context = getActivity();
         LogUtil.d("=====","进入寺庙一览");
         type = getArguments().getString(CodeConstants.TYPE);
         imageView = (ImageView) findViewById(R.id.common_web_imag);
