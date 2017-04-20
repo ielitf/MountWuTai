@@ -46,7 +46,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:text="五爷庙"
-            android:textColor="@color/blue"
+            android:textColor="@color/navigation_select"
             android:textSize="@dimen/space_18" />
 
         <TextView
@@ -62,18 +62,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="实用贴士"
             android:textColor="@color/black"
-            android:textSize="@dimen/space_18" />
+            android:textSize="@dimen/space_15" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="27dp"
             android:layout_marginRight="27dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="门票信息：无需门票，包含在五台山风景区门票内。\n开放时间：夏季8:00-18:30；春秋8:00-18：00；冬季：8:00-17:00。\n交通信息：乘坐景区观光车到“中心区”站下车后，再步行可到。\n建议游玩时间：0.5-1小时"
-            android:textSize="@dimen/space_14" />
+            android:textSize="@dimen/space_12" />
     </LinearLayout>
 </LinearLayout>

@@ -55,7 +55,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="概述"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_14" />
+                android:textSize="@dimen/space_12" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -81,7 +81,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="导游"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_14" />
+                android:textSize="@dimen/space_12" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -107,7 +107,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="佛事"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_14" />
+                android:textSize="@dimen/space_12" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -133,7 +133,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="土特产"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_14" />
+                android:textSize="@dimen/space_12" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -159,7 +159,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="服务"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_14" />
+                android:textSize="@dimen/space_12" />
         </RelativeLayout>
 
     </LinearLayout>

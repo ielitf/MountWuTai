@@ -46,7 +46,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:text="五台山精华1日游"
-            android:textColor="@color/blue"
+            android:textColor="@color/navigation_select"
             android:textSize="@dimen/space_18" />
 
         <TextView
@@ -62,36 +62,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="上午"
             android:textColor="@color/black"
-            android:textSize="@dimen/space_18" />
+            android:textSize="@dimen/space_15" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="27dp"
             android:layout_marginRight="27dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="早上先坐景区的观光车到“中心区”站下车，去公路以西游玩。先去香火最旺的五爷庙，然后去隔壁的塔院寺，寺中的大白塔已经成为五台山的标志。塔院寺后面就是显通寺，五台山历史最悠久的寺庙，罗睺寺和殊像寺也在附近。"
-            android:textSize="@dimen/space_14" />
+            android:textSize="@dimen/space_12" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="下午"
             android:textColor="@color/black"
-            android:textSize="@dimen/space_18" />
+            android:textSize="@dimen/space_15" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="27dp"
             android:layout_marginRight="27dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:text="中午可以在中心区附近找家饭店填饱肚子，然后顺着山路步行约20分钟走到菩萨顶，这是藏传佛教寺庙，达赖和班禅都在这里居住过。"
-            android:textSize="@dimen/space_14" />
+            android:textSize="@dimen/space_12" />
     </LinearLayout>
 </LinearLayout>
