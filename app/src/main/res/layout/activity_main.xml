@@ -7,11 +7,23 @@
     android:background="@mipmap/main_back"
     tools:context="com.bupt.mountwutai.ui.activity.MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/container"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/start_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/startimg" />
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
