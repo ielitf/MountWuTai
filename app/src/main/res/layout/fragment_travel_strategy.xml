@@ -5,88 +5,74 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/classic_scenic_text"
-            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="经典景点"
-            android:textSize="@dimen/space_16"
+            android:background="@drawable/corners_left_selected"
+            android:clickable="true"
             android:gravity="center"
             android:padding="2dp"
-            android:textColor="@color/black"
-            android:background="@drawable/corners_left_unselected"/>
+            android:text="经典景点"
+            android:textColor="@color/white"
+            android:textSize="@dimen/space_16" />
 
         <TextView
             android:id="@+id/hot_line_text"
-            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="热门路线"
-            android:textSize="@dimen/space_16"
-            android:textColor="@color/black"
+            android:background="@drawable/corners_center_unselected"
+            android:clickable="true"
             android:gravity="center"
             android:padding="2dp"
-            android:background="@drawable/corners_center_unselected"/>
+            android:text="热门路线"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_16" />
 
         <TextView
             android:id="@+id/best_times_text"
-            android:clickable="true"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="最佳时间"
-            android:textSize="@dimen/space_16"
-            android:textColor="@color/black"
+            android:background="@drawable/corners_right_unselected"
+            android:clickable="true"
             android:gravity="center"
             android:padding="2dp"
-            android:background="@drawable/corners_right_unselected"/>
+            android:text="最佳时间"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_16" />
 
     </LinearLayout>
-    
-    <LinearLayout
-        android:id="@+id/classic_scenic"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <RelativeLayout
-            android:id="@+id/center"
-            android:clickable="true"
-            android:background="@color/white"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginLeft="15dp"
-                android:textSize="@dimen/space_16"
-                android:textColor="@color/black"
-                android:text="中心区必有景点"/>
+            <include
+                layout="@layout/travel_strategy_classicscenic"/>
 
-            <TextView
-                android:id="@+id/center_arrow"
-                android:layout_width="10dp"
-                android:layout_height="6dp"
-                android:background="@mipmap/down"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"/>
+            <include
+            layout="@layout/travel_strategy_hotline"/>
 
-        </RelativeLayout>
+            <include
+                layout="@layout/travel_strategy_besttimes"/>
 
-    </LinearLayout>
-
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

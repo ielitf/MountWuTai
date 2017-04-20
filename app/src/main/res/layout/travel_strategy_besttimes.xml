@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/best_times"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <RelativeLayout
+        android:id="@+id/best_times_suit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:padding="10dp"
+            android:text="最佳时间/适宜气候"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_16" />
+
+        <TextView
+            android:id="@+id/best_times_arrow"
+            android:layout_width="10dp"
+            android:layout_height="6dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/up" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/best_times_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:text="夏季是最佳游玩季节"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="27dp"
+            android:layout_marginTop="15dp"
+            android:text="五台山的最佳旅游时间是夏季，其中以7，8月份最佳。因为山区海拔的原因（最高处海拔约3000米），在最炎热的7，8月间，山间比平地气温低10度左右，非常凉爽。"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:text="冬季漫长而寒冷"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="27dp"
+            android:layout_marginTop="15dp"
+            android:text="五台山没有明显的春秋季，冬季漫长寒冷，一般10月份下雪，至次年3，4月。冬季期间，五台的台顶公路大部分会关闭，只开放1-2个台。"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_16" />
+
+    </LinearLayout>
+</LinearLayout>
