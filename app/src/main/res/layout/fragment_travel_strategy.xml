@@ -64,14 +64,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include
-                layout="@layout/travel_strategy_classicscenic"/>
+            <include layout="@layout/travel_strategy_classicscenic" />
 
-            <include
-            layout="@layout/travel_strategy_hotline"/>
+            <include layout="@layout/travel_strategy_hotline" />
 
-            <include
-                layout="@layout/travel_strategy_besttimes"/>
+            <include layout="@layout/travel_strategy_besttimes" />
 
         </LinearLayout>
     </ScrollView>
