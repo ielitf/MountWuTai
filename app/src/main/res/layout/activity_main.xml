@@ -6,17 +6,29 @@
     android:orientation="vertical"
     tools:context="com.bupt.mountwutai.ui.activity.MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/container"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/start_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/startimg" />
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/module_title_gray"
+        android:orientation="horizontal"
         android:paddingTop="5dp">
 
         <RelativeLayout
@@ -25,14 +37,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="navigation" >
+            android:onClick="navigation">
 
             <ImageView
                 android:id="@+id/rb1"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/home_selected" />
+                android:background="@mipmap/home_normal" />
 
             <TextView
                 android:id="@+id/text1"
@@ -41,7 +53,7 @@
                 android:layout_below="@id/rb1"
                 android:layout_centerHorizontal="true"
                 android:text="概述"
-                android:textColor="@color/navigation_select"
+                android:textColor="@color/navigation_unselect"
                 android:textSize="@dimen/space_12" />
         </RelativeLayout>
 
@@ -51,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="navigation" >
+            android:onClick="navigation">
 
             <ImageView
                 android:id="@+id/rb2"
@@ -77,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="navigation" >
+            android:onClick="navigation">
 
             <ImageView
                 android:id="@+id/rb3"
@@ -103,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="navigation" >
+            android:onClick="navigation">
 
             <ImageView
                 android:id="@+id/rb4"
@@ -129,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-            android:onClick="navigation" >
+            android:onClick="navigation">
 
             <ImageView
                 android:id="@+id/rb5"
