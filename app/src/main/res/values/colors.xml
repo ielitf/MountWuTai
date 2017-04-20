@@ -13,6 +13,8 @@
     <color name="navigation_unselect">#ffffff</color>
     <color name="white">#ffffff</color>
     <color name="popcolor">#ecdecb</color>
+    <color name="popcolor2">#b6916e</color>
+
     <color name="black">#000000</color>
 
     <color name="act_background">#efefef</color>
