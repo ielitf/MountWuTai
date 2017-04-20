@@ -56,8 +56,7 @@
             android:layout_marginRight="27dp"
             android:layout_marginTop="15dp"
             android:text="位于中心区，是五台山香火最旺的寺庙，供奉着东海龙王第五个儿子（五龙王），传说是东海龙宫的财神。\n这里非常拥挤，敬香和拜佛的时候注意别烫着别人和被别人烫伤。碰到重要佛教节日，很多香客凌晨三四点就前来排队烧头香。"
-            android:textColor="@color/black"
-            android:textSize="@dimen/space_16" />
+            android:textSize="@dimen/space_14" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,7 +74,6 @@
             android:layout_marginRight="27dp"
             android:layout_marginTop="15dp"
             android:text="门票信息：无需门票，包含在五台山风景区门票内。\n开放时间：夏季8:00-18:30；春秋8:00-18：00；冬季：8:00-17:00。\n交通信息：乘坐景区观光车到“中心区”站下车后，再步行可到。\n建议游玩时间：0.5-1小时"
-            android:textColor="@color/black"
-            android:textSize="@dimen/space_16" />
+            android:textSize="@dimen/space_14" />
     </LinearLayout>
 </LinearLayout>
