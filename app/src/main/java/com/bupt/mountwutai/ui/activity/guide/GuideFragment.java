@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CallBack;
+import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.ui.activity.CommonFragment;
 import com.bupt.mountwutai.util.LogUtil;
 import com.bupt.mountwutai.util.Utils;
 
@@ -33,9 +35,10 @@ public class GuideFragment extends BaseFragment {
     int clickPsition = -1;
 
     private FragmentManager fragmentManager;
-    TrafficGuideFragment trafficGuideFragment = null;
-    TravelPlanFragment travelPlanFragment = null;
-    TravelStrategyFragment travelStrategyFragment = null;
+    private TrafficGuideFragment trafficGuideFragment = null;//旅游规划
+    private TravelPlanFragment travelPlanFragment = null;//交通指南
+    private TravelStrategyFragment travelStrategyFragment = null;//朝台攻略
+    private CommonFragment commonFragment = null;//五台食谱
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
@@ -53,6 +56,9 @@ public class GuideFragment extends BaseFragment {
         }
         if (travelStrategyFragment != null) {
             transaction.hide(travelStrategyFragment);
+        }
+        if (commonFragment != null) {
+            transaction.hide(commonFragment);
         }
     }
 
@@ -112,7 +118,12 @@ public class GuideFragment extends BaseFragment {
                                         break;
 
                                     case 3://五台食谱
-
+                                        if (commonFragment == null) {
+                                            commonFragment = CommonFragment.newFragment(CodeConstants.WUTAI_RECIPES);
+                                            transaction.add(R.id.guide_container, commonFragment);
+                                        } else {
+                                            transaction.show(commonFragment);
+                                        }
                                         break;
 
                                     case 4://朝台攻略
