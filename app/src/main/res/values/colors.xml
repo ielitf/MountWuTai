@@ -12,10 +12,14 @@
     <color name="divider_list">#666666</color>
     <color name="navigation_unselect">#ffffff</color>
     <color name="white">#ffffff</color>
-    <color name="navigation_select">#f97526</color>
     <color name="popcolor">#ecdecb</color>
     <color name="black">#000000</color>
 
     <color name="act_background">#efefef</color>
     <color name="gary">#898989</color>
+
+    <!-- 导航栏背景颜色 -->
+    <color name="top_back">#845a33</color>
+    <!-- 导航栏字体选中颜色 -->
+    <color name="navigation_select">#3b240f</color>
 </resources>

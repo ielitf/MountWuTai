@@ -75,11 +75,11 @@ public class MainActivity extends BaseActivity {
         switch (tag) {
             case R.id.summary://概述
                 setBack(0);
-                imageButtons[0].setBackgroundResource(R.mipmap.home_selected);
-                imageButtons[1].setBackgroundResource(R.mipmap.live_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.yakongqi_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.yewu_normal);
-                imageButtons[4].setBackgroundResource(R.mipmap.geren_normal);
+                imageButtons[0].setBackgroundResource(R.mipmap.summary_selected);
+                imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
                 if (summaryFragment == null) {
                     summaryFragment = new SummaryFragment();
                     transaction.add(R.id.container, summaryFragment);
@@ -90,11 +90,11 @@ public class MainActivity extends BaseActivity {
 
             case R.id.guide://导游
                 setBack(1);
-                imageButtons[0].setBackgroundResource(R.mipmap.home_normal);
-                imageButtons[1].setBackgroundResource(R.mipmap.live_selected);
-                imageButtons[2].setBackgroundResource(R.mipmap.yakongqi_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.yewu_normal);
-                imageButtons[4].setBackgroundResource(R.mipmap.geren_normal);
+                imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
+                imageButtons[1].setBackgroundResource(R.mipmap.guide_selected);
+                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
                 if (guideFragment == null) {
                     guideFragment = new GuideFragment();
                     transaction.add(R.id.container, guideFragment);
@@ -105,29 +105,29 @@ public class MainActivity extends BaseActivity {
 
             case R.id.buddhist://佛事
                 setBack(2);
-                imageButtons[0].setBackgroundResource(R.mipmap.home_normal);
-                imageButtons[1].setBackgroundResource(R.mipmap.live_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.yaokongqi_selected);
-                imageButtons[3].setBackgroundResource(R.mipmap.yewu_normal);
-                imageButtons[4].setBackgroundResource(R.mipmap.geren_normal);
+                imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
+                imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_selected);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
                 break;
 
             case R.id.specialty://土特产
                 setBack(3);
-                imageButtons[0].setBackgroundResource(R.mipmap.home_normal);
-                imageButtons[1].setBackgroundResource(R.mipmap.live_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.yakongqi_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.yewu_selected);
-                imageButtons[4].setBackgroundResource(R.mipmap.geren_normal);
+                imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
+                imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_selected);
+                imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
                 break;
 
             case R.id.service://服务
                 setBack(4);
-                imageButtons[0].setBackgroundResource(R.mipmap.home_normal);
-                imageButtons[1].setBackgroundResource(R.mipmap.live_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.yakongqi_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.yewu_normal);
-                imageButtons[4].setBackgroundResource(R.mipmap.geren_selected);
+                imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
+                imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[4].setBackgroundResource(R.mipmap.service_selected);
                 break;
 
             default:

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@mipmap/main_back"
     tools:context="com.bupt.mountwutai.ui.activity.MainActivity">
 
     <RelativeLayout
@@ -16,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/module_title_gray"
+        android:background="@color/top_back"
         android:paddingTop="5dp">
 
         <RelativeLayout
@@ -32,7 +33,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/home_selected" />
+                android:background="@mipmap/summary_selected" />
 
             <TextView
                 android:id="@+id/text1"
@@ -42,7 +43,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="概述"
                 android:textColor="@color/navigation_select"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_14" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -58,7 +59,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/live_normal" />
+                android:background="@mipmap/guide_normal" />
 
             <TextView
                 android:id="@+id/text2"
@@ -68,7 +69,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="导游"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_14" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -84,7 +85,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/yakongqi_normal" />
+                android:background="@mipmap/buddhist_normal" />
 
             <TextView
                 android:id="@+id/text3"
@@ -94,7 +95,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="佛事"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_14" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -110,7 +111,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/yewu_normal" />
+                android:background="@mipmap/specialty_normal" />
 
             <TextView
                 android:id="@+id/text4"
@@ -120,7 +121,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="土特产"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_14" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -136,7 +137,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/geren_normal" />
+                android:background="@mipmap/service_normal" />
 
             <TextView
                 android:id="@+id/text5"
@@ -146,7 +147,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="服务"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_14" />
         </RelativeLayout>
 
     </LinearLayout>
