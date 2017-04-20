@@ -35,6 +35,7 @@ public class GuideFragment extends BaseFragment {
     private FragmentManager fragmentManager;
     TrafficGuideFragment trafficGuideFragment = null;
     TravelPlanFragment travelPlanFragment = null;
+    TravelStrategyFragment travelStrategyFragment = null;
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class GuideFragment extends BaseFragment {
         }
         if (travelPlanFragment != null) {
             transaction.hide(travelPlanFragment);
+        }
+        if (travelStrategyFragment != null) {
+            transaction.hide(travelStrategyFragment);
         }
     }
 
@@ -112,7 +116,12 @@ public class GuideFragment extends BaseFragment {
                                         break;
 
                                     case 4://朝台攻略
-
+                                        if (travelStrategyFragment == null) {
+                                            travelStrategyFragment = new TravelStrategyFragment();
+                                            transaction.add(R.id.guide_container, travelStrategyFragment);
+                                        } else {
+                                            transaction.show(travelStrategyFragment);
+                                        }
                                         break;
                                 }
                                 transaction.commitAllowingStateLoss();

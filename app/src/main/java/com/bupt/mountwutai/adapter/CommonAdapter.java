@@ -1,6 +1,5 @@
 package com.bupt.mountwutai.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +13,12 @@ import java.util.ArrayList;
 
 public class CommonAdapter extends android.widget.BaseAdapter {
 
-    private Context mContext;
     private ArrayList<CommonBean> mData;
+    private LayoutInflater inflater;
 
-    public CommonAdapter(Context context,ArrayList<CommonBean> mData) {
-        this.mContext = context;
+    public CommonAdapter(Context context, ArrayList<CommonBean> mData) {
         this.mData = mData;
-    }
+        inflater=LayoutInflater.from(context);    }
 
     @Override
     public int getCount() {
@@ -41,7 +39,7 @@ public class CommonAdapter extends android.widget.BaseAdapter {
         ViewHolder holderView ;
         if(convertView==null){
             holderView = new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.comm_item2,null);
+            convertView = inflater.inflate(R.layout.comm_item2,null,false);
             holderView.title = (TextView) convertView.findViewById(R.id.comm_title);
             holderView.content = (TextView) convertView.findViewById(R.id.comm_detail);
             holderView.imageView = (ImageView) convertView.findViewById(R.id.comm_img);

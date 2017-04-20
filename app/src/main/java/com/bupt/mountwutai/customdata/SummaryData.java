@@ -3,7 +3,7 @@ package com.bupt.mountwutai.customdata;
 import com.bupt.mountwutai.R;
 
 /**
- * 概览里面的数据
+ * 概览模块里面的数据，
  * Created by litf on 2017/4/19.
  */
 

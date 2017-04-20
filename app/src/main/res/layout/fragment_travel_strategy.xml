@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/classic_scenic_text"
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="经典景点"
+            android:textSize="@dimen/space_16"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textColor="@color/black"
+            android:background="@drawable/corners_left_unselected"/>
+
+        <TextView
+            android:id="@+id/hot_line_text"
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="热门路线"
+            android:textSize="@dimen/space_16"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="2dp"
+            android:background="@drawable/corners_center_unselected"/>
+
+        <TextView
+            android:id="@+id/best_times_text"
+            android:clickable="true"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="最佳时间"
+            android:textSize="@dimen/space_16"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="2dp"
+            android:background="@drawable/corners_right_unselected"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/classic_scenic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/center"
+            android:clickable="true"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="@dimen/space_16"
+                android:textColor="@color/black"
+                android:text="中心区必有景点"/>
+
+            <TextView
+                android:id="@+id/center_arrow"
+                android:layout_width="10dp"
+                android:layout_height="6dp"
+                android:background="@mipmap/down"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
