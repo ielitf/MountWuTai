@@ -42,8 +42,8 @@
 
             <ImageView
                 android:id="@+id/rb1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/summary_normal" />
 
@@ -55,7 +55,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="概述"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -68,8 +68,8 @@
 
             <ImageView
                 android:id="@+id/rb2"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/guide_normal" />
 
@@ -81,7 +81,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="导游"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -94,8 +94,8 @@
 
             <ImageView
                 android:id="@+id/rb3"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/buddhist_normal" />
 
@@ -107,7 +107,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="佛事"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -120,8 +120,8 @@
 
             <ImageView
                 android:id="@+id/rb4"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/specialty_normal" />
 
@@ -133,7 +133,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="土特产"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -146,8 +146,8 @@
 
             <ImageView
                 android:id="@+id/rb5"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/service_normal" />
 
@@ -159,7 +159,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="服务"
                 android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_12" />
+                android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
     </LinearLayout>
