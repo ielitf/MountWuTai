@@ -2,16 +2,15 @@ package com.bupt.mountwutai.ui.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.CommonAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.SummaryData;
 import com.bupt.mountwutai.entity.CommonBean;
-import com.bupt.mountwutai.util.LogUtil;
 
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ import java.util.ArrayList;
  * Created by litf on 2017/4/19.
  */
 
-public class CommonFragment extends BaseFragment {
+public class CommonFragment extends BaseFragment implements AdapterView.OnItemClickListener{
     private Context context;
     private ArrayList<CommonBean> mData;
     private ListView listView;
@@ -42,7 +41,6 @@ public class CommonFragment extends BaseFragment {
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_common);
         context = getActivity();
-        LogUtil.d("=====","进入寺庙一览");
         type = getArguments().getString(CodeConstants.TYPE);
         listView = (ListView) findViewById(R.id.common_list);
         addData();
@@ -53,13 +51,17 @@ public class CommonFragment extends BaseFragment {
         mData = new ArrayList<>();
         switch (type){
             case CodeConstants.TEPMLE_SUMMARY://寺庙一览
-                for (int i = 0; i< SummaryData.icon.length; i++){
-                    mData.add(new CommonBean(SummaryData.icon[i],SummaryData.title[i],SummaryData.content[i]));
+                for (int i = 0; i< SummaryData.temple_icon.length; i++){
+                    mData.add(new CommonBean(SummaryData.temple_icon[i],SummaryData.temple_title[i],SummaryData.temple_content[i]));
                 }
-                LogUtil.d("=====",mData.toString());
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }

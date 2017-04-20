@@ -1,7 +1,6 @@
 package com.bupt.mountwutai.ui.activity.summary;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -16,9 +15,7 @@ import com.bupt.mountwutai.consts.CallBack;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.CommonFragment;
 import com.bupt.mountwutai.util.Utils;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Wyf on 2017/4/18.
@@ -39,7 +36,8 @@ public class SummaryFragment extends BaseFragment {
     int clickPsition = -1;
 
     private FrameLayout frameLayout;
-    private List<CommonFragment> frgmentList;
+    private CommonFragment frgment1;
+    private CommonWebViewFragment frgment2,frgment3,frgment4;
     private FragmentManager fManager;
 
     @Override
@@ -49,16 +47,19 @@ public class SummaryFragment extends BaseFragment {
         FragmentTransaction fTransaction = fManager.beginTransaction();
         frameLayout = (FrameLayout) findViewById(R.id.fragment_summary);
         initView();
-        fTransaction.add(R.id.fragment_summary,frgmentList.get(0));
+        if(!frgment1.isAdded()){
+            fTransaction.add(R.id.fragment_summary,frgment1);
+        }else{
+            fTransaction.show(frgment1);
+        }
         fTransaction.commitAllowingStateLoss();
     }
 
     private void initView() {
-        frgmentList = new ArrayList<>();
-        frgmentList.add(CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY));
-        frgmentList.add(CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY));
-        frgmentList.add(CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY));
-        frgmentList.add(CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY));
+        frgment1 = CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY);
+        frgment2 = CommonWebViewFragment.newFragment(CodeConstants.LOCAL_CUSTOM);
+        frgment3 = CommonWebViewFragment.newFragment(CodeConstants.BUDDHIST_HOLY_LAND);
+        frgment4 = CommonWebViewFragment.newFragment(CodeConstants.HISTORIC_LEGENDS);
 
         mypoplayout = (LinearLayout) findViewById(R.id.mypoplayout);
         myButton = (TextView) findViewById(R.id.myButton);
@@ -76,6 +77,14 @@ public class SummaryFragment extends BaseFragment {
         });
     }
 
+    //隐藏所有Fragment
+    private void hideAllFragment(FragmentTransaction fragmentTransaction){
+        if(frgment1.isAdded())fragmentTransaction.hide(frgment1);
+        if(frgment2.isAdded())fragmentTransaction.hide(frgment2);
+        if(frgment3.isAdded())fragmentTransaction.hide(frgment3);
+        if(frgment4.isAdded())fragmentTransaction.hide(frgment4);
+    }
+
     //展示popwindow
     private void showPopWindow() {
         if (isdown) {
@@ -88,26 +97,47 @@ public class SummaryFragment extends BaseFragment {
                     @Override
                     public void itemClick(int position) {
                         myButton.setText(list.get(position));
+                        FragmentTransaction fTransaction = fManager.beginTransaction();
+                        hideAllFragment(fTransaction);
                         switch (position) {
                             case 0://寺庙一览
-
+                                if(!frgment1.isAdded()){
+                                    fTransaction.add(R.id.fragment_summary,frgment1);
+                                }else{
+                                    fTransaction.show(frgment1);
+                                }
                                 break;
 
                             case 1://地方风情
-
+                                if(!frgment2.isAdded()){
+                                    fTransaction.add(R.id.fragment_summary,frgment2);
+                                }else{
+                                    fTransaction.show(frgment2);
+                                }
                                 break;
 
                             case 2://佛教圣地
-
+                                if(!frgment3.isAdded()){
+                                    fTransaction.add(R.id.fragment_summary,frgment3);
+                                }else{
+                                    fTransaction.show(frgment3);
+                                }
                                 break;
 
                             case 3://历史传说
-
+                                if(!frgment4.isAdded()){
+                                    fTransaction.add(R.id.fragment_summary,frgment4);
+                                }else{
+                                    fTransaction.show(frgment4);
+                                }
+                                break;
+                            default:
                                 break;
                         }
                         if (clickPsition != position) {
                             clickPsition = position;
                         }
+                        fTransaction.commitAllowingStateLoss();
                     }
 
                     @Override
