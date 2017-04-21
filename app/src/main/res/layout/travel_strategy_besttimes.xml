@@ -55,8 +55,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="27dp"
-            android:layout_marginRight="27dp"
+            android:layout_marginLeft="@dimen/guide_left"
+            android:layout_marginRight="@dimen/guide_left"
             android:layout_marginTop="15dp"
             android:text="五台山的最佳旅游时间是夏季，其中以7，8月份最佳。因为山区海拔的原因（最高处海拔约3000米），在最炎热的7，8月间，山间比平地气温低10度左右，非常凉爽。"
             android:textSize="@dimen/space_14" />
@@ -73,8 +73,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="27dp"
-            android:layout_marginRight="27dp"
+            android:layout_marginLeft="@dimen/guide_left"
+            android:layout_marginRight="@dimen/guide_left"
             android:layout_marginTop="15dp"
             android:text="五台山没有明显的春秋季，冬季漫长寒冷，一般10月份下雪，至次年3，4月。冬季期间，五台的台顶公路大部分会关闭，只开放1-2个台。"
             android:textSize="@dimen/space_14" />

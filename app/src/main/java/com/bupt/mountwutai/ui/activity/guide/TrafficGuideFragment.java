@@ -56,7 +56,11 @@ public class TrafficGuideFragment extends BaseFragment implements View.OnClickLi
         traffic_text2 = (TextView) findViewById(R.id.traffic_text2);
         traffic_text3 = (TextView) findViewById(R.id.traffic_text3);
 
-        traffic_content1.setText("位于忻州市定襄县的五台山机场，计划在2015年年底运行。如今外省游客可以先飞到省会太原，再换乘大巴前往五台山。\n" + "太原武宿机场，距离太原市区约18公里，与全国各主要大中城市都有直航，并有部分国际航线。咨询电话：0351-7286462。\n" + "机场有大巴直达市区和太原汽车客运东站（有发往五台山的班车），车票13-30元不等，大约30分钟一班。");
+        traffic_content1.setText("位于忻州市定襄县的五台山机场，计划在2015年年底运行。" +
+                "如今外省游客可以先飞到省会太原，再换乘大巴前往五台山。太原武宿机场，" +
+                "距离太原市区约18公里，与全国各主要大中城市都有直航，并有部分国际航线。" +
+                "咨询电话：0351-7286462。机场有大巴直达市区和太原汽车客运东站（有发往五台山的班车），" +
+                "车票13-30元不等，大约30分钟一班。");
         traffic_content2.setText("火车");
         traffic_content3.setText("长途汽车");
         pattern = Pattern.compile("[0-9-()（）]{7,18}");
@@ -78,7 +82,11 @@ public class TrafficGuideFragment extends BaseFragment implements View.OnClickLi
                 traffic_text1.setText("飞机");
                 traffic_text2.setText("火车");
                 traffic_text3.setText("长途汽车");
-                traffic_content1.setText("位于忻州市定襄县的五台山机场，计划在2015年年底运行。如今外省游客可以先飞到省会太原，再换乘大巴前往五台山。\n" + "太原武宿机场，距离太原市区约18公里，与全国各主要大中城市都有直航，并有部分国际航线。咨询电话：0351-7286462。\n" + "机场有大巴直达市区和太原汽车客运东站（有发往五台山的班车），车票13-30元不等，大约30分钟一班。");
+                traffic_content1.setText("位于忻州市定襄县的五台山机场，计划在2015年年底运行。" +
+                        "如今外省游客可以先飞到省会太原，再换乘大巴前往五台山。" +
+                        "太原武宿机场，距离太原市区约18公里，与全国各主要大中城市都有直航，并有部分国际航线。" +
+                        "咨询电话：0351-7286462。机场有大巴直达市区和太原汽车客运东站（有发往五台山的班车），" +
+                        "车票13-30元不等，大约30分钟一班。");
                 traffic_content2.setText("火车");
                 traffic_content3.setText("长途汽车");
                 Linkify.addLinks(traffic_content1, pattern, "tel:");
@@ -94,9 +102,12 @@ public class TrafficGuideFragment extends BaseFragment implements View.OnClickLi
                 traffic_text1.setText("观光车");
                 traffic_text2.setText("登台车");
                 traffic_text3.setText("出租车");
-                traffic_content1.setText("景区内观光车来往于各主要景点，车票50元／人，和进山费联票出售，无论是否乘坐都必须购买（淡季部分时间内不售票，但游客也可以免费乘坐），在景区内可多次乘坐，大致运营时间7:00-19:00。\n" +
+                traffic_content1.setText("景区内观光车来往于各主要景点，车票50元／人，和进山费联票出售，" +
+                        "无论是否乘坐都必须购买（淡季部分时间内不售票，但游客也可以免费乘坐），在景区内可多次乘坐，" +
+                        "大致运营时间7:00-19:00。" +
                         "目前观光车共有4条线路，有些线路的等靠站点会重合，在淡季期间有些线路可能会停运。");
-                traffic_content2.setText("登顶五台，需在黛螺顶下的停车站乘坐登台车前往，单台60-80元／人（往返），五台联票350元，大致运营时间7:30-15:30。冬季会暂停运营。");
+                traffic_content2.setText("登顶五台，需在黛螺顶下的停车站乘坐登台车前往，单台60-80元／人（往返），" +
+                        "五台联票350元，大致运营时间7:30-15:30。冬季会暂停运营。");
                 traffic_content3.setText("出租车");
                 Linkify.addLinks(traffic_content1, pattern, "tel:");
                 Linkify.addLinks(traffic_content2, pattern, "tel:");
