@@ -17,4 +17,7 @@ public class CodeConstants {
     public static final String HISTORIC_LEGENDS = " historic_legends";//历史传说
 
     public static final String WUTAI_RECIPES="wutai_recipes";//五台食谱
+
+    public static final String BUDDHISTACTION = "BUDDHISTACTION";//佛事
+    public static final String SERVICE = "SERVICE";//服务
 }
