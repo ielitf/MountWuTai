@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/white">
+                android:background="@color/traffic_item_color">
 
                 <TextView
                     android:id="@+id/traffic_text1"
@@ -62,7 +62,7 @@
                     android:layout_alignParentLeft="true"
                     android:padding="10dp"
                     android:text="飞机"
-                    android:textColor="@color/black"
+                    android:textColor="@color/navigation_select"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/white">
+                android:background="@color/traffic_item_color">
 
                 <TextView
                     android:id="@+id/traffic_text2"
@@ -99,7 +99,7 @@
                     android:layout_alignParentLeft="true"
                     android:padding="10dp"
                     android:text="火车"
-                    android:textColor="@color/black"
+                    android:textColor="@color/navigation_select"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/white">
+                android:background="@color/traffic_item_color">
 
                 <TextView
                     android:id="@+id/traffic_text3"
@@ -136,7 +136,7 @@
                     android:layout_alignParentLeft="true"
                     android:padding="10dp"
                     android:text="长途汽车"
-                    android:textColor="@color/black"
+                    android:textColor="@color/navigation_select"
                     android:textSize="16sp" />
 
                 <ImageView

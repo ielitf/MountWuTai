@@ -10,7 +10,7 @@
         android:id="@+id/center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/traffic_item_color"
         android:clickable="true">
 
         <TextView
@@ -19,7 +19,7 @@
             android:layout_marginLeft="15dp"
             android:padding="10dp"
             android:text="中心区必有景点"
-            android:textColor="@color/black"
+            android:textColor="@color/navigation_select"
             android:textSize="@dimen/space_16" />
 
         <TextView

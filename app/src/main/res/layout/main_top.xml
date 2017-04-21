@@ -21,14 +21,13 @@
             android:padding="15dp"
             android:text="寺庙一览"
             android:textColor="@color/white"
-            android:textSize="@dimen/space_16"
+            android:textSize="@dimen/space_18"
             />
 
         <ImageView
             android:id="@+id/popimg"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginLeft="10dp"
             android:src="@mipmap/down" />
     </LinearLayout>
 </LinearLayout>

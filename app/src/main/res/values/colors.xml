@@ -24,4 +24,6 @@
     <color name="top_back">#845a33</color>
     <!-- 导航栏字体选中颜色 -->
     <color name="navigation_select">#3b240f</color>
+    <!-- 交通导航栏背景颜色 -->
+    <color name="traffic_item_color">#f4eadd</color>
 </resources>
