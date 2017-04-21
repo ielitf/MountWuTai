@@ -8,6 +8,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="@color/divider_list"
-        android:dividerHeight="@dimen/space_divide_list">
+        android:dividerHeight="@dimen/space_divide_list"
+        android:scrollbars="none"
+        android:paddingLeft="@dimen/space_listview"
+        android:paddingRight="@dimen/space_listview">
     </ListView>
 </LinearLayout>
