@@ -72,7 +72,7 @@ public class Utils {
 		//通过布局注入器，注入布局给View对象
 		View myView = inflater.inflate(R.layout.pop, null,false);
 		//通过view 和宽·高，构造PopopWindow
-		final PopupWindow pw = new PopupWindow(myView, 300, LinearLayout.LayoutParams.WRAP_CONTENT, true);
+		final PopupWindow pw = new PopupWindow(myView, Utils.dp2px(120,context), LinearLayout.LayoutParams.WRAP_CONTENT, true);
 
 		pw.setBackgroundDrawable(context.getResources().getDrawable(
 				//此处为popwindow 设置背景，同事做到点击外部区域，popwindow消失
