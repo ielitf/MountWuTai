@@ -6,10 +6,11 @@
     >
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/space_10"
         android:paddingRight="@dimen/space_10"
+        android:scrollbars="none"
         android:fillViewport="true">
 
         <LinearLayout
@@ -22,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="@dimen/space_8"
-                android:scaleType="fitCenter"/>
+                android:scaleType="centerCrop"/>
             <TextView
                 android:id="@+id/common_web_tvContent_title"
                 android:layout_width="match_parent"
@@ -44,7 +45,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="@dimen/space_8"
                 android:visibility="gone"
-                android:scaleType="fitCenter"/>
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/common_web_tvContent2"
@@ -58,7 +59,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="@dimen/space_8"
                 android:visibility="gone"
-                android:scaleType="fitCenter"/>
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/common_web_tvContent3"
@@ -72,7 +73,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="@dimen/space_8"
                 android:visibility="gone"
-                android:scaleType="fitCenter"/>
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/common_web_tvContent4"
@@ -86,7 +87,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="@dimen/space_8"
                 android:visibility="gone"
-                android:scaleType="fitCenter"/>
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/common_web_tvContent5"
@@ -100,7 +101,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="@dimen/space_8"
                 android:visibility="gone"
-                android:scaleType="fitCenter"/>
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/common_web_tvContent6"
