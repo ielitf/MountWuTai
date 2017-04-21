@@ -1,4 +1,4 @@
-package com.bupt.mountwutai.adapter;
+package com.bupt.mountwutai.ui.activity.buddhist;
 
 import android.os.Bundle;
 import android.webkit.WebSettings;

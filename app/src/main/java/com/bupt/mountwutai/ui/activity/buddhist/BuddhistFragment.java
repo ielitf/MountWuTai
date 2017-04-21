@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
-import com.bupt.mountwutai.adapter.BuddhistChildFragment;
 import com.bupt.mountwutai.adapter.BuddhistViewpagerAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 
