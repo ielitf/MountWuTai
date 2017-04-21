@@ -1,5 +1,6 @@
 package com.bupt.mountwutai.ui.activity.guide;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.util.Linkify;
 import android.view.View;
@@ -71,7 +72,9 @@ public class TrafficGuideFragment extends BaseFragment implements View.OnClickLi
             case R.id.traffic_button1://到达与离开
                 typeid = 0;
                 button1.setBackgroundResource(R.drawable.corners_left_selected);
+                setTextColor(button1, true);
                 button2.setBackgroundResource(R.drawable.corners_right_unselected);
+                setTextColor(button2, false);
                 traffic_text1.setText("飞机");
                 traffic_text2.setText("火车");
                 traffic_text3.setText("长途汽车");
@@ -85,7 +88,9 @@ public class TrafficGuideFragment extends BaseFragment implements View.OnClickLi
             case R.id.traffic_button2://内部交通
                 typeid = 1;
                 button1.setBackgroundResource(R.drawable.corners_left_unselected);
+                setTextColor(button1, false);
                 button2.setBackgroundResource(R.drawable.corners_right_selected);
+                setTextColor(button2, true);
                 traffic_text1.setText("观光车");
                 traffic_text2.setText("登台车");
                 traffic_text3.setText("出租车");
@@ -128,30 +133,34 @@ public class TrafficGuideFragment extends BaseFragment implements View.OnClickLi
         if (type == 1) {//交通方式1
             if (spread) {
                 traffic_content1.setVisibility(View.VISIBLE);
-                traffic_img1.setBackgroundResource(R.mipmap.up);
+                traffic_img1.setBackgroundResource(R.mipmap.trafficup);
             } else {
                 traffic_content1.setVisibility(View.GONE);
-                traffic_img1.setBackgroundResource(R.mipmap.down);
+                traffic_img1.setBackgroundResource(R.mipmap.trafficdown);
             }
 
 
         } else if (type == 2) {//交通方式2
             if (spread) {
                 traffic_content2.setVisibility(View.VISIBLE);
-                traffic_img2.setBackgroundResource(R.mipmap.up);
+                traffic_img2.setBackgroundResource(R.mipmap.trafficup);
             } else {
                 traffic_content2.setVisibility(View.GONE);
-                traffic_img2.setBackgroundResource(R.mipmap.down);
+                traffic_img2.setBackgroundResource(R.mipmap.trafficdown);
             }
 
         } else {//交通方式3
             if (spread) {
                 traffic_content3.setVisibility(View.VISIBLE);
-                traffic_img3.setBackgroundResource(R.mipmap.up);
+                traffic_img3.setBackgroundResource(R.mipmap.trafficup);
             } else {
                 traffic_content3.setVisibility(View.GONE);
-                traffic_img3.setBackgroundResource(R.mipmap.down);
+                traffic_img3.setBackgroundResource(R.mipmap.trafficdown);
             }
         }
+    }
+
+    private void setTextColor(TextView view, boolean isWhite) {
+        view.setTextColor(getResources().getColor(isWhite ? R.color.white : R.color.black));
     }
 }

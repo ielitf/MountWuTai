@@ -72,11 +72,11 @@ public class TravelStrategyFragment extends BaseFragment implements View.OnClick
         switch (v.getId()) {
             case R.id.center:
                 if (isCenterarrowup) {
-                    centerarrow.setBackgroundResource(R.mipmap.up);
+                    centerarrow.setBackgroundResource(R.mipmap.trafficup);
                     isCenterarrowup = false;
                     setViewVisible(centertxtLinearLayout,true);
                 } else {
-                    centerarrow.setBackgroundResource(R.mipmap.down);
+                    centerarrow.setBackgroundResource(R.mipmap.trafficdown);
                     isCenterarrowup = true;
                     setViewVisible(centertxtLinearLayout,false);
                 }
@@ -84,11 +84,11 @@ public class TravelStrategyFragment extends BaseFragment implements View.OnClick
 
             case R.id.classic_line:
                 if (isHotlinearrowup) {
-                    hot_line_arrow.setBackgroundResource(R.mipmap.up);
+                    hot_line_arrow.setBackgroundResource(R.mipmap.trafficup);
                     isHotlinearrowup = false;
                     setViewVisible(hotlinetxtLinearLayout,true);
                 } else {
-                    hot_line_arrow.setBackgroundResource(R.mipmap.down);
+                    hot_line_arrow.setBackgroundResource(R.mipmap.trafficdown);
                     isHotlinearrowup = true;
                     setViewVisible(hotlinetxtLinearLayout,false);
                 }
@@ -96,11 +96,11 @@ public class TravelStrategyFragment extends BaseFragment implements View.OnClick
 
             case R.id.best_times_suit:
                 if (isBesttimesarrow) {
-                    best_times_arrow.setBackgroundResource(R.mipmap.up);
+                    best_times_arrow.setBackgroundResource(R.mipmap.trafficup);
                     isBesttimesarrow = false;
                     setViewVisible(besttimestxtLinearLayout,true);
                 } else {
-                    best_times_arrow.setBackgroundResource(R.mipmap.down);
+                    best_times_arrow.setBackgroundResource(R.mipmap.trafficdown);
                     isBesttimesarrow = true;
                     setViewVisible(besttimestxtLinearLayout,false);
                 }

@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/corners_left_selected"
+            android:textColor="@color/white"
             android:gravity="center"
             android:padding="2dp"
             android:text="到达与离开"
@@ -60,7 +61,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
                     android:text="飞机"
                     android:textColor="@color/navigation_select"
                     android:textSize="16sp" />
@@ -72,7 +76,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/up" />
+                    android:background="@mipmap/trafficup" />
             </RelativeLayout>
 
             <TextView
@@ -97,7 +101,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
                     android:text="火车"
                     android:textColor="@color/navigation_select"
                     android:textSize="16sp" />
@@ -109,7 +116,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/down" />
+                    android:background="@mipmap/trafficdown" />
             </RelativeLayout>
 
             <TextView
@@ -134,7 +141,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
                     android:text="长途汽车"
                     android:textColor="@color/navigation_select"
                     android:textSize="16sp" />
@@ -146,7 +156,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:background="@mipmap/down" />
+                    android:background="@mipmap/trafficdown" />
             </RelativeLayout>
 
             <TextView
