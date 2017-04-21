@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
+import com.bupt.mountwutai.ui.activity.buddhist.BuddhistFragment;
 import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
 import com.bupt.mountwutai.ui.activity.summary.SummaryFragment;
 import com.bupt.mountwutai.util.LogUtil;
@@ -24,6 +25,7 @@ public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private SummaryFragment summaryFragment = null;
     private GuideFragment guideFragment = null;
+    private BuddhistFragment buddhistFragment = null;
     private ImageView start_img;
 
     @Override
@@ -113,6 +115,12 @@ public class MainActivity extends BaseActivity {
                 imageButtons[2].setBackgroundResource(R.mipmap.buddhist_selected);
                 imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
                 imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
+                if (buddhistFragment == null) {
+                    buddhistFragment = new BuddhistFragment();
+                    transaction.add(R.id.container, buddhistFragment);
+                } else {
+                    transaction.show(buddhistFragment);
+                }
                 break;
 
             case R.id.specialty://土特产
@@ -146,6 +154,9 @@ public class MainActivity extends BaseActivity {
         }
         if (guideFragment != null) {
             transaction.hide(guideFragment);
+        }
+        if (buddhistFragment != null) {
+            transaction.hide(buddhistFragment);
         }
     }
 

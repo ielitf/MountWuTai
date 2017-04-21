@@ -18,7 +18,7 @@ import com.bupt.mountwutai.util.Utils;
 import java.util.ArrayList;
 
 /**
- * Created by Wyf on 2017/4/18.
+ * 概览
  */
 
 public class SummaryFragment extends BaseFragment {
