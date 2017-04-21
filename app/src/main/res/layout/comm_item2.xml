@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@color/transparent"
     android:orientation="horizontal"
-    android:padding="@dimen/space_10">
+    android:paddingTop="@dimen/space_listview"
+    android:paddingBottom="@dimen/space_listview">
 
     <ImageView
         android:id="@+id/comm_img"
@@ -44,7 +45,7 @@
                 android:text="更多>"
                 android:layout_alignParentRight="true"
                 android:textColor="@color/text_gray"
-                android:textSize="@dimen/space_14" />
+                android:textSize="@dimen/space_12" />
         </RelativeLayout>
 
         <TextView
@@ -56,7 +57,7 @@
             android:maxLines="3"
             android:text="详情摘要的提示"
             android:textColor="@color/text_gray"
-            android:textSize="@dimen/space_14" />
+            android:textSize="@dimen/space_12" />
 
         <TextView
             android:id="@+id/comm_time"

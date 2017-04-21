@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.entity.CommonBean;
 
@@ -18,12 +19,14 @@ public class CommonAdapter extends android.widget.BaseAdapter {
 
     public CommonAdapter(Context context, ArrayList<CommonBean> mData) {
         this.mData = mData;
-        inflater=LayoutInflater.from(context);    }
+        inflater = LayoutInflater.from(context);
+    }
 
     @Override
     public int getCount() {
-        return mData == null ? 0:mData.size();
+        return mData == null ? 0 : mData.size();
     }
+
     @Override
     public Object getItem(int position) {
         return mData.get(position);
@@ -36,15 +39,15 @@ public class CommonAdapter extends android.widget.BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holderView ;
-        if(convertView==null){
+        ViewHolder holderView;
+        if (convertView == null) {
             holderView = new ViewHolder();
-            convertView = inflater.inflate(R.layout.comm_item2,null,false);
+            convertView = inflater.inflate(R.layout.comm_item2, null, false);
             holderView.title = (TextView) convertView.findViewById(R.id.comm_title);
             holderView.content = (TextView) convertView.findViewById(R.id.comm_detail);
             holderView.imageView = (ImageView) convertView.findViewById(R.id.comm_img);
             convertView.setTag(holderView);
-        }else{
+        } else {
             holderView = (ViewHolder) convertView.getTag();
         }
         holderView.title.setText(mData.get(position).getTitle());
@@ -54,7 +57,7 @@ public class CommonAdapter extends android.widget.BaseAdapter {
     }
 
     class ViewHolder {
-        private TextView title,content;
+        private TextView title, content;
         private ImageView imageView;
     }
 }

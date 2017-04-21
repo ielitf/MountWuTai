@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="space_divide_list">0.5dp</dimen>
+    <dimen name="space_listview">10dp</dimen>
     <dimen name="space_8">8sp</dimen>
     <dimen name="space_10">10sp</dimen>
     <dimen name="space_12">12sp</dimen>
