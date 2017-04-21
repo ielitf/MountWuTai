@@ -47,10 +47,10 @@ public class SummaryFragment extends BaseFragment {
         FragmentTransaction fTransaction = fManager.beginTransaction();
         frameLayout = (FrameLayout) findViewById(R.id.fragment_summary);
         initView();
-        if(!frgment1.isAdded()){
-            fTransaction.add(R.id.fragment_summary,frgment1);
+        if(!frgment4.isAdded()){
+            fTransaction.add(R.id.fragment_summary,frgment4);
         }else{
-            fTransaction.show(frgment1);
+            fTransaction.show(frgment4);
         }
         fTransaction.commitAllowingStateLoss();
     }
@@ -100,11 +100,11 @@ public class SummaryFragment extends BaseFragment {
                         FragmentTransaction fTransaction = fManager.beginTransaction();
                         hideAllFragment(fTransaction);
                         switch (position) {
-                            case 0://寺庙一览
-                                if(!frgment1.isAdded()){
-                                    fTransaction.add(R.id.fragment_summary,frgment1);
+                            case 0://历史传说
+                                if(!frgment4.isAdded()){
+                                    fTransaction.add(R.id.fragment_summary,frgment4);
                                 }else{
-                                    fTransaction.show(frgment1);
+                                    fTransaction.show(frgment4);
                                 }
                                 break;
 
@@ -124,11 +124,11 @@ public class SummaryFragment extends BaseFragment {
                                 }
                                 break;
 
-                            case 3://历史传说
-                                if(!frgment4.isAdded()){
-                                    fTransaction.add(R.id.fragment_summary,frgment4);
+                            case 3://寺庙一览
+                                if(!frgment1.isAdded()){
+                                    fTransaction.add(R.id.fragment_summary,frgment1);
                                 }else{
-                                    fTransaction.show(frgment4);
+                                    fTransaction.show(frgment1);
                                 }
                                 break;
                             default:
@@ -153,10 +153,10 @@ public class SummaryFragment extends BaseFragment {
     //得到list集合的方法
     public ArrayList<String> getList() {
         ArrayList<String> list = new ArrayList<String>();
-        list.add("寺庙一览");
+        list.add("历史传说");
         list.add("地方风情");
         list.add("佛教圣地");
-        list.add("历史传说");
+        list.add("寺庙一览");
         return list;
     }
 }
