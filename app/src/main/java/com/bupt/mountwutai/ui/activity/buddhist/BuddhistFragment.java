@@ -57,7 +57,7 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
         viewpagerAdapter = new BuddhistViewpagerAdapter(getChildFragmentManager(),fragments);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(viewpagerAdapter);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -79,14 +79,17 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.buddhist_na1:
+                viewPager.setCurrentItem(0);
                 setXianBack(0);
                 break;
 
             case R.id.buddhist_na2:
+                viewPager.setCurrentItem(1);
                 setXianBack(1);
                 break;
 
             case R.id.buddhist_na3:
+                viewPager.setCurrentItem(2);
                 setXianBack(2);
                 break;
         }
