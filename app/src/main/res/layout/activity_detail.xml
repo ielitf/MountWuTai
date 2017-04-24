@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/main_back"
+    android:orientation="vertical"
+    tools:context="com.bupt.mountwutai.ui.activity.guide.DetailActivity">
+
+    <include layout="@layout/main_top" />
+
+    <ScrollView
+        android:id="@+id/scrollId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/detail_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@mipmap/g_fojiaoshengdi_ta5"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/corners_detail"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="2dp"
+                    android:text="宗教场所"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/space_12" />
+
+                <TextView
+                    android:id="@+id/detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="走进五爷庙"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/space_16" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/detail_play"
+                    android:layout_width="21dp"
+                    android:layout_height="21.5dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/play_background"
+                    android:clickable="true"
+                    android:gravity="right" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/detail_contenet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:paddingRight="9dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="@dimen/space_14" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
