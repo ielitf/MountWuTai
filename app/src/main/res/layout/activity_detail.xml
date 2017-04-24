@@ -23,7 +23,7 @@
             <ImageView
                 android:id="@+id/detail_imageview"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="220dp"
                 android:background="@mipmap/g_fojiaoshengdi_ta5"
                 android:scaleType="centerCrop" />
 
