@@ -10,7 +10,6 @@
     <include layout="@layout/main_top" />
 
     <ScrollView
-        android:id="@+id/scrollId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -55,7 +54,7 @@
                     android:layout_marginLeft="8dp"
                     android:text="走进五爷庙"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/space_16" />
+                    android:textSize="@dimen/space_14" />
 
                 <View
                     android:layout_width="0dp"
@@ -79,9 +78,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:paddingRight="9dp"
+                android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
-                android:textSize="@dimen/space_14" />
+                android:textSize="@dimen/space_12" />
 
         </LinearLayout>
 

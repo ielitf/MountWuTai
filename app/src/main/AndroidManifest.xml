@@ -24,8 +24,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.guide.DetailActivity">
-        <!--</activity>-->
-        <!--<activity android:name=".ui.activity.SplishActivity">-->
+        </activity>
+        <activity android:name=".ui.activity.SplishActivity">
 
             <!-- <activity android:name=".ui.activity.MainActivity"> -->
             <intent-filter>
