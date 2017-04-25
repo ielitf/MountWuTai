@@ -28,7 +28,8 @@ public class MainActivity extends BaseActivity {
     private SummaryFragment summaryFragment = null;
     private GuideFragment guideFragment = null;
     private BuddhistFragment buddhistFragment = null;
-    private ServiceFragment serviceFragment = null;
+//    private ServiceFragment serviceFragment = null;
+    private BuddhistFragment serviceFragment=null;
     private ImageView start_img;
 
     @Override
@@ -120,6 +121,7 @@ public class MainActivity extends BaseActivity {
                 imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
                 if (buddhistFragment == null) {
                     buddhistFragment = BuddhistFragment.newFragment(CodeConstants.BUDDHISTACTION);
+
                     transaction.add(R.id.container, buddhistFragment);
                 } else {
                     transaction.show(buddhistFragment);
@@ -143,7 +145,8 @@ public class MainActivity extends BaseActivity {
                 imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
                 imageButtons[4].setBackgroundResource(R.mipmap.service_selected);
                 if (serviceFragment == null) {
-                    serviceFragment = new ServiceFragment();
+//                    serviceFragment = new ServiceFragment();
+                    serviceFragment=BuddhistFragment.newFragment(CodeConstants.SERVICE);
                     transaction.add(R.id.container, serviceFragment);
                 } else {
                     transaction.show(serviceFragment);

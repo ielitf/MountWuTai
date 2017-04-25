@@ -23,4 +23,19 @@ public class BuddhistChildFragment extends BaseFragment {
         wSet.setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/img/imgShow.html");
     }
+
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
+    }
 }

@@ -17,4 +17,19 @@ public class BuddhistChildFragment3 extends BaseFragment {
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_buddhist_child_fragment3);
     }
+
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
+    }
 }

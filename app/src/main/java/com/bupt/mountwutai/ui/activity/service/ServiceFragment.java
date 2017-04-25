@@ -21,10 +21,11 @@ import java.util.List;
 
 public class ServiceFragment extends BaseFragment implements View.OnClickListener{
 
-    private TextView titleTextView;
+    private TextView titleText;
     private TextView[] xians = new TextView[3];//导航条
     private TextView[] titleTextViews = new TextView[3];//标题
-    private String[] titles = {"佛教活动","佛教知识","在线礼佛"};//标题内容
+//    private String[] titles = {"佛教活动","佛教知识","在线礼佛"};//标题内容
+    private String[] titles = {"政府机构", "医疗救援", "投诉建议"};
     private ViewPager viewPager;
 
     private List<Fragment> fragments;//用于存储页面
@@ -36,11 +37,12 @@ public class ServiceFragment extends BaseFragment implements View.OnClickListene
         initView();
     }
 
+
     private void initView() {
-        titleTextView = (TextView) findViewById(R.id.myButton);
-        titleTextView.setText(titles[0]);
+        titleText = (TextView) findViewById(R.id.top_name_text);
+//        titleTextView.setText(titles[0]);
         viewPager = (ViewPager) findViewById(R.id.buddhist_viewpager);
-        findViewById(R.id.popimg).setVisibility(View.GONE);
+        findViewById(R.id.poping_image).setVisibility(View.GONE);
         xians[0] = (TextView) findViewById(R.id.buddhist_xian1);
         xians[1] = (TextView) findViewById(R.id.buddhist_xian2);
         xians[2] = (TextView) findViewById(R.id.buddhist_xian3);
@@ -97,7 +99,7 @@ public class ServiceFragment extends BaseFragment implements View.OnClickListene
     }
 
     private void setXianBack(int i) {
-        titleTextView.setText(titles[i]);
+        titleText.setText(titles[i]);
         for (int j = 0; j < xians.length; j++) {
             if (i == j){
                 xians[j].setBackgroundColor(getResources().getColor(R.color.top_back));
@@ -106,4 +108,24 @@ public class ServiceFragment extends BaseFragment implements View.OnClickListene
             }
         }
     }
+
+    /**
+     * 为true时，回到父类showPopWindow方法，在子类中重写该方法
+     * @return
+     */
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return titles[0];
+    }
+
 }

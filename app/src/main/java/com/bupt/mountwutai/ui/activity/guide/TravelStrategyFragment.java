@@ -30,6 +30,21 @@ public class TravelStrategyFragment extends BaseFragment implements View.OnClick
         initView();
     }
 
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
+    }
+
     private void initView() {
         centertxtLinearLayout = (LinearLayout) findViewById(R.id.center_txt);//经典景色-中心区必有景点-内容
         hotlinetxtLinearLayout = (LinearLayout) findViewById(R.id.hot_line__txt);//热门路线-经典路线-内容

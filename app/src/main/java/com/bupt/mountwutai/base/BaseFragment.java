@@ -4,13 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-
+import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.util.LogUtil;
 
 import java.lang.reflect.Field;
@@ -26,54 +30,47 @@ public abstract class BaseFragment extends Fragment {
 //    protected CompositeSubscription mCompositeSubscription;
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        LogUtil.v(TAG, "onAttach(): ");
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        LogUtil.d(TAG, "onCreate(): ");
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public final View onCreateView(LayoutInflater inflater,
                                    ViewGroup container, Bundle savedInstanceState) {
-//        TAG = getClass().getName();
         activity = (BaseActivity) getActivity();
         mContext = activity.getApplicationContext();
         this.inflater = inflater;
         this.container = container;
+        initArgs();
         onCreateView(savedInstanceState);
         if (contentView == null)
             return super.onCreateView(inflater, container, savedInstanceState);
+        if (contentView != null) {
+            if (!TextUtils.isEmpty(getTopbarTitle())) {
+                final TextView titleText= (TextView) contentView.findViewById(R.id.top_name_text);
+                titleText.setText(getTopbarTitle());
+                if (hasPopWindow()) {
+                    final LinearLayout myPopLayout = (LinearLayout) contentView.findViewById(R.id.my_pop_layout);
+                    final ImageView popImage = (ImageView) contentView.findViewById(R.id.poping_image);
+                    popImage.setVisibility(View.VISIBLE);
+                    myPopLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            showPopWindow(myPopLayout,titleText,popImage);
+                        }
+                    });
+                }
+            }
+            if (isNeedInitBack()) {
+                ImageButton backBtn = (ImageButton) contentView.findViewById(R.id.top_back_btn);
+                backBtn.setVisibility(View.VISIBLE);
+                backBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        initBackBtn();
+                    }
+                });
+            }
+
+        }
         return contentView;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        LogUtil.v(TAG, "onActivityCreated(): ");
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onStart() {
-        LogUtil.d(TAG, "onStart(): ");
-        super.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        LogUtil.v(TAG, "onResume(): ");
-        super.onResume();
-    }
 
     protected abstract void onCreateView(Bundle savedInstanceState);
 
@@ -100,12 +97,6 @@ public abstract class BaseFragment extends Fragment {
         startActivity(intent);
     }
 
-//    protected void intent2Activity(Class<? extends Activity> tarActivity, Bundle bundle) {
-//        Intent intent = new Intent(activity, tarActivity);
-//        intent.putExtra(CodeConstants.BUNDLE_KEY, bundle);
-//        startActivity(intent);
-//    }
-
     protected void showToast(String msg) {
         //ToastUtils.showToast(mActivity, msg, Toast.LENGTH_SHORT);
         activity.showToast(msg);
@@ -122,6 +113,7 @@ public abstract class BaseFragment extends Fragment {
     protected void dismissProgressDialog() {
         activity.dismissProgressDialog();
     }
+
 
 //
 //    public void addSubscription(Observable observable, Subscriber subscriber) {
@@ -153,18 +145,6 @@ public abstract class BaseFragment extends Fragment {
         return mContext;
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        LogUtil.d(TAG, "onPause is called");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        LogUtil.v(TAG, "onStop is called");
-
-    }
 
     @Override
     public void onDestroyView() {
@@ -198,4 +178,19 @@ public abstract class BaseFragment extends Fragment {
 //        mCompositeSubscription = null;
         super.onDestroy();
     }
+//    abstract protected void setLayout();
+    abstract protected boolean hasPopWindow();
+
+    abstract protected boolean isNeedInitBack();
+
+    abstract protected String getTopbarTitle();
+
+    protected void initBackBtn() {
+        activity.finish();
+    }
+
+    protected void showPopWindow(LinearLayout myPopLayout,TextView titleText,ImageView popImage) {
+    }
+    protected void initArgs(){}
 }
+

@@ -21,14 +21,10 @@ import java.util.ArrayList;
  */
 
 public class CommonFragment extends BaseFragment implements AdapterView.OnItemClickListener{
-    private Context context;
     private ArrayList<CommonBean> mData;
     private ListView listView;
     private CommonAdapter adapter;
     private String type;//代表当前是哪一个，比如寺庙还是美食，以添加不同的数据
-
-    public CommonFragment(){
-    }
 
     public static CommonFragment newFragment(String type){
         CommonFragment commonFragment = new CommonFragment();
@@ -41,13 +37,13 @@ public class CommonFragment extends BaseFragment implements AdapterView.OnItemCl
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_common);
-        context = getActivity();
         type = getArguments().getString(CodeConstants.TYPE);
         listView = (ListView) findViewById(R.id.common_list);
         addData();
-        adapter = new CommonAdapter(context,mData) ;
+        adapter = new CommonAdapter(activity,mData) ;
         listView.setAdapter(adapter);
     }
+
     private void addData() {
         mData = new ArrayList<>();
         switch (type){
@@ -70,5 +66,20 @@ public class CommonFragment extends BaseFragment implements AdapterView.OnItemCl
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+    }
+
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
     }
 }

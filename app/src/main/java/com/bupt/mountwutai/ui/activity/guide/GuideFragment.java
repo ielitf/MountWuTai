@@ -26,9 +26,9 @@ import java.util.ArrayList;
 public class GuideFragment extends BaseFragment {
 
     //下拉按钮
-    TextView myButton;
-    ImageView popImage;
-    LinearLayout mypoplayout;
+//    TextView myButton;
+//    ImageView popImage;
+//    LinearLayout mypoplayout;
     Boolean isup = true;
 
     ArrayList<String> list;
@@ -45,6 +45,93 @@ public class GuideFragment extends BaseFragment {
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_guide);
         initView();
+    }
+
+    @Override
+    protected boolean hasPopWindow() {
+        return true;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return getList().get(0);
+    }
+
+    @Override
+    protected void showPopWindow(LinearLayout myPopLayout,final TextView titleText, final ImageView popImage) {
+        super.showPopWindow(myPopLayout, titleText, popImage);
+        if (isup) {
+            isup = false;
+            titleText.setBackgroundResource(R.mipmap.sanjiao);
+            popImage.setImageResource(R.mipmap.up);
+        }
+
+        Utils.showPopupwindow(activity, list, inflater,
+                myPopLayout, new CallBack() {
+                    @Override
+                    public void itemClick(int position) {
+                        titleText.setText(list.get(position));
+                        FragmentTransaction transaction = fragmentManager.beginTransaction();
+                        hideFragments(transaction);
+                        switch (position){
+                            case 0://行程规划
+                                if (travelPlanFragment == null) {
+                                    travelPlanFragment = new TravelPlanFragment();
+                                    transaction.add(R.id.guide_container, travelPlanFragment);
+                                } else {
+                                    transaction.show(travelPlanFragment);
+                                }
+                                break;
+
+                            case 1://交通指南
+                                if (trafficGuideFragment == null) {
+                                    trafficGuideFragment = new TrafficGuideFragment();
+                                    transaction.add(R.id.guide_container, trafficGuideFragment);
+                                } else {
+                                    transaction.show(trafficGuideFragment);
+                                }
+                                break;
+
+                            case 2://酒店
+
+                                break;
+
+                            case 3://五台食谱
+                                if (commonFragment == null) {
+                                    commonFragment = CommonFragment.newFragment(CodeConstants.WUTAI_RECIPES);
+                                    transaction.add(R.id.guide_container, commonFragment);
+                                } else {
+                                    transaction.show(commonFragment);
+                                }
+                                break;
+
+                            case 4://朝台攻略
+                                if (travelStrategyFragment == null) {
+                                    travelStrategyFragment = new TravelStrategyFragment();
+                                    transaction.add(R.id.guide_container, travelStrategyFragment);
+                                } else {
+                                    transaction.show(travelStrategyFragment);
+                                }
+                                break;
+                        }
+                        transaction.commitAllowingStateLoss();
+                        if (clickPsition != position) {
+                            clickPsition = position;
+                        }
+                    }
+
+                    @Override
+                    public void dismiss() {
+                        isup = true;
+                        titleText.setBackgroundResource(R.color.transparent);
+                        popImage.setImageResource(R.mipmap.down);
+                    }
+                });
     }
 
     private void hideFragments(FragmentTransaction transaction) {
@@ -65,93 +152,27 @@ public class GuideFragment extends BaseFragment {
 
     private void initView() {
         fragmentManager = getChildFragmentManager();
-        mypoplayout = (LinearLayout) findViewById(R.id.mypoplayout);
-        myButton = (TextView) findViewById(R.id.myButton);
-        popImage = (ImageView) findViewById(R.id.popimg);
+//        mypoplayout = (LinearLayout) findViewById(R.id.my_pop_layout);
+//        myButton = (TextView) findViewById(R.id.top_name_text);
+//        popImage = (ImageView) findViewById(R.id.poping_image);
         //获得要显示的数据
         list = getList();
         //设置默认显示的Text
-        myButton.setText(list.get(0));
+//        myButton.setText(list.get(0));
         //初始化显示的页面
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         travelPlanFragment = new TravelPlanFragment();
         transaction.add(R.id.guide_container, travelPlanFragment);
         transaction.commitAllowingStateLoss();
-
-        mypoplayout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (isup) {
-                    isup = false;
-                    myButton.setBackgroundResource(R.mipmap.sanjiao);
-                    popImage.setImageResource(R.mipmap.up);
-                }
-
-                Utils.showPopupwindow(activity, list, inflater,
-                        mypoplayout, new CallBack() {
-                            @Override
-                            public void itemClick(int position) {
-                                myButton.setText(list.get(position));
-                                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                                hideFragments(transaction);
-                                switch (position){
-                                    case 0://行程规划
-                                        if (travelPlanFragment == null) {
-                                            travelPlanFragment = new TravelPlanFragment();
-                                            transaction.add(R.id.guide_container, travelPlanFragment);
-                                        } else {
-                                            transaction.show(travelPlanFragment);
-                                        }
-                                        break;
-
-                                    case 1://交通指南
-                                        if (trafficGuideFragment == null) {
-                                            trafficGuideFragment = new TrafficGuideFragment();
-                                            transaction.add(R.id.guide_container, trafficGuideFragment);
-                                        } else {
-                                            transaction.show(trafficGuideFragment);
-                                        }
-                                        break;
-
-                                    case 2://酒店
-
-                                        break;
-
-                                    case 3://五台食谱
-                                        if (commonFragment == null) {
-                                            commonFragment = CommonFragment.newFragment(CodeConstants.WUTAI_RECIPES);
-                                            transaction.add(R.id.guide_container, commonFragment);
-                                        } else {
-                                            transaction.show(commonFragment);
-                                        }
-                                        break;
-
-                                    case 4://朝台攻略
-                                        if (travelStrategyFragment == null) {
-                                            travelStrategyFragment = new TravelStrategyFragment();
-                                            transaction.add(R.id.guide_container, travelStrategyFragment);
-                                        } else {
-                                            transaction.show(travelStrategyFragment);
-                                        }
-                                        break;
-                                }
-                                transaction.commitAllowingStateLoss();
-                                if (clickPsition != position) {
-                                    clickPsition = position;
-                                }
-                            }
-
-                            @Override
-                            public void dismiss() {
-                                isup = true;
-                                myButton.setBackgroundResource(R.color.transparent);
-                                popImage.setImageResource(R.mipmap.down);
-                            }
-                        });
-
-            }
-        });
+//
+//        mypoplayout.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//            }
+//        });
     }
 
     /**

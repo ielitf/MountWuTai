@@ -7,7 +7,12 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
+import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.util.LogUtil;
 
 //以下为RxJava 2.x.y 版本
@@ -40,33 +45,32 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
         activity = this;
 //        AppManager.getAppManager().addActivity(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        initArgs();
         setLayout();
         init();
         initView();
 //        ButterKnife.bind(this);
 //        init();
-//        initArgs();
-//        if (!TextUtils.isEmpty(getTopbarTitle())) {
-//            TextView titleTv = (TextView) findViewById(R.id.top_name_tv);
-//            titleTv.setText(getTopbarTitle());
-//        }
-//        if (isNeedInitBack()) {
-//            ImageButton backBtn = (ImageButton) findViewById(R.id.top_back_btn);
-//            backBtn.setVisibility(View.VISIBLE);
-//            backBtn.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    BaseActivity.this.finish();
-//                    initBackBtn();
-//                }
-//            });
-//        }
+        if (!TextUtils.isEmpty(getTopbarTitle())) {
+            TextView titleTv = (TextView) findViewById(R.id.top_name_text);
+            titleTv.setText(getTopbarTitle());
+        }
+        if (isNeedInitBack()) {
+            ImageButton backBtn = (ImageButton) findViewById(R.id.top_back_btn);
+            backBtn.setVisibility(View.VISIBLE);
+            backBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BaseActivity.this.finish();
+                    initBackBtn();
+                }
+            });
+        }
 
     }
 
     private void init() {
         TAG = getClass().getSimpleName();
-//        progressDialog = DialogUtils.createProgressDialog(this);
         if (progressDialog == null)
             progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -74,27 +78,6 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
         progressDialog.setCancelable(true);
         progressDialog.setMessage("正在搜索");
     }
-    /**
-     * 显示进度框
-     */
-//    private void showProgressDialog() {
-//        if (progDialog == null)
-//            progDialog = new ProgressDialog(this);
-//        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//        progDialog.setIndeterminate(false);
-//        progDialog.setCancelable(true);
-//        progDialog.setMessage("正在搜索");
-//        progDialog.show();
-//    }
-
-    /**
-     * 隐藏进度框
-     */
-//    private void dissmissProgressDialog() {
-//        if (progDialog != null) {
-//            progDialog.dismiss();
-//        }
-//    }
     protected void initArgs(){
     }
 
