@@ -232,6 +232,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         mLocationClient.setLocationOption(mLocationClientOption);
         mLocationClient.startLocation();
         myLocationStyle = new MyLocationStyle();
+        myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.mipmap.gps_point));
         myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE);
         aMap.setMyLocationStyle(myLocationStyle);
         aMap.getUiSettings().setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
@@ -250,7 +251,6 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
          * 创建pendingIntent
          */
         mGeoFenceClient.createPendingIntent(GEOFENCE_BROADCAST_ACTION);
-//        mGeoFenceClient.setGeoFenceListener(this);
         mGeoFenceClient.setActivateAction(GeoFenceClient.GEOFENCE_IN | GeoFenceClient.GEOFENCE_OUT);
         mGeoFenceClient.setGeoFenceListener(this);
 //        mGeoFenceClient.addGeoFence("五台山风景区","风景区","忻州",1,"智慧智慧");
