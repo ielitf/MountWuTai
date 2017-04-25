@@ -10,12 +10,12 @@ import com.bupt.mountwutai.base.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BuddhistChildFragment3 extends BaseFragment {
+public class OnlineSurveyFragment extends BaseFragment {
 
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_buddhist_child_fragment3);
+        setContentView(R.layout.fragment_online_survey);
     }
 
     @Override
