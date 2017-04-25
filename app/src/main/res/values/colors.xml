@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <color name="colorPrimary">#00000000</color>
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <color name="colorPrimaryDark">#00000000</color>
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <color name="colorAccent">#845a32</color>
     <!-- 透明 -->
     <color name="transparent">#00000000</color>
     <color name="blue">#25b6ed</color>
@@ -14,7 +17,6 @@
     <color name="white">#ffffff</color>
     <color name="popcolor">#ecdecb</color>
     <color name="popcolor2">#b6916e</color>
-
     <color name="black">#000000</color>
 
     <color name="act_background">#efefef</color>
@@ -26,4 +28,8 @@
     <color name="navigation_select">#3b240f</color>
     <!-- 交通导航栏背景颜色 -->
     <color name="traffic_item_color">#f4eadd</color>
+
+
+    <color name="test1">#537edc</color>
+    <color name="test2">#990033</color>
 </resources>

@@ -1,6 +1,7 @@
 package com.bupt.mountwutai.ui.activity.guide;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -166,5 +167,12 @@ public class GuideFragment extends BaseFragment {
         list.add("五台食谱");
         list.add("朝台攻略");
         return list;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        LogUtil.w(TAG,"onRequestPermissionsResult");
+        getChildFragmentManager().getFragments().get(0).onRequestPermissionsResult(requestCode,permissions,grantResults);
     }
 }

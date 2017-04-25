@@ -49,14 +49,12 @@ public abstract class BaseFragment extends Fragment {
         onCreateView(savedInstanceState);
         if (contentView == null)
             return super.onCreateView(inflater, container, savedInstanceState);
-        LogUtil.v(TAG, "onCreateView(): ");
         return contentView;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LogUtil.d(TAG, "onViewCreated(): ");
     }
 
     @Override

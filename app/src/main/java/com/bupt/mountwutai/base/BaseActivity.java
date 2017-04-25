@@ -2,6 +2,7 @@ package com.bupt.mountwutai.base;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
     public AppCompatActivity activity;
 //    public FragmentActivity activity;
     protected String TAG;
-    private Dialog progressDialog;
+    private ProgressDialog progressDialog;
 //    private CompositeSubscription mCompositeSubscription;
 
     @Override
@@ -66,7 +67,34 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
     private void init() {
         TAG = getClass().getSimpleName();
 //        progressDialog = DialogUtils.createProgressDialog(this);
+        if (progressDialog == null)
+            progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(true);
+        progressDialog.setMessage("正在搜索");
     }
+    /**
+     * 显示进度框
+     */
+//    private void showProgressDialog() {
+//        if (progDialog == null)
+//            progDialog = new ProgressDialog(this);
+//        progDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        progDialog.setIndeterminate(false);
+//        progDialog.setCancelable(true);
+//        progDialog.setMessage("正在搜索");
+//        progDialog.show();
+//    }
+
+    /**
+     * 隐藏进度框
+     */
+//    private void dissmissProgressDialog() {
+//        if (progDialog != null) {
+//            progDialog.dismiss();
+//        }
+//    }
     protected void initArgs(){
     }
 
@@ -126,7 +154,7 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
     }
 
     public void dismissProgressDialog() {
-        if (progressDialog.isShowing())
+        if (progressDialog!=null&&progressDialog.isShowing())
             progressDialog.dismiss();
     }
 
