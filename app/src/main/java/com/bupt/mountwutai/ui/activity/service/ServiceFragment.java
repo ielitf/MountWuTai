@@ -10,6 +10,7 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.BuddhistViewpagerAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.ui.activity.buddhist.BuddhistChildFragment;
+import com.bupt.mountwutai.ui.activity.buddhist.BuddhistChildFragment3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +53,9 @@ public class ServiceFragment extends BaseFragment implements View.OnClickListene
         }
 
         fragments = new ArrayList<>();
-        fragments.add(new BuddhistChildFragment());
-        fragments.add(new BuddhistChildFragment());
-        fragments.add(new BuddhistChildFragment());
+        fragments.add(new BuddhistChildFragment3());
+        fragments.add(new BuddhistChildFragment3());
+        fragments.add(new BuddhistChildFragment3());
         viewpagerAdapter = new BuddhistViewpagerAdapter(getChildFragmentManager(),fragments);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(viewpagerAdapter);

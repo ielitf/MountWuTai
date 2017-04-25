@@ -61,7 +61,7 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
                 fragments = new ArrayList<>();
                 fragments.add(new BuddhistChildFragment());
                 fragments.add(new BuddhistChildFragment());
-                fragments.add(new BuddhistChildFragment());
+                fragments.add(new BuddhistChildFragment3());
                 break;
 
             case CodeConstants.SERVICE:

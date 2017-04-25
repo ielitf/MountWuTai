@@ -12,6 +12,7 @@ import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.buddhist.BuddhistFragment;
 import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
+import com.bupt.mountwutai.ui.activity.service.ServiceFragment;
 import com.bupt.mountwutai.ui.activity.summary.SummaryFragment;
 import com.bupt.mountwutai.util.LogUtil;
 
@@ -26,7 +27,8 @@ public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private SummaryFragment summaryFragment = null;
     private GuideFragment guideFragment = null;
-    private BuddhistFragment buddhistFragment = null,serviceFragment = null;
+    private BuddhistFragment buddhistFragment = null;
+    private ServiceFragment serviceFragment = null;
     private ImageView start_img;
 
     @Override
@@ -141,7 +143,7 @@ public class MainActivity extends BaseActivity {
                 imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
                 imageButtons[4].setBackgroundResource(R.mipmap.service_selected);
                 if (serviceFragment == null) {
-                    serviceFragment = BuddhistFragment.newFragment(CodeConstants.SERVICE);
+                    serviceFragment = new ServiceFragment();
                     transaction.add(R.id.container, serviceFragment);
                 } else {
                     transaction.show(serviceFragment);
