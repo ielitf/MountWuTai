@@ -47,7 +47,6 @@ import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.WalkPath;
 import com.amap.api.services.route.WalkRouteResult;
 import com.bupt.mountwutai.R;
-import com.bupt.mountwutai.adapter.BusResultListAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.util.AMapUtil;
 import com.bupt.mountwutai.util.LogUtil;
@@ -572,8 +571,6 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
             if (result != null && result.getPaths() != null) {
                 if (result.getPaths().size() > 0) {
                     mBusRouteResult = result;
-                    BusResultListAdapter mBusResultListAdapter = new BusResultListAdapter(activity, mBusRouteResult);
-                    mBusResultList.setAdapter(mBusResultListAdapter);
                 } else if (result != null && result.getPaths() == null) {
                     ToastUtil.show(activity, "无结果");
                 }
