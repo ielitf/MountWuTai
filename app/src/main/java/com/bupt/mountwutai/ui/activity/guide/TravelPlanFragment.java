@@ -47,14 +47,15 @@ import com.amap.api.services.route.RouteSearch;
 import com.amap.api.services.route.WalkPath;
 import com.amap.api.services.route.WalkRouteResult;
 import com.bupt.mountwutai.R;
-import com.bupt.mountwutai.adapter.BusResultListAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.util.AMapUtil;
 import com.bupt.mountwutai.util.LogUtil;
 import com.bupt.mountwutai.util.PermissionHelper;
 import com.bupt.mountwutai.util.ToastUtil;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import overlay.DrivingRouteOverlay;
@@ -242,7 +243,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
 
     private void addKeywordFence() {
         mGeoFenceClient = new GeoFenceClient(getApplicationContext());
-        mGeoFenceClient.addGeoFence("庆亚大厦", "写字楼", "北京", 1, "智慧智慧");
+        mGeoFenceClient.addGeoFence("庆亚大厦", "写字楼", "北京", 1, "庆亚大厦北邮国安");
         IntentFilter filter = new IntentFilter(
                 ConnectivityManager.CONNECTIVITY_ACTION);
         filter.addAction(GEOFENCE_BROADCAST_ACTION);
@@ -572,8 +573,6 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
             if (result != null && result.getPaths() != null) {
                 if (result.getPaths().size() > 0) {
                     mBusRouteResult = result;
-                    BusResultListAdapter mBusResultListAdapter = new BusResultListAdapter(activity, mBusRouteResult);
-                    mBusResultList.setAdapter(mBusResultListAdapter);
                 } else if (result != null && result.getPaths() == null) {
                     ToastUtil.show(activity, "无结果");
                 }
@@ -684,6 +683,10 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
         LogUtil.i(TAG, "onLocationChanged is called aMapLocation.getLatitude=" + aMapLocation.getLatitude() + ".......aMapLocation.getLongitude()=" + aMapLocation.getLongitude());
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(aMapLocation.getTime());
+        String format = df.format(date);//定位时间
+        LogUtil.i(TAG, "format=" +format);
 //        myLatLan = new LatLng(aMapLocation.getLatitude(), aMapLocation.getLongitude());
 //        mStartPoint = new LatLonPoint(myLatLan.latitude, myLatLan.longitude);
 //        changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(myLatLan, 13, 0, 0)));
