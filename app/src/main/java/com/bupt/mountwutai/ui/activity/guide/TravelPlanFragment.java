@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.location.Location;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -32,7 +33,9 @@ import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.CameraPosition;
+import com.amap.api.maps.model.CircleOptions;
 import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.LatLngBounds;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
@@ -55,6 +58,7 @@ import com.bupt.mountwutai.util.PermissionHelper;
 import com.bupt.mountwutai.util.ToastUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import overlay.DrivingRouteOverlay;
@@ -117,6 +121,10 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     //围栏相关
     private GeoFenceClient mGeoFenceClient;
     private List<GeoFence> fenceList = new ArrayList<>();
+    // 记录已经添加成功的围栏
+    private HashMap<String, GeoFence> fenceMap = new HashMap<String, GeoFence>();
+    // 当前的坐标点集合，主要用于进行地图的可视区域的缩放
+    private LatLngBounds.Builder boundsBuilder = new LatLngBounds.Builder();
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -129,7 +137,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
                         sb.append("customId: ").append(customId);
                     }
                     ToastUtil.show(getApplicationContext(), sb.toString());
-//                    drawFence2Map();
+                    drawFence2Map();
                     break;
                 case 1:
                     int errorCode = msg.arg1;
@@ -214,8 +222,6 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         LogUtil.i(TAG, "readExternalStoragePermission=" + PermissionHelper.getHelper().checkPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE));
         LogUtil.d(TAG, "accessCoarseLocationPermission=" + PermissionHelper.getHelper().checkPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION));
 //        initMyLoacation();
-
-
     }
 
     private void setUpMap() {
@@ -242,7 +248,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
 
     private void addKeywordFence() {
         mGeoFenceClient = new GeoFenceClient(getApplicationContext());
-        mGeoFenceClient.addGeoFence("庆亚大厦", "写字楼", "北京", 1, "智慧智慧");
+        mGeoFenceClient.addGeoFence("庆亚大厦", "写字楼", "北京", 1, "庆亚大厦北邮国安");
         IntentFilter filter = new IntentFilter(
                 ConnectivityManager.CONNECTIVITY_ACTION);
         filter.addAction(GEOFENCE_BROADCAST_ACTION);
@@ -255,6 +261,64 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         mGeoFenceClient.setGeoFenceListener(this);
 //        mGeoFenceClient.addGeoFence("五台山风景区","风景区","忻州",1,"智慧智慧");
 
+    }
+
+
+    Object lock = new Object();
+    void drawFence2Map() {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    synchronized (lock) {
+                        if (null == fenceList || fenceList.isEmpty()) {
+                            return;
+                        }
+                        for (GeoFence fence : fenceList) {
+                            if (fenceMap.containsKey(fence.getFenceId())) {
+                                continue;
+                            }
+                            drawFence(fence);
+                            fenceMap.put(fence.getFenceId(), fence);
+                        }
+                    }
+                } catch (Throwable e) {
+
+                }
+            }
+        }.start();
+    }
+    private void drawFence(GeoFence fence) {
+//        ToastUtil.show(mContext,"drawFence is called and fence.gettype="+fence.getType());
+        LogUtil.v(TAG,"drawFence is called and fence.gettype="+fence.getType());
+        switch (fence.getType()) {
+            case GeoFence.TYPE_ROUND:
+            case GeoFence.TYPE_AMAPPOI:
+                drawCircle(fence);
+                break;
+            case GeoFence.TYPE_POLYGON:
+            case GeoFence.TYPE_DISTRICT:
+//                drawPolygon(fence);
+                break;
+            default:
+                break;
+        }
+
+        // 设置所有maker显示在当前可视区域地图中
+        LatLngBounds bounds = boundsBuilder.build();
+
+        aMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds,15));
+    }
+
+    private void drawCircle(GeoFence fence) {
+        LatLng center = new LatLng(fence.getCenter().getLatitude(),
+                fence.getCenter().getLongitude());
+        LogUtil.e(TAG,"drawCircle fence.getCenter().getLatitude()="+fence.getCenter().getLatitude()+"....fence.getCenter().getLongitude()="+fence.getCenter().getLongitude());
+        // 绘制一个圆形
+        aMap.addCircle(new CircleOptions().center(center)
+                .radius(fence.getRadius()).strokeColor(Color.argb(180, 63, 145, 252))
+                .fillColor(Color.argb(163, 118, 212, 243)).strokeWidth(5F));
+        boundsBuilder.include(center);
     }
 
     private void initMyLoacation() {
