@@ -5,8 +5,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.Location;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -39,6 +39,7 @@ import com.amap.api.maps.model.LatLngBounds;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
+import com.amap.api.maps.model.PolygonOptions;
 import com.amap.api.services.core.AMapException;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.BusRouteResult;
@@ -65,12 +66,13 @@ import overlay.DrivingRouteOverlay;
 import overlay.RideRouteOverlay;
 import overlay.RouteOverlay;
 import overlay.WalkRouteOverlay;
+
 /**
  * 行程规划
  */
 
-public class TravelPlanFragment extends BaseFragment implements View.OnClickListener, GeoFenceListener, AMapLocationListener, AMap.OnMyLocationChangeListener, AMap.OnMapClickListener,
-        AMap.OnMarkerClickListener, AMap.InfoWindowAdapter, RouteSearch.OnRouteSearchListener /*,AMap.OnCameraChangeListener,  AMap.OnInfoWindowClickListener*/{
+public class TravelPlanFragment extends BaseFragment implements View.OnClickListener, AMap.OnMapLoadedListener, GeoFenceListener, AMapLocationListener, AMap.OnMapClickListener,
+        AMap.OnMarkerClickListener, AMap.InfoWindowAdapter, RouteSearch.OnRouteSearchListener /*,AMap.OnMyLocationChangeListener,AMap.OnCameraChangeListener,  AMap.OnInfoWindowClickListener*/ {
     //设置希望侦测的围栏触发行为，默认只侦测用户进入围栏的行为
     static final String GEOFENCE_BROADCAST_ACTION = "com.bupt.mountwutai.geofence.keyword";
     private final int RC_CRO_LOCA_PER = 0x0020;
@@ -85,7 +87,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     //UI相关
     private LinearLayout mRouteMapChooseLayout;
     private RelativeLayout mBottomLayout;
-    private TextView mRotueTimeDes, mRouteDetailDes, mCancelRouteGuide;
+    private TextView mRotueTimeDes, mCancelRouteGuide;
     private ImageView mBus;
     private ImageView mDrive;
     private ImageView mWalk;
@@ -101,13 +103,12 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     private AMapLocationClientOption mLocationClientOption = null;
     //路线搜索相关
     private RouteSearch mRouteSearch;
-    private BusRouteResult mBusRouteResult;
     private DriveRouteResult mDriveRouteResult;
     private WalkRouteResult mWalkRouteResult;
     private RideRouteResult mRideRouteResult;
     private LatLonPoint mStartPoint = null;//= new LatLonPoint(39.942295, 116.335891);//起点，116.335891,39.942295
     private LatLonPoint mEndPoint = null;//= new LatLonPoint(39.995576, 116.481288);//终点，116.481288,39.995576
-    private LatLng testLatLng = new LatLng(39.007896372911915, 113.59743118286133);//五爷庙
+    //    private LatLng testLatLng = new LatLng(39.007896372911915, 113.59743118286133);//五爷庙
     private RouteOverlay mCurrentOverlay;
     //marker标记相关
     private MarkerOptions markerOption;
@@ -125,9 +126,9 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     // 当前的坐标点集合，主要用于进行地图的可视区域的缩放
     private LatLngBounds.Builder boundsBuilder = new LatLngBounds.Builder();
     private LatLng fenceLatLng;
-    private int currentId;
+    private int currentId = 1;
     private boolean isFirstLocate = true;
-    private boolean isNavigating=false;
+    private boolean isNavigating = false;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -138,8 +139,8 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
                     if (!TextUtils.isEmpty(customId)) {
                         sb.append("customId: ").append(customId);
                     }
-                    ToastUtil.show(getApplicationContext(), sb.toString());
-                    drawFence2Map();
+//                    ToastUtil.show(getApplicationContext(), sb.toString());
+//                    drawFence2Map();
                     break;
                 case 1:
                     int errorCode = msg.arg1;
@@ -178,13 +179,13 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
                         sb.append("定位失败");
                         break;
                     case GeoFence.STATUS_IN:
-                        sb.append("进入围栏 ");
+                        sb.append("您已进入景区 ");
                         break;
                     case GeoFence.STATUS_OUT:
-                        sb.append("离开围栏 ");
+                        sb.append("您已离开景区 ");
                         break;
                     case GeoFence.STATUS_STAYED:
-                        sb.append("停留在围栏内 ");
+                        sb.append("您现在正在景区内");
                         break;
                     default:
                         break;
@@ -223,41 +224,41 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     private void initViews() {
         mRouteMapChooseLayout = (LinearLayout) contentView.findViewById(R.id.routemap_choose);
         mBottomLayout = (RelativeLayout) contentView.findViewById(R.id.bottom_layout);
-//        mBusResultLayout = (LinearLayout) contentView.findViewById(R.id.bus_result);
         mRotueTimeDes = (TextView) contentView.findViewById(R.id.firstline);
-        mRouteDetailDes = (TextView) contentView.findViewById(R.id.secondline);
         mCancelRouteGuide = (TextView) contentView.findViewById(R.id.cancel_route_guide);
         mDrive = (ImageView) contentView.findViewById(R.id.route_drive);
         mBus = (ImageView) contentView.findViewById(R.id.route_bus);
         mRide = (ImageView) contentView.findViewById(R.id.route_ride);
         mWalk = (ImageView) contentView.findViewById(R.id.route_walk);
-//        mBusResultList = (ListView) contentView.findViewById(R.id.bus_result_list);
+    }
+
+    @Override
+    public void onMapLoaded() {
+//        setUpMap();
+        showToast("onMapLoade is called");
+        addMarkersToMap();
+        addKeywordFence();
     }
 
     /**
      * 注册监听
      */
-    private void registerListener() {
-        mBus.setOnClickListener(this);
-        mDrive.setOnClickListener(this);
-        mRide.setOnClickListener(this);
-        mWalk.setOnClickListener(this);
-        mCancelRouteGuide.setOnClickListener(this);
 
-        aMap.setOnMapClickListener(this);
-        aMap.setOnMarkerClickListener(this);
-        aMap.setInfoWindowAdapter(this);
-        aMap.setOnMyLocationChangeListener(this);
-//        aMap.setOnCameraChangeListener(this);
-//        aMap.setOnInfoWindowClickListener(this);
-//        aMap.setOnPOIClickListener(this);
-    }
 
     private void initMap() {
         if (aMap == null) {
             aMap = mapView.getMap();
             if (!PermissionHelper.getHelper().checkPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
                 PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.ACCESS_FINE_LOCATION, RC_FINE_LOCA_PER);
+                return;
+            }
+            if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_EXTERNAL_STORAGE, RC_READ_EXTERNAL_STORAGE_PER);
+                return;
+            }
+
+            if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_PHONE_STATE)) {
+                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
                 return;
             }
             setUpMap();
@@ -268,16 +269,15 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     }
 
     private void setUpMap() {
+
         mRouteSearch = new RouteSearch(activity);
         mRouteSearch.setRouteSearchListener(this);
         registerListener();
-        addMarkersToMap();
-        addKeywordFence();
         mLocationClient = new AMapLocationClient(activity);
         mLocationClientOption = new AMapLocationClientOption();
         mLocationClient.setLocationListener(this);
         mLocationClientOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-        mLocationClientOption.setInterval(2000);
+        mLocationClientOption.setInterval(1000);
         mLocationClientOption.setSensorEnable(true);
         mLocationClient.setLocationOption(mLocationClientOption);
         mLocationClient.startLocation();
@@ -287,15 +287,64 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         aMap.getUiSettings().setCompassEnabled(true);
 
         myLocationStyle = new MyLocationStyle();
-        resetLocationStyle();
-//        myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.mipmap.gps_point));
         myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE);
         aMap.setMyLocationStyle(myLocationStyle);
         aMap.setMyLocationEnabled(true);
+
+    }
+
+    private void registerListener() {
+
+        mBus.setOnClickListener(this);
+        mDrive.setOnClickListener(this);
+        mRide.setOnClickListener(this);
+        mWalk.setOnClickListener(this);
+        mCancelRouteGuide.setOnClickListener(this);
+        aMap.setOnMapLoadedListener(this);
+        aMap.setOnMapClickListener(this);
+        aMap.setOnMarkerClickListener(this);
+        aMap.setInfoWindowAdapter(this);
+//        aMap.setOnMyLocationChangeListener(this);
+//        aMap.setOnCameraChangeListener(this);
+//        aMap.setOnInfoWindowClickListener(this);
+//        aMap.setOnPOIClickListener(this);
     }
 
     private void resetLocationStyle() {
         aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_SHOW));
+    }
+
+    /**
+     * 在地图上添加marker
+     */
+    private void addMarkersToMap() {
+        markerOption = new MarkerOptions().icon(BitmapDescriptorFactory
+                .defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .position(new LatLng(39.908686950005766, 116.39747500419617))
+                .title("天安门")
+                .snippet("到天安门去")
+                .draggable(false);
+        markerOption1 = new MarkerOptions().icon(BitmapDescriptorFactory
+                .defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .position(new LatLng(39.00791304679197, 113.59742581844331))
+                .title("五爷庙")
+                .snippet("五爷庙塔详情")
+                .draggable(false);
+        markerOption2 = new MarkerOptions().icon(BitmapDescriptorFactory
+                .defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .position(new LatLng(39.007654601209516, 113.595929145813))
+                .title("塔院寺")
+                .snippet("塔院寺详情")
+                .draggable(false);
+        markerOption3 = new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .position(new LatLng(38.90318205210213, 113.64955186843873))
+                .title("游客中心")
+                .snippet("游客中心")
+                .draggable(false);
+        aMap.addMarker(markerOption);
+        aMap.addMarker(markerOption1);
+        aMap.addMarker(markerOption2);
+        aMap.addMarker(markerOption3);
     }
 
     private void addKeywordFence() {
@@ -313,10 +362,12 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         mGeoFenceClient.createPendingIntent(GEOFENCE_BROADCAST_ACTION);
         mGeoFenceClient.setActivateAction(GeoFenceClient.GEOFENCE_IN | GeoFenceClient.GEOFENCE_OUT);
         mGeoFenceClient.setGeoFenceListener(this);
+//        mGeoFenceClient.addGeoFence("庆亚大厦","写字楼","北京",2,"庆亚大厦北邮国安");
 //        mGeoFenceClient.addGeoFence("庆亚大厦", "写字楼", dPoint,50,1,"庆亚大厦北邮国安");
-//        mGeoFenceClient.addGeoFence("五台山风景区", "风景区", "忻州", 1, "智慧智慧");
-        mGeoFenceClient.addGeoFence(dPoint, 50, "庆亚大厦北邮国安");
-
+        mGeoFenceClient.addGeoFence("五台山风景名胜区", "风景名胜", "五台县", 1, "五台山风景区");
+//        mGeoFenceClient.addGeoFence(dPoint, 50, "庆亚大厦北邮国安");
+//        mGeoFenceClient.addGeoFence("庆亚大厦","00FDTW103（庆亚大厦北邮国安）");
+//        mGeoFenceClient.addGeoFence("五台山风景名胜区","五台山风景区");
     }
 
     void drawFence2Map() {
@@ -344,23 +395,22 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     }
 
     private void drawFence(GeoFence fence) {
-//        ToastUtil.show(mContext,"drawFence is called and fence.gettype="+fence.getType());
-        LogUtil.v(TAG, "drawFence is called and fence.gettype=" + fence.getType());
         switch (fence.getType()) {
             case GeoFence.TYPE_ROUND:
             case GeoFence.TYPE_AMAPPOI:
                 drawCircle(fence);
                 break;
             case GeoFence.TYPE_POLYGON:
+                drawPolygon(fence);
             case GeoFence.TYPE_DISTRICT:
-//                drawPolygon(fence);
+                drawPolygon(fence);
                 break;
             default:
                 break;
         }
 
         // 设置所有maker显示在当前可视区域地图中
-        LatLngBounds bounds = boundsBuilder.build();
+//        LatLngBounds bounds = boundsBuilder.build();
         aMap.moveCamera(CameraUpdateFactory.changeLatLng(fenceLatLng));
     }
 
@@ -377,54 +427,76 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         boundsBuilder.include(center);
     }
 
-    private void initMyLoacation() {
-        LogUtil.i(TAG, "initMyLocationIs called");
-        myLocationStyle = new MyLocationStyle();//初始化定位蓝点样式类
-        myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.mipmap.gps_point));
-        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//LOCATION_TYPE_LOCATION_ROTATE 连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
-        aMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
-        aMap.getUiSettings().setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
-        aMap.getUiSettings().setZoomControlsEnabled(false);
-        aMap.setMyLocationEnabled(true);// 设置为true
-    }
+    private void drawPolygon(GeoFence fence) {
+        final List<List<DPoint>> pointList = fence.getPointList();
+        if (null == pointList || pointList.isEmpty()) {
+            return;
+        }
+        for (List<DPoint> subList : pointList) {
+            List<LatLng> lst = new ArrayList<>();
 
-    /**
-     * 在地图上添加marker
-     */
-    private void addMarkersToMap() {
+            PolygonOptions polygonOption = new PolygonOptions();
+            for (DPoint point : subList) {
+                lst.add(new LatLng(point.getLatitude(), point.getLongitude()));
+                boundsBuilder.include(
+                        new LatLng(point.getLatitude(), point.getLongitude()));
+            }
+            polygonOption.addAll(lst);
 
-        markerOption = new MarkerOptions().icon(BitmapDescriptorFactory
-                .defaultMarker(BitmapDescriptorFactory.HUE_RED))
-                .position(new LatLng(39.908686950005766, 116.39747500419617))
-                .title("天安门")
-                .snippet("到天安门去")
-                .draggable(true);
-        markerOption1 = new MarkerOptions().icon(BitmapDescriptorFactory
-                .defaultMarker(BitmapDescriptorFactory.HUE_RED))
-                .position(new LatLng(39.00791304679197, 113.59742581844331))
-                .title("五爷庙")
-                .snippet("五爷庙塔详情")
-                .draggable(false);
-        markerOption2 = new MarkerOptions().icon(BitmapDescriptorFactory
-                .defaultMarker(BitmapDescriptorFactory.HUE_RED))
-                .position(new LatLng(39.007654601209516, 113.595929145813))
-                .title("塔院寺")
-                .snippet("塔院寺详情")
-                .draggable(false);
-        markerOption3 = new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-                .position(new LatLng(38.90318205210213, 113.64955186843873))
-                .title("游客中心")
-                .snippet("游客中心")
-                .draggable(false);
-        aMap.addMarker(markerOption);
-        aMap.addMarker(markerOption1);
-        aMap.addMarker(markerOption2);
-        aMap.addMarker(markerOption3);
+            polygonOption.strokeColor(Color.argb(180, 63, 145, 252)).strokeWidth(5F)
+                    .fillColor(Color.argb(163, 118, 212, 243));
+            aMap.addPolygon(polygonOption);
+        }
     }
 
     private void changeCamera(CameraUpdate update) {
+//        LogUtil.i(TAG, "changeCamera is called");
         aMap.moveCamera(update);
     }
+
+    @Override
+    public void onLocationChanged(AMapLocation aMapLocation) {
+        LogUtil.i("onLocationChanged", "onLocationChanged is called aMapLocation.getLatitude=" + aMapLocation.getLatitude() + ".......aMapLocation.getLongitude()=" + aMapLocation.getLongitude());
+        myLatLan = new LatLng(aMapLocation.getLatitude(), aMapLocation.getLongitude());
+        if (isFirstLocate) {
+            changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(myLatLan, 13, 0, 0)));
+            isFirstLocate = false;
+        }
+        mStartPoint = new LatLonPoint(myLatLan.latitude, myLatLan.longitude);
+        if (isNavigating) {
+            aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
+        } else {
+            resetLocationStyle();
+        }
+    }
+
+//    @Override
+//    public void onMyLocationChange(Location location) {
+//        if (location != null) {
+//            Bundle bundle = location.getExtras();
+//            if (bundle != null) {
+//                int errorCode = bundle.getInt(MyLocationStyle.ERROR_CODE);
+//                String errorInfo = bundle.getString(MyLocationStyle.ERROR_INFO);
+//                // 定位类型，可能为GPS WIFI等，具体可以参考官网的定位SDK介绍
+//                int locationType = bundle.getInt(MyLocationStyle.LOCATION_TYPE);
+//                if (errorCode == 0) {
+//                    LogUtil.i("onMyLocationChange", "定位成功");
+//                    if (isFirstLocate) {
+//                        myLatLan = new LatLng(location.getLatitude(), location.getLongitude());
+//                        mStartPoint = new LatLonPoint(myLatLan.latitude, myLatLan.longitude);
+//                        changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(myLatLan, 18, 0, 0)));
+//                        isFirstLocate = false;
+//                    }
+//                }
+//                LogUtil.e("onMyLocationChange", "定位信息， code: " + errorCode + " errorInfo: " + errorInfo + " locationType: " + locationType);
+//            } else {
+//                LogUtil.e("onMyLocationChange", "定位信息， bundle is null ");
+//            }
+//
+//        } else {
+//            LogUtil.e("amap", "定位失败");
+//        }
+//    }
 
     @Override
     public View getInfoWindow(Marker marker) {
@@ -454,29 +526,15 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
             @Override
             public void onClick(View v) {
                 marker.hideInfoWindow();
-                Intent intent=new Intent();
-                intent.setClass(activity,DetailActivity.class);
-                intent.putExtra(CodeConstants.ID,currentId);
+                Intent intent = new Intent();
+                intent.setClass(activity, DetailActivity.class);
+                intent.putExtra(CodeConstants.ID, currentId);
                 startActivity(intent);
 
             }
         });
         return infoWindow;
     }
-
-//    @Override
-//    public void onCameraChange(CameraPosition cameraPosition) {
-//        LogUtil.w("onCameraChange", "onCameraChange is called");
-//    }
-//
-//    @Override
-//    public void onCameraChangeFinish(CameraPosition cameraPosition) {
-//        LogUtil.i("onCameraChange", "onCameraChangeFinish is called");
-//    }
-
-//    @Override
-//    public void onInfoWindowClick(Marker marker) {
-//    }
 
     @Override
     public void onMapClick(LatLng latLng) {
@@ -487,14 +545,16 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     @Override
     public boolean onMarkerClick(Marker marker) {
         mCurrentMarker = marker;
-        showToast("onMarkerClick markerId=" + mCurrentMarker.getId());
-//        LogUtil.w(TAG,"mCurrentMarker.getId()="+mCurrentMarker.getId());
-        if (marker.getId().equals("Marker2")) {
+//        ToastUtil.show(activity, "onMarkerClick markerId=" + mCurrentMarker.getId());
+//        ToastUtil.show(activity, "onMarkerClick markerTitle=" + marker.getTitle());
+        if (marker.getTitle().equals("五爷庙")) {
             currentId = 1;
-        } else if (marker.getId().equals("Marker3")) {
+        } else if (marker.getTitle().equals("塔院寺")) {
             currentId = 2;
-        } else if (marker.getId().equals("Marker4")) {
+        } else if (marker.getTitle().equals("游客中心")) {
             currentId = 3;
+        } else {
+            currentId = 0;
         }
         return false;
     }
@@ -567,10 +627,12 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     @Override
     public void onWalkRouteSearched(WalkRouteResult result, int errorCode) {
         dismissProgressDialog();
+        mBottomLayout.setVisibility(View.VISIBLE);
+        mRotueTimeDes.setText(R.string.no_result);
         if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
             if (result != null && result.getPaths() != null) {
                 if (result.getPaths().size() > 0) {
-                    isNavigating=true;
+                    isNavigating = true;
                     aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
                     mWalkRouteResult = result;
                     final WalkPath walkPath = mWalkRouteResult.getPaths()
@@ -582,15 +644,14 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
                     walkRouteOverlay.removeFromMap();
                     walkRouteOverlay.addToMap();
                     walkRouteOverlay.zoomToSpan();
-                    mBottomLayout.setVisibility(View.VISIBLE);
+
                     int dis = (int) walkPath.getDistance();
                     int dur = (int) walkPath.getDuration();
                     String des = AMapUtil.getFriendlyTime(dur) + "(" + AMapUtil.getFriendlyLength(dis) + ")";
                     mRotueTimeDes.setText(des);
-                    mRouteDetailDes.setVisibility(View.GONE);
                     mCurrentOverlay = walkRouteOverlay;
                 } else if (result != null && result.getPaths() == null) {
-                    ToastUtil.show(mContext, R.string.no_result);
+                    ToastUtil.show(mContext, R.string.no_result + " path.size=" + result.getPaths().size());
                 }
 
             } else {
@@ -604,10 +665,12 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     @Override
     public void onDriveRouteSearched(DriveRouteResult result, int errorCode) {
         dismissProgressDialog();
+        mBottomLayout.setVisibility(View.VISIBLE);
+        mRotueTimeDes.setText(R.string.no_result);
         if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
             if (result != null && result.getPaths() != null) {
                 if (result.getPaths().size() > 0) {
-                    isNavigating=true;
+                    isNavigating = true;
                     aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
                     mDriveRouteResult = result;
                     final DrivePath drivePath = mDriveRouteResult.getPaths()
@@ -621,13 +684,13 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
                     drivingRouteOverlay.removeFromMap();
                     drivingRouteOverlay.addToMap();
                     drivingRouteOverlay.zoomToSpan();
-                    mBottomLayout.setVisibility(View.VISIBLE);
+
                     mCurrentOverlay = drivingRouteOverlay;
                     int dis = (int) drivePath.getDistance();
                     int dur = (int) drivePath.getDuration();
                     String des = AMapUtil.getFriendlyTime(dur) + "(" + AMapUtil.getFriendlyLength(dis) + ")";
                     mRotueTimeDes.setText(des);
-                    mRouteDetailDes.setVisibility(View.VISIBLE);
+//                    mRouteDetailDes.setVisibility(View.VISIBLE);
                 } else if (result != null && result.getPaths() == null) {
                     ToastUtil.show(activity, R.string.no_result);
                 }
@@ -644,10 +707,12 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     @Override
     public void onRideRouteSearched(RideRouteResult result, int errorCode) {
         dismissProgressDialog();
+        mBottomLayout.setVisibility(View.VISIBLE);
+        mRotueTimeDes.setText(R.string.no_result);
         if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
             if (result != null && result.getPaths() != null) {
                 if (result.getPaths().size() > 0) {
-                    isNavigating=true;
+                    isNavigating = true;
                     aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
                     mRideRouteResult = result;
                     final RidePath ridePath = mRideRouteResult.getPaths()
@@ -659,26 +724,120 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
                     rideRouteOverlay.removeFromMap();
                     rideRouteOverlay.addToMap();
                     rideRouteOverlay.zoomToSpan();
-                    mBottomLayout.setVisibility(View.VISIBLE);
+
                     mCurrentOverlay = rideRouteOverlay;
                     int dis = (int) ridePath.getDistance();
                     int dur = (int) ridePath.getDuration();
                     String des = AMapUtil.getFriendlyTime(dur) + "(" + AMapUtil.getFriendlyLength(dis) + ")";
                     mRotueTimeDes.setText(des);
-                    mRouteDetailDes.setVisibility(View.GONE);
                 } else if (result != null && result.getPaths() == null) {
                     ToastUtil.show(activity, R.string.no_result);
+
                 }
             } else {
                 ToastUtil.show(activity, R.string.no_result);
             }
         } else {
             ToastUtil.showerror(this.getApplicationContext(), errorCode);
+//            ToastUtil.show(activity, R.string.no_result);
         }
     }
 
     @Override
     public void onBusRouteSearched(BusRouteResult result, int errorCode) {
+    }
+
+
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        switch (id) {
+            case R.id.route_walk:
+                onWalkClick();
+                break;
+            case R.id.route_drive:
+                onDriveClick();
+                break;
+            case R.id.route_ride:
+                onRideClick();
+                break;
+            case R.id.cancel_route_guide:
+                resetMapView();
+            default:
+                break;
+        }
+    }
+
+    private void resetMapView() {
+        aMap.clear(true);
+        isNavigating = false;
+        mBottomLayout.setVisibility(View.GONE);
+        mRouteMapChooseLayout.setVisibility(View.GONE);
+        if (null != mCurrentOverlay)
+            mCurrentOverlay.removeFromMap();
+        addMarkersToMap();
+        resetLocationStyle();
+    }
+
+    @Override
+    public void onGeoFenceCreateFinished(List<GeoFence> geoFenceList, int errorCode, String customId) {
+        Message msg = Message.obtain();
+        if (errorCode == GeoFence.ADDGEOFENCE_SUCCESS) {
+            fenceList = geoFenceList;
+            msg.obj = customId;
+            msg.what = 0;
+        } else {
+            msg.arg1 = errorCode;
+            msg.what = 1;
+        }
+        LogUtil.i("onGeoFenceCreateFinished", "geoFenceList.size()=" + geoFenceList.size() + "....geoFnecelist.get(0).getradius=" + geoFenceList.get(0).getRadius());
+        handler.sendMessage(msg);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == RC_FINE_LOCA_PER) {
+
+            if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_EXTERNAL_STORAGE, RC_READ_EXTERNAL_STORAGE_PER);
+            } else {
+
+                if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_PHONE_STATE)) {
+                    PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
+                } else {
+                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                        setUpMap();
+                }
+            }
+
+        } else if (requestCode == RC_READ_EXTERNAL_STORAGE_PER) {
+            if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_PHONE_STATE)) {
+                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
+            } else {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                    setUpMap();
+            }
+        } else if (requestCode == RC_READ_PHONE_STATE_PER) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                setUpMap();
+
+        }
     }
 
     /**
@@ -730,135 +889,6 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
 
     }
 
-    @Override
-    protected boolean hasPopWindow() {
-        return false;
-    }
 
-    @Override
-    protected boolean isNeedInitBack() {
-        return false;
-    }
-
-    @Override
-    protected String getTopbarTitle() {
-        return null;
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == RC_FINE_LOCA_PER) {
-            if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_EXTERNAL_STORAGE, RC_READ_EXTERNAL_STORAGE_PER);
-            } else {
-                if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_PHONE_STATE)) {
-                    PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
-                } else {
-                    setUpMap();
-                }
-            }
-
-        } else if (requestCode == RC_READ_EXTERNAL_STORAGE_PER) {
-            if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_PHONE_STATE)) {
-                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
-            } else {
-                setUpMap();
-            }
-        } else if (requestCode == RC_READ_PHONE_STATE_PER) {
-            setUpMap();
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        switch (id) {
-            case R.id.route_walk:
-                onWalkClick();
-                break;
-            case R.id.route_drive:
-                onDriveClick();
-                break;
-            case R.id.route_ride:
-                onRideClick();
-                break;
-            case R.id.cancel_route_guide:
-                resetMapView();
-            default:
-                break;
-        }
-    }
-
-    private void resetMapView() {
-        aMap.clear(true);
-        mBottomLayout.setVisibility(View.GONE);
-        mRouteMapChooseLayout.setVisibility(View.GONE);
-        mCurrentOverlay.removeFromMap();
-        isNavigating=false;
-        addMarkersToMap();
-        resetLocationStyle();
-    }
-
-    @Override
-    public void onLocationChanged(AMapLocation aMapLocation) {
-        LogUtil.i("onLocationChanged", "onLocationChanged is called aMapLocation.getLatitude=" + aMapLocation.getLatitude() + ".......aMapLocation.getLongitude()=" + aMapLocation.getLongitude());
-//        myLatLan = new LatLng(aMapLocation.getLatitude(), aMapLocation.getLongitude());
-//        mStartPoint = new LatLonPoint(myLatLan.latitude, myLatLan.longitude);
-//        changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(myLatLan, 13, 0, 0)));
-//        aMap.setMyLocationStyle(myLocationStyle.myLocationType());
-//       aMapLocation.bearingTo()
-        if (isNavigating){
-            aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
-        }else{
-            resetLocationStyle();
-        }
-
-        LogUtil.w("onLocationChanged", "onLocationChanged/aMapLocation.getBearing()=" + aMapLocation.getBearing());
-    }
-
-    @Override
-    public void onMyLocationChange(Location location) {
-        if (location != null) {
-            LogUtil.e("onMyLocationChange", "onMyLocationChange iscalled， lat: " + location.getLatitude() + " lon: " + location.getLongitude());
-            Bundle bundle = location.getExtras();
-            if (bundle != null) {
-                int errorCode = bundle.getInt(MyLocationStyle.ERROR_CODE);
-                String errorInfo = bundle.getString(MyLocationStyle.ERROR_INFO);
-                // 定位类型，可能为GPS WIFI等，具体可以参考官网的定位SDK介绍
-                int locationType = bundle.getInt(MyLocationStyle.LOCATION_TYPE);
-                if (errorCode == 0) {
-                    LogUtil.i("onMyLocationChange", "定位成功");
-                    if (isFirstLocate) {
-                        myLatLan = new LatLng(location.getLatitude(), location.getLongitude());
-                        mStartPoint = new LatLonPoint(myLatLan.latitude, myLatLan.longitude);
-                        changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(myLatLan, 15, 0, 0)));
-                        isFirstLocate = false;
-                    }
-                }
-                LogUtil.e("onMyLocationChange", "定位信息， code: " + errorCode + " errorInfo: " + errorInfo + " locationType: " + locationType);
-            } else {
-                LogUtil.e("onMyLocationChange", "定位信息， bundle is null ");
-
-            }
-
-        } else {
-            LogUtil.e("amap", "定位失败");
-        }
-    }
-
-    @Override
-    public void onGeoFenceCreateFinished(List<GeoFence> geoFenceList, int errorCode, String customId) {
-        Message msg = Message.obtain();
-        if (errorCode == GeoFence.ADDGEOFENCE_SUCCESS) {
-            fenceList = geoFenceList;
-            msg.obj = customId;
-            msg.what = 0;
-        } else {
-            msg.arg1 = errorCode;
-            msg.what = 1;
-        }
-        handler.sendMessage(msg);
-    }
 }
 
