@@ -7,7 +7,7 @@ import com.bupt.mountwutai.R;
  */
 
 public class LocalProductsData {
-    public static int[] product_icon = new int[]{R.mipmap.g_wuyemiao, R.mipmap.g_nanshansi, R.mipmap.g_tayuansi, R.mipmap.g_foguangsi, R.mipmap.g_xiantongsi};
+    public static int[] product_icon = new int[]{R.mipmap.t_taimo, R.mipmap.t_limai, R.mipmap.t_foguoxiaomi, R.mipmap.t_jinlianhua, R.mipmap.t_taidangshen};
     public static String[] product_title = new String[]{"台蘑","礼麦", "佛国小米", "金莲花", "台党参"};
     public static String[] product_content = new String[]{"因生长在五台山台顶，故而得名。台蘑有两个不同品种：香蕈和银盘，从这两个名字可以看出，前者以香味取胜，后者形状独特，大如小盘且...",
             "“礼麦”是对五台山生长的藜麦品系的称呼，取义“天赐的礼物”、“礼佛之麦”。相传，五台山是文殊菩萨的道场，乃大福大圣之地，其特产更是蕴...",
