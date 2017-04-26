@@ -10,6 +10,9 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.BuddhistViewpagerAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.ui.activity.service.GovernFragment;
+import com.bupt.mountwutai.ui.activity.service.MedicalRescueFragment;
+import com.bupt.mountwutai.ui.activity.service.ComplaintFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +52,6 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_buddhist);
-//        type = getArguments().getString(CodeConstants.TYPE);
         initView();
     }
 
@@ -62,17 +64,17 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
             case CodeConstants.BUDDHISTACTION:
                 titles = buddhisrTitles;
                 fragments = new ArrayList<>();
-                fragments.add(new BuddhistChildFragment());
-                fragments.add(new BuddhistChildFragment());
+                fragments.add(new BuddhistActivitiesFragment());
+                fragments.add(new BuddhistActivitiesFragment());
                 fragments.add(new OnlineSurveyFragment());
                 break;
 
             case CodeConstants.SERVICE:
                 titles = serviceTitles;
                 fragments = new ArrayList<>();
-                fragments.add(new ServiceChildFragment());
-                fragments.add(new ServiceChildFragment2());
-                fragments.add(new ServiceChildFragment3());
+                fragments.add(new GovernFragment());
+                fragments.add(new MedicalRescueFragment());
+                fragments.add(new ComplaintFragment());
                 break;
         }
     }
@@ -99,9 +101,7 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
     private void initView() {
 
         titleTextView = (TextView) findViewById(R.id.top_name_text);
-//        titleTextView.setText(titles[0]);
         viewPager = (ViewPager) findViewById(R.id.buddhist_viewpager);
-//        findViewById(R.id.poping_image).setVisibility(View.GONE);
         xians[0] = (TextView) findViewById(R.id.buddhist_xian1);
         xians[1] = (TextView) findViewById(R.id.buddhist_xian2);
         xians[2] = (TextView) findViewById(R.id.buddhist_xian3);

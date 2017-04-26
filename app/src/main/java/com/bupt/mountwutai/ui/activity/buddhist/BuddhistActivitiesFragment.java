@@ -8,16 +8,16 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
 
 /**
- *
+ *  佛教活动
  */
 
-public class BuddhistChildFragment extends BaseFragment {
+public class BuddhistActivitiesFragment extends BaseFragment {
 
     private WebView webView;
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_buddhist_child);
+        setContentView(R.layout.fragment_buddhist_activities);
         webView = (WebView) findViewById(R.id.webviewId);
         WebSettings wSet = webView.getSettings();
         wSet.setJavaScriptEnabled(true);

@@ -1,13 +1,8 @@
-package com.bupt.mountwutai.ui.activity.buddhist;
+package com.bupt.mountwutai.ui.activity.service;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.text.util.Linkify;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,12 +10,10 @@ import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
 
-import java.util.regex.Pattern;
-
 /**
- * .
+ * 投诉建议
  */
-public class ServiceChildFragment3 extends BaseFragment implements View.OnClickListener {
+public class ComplaintFragment extends BaseFragment implements View.OnClickListener {
 
     private RelativeLayout service3_layout;
     private ImageView service3_img;
@@ -29,7 +22,7 @@ public class ServiceChildFragment3 extends BaseFragment implements View.OnClickL
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_service_child_fragment3);
+        setContentView(R.layout.fragment_complaint);
         initView();
     }
 

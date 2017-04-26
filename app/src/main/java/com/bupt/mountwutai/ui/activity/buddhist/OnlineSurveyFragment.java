@@ -8,7 +8,7 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 在线礼佛
  */
 public class OnlineSurveyFragment extends BaseFragment {
 

@@ -1,11 +1,8 @@
-package com.bupt.mountwutai.ui.activity.buddhist;
+package com.bupt.mountwutai.ui.activity.service;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,9 +11,9 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
 
 /**
- * .
+ * 医疗救援
  */
-public class ServiceChildFragment2 extends BaseFragment implements View.OnClickListener{
+public class MedicalRescueFragment extends BaseFragment implements View.OnClickListener{
 
     private RelativeLayout service2_layout,service2_layout2;
     private ImageView service2_img,service2_img2;
@@ -26,7 +23,7 @@ public class ServiceChildFragment2 extends BaseFragment implements View.OnClickL
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
-        setContentView(R.layout.fragment_service_child_fragment2);
+        setContentView(R.layout.fragment_medical_rescue);
         initView();
     }
 

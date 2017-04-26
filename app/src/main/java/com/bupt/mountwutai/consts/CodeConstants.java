@@ -22,7 +22,4 @@ public class CodeConstants {
     public static final String BUDDHISTACTION = "BUDDHISTACTION";//佛事
     public static final String SERVICE = "SERVICE";//服务
 
-    public static final int WuyeTemple = 1;//五爷庙
-    public static final int TaYuanTemple = 2;//塔院寺
-    public static final int TouristCentre = 3;//游客中心
 }
