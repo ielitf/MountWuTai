@@ -5,5 +5,97 @@
     android:orientation="vertical"
     tools:context="com.bupt.mountwutai.ui.activity.service.GovernFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/service_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/traffic_item_color">
+
+                <TextView
+                    android:id="@+id/service_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:text="五台山风景名胜区管理委员会"
+                    android:textColor="@color/navigation_select"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/service_img"
+                    android:layout_width="10dp"
+                    android:layout_height="6dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/trafficup" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/service_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="6dp"
+                android:paddingLeft="@dimen/guide_left"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:textSize="@dimen/space_14" />
+
+            <RelativeLayout
+                android:id="@+id/service_layout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/traffic_item_color">
+
+                <TextView
+                    android:id="@+id/service_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:text="五台县人民政府"
+                    android:textColor="@color/navigation_select"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/service_img2"
+                    android:layout_width="10dp"
+                    android:layout_height="6dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/trafficup" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/service_content2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="6dp"
+                android:paddingLeft="@dimen/guide_left"
+                android:paddingRight="20dp"
+                android:paddingTop="5dp"
+                android:textSize="@dimen/space_14" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
