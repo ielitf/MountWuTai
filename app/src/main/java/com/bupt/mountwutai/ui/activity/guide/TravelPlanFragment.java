@@ -287,6 +287,8 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
 
         aMap.getUiSettings().setMyLocationButtonEnabled(true);//设置默认定位按钮是否显示，非必需设置。
         aMap.getUiSettings().setZoomControlsEnabled(false);
+        aMap.getUiSettings().setCompassEnabled(true);
+
         myLocationStyle = new MyLocationStyle();
         resetLocationStyle();
 //        myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.mipmap.gps_point));
