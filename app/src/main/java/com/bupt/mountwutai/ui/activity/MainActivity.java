@@ -12,7 +12,6 @@ import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.buddhist.BuddhistFragment;
 import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
-import com.bupt.mountwutai.ui.activity.service.ServiceFragment;
 import com.bupt.mountwutai.ui.activity.summary.SummaryFragment;
 import com.bupt.mountwutai.util.LogUtil;
 
