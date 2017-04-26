@@ -33,6 +33,21 @@ public class ServiceChildFragment3 extends BaseFragment implements View.OnClickL
         initView();
     }
 
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
+    }
+
     private void initView() {
         service3_layout = (RelativeLayout) findViewById(R.id.service3_layout);
         service3_layout.setOnClickListener(this);

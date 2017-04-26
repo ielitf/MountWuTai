@@ -26,5 +26,20 @@ public class ServiceChildFragment extends BaseFragment {
 
     }
 
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
+    }
+
 
 }
