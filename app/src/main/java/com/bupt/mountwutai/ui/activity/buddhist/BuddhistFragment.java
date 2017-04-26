@@ -65,7 +65,7 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
                 titles = buddhisrTitles;
                 fragments = new ArrayList<>();
                 fragments.add(new BuddhistActivitiesFragment());
-                fragments.add(new BuddhistActivitiesFragment());
+                fragments.add(new BuddhistKnowledgeFragment());
                 fragments.add(new OnlineSurveyFragment());
                 break;
 
