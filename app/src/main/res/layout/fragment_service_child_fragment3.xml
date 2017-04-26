@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bupt.mountwutai.ui.activity.buddhist.ServiceChildFragment3">
+
+    <RelativeLayout
+        android:id="@+id/service3_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/traffic_item_color">
+
+        <TextView
+            android:id="@+id/service3_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:text="电话"
+            android:textColor="@color/navigation_select"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/service3_img"
+            android:layout_width="10dp"
+            android:layout_height="6dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/trafficup" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/service3_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="email|phone|web"
+        android:paddingLeft="@dimen/guide_left"
+        android:paddingRight="@dimen/guide_left"
+        android:paddingTop="15dp"
+        android:textSize="@dimen/space_14" />
+
+</LinearLayout>

@@ -67,9 +67,9 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
             case CodeConstants.SERVICE:
                 titles = serviceTitles;
                 fragments = new ArrayList<>();
-                fragments.add(new OnlineSurveyFragment());
-                fragments.add(new OnlineSurveyFragment());
-                fragments.add(new OnlineSurveyFragment());
+                fragments.add(new ServiceChildFragment());
+                fragments.add(new ServiceChildFragment2());
+                fragments.add(new ServiceChildFragment3());
                 break;
         }
         titleTextView = (TextView) findViewById(R.id.myButton);
