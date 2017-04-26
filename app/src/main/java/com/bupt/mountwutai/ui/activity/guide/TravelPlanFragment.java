@@ -65,9 +65,6 @@ import overlay.DrivingRouteOverlay;
 import overlay.RideRouteOverlay;
 import overlay.RouteOverlay;
 import overlay.WalkRouteOverlay;
-
-//import com.bupt.mountwutai.adapter.BusResultListAdapter;
-
 /**
  * 行程规划
  */
@@ -80,15 +77,13 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     private final int RC_FINE_LOCA_PER = 0x0021;
     private final int RC_READ_PHONE_STATE_PER = 0x0022;
     private final int RC_READ_EXTERNAL_STORAGE_PER = 0x23;
-    private final int ROUTE_TYPE_BUS = 1;
+    private final int ROUTE_TYPE_WALK = 1;
     private final int ROUTE_TYPE_DRIVE = 2;
-    private final int ROUTE_TYPE_WALK = 3;
-    private final int ROUTE_TYPE_RIDE = 4;
-    Object lock = new Object();
+    private final int ROUTE_TYPE_RIDE = 3;
+
+
     //UI相关
     private LinearLayout mRouteMapChooseLayout;
-    //    private LinearLayout mBusResultLayout;
-//    private ListView mBusResultList;
     private RelativeLayout mBottomLayout;
     private TextView mRotueTimeDes, mRouteDetailDes, mCancelRouteGuide;
     private ImageView mBus;
@@ -122,15 +117,17 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     private Marker mCurrentMarker;
     private String mCurrentCityName = "北京";
     //围栏相关
+    private Object lock = new Object();
     private GeoFenceClient mGeoFenceClient;
     private List<GeoFence> fenceList = new ArrayList<>();
-    private boolean isFirstLocate = true;
     // 记录已经添加成功的围栏
     private HashMap<String, GeoFence> fenceMap = new HashMap<String, GeoFence>();
     // 当前的坐标点集合，主要用于进行地图的可视区域的缩放
     private LatLngBounds.Builder boundsBuilder = new LatLngBounds.Builder();
     private LatLng fenceLatLng;
     private int currentId;
+    private boolean isFirstLocate = true;
+    private boolean isNavigating=false;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -573,6 +570,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
             if (result != null && result.getPaths() != null) {
                 if (result.getPaths().size() > 0) {
+                    isNavigating=true;
                     aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
                     mWalkRouteResult = result;
                     final WalkPath walkPath = mWalkRouteResult.getPaths()
@@ -609,6 +607,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
             if (result != null && result.getPaths() != null) {
                 if (result.getPaths().size() > 0) {
+                    isNavigating=true;
                     aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
                     mDriveRouteResult = result;
                     final DrivePath drivePath = mDriveRouteResult.getPaths()
@@ -648,6 +647,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
             if (result != null && result.getPaths() != null) {
                 if (result.getPaths().size() > 0) {
+                    isNavigating=true;
                     aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
                     mRideRouteResult = result;
                     final RidePath ridePath = mRideRouteResult.getPaths()
@@ -795,6 +795,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         mBottomLayout.setVisibility(View.GONE);
         mRouteMapChooseLayout.setVisibility(View.GONE);
         mCurrentOverlay.removeFromMap();
+        isNavigating=false;
         addMarkersToMap();
         resetLocationStyle();
     }
@@ -807,7 +808,12 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
 //        changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(myLatLan, 13, 0, 0)));
 //        aMap.setMyLocationStyle(myLocationStyle.myLocationType());
 //       aMapLocation.bearingTo()
-        resetLocationStyle();
+        if (isNavigating){
+            aMap.setMyLocationStyle(myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE));
+        }else{
+            resetLocationStyle();
+        }
+
         LogUtil.w("onLocationChanged", "onLocationChanged/aMapLocation.getBearing()=" + aMapLocation.getBearing());
     }
 
