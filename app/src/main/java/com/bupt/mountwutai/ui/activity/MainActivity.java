@@ -28,6 +28,7 @@ public class MainActivity extends BaseActivity {
     private GuideFragment guideFragment = null;
     private BuddhistFragment buddhistFragment = null;
     private BuddhistFragment serviceFragment=null;
+    private CommonFragment productsFragment = null;
     private ImageView start_img;
 
     @Override
@@ -132,6 +133,12 @@ public class MainActivity extends BaseActivity {
                 imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
                 imageButtons[3].setBackgroundResource(R.mipmap.specialty_selected);
                 imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
+                if (productsFragment == null) {
+                    productsFragment = CommonFragment.newFragment(CodeConstants.LOCAL_PRODUCTS);
+                    transaction.add(R.id.container, productsFragment);
+                } else {
+                    transaction.show(productsFragment);
+                }
                 break;
 
             case R.id.service://服务
@@ -169,6 +176,9 @@ public class MainActivity extends BaseActivity {
         }
         if (serviceFragment != null) {
             transaction.hide(serviceFragment);
+        }
+        if (productsFragment != null) {
+            transaction.hide(productsFragment);
         }
     }
 
