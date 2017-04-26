@@ -21,5 +21,6 @@ public class CodeConstants {
 
     public static final String BUDDHISTACTION = "BUDDHISTACTION";//佛事
     public static final String SERVICE = "SERVICE";//服务
+    public static final String LOCAL_PRODUCTS = "local_products";//土特产
 
 }

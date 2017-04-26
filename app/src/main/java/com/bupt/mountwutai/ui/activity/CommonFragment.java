@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.CommonAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.customdata.LocalProductsData;
 import com.bupt.mountwutai.customdata.SummaryData;
 import com.bupt.mountwutai.customdata.WutaiData;
 import com.bupt.mountwutai.entity.CommonBean;
@@ -21,6 +25,8 @@ import java.util.ArrayList;
  */
 
 public class CommonFragment extends BaseFragment implements AdapterView.OnItemClickListener{
+    private RelativeLayout fragmentTop;
+    private TextView fragmentTopName;
     private ArrayList<CommonBean> mData;
     private ListView listView;
     private CommonAdapter adapter;
@@ -38,6 +44,8 @@ public class CommonFragment extends BaseFragment implements AdapterView.OnItemCl
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_common);
         type = getArguments().getString(CodeConstants.TYPE);
+        fragmentTop = (RelativeLayout) findViewById(R.id.common_fragment_top);
+        fragmentTopName = (TextView) findViewById(R.id.top_name_text);
         listView = (ListView) findViewById(R.id.common_list);
         addData();
         adapter = new CommonAdapter(activity,mData) ;
@@ -56,6 +64,13 @@ public class CommonFragment extends BaseFragment implements AdapterView.OnItemCl
             case CodeConstants.WUTAI_RECIPES://五台食谱
                 for (int i = 0; i< WutaiData.wutai_icon.length; i++){
                     mData.add(new CommonBean(WutaiData.wutai_icon[i],WutaiData.wutai_title[i],WutaiData.wutai_content[i]));
+                }
+                break;
+            case CodeConstants.LOCAL_PRODUCTS://土特产
+                fragmentTop.setVisibility(View.VISIBLE);
+                fragmentTopName.setText("土特产");
+                for (int i = 0; i< LocalProductsData.product_icon.length; i++){
+                    mData.add(new CommonBean(LocalProductsData.product_icon[i],LocalProductsData.product_title[i],LocalProductsData.product_content[i]));
                 }
                 break;
             default:
