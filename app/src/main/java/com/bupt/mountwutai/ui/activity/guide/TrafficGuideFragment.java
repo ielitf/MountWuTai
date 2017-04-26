@@ -35,6 +35,21 @@ public class TrafficGuideFragment extends BaseFragment implements View.OnClickLi
         initView();
     }
 
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
+    }
+
     private void initView() {
         button1 = (TextView) findViewById(R.id.traffic_button1);
         button2 = (TextView) findViewById(R.id.traffic_button2);

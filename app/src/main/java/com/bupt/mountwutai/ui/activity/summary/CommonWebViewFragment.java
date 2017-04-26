@@ -41,6 +41,25 @@ public class CommonWebViewFragment extends BaseFragment {
         addData();
     }
 
+    /**
+     * 为true时，回到父类showPopWindow方法，在子类中重写该方法
+     * @return
+     */
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return null;
+    }
+
     private void initViews() {
         imageView[0] = (ImageView) findViewById(R.id.common_web_imag);
         imageView[1] = (ImageView) findViewById(R.id.common_web_imag2);

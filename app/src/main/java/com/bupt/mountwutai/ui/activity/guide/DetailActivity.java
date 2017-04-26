@@ -8,6 +8,7 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.DetailData;
+import com.bupt.mountwutai.util.LogUtil;
 
 
 public class DetailActivity extends BaseActivity implements View.OnClickListener {
@@ -16,7 +17,7 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
     private ImageView showImageView;//详情页图片
     private TextView contentTextView;//显示内容
 
-    int type = 0;//0 为五爷庙，1为塔院寺，2为游客中心
+    int id = 1;//1 为五爷庙，2为塔院寺，3为游客中心
 
     @Override
     protected void setLayout() {
@@ -25,36 +26,29 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     protected void initView() {
-        type = getIntent().getIntExtra(CodeConstants.TYPE, 0);
-        findViewById(R.id.top_back).setVisibility(View.VISIBLE);
-        findViewById(R.id.top_back).setOnClickListener(this);
-        findViewById(R.id.detail_play).setOnClickListener(this);
-        findViewById(R.id.popimg).setVisibility(View.GONE);
-        ((TextView) findViewById(R.id.myButton)).setText("详情");
+        id = getIntent().getIntExtra(CodeConstants.ID, 1);
+        LogUtil.w(TAG,"id="+id);
         titileTextView = (TextView) findViewById(R.id.detail_title);
         showImageView = (ImageView) findViewById(R.id.detail_imageview);
         contentTextView = (TextView) findViewById(R.id.detail_contenet);
-        showImageView.setBackgroundResource(DetailData.images[type]);
-        titileTextView.setText(DetailData.titles[type]);
-        contentTextView.setText(DetailData.contonts[type]);
+        showImageView.setBackgroundResource(DetailData.images[id-1]);
+        titileTextView.setText(DetailData.titles[id-1]);
+        contentTextView.setText(DetailData.contonts[id-1]);
     }
 
     @Override
     protected boolean isNeedInitBack() {
-        return false;
+        return true;
     }
 
     @Override
     protected String getTopbarTitle() {
-        return null;
+        return "详情";
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.top_back:
-                finish();
-                break;
             case R.id.detail_play://播放按钮
                 showToast("======");
                 break;

@@ -3,18 +3,19 @@ package com.bupt.mountwutai.ui.activity.summary;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CallBack;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.CommonFragment;
 import com.bupt.mountwutai.util.Utils;
+
 import java.util.ArrayList;
 
 /**
@@ -23,13 +24,9 @@ import java.util.ArrayList;
 
 public class SummaryFragment extends BaseFragment {
 
-    //下拉按钮
-    TextView myButton;
-    ImageView popImage;
-    LinearLayout mypoplayout;
-    Boolean isdown = true;
+    boolean isdown = true;
     //PopupWindow对象声明
-    PopupWindow pw;
+//    PopupWindow pw;
 
     ArrayList<String> list;
     //当前选中的列表项位置
@@ -37,7 +34,7 @@ public class SummaryFragment extends BaseFragment {
 
     private FrameLayout frameLayout;
     private CommonFragment frgment1;
-    private CommonWebViewFragment frgment2,frgment3,frgment4;
+    private CommonWebViewFragment frgment2, frgment3, frgment4;
     private FragmentManager fManager;
 
     @Override
@@ -47,13 +44,14 @@ public class SummaryFragment extends BaseFragment {
         FragmentTransaction fTransaction = fManager.beginTransaction();
         frameLayout = (FrameLayout) findViewById(R.id.fragment_summary);
         initView();
-        if(!frgment4.isAdded()){
-            fTransaction.add(R.id.fragment_summary,frgment4);
-        }else{
+        if (!frgment4.isAdded()) {
+            fTransaction.add(R.id.fragment_summary, frgment4);
+        } else {
             fTransaction.show(frgment4);
         }
         fTransaction.commitAllowingStateLoss();
     }
+
 
     private void initView() {
         frgment1 = CommonFragment.newFragment(CodeConstants.TEPMLE_SUMMARY);
@@ -61,73 +59,93 @@ public class SummaryFragment extends BaseFragment {
         frgment3 = CommonWebViewFragment.newFragment(CodeConstants.BUDDHIST_HOLY_LAND);
         frgment4 = CommonWebViewFragment.newFragment(CodeConstants.HISTORIC_LEGENDS);
 
-        mypoplayout = (LinearLayout) findViewById(R.id.mypoplayout);
-        myButton = (TextView) findViewById(R.id.myButton);
-        popImage = (ImageView) findViewById(R.id.popimg);
+//        mypoplayout = (LinearLayout) findViewById(R.id.my_pop_layout);
+//        myButton = (TextView) findViewById(R.id.top_name_text);
+//        popImage = (ImageView) findViewById(R.id.poping_image);
         //获得要显示的数据
         list = getList();
         //设置默认显示的Text
-        myButton.setText(list.get(0));
-        mypoplayout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                showPopWindow();
-            }
-        });
+//        myButton.setText(list.get(0));
+//        mypoplayout.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                showPopWindow();
+//            }
+//        });
     }
 
     //隐藏所有Fragment
-    private void hideAllFragment(FragmentTransaction fragmentTransaction){
-        if(frgment1.isAdded())fragmentTransaction.hide(frgment1);
-        if(frgment2.isAdded())fragmentTransaction.hide(frgment2);
-        if(frgment3.isAdded())fragmentTransaction.hide(frgment3);
-        if(frgment4.isAdded())fragmentTransaction.hide(frgment4);
+    private void hideAllFragment(FragmentTransaction fragmentTransaction) {
+        if (frgment1.isAdded()) fragmentTransaction.hide(frgment1);
+        if (frgment2.isAdded()) fragmentTransaction.hide(frgment2);
+        if (frgment3.isAdded()) fragmentTransaction.hide(frgment3);
+        if (frgment4.isAdded()) fragmentTransaction.hide(frgment4);
     }
 
-    //展示popwindow
-    private void showPopWindow() {
+    /**
+     * 为true时，回到父类showPopWindow方法，在子类中重写该方法
+     * @return
+     */
+    @Override
+    protected boolean hasPopWindow() {
+        return true;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return getList().get(0);
+    }
+
+    @Override
+    protected void showPopWindow(LinearLayout myPopLayout, final TextView titleText, final ImageView popImage) {
+        super.showPopWindow(myPopLayout, titleText, popImage);
         if (isdown) {
             isdown = false;
-            myButton.setBackgroundResource(R.mipmap.sanjiao);
+            titleText.setBackgroundResource(R.mipmap.sanjiao);
             popImage.setImageResource(R.mipmap.up);
         }
         Utils.showPopupwindow(activity, list, inflater,
-                mypoplayout, new CallBack() {
+                myPopLayout, new CallBack() {
                     @Override
                     public void itemClick(int position) {
-                        myButton.setText(list.get(position));
+                        titleText.setText(list.get(position));
                         FragmentTransaction fTransaction = fManager.beginTransaction();
                         hideAllFragment(fTransaction);
                         switch (position) {
                             case 0://历史传说
-                                if(!frgment4.isAdded()){
-                                    fTransaction.add(R.id.fragment_summary,frgment4);
-                                }else{
+                                if (!frgment4.isAdded()) {
+                                    fTransaction.add(R.id.fragment_summary, frgment4);
+                                } else {
                                     fTransaction.show(frgment4);
                                 }
                                 break;
 
                             case 1://地方风情
-                                if(!frgment2.isAdded()){
-                                    fTransaction.add(R.id.fragment_summary,frgment2);
-                                }else{
+                                if (!frgment2.isAdded()) {
+                                    fTransaction.add(R.id.fragment_summary, frgment2);
+                                } else {
                                     fTransaction.show(frgment2);
                                 }
                                 break;
 
                             case 2://佛教圣地
-                                if(!frgment3.isAdded()){
-                                    fTransaction.add(R.id.fragment_summary,frgment3);
-                                }else{
+                                if (!frgment3.isAdded()) {
+                                    fTransaction.add(R.id.fragment_summary, frgment3);
+                                } else {
                                     fTransaction.show(frgment3);
                                 }
                                 break;
 
                             case 3://寺庙一览
-                                if(!frgment1.isAdded()){
-                                    fTransaction.add(R.id.fragment_summary,frgment1);
-                                }else{
+                                if (!frgment1.isAdded()) {
+                                    fTransaction.add(R.id.fragment_summary, frgment1);
+                                } else {
                                     fTransaction.show(frgment1);
                                 }
                                 break;
@@ -143,12 +161,76 @@ public class SummaryFragment extends BaseFragment {
                     @Override
                     public void dismiss() {
                         isdown = true;
-                        myButton.setBackgroundResource(R.color.transparent);
+                        titleText.setBackgroundResource(R.color.transparent);
                         popImage.setImageResource(R.mipmap.down);
                     }
                 });
-
     }
+
+    //展示popwindow
+//    protected void showPopWindow() {
+//        if (isdown) {
+//            isdown = false;
+//            myButton.setBackgroundResource(R.mipmap.sanjiao);
+//            popImage.setImageResource(R.mipmap.up);
+//        }
+//        Utils.showPopupwindow(activity, list, inflater,
+//                mypoplayout, new CallBack() {
+//                    @Override
+//                    public void itemClick(int position) {
+//                        myButton.setText(list.get(position));
+//                        FragmentTransaction fTransaction = fManager.beginTransaction();
+//                        hideAllFragment(fTransaction);
+//                        switch (position) {
+//                            case 0://历史传说
+//                                if(!frgment4.isAdded()){
+//                                    fTransaction.add(R.id.fragment_summary,frgment4);
+//                                }else{
+//                                    fTransaction.show(frgment4);
+//                                }
+//                                break;
+//
+//                            case 1://地方风情
+//                                if(!frgment2.isAdded()){
+//                                    fTransaction.add(R.id.fragment_summary,frgment2);
+//                                }else{
+//                                    fTransaction.show(frgment2);
+//                                }
+//                                break;
+//
+//                            case 2://佛教圣地
+//                                if(!frgment3.isAdded()){
+//                                    fTransaction.add(R.id.fragment_summary,frgment3);
+//                                }else{
+//                                    fTransaction.show(frgment3);
+//                                }
+//                                break;
+//
+//                            case 3://寺庙一览
+//                                if(!frgment1.isAdded()){
+//                                    fTransaction.add(R.id.fragment_summary,frgment1);
+//                                }else{
+//                                    fTransaction.show(frgment1);
+//                                }
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//                        if (clickPsition != position) {
+//                            clickPsition = position;
+//                        }
+//                        fTransaction.commitAllowingStateLoss();
+//                    }
+//
+//                    @Override
+//                    public void dismiss() {
+//                        isdown = true;
+//                        myButton.setBackgroundResource(R.color.transparent);
+//                        popImage.setImageResource(R.mipmap.down);
+//                    }
+//                });
+//
+//    }
 
     //得到list集合的方法
     public ArrayList<String> getList() {

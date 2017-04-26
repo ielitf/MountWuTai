@@ -26,7 +26,8 @@ public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private SummaryFragment summaryFragment = null;
     private GuideFragment guideFragment = null;
-    private BuddhistFragment buddhistFragment = null, serviceFragment = null;
+    private BuddhistFragment buddhistFragment = null;
+    private BuddhistFragment serviceFragment=null;
     private ImageView start_img;
 
     @Override
@@ -57,7 +58,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        start_img = (ImageView) findViewById(R.id.start_img);
+        start_img= (ImageView) findViewById(R.id.start_img);
         textViews[0] = (TextView) findViewById(R.id.text1);
         textViews[1] = (TextView) findViewById(R.id.text2);
         textViews[2] = (TextView) findViewById(R.id.text3);
@@ -141,7 +142,8 @@ public class MainActivity extends BaseActivity {
                 imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
                 imageButtons[4].setBackgroundResource(R.mipmap.service_selected);
                 if (serviceFragment == null) {
-                    serviceFragment = BuddhistFragment.newFragment(CodeConstants.SERVICE);
+//                    serviceFragment = new ServiceFragment();
+                    serviceFragment=BuddhistFragment.newFragment(CodeConstants.SERVICE);
                     transaction.add(R.id.container, serviceFragment);
                 } else {
                     transaction.show(serviceFragment);

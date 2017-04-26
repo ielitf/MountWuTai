@@ -37,11 +37,11 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
     }
 
     public static BuddhistFragment newFragment(String type) {
-        BuddhistFragment buddhistFragment = new BuddhistFragment();
+        BuddhistFragment fragment = new BuddhistFragment();
         Bundle args = new Bundle();
         args.putString(CodeConstants.TYPE, type);
-        buddhistFragment.setArguments(args);
-        return buddhistFragment;
+        fragment.setArguments(args);
+        return fragment;
     }
 
     String type;
@@ -49,11 +49,14 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_buddhist);
-        type = getArguments().getString(CodeConstants.TYPE);
+//        type = getArguments().getString(CodeConstants.TYPE);
         initView();
     }
 
-    private void initView() {
+    @Override
+    protected void initArgs() {
+        super.initArgs();
+        type=getArguments().getString(CodeConstants.TYPE);
         switch (type) {
 
             case CodeConstants.BUDDHISTACTION:
@@ -72,10 +75,33 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
                 fragments.add(new ServiceChildFragment3());
                 break;
         }
-        titleTextView = (TextView) findViewById(R.id.myButton);
-        titleTextView.setText(titles[0]);
+    }
+
+    /**
+     * 为true时，回到父类showPopWindow方法，在子类中重写该方法
+     * @return
+     */
+    @Override
+    protected boolean hasPopWindow() {
+        return false;
+    }
+
+    @Override
+    protected boolean isNeedInitBack() {
+        return false;
+    }
+
+    @Override
+    protected String getTopbarTitle() {
+        return titles[0];
+    }
+
+    private void initView() {
+
+        titleTextView = (TextView) findViewById(R.id.top_name_text);
+//        titleTextView.setText(titles[0]);
         viewPager = (ViewPager) findViewById(R.id.buddhist_viewpager);
-        findViewById(R.id.popimg).setVisibility(View.GONE);
+//        findViewById(R.id.poping_image).setVisibility(View.GONE);
         xians[0] = (TextView) findViewById(R.id.buddhist_xian1);
         xians[1] = (TextView) findViewById(R.id.buddhist_xian2);
         xians[2] = (TextView) findViewById(R.id.buddhist_xian3);
