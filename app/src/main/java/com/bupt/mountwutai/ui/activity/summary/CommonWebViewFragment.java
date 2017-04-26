@@ -86,12 +86,12 @@ public class CommonWebViewFragment extends BaseFragment {
                 textView_title.setVisibility(View.VISIBLE);
                 imageView[0].setImageResource(SummaryData.buddhist_holy_land_img[0]);
                 textView[0].setText(SummaryData.buddhist_holy_land_text[0]);
-                for (int i = 1;i<=imageView.length-1;i++){
-                    imageView[i].setVisibility(View.VISIBLE);
-                    textView[i].setVisibility(View.VISIBLE);
-                    imageView[i].setImageResource(SummaryData.buddhist_holy_land_img[i]);
-                    textView[i].setText(SummaryData.buddhist_holy_land_text[i]);
-                }
+//                for (int i = 1;i<=imageView.length-1;i++){
+//                    imageView[i].setVisibility(View.VISIBLE);
+//                    textView[i].setVisibility(View.VISIBLE);
+//                    imageView[i].setImageResource(SummaryData.buddhist_holy_land_img[i]);
+//                    textView[i].setText(SummaryData.buddhist_holy_land_text[i]);
+//                }
                 break;
             case CodeConstants.HISTORIC_LEGENDS://历史传说
                 imageView[0].setImageResource(SummaryData.historic_legends_img[0]);

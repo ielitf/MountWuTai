@@ -8,8 +8,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/space_10"
-        android:paddingRight="@dimen/space_10"
+        android:paddingLeft="@dimen/space_8"
+        android:paddingRight="@dimen/space_8"
         android:scrollbars="none"
         android:fillViewport="true">
 
@@ -28,7 +28,7 @@
                 android:id="@+id/common_web_tvContent_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="走进塔院寺"
+                android:text="世界有五大佛教圣地 却只有一个在中国——五台山"
                 android:textStyle="bold"
                 android:visibility="gone"
                 android:textSize="@dimen/space_20"
