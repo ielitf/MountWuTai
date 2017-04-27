@@ -16,9 +16,11 @@ public class CommonAdapter extends android.widget.BaseAdapter {
 
     private ArrayList<CommonBean> mData;
     private LayoutInflater inflater;
+    private boolean isOnline;//判断是不是在线礼佛
 
-    public CommonAdapter(Context context, ArrayList<CommonBean> mData) {
+    public CommonAdapter(Context context, ArrayList<CommonBean> mData, boolean isOnline) {
         this.mData = mData;
+        this.isOnline = isOnline;
         inflater = LayoutInflater.from(context);
     }
 
@@ -46,9 +48,16 @@ public class CommonAdapter extends android.widget.BaseAdapter {
             holderView.title = (TextView) convertView.findViewById(R.id.comm_title);
             holderView.content = (TextView) convertView.findViewById(R.id.comm_detail);
             holderView.imageView = (ImageView) convertView.findViewById(R.id.comm_img);
+            holderView.price = (TextView) convertView.findViewById(R.id.comm_price);
+            holderView.more = (TextView) convertView.findViewById(R.id.comm_more);
             convertView.setTag(holderView);
         } else {
             holderView = (ViewHolder) convertView.getTag();
+        }
+        if (isOnline) {
+            holderView.more.setVisibility(View.GONE);
+            holderView.price.setVisibility(View.VISIBLE);
+            holderView.price.setText("￥" + mData.get(position).getPrice());
         }
         holderView.title.setText(mData.get(position).getTitle());
         holderView.content.setText(mData.get(position).getContent());
@@ -57,7 +66,7 @@ public class CommonAdapter extends android.widget.BaseAdapter {
     }
 
     class ViewHolder {
-        private TextView title, content;
+        private TextView title, content, price, more;
         private ImageView imageView;
     }
 }

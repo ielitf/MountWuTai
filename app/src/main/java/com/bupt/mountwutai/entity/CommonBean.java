@@ -8,8 +8,24 @@ public class CommonBean {
     private int icon;
     private String title;
     private String content;
+    private String price;
 
-    public CommonBean (int icon,String title,String content){
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public CommonBean(int icon, String title, String content, String price) {
+        this.icon = icon;
+        this.title = title;
+        this.content = content;
+        this.price = price;
+    }
+
+    public CommonBean(int icon, String title, String content) {
         this.icon = icon;
         this.title = title;
         this.content = content;
@@ -45,6 +61,7 @@ public class CommonBean {
                 "icon=" + icon +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", price='" + price + '\'' +
                 '}';
     }
 }

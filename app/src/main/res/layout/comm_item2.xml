@@ -44,8 +44,22 @@
                 android:maxLines="1"
                 android:text="更多>"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:textColor="@color/text_gray"
                 android:textSize="@dimen/space_12" />
+
+            <TextView
+                android:id="@+id/comm_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_centerVertical="true"
+                android:visibility="gone"
+                android:text="￥67-91元"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/top_back"
+                android:textSize="@dimen/space_14" />
         </RelativeLayout>
 
         <TextView

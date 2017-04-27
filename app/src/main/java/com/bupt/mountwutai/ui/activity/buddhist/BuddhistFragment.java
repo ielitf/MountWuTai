@@ -10,6 +10,7 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.BuddhistViewpagerAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.ui.activity.CommonFragment;
 import com.bupt.mountwutai.ui.activity.service.GovernFragment;
 import com.bupt.mountwutai.ui.activity.service.MedicalRescueFragment;
 import com.bupt.mountwutai.ui.activity.service.ComplaintFragment;
@@ -66,7 +67,7 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
                 fragments = new ArrayList<>();
                 fragments.add(new BuddhistActivitiesFragment());
                 fragments.add(new BuddhistKnowledgeFragment());
-                fragments.add(new OnlineSurveyFragment());
+                fragments.add(CommonFragment.newFragment(CodeConstants.BUDDHA_ONLINE));
                 break;
 
             case CodeConstants.SERVICE:
