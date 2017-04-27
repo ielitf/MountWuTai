@@ -40,6 +40,7 @@ public class GuideFragment extends BaseFragment {
     private TravelPlanFragment travelPlanFragment = null;//交通指南
     private TravelStrategyFragment travelStrategyFragment = null;//朝台攻略
     private CommonFragment commonFragment = null;//五台食谱
+    private HotleFragment hotleFragment = null;//酒店
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
@@ -98,7 +99,12 @@ public class GuideFragment extends BaseFragment {
                                 break;
 
                             case 2://酒店
-
+                                if (hotleFragment == null) {
+                                    hotleFragment = new HotleFragment();
+                                    transaction.add(R.id.guide_container, hotleFragment);
+                                } else {
+                                    transaction.show(hotleFragment);
+                                }
                                 break;
 
                             case 3://五台食谱
@@ -136,6 +142,9 @@ public class GuideFragment extends BaseFragment {
 
     private void hideFragments(FragmentTransaction transaction) {
         LogUtil.i(TAG, "hideFragments is called");
+        if (hotleFragment != null) {
+            transaction.hide(hotleFragment);
+        }
         if (trafficGuideFragment != null) {
             transaction.hide(trafficGuideFragment);
         }
