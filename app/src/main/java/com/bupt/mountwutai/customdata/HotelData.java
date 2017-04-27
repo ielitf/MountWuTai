@@ -21,5 +21,5 @@ public class HotelData {
             "参考价格：标准间160元", "地址：五台县五台山台怀镇尧子村（集福寺旁）\n" +
             "联系方式：0350-6545369\n" +
             "参考价格：120-218元不等"};
-    public static int[] show_imgs = new int[]{R.mipmap.g_difangfengqing, R.mipmap.g_difangfengqing, R.mipmap.g_difangfengqing, R.mipmap.g_difangfengqing};
+    public static int[] show_imgs = new int[]{R.mipmap.hotel_image3, R.mipmap.hotel_image4, R.mipmap.hotel_image1, R.mipmap.hotel_image2};
 }
