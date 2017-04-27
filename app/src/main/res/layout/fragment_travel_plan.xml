@@ -8,93 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent">
-
-        <!--<LinearLayout-->
-        <!--android:id="@+id/routemap_choose"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="44dp"-->
-        <!--android:background="@android:color/white"-->
-        <!--android:paddingLeft="10dp"-->
-        <!--android:paddingRight="10dp">-->
-
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1">-->
-
-        <!--<ImageView-->
-        <!--android:id="@+id/route_walk"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_weight="1"-->
-        <!--android:src="@mipmap/route_walk_normal" />-->
-        <!--</RelativeLayout>-->
-
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1">-->
-
-        <!--<ImageView-->
-        <!--android:id="@+id/route_drive"-->
-        <!--android:layout_width="22dp"-->
-        <!--android:layout_height="22dp"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:src="@mipmap/route_drive_normal" />-->
-        <!--</RelativeLayout>-->
-
-
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1">-->
-
-        <!--<ImageView-->
-        <!--android:id="@+id/route_ride"-->
-        <!--android:layout_width="22dp"-->
-        <!--android:layout_height="22dp"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_weight="1"-->
-        <!--android:src="@mipmap/route_ride_normal" />-->
-        <!--</RelativeLayout>-->
-
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1"-->
-        <!--android:visibility="gone">-->
-
-        <!--<ImageView-->
-        <!--android:id="@+id/route_bus"-->
-        <!--android:layout_width="22dp"-->
-        <!--android:layout_height="22dp"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_weight="1"-->
-        <!--android:src="@mipmap/route_bus_normal" />-->
-        <!--</RelativeLayout>-->
-
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1"-->
-
-        <!--android:visibility="gone">-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/route_CrosstownBus"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="22dp"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:text="跨城公交"-->
-        <!--android:textColor="@color/gary" />-->
-        <!--</RelativeLayout>-->
-        <!--</LinearLayout>-->
     </RelativeLayout>
 
     <RelativeLayout
@@ -113,7 +26,8 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:textColor="#333333"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:text="@string/no_result"/>
 
         <TextView
             android:id="@+id/secondline"
@@ -138,35 +52,32 @@
             android:textColor="@color/blue"
             android:textSize="16sp"/>
 
-        <LinearLayout
-            android:id="@+id/detail"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:visibility="gone">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/detail"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:visibility="gone">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="详情"
-                android:textColor="@color/blue"
-                android:textSize="14sp" />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:text="详情"-->
+                <!--android:textColor="@color/blue"-->
+                <!--android:textSize="14sp" />-->
 
-            <Button
-                android:layout_width="7dp"
-                android:layout_height="13dp"
-                android:layout_marginLeft="4dp"
-                android:background="@mipmap/arrow_right_blue"
-                android:gravity="center_vertical" />
-        </LinearLayout>
+            <!--<Button-->
+                <!--android:layout_width="7dp"-->
+                <!--android:layout_height="13dp"-->
+                <!--android:layout_marginLeft="4dp"-->
+                <!--android:background="@mipmap/arrow_right_blue"-->
+                <!--android:gravity="center_vertical" />-->
+        <!--</LinearLayout>-->
     </RelativeLayout>
-    <!--<FrameLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"></FrameLayout>-->
     <com.amap.api.maps.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"
