@@ -44,14 +44,14 @@ def renameAPK(variant, defaultConfig) {
         def applicationName = 'MountWutai'
         def formattedDate = new Date().format('yyyyMMdd')
         def file = output.packageApplication.outputFile
+        def fileName
         if (variant.buildType.name.equals('release')) {
-            def fileName = applicationName + "_v" + defaultConfig.versionName + "_" + formattedDate + "" + ".apk"
-            output.packageApplication.outputFile = new File(file.parent, fileName)
+            fileName = applicationName + "_v" + defaultConfig.versionName + "_" + formattedDate + "" + ".apk"
         }
         if (variant.buildType.name.equals('debug')) {
-            def fileName = applicationName + "_v" + defaultConfig.versionName + "_" + formattedDate + "_debug" + ".apk"
-            output.packageApplication.outputFile = new File(file.parent, fileName)
+            fileName = applicationName + "_v" + defaultConfig.versionName + "_" + formattedDate + "_debug" + ".apk"
         }
+        output.packageApplication.outputFile = new File(file.parent, fileName)
     }
 }
 

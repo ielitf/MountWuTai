@@ -49,7 +49,10 @@ public class CommonFragment extends BaseFragment implements AdapterView.OnItemCl
         fragmentTopName = (TextView) findViewById(R.id.top_name_text);
         listView = (ListView) findViewById(R.id.common_list);
         addData();
-        adapter = new CommonAdapter(activity, mData, isOnline);
+        adapter = new CommonAdapter(activity, mData);
+        if (type.equals(CodeConstants.BUDDHA_ONLINE)) {
+            adapter.setOnline(true);
+        }
         listView.setAdapter(adapter);
     }
 

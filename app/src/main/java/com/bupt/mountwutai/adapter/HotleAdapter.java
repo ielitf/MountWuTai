@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,23 +16,28 @@ import java.util.ArrayList;
  * 酒店listview的适配器
  */
 
-public class HotleAdapter extends BaseAdapter {
-    private ArrayList<HotleBean> mData;
+public class HotleAdapter extends MyBaseAdapter<HotleBean> {
     private LayoutInflater inflater;
 
-    public HotleAdapter(Context context, ArrayList<HotleBean> mData) {
-        this.mData = mData;
-        inflater = LayoutInflater.from(context);
+    @Override
+    protected View newView(Context context, int position, ViewGroup parentView) {
+        ViewHolder holderView = new ViewHolder();
+        View convertView = inflater.inflate(R.layout.hotel_item, null, false);
+        holderView.title = (TextView) convertView.findViewById(R.id.hotle_title);
+        holderView.content = (TextView) convertView.findViewById(R.id.hotle_detail);
+        holderView.address = (TextView) convertView.findViewById(R.id.hotle_address);
+        holderView.imageView = (ImageView) convertView.findViewById(R.id.hotle_img);
+        convertView.setTag(holderView);
+        return convertView;
     }
 
     @Override
-    public int getCount() {
-        return mData == null ? 0 : mData.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return mData.get(position);
+    protected void bindView(Context context, View view, int position, HotleBean model) {
+        ViewHolder holderView = (ViewHolder) view.getTag();
+        holderView.title.setText(model.getTitle());
+        holderView.content.setText(model.getContent());
+        holderView.address.setText(model.getAddress());
+        holderView.imageView.setImageResource(model.getIcon());
     }
 
     @Override
@@ -41,29 +45,14 @@ public class HotleAdapter extends BaseAdapter {
         return position;
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holderView;
-        if (convertView == null) {
-            holderView = new ViewHolder();
-            convertView = inflater.inflate(R.layout.hotel_item, null, false);
-            holderView.title = (TextView) convertView.findViewById(R.id.hotle_title);
-            holderView.content = (TextView) convertView.findViewById(R.id.hotle_detail);
-            holderView.address = (TextView) convertView.findViewById(R.id.hotle_address);
-            holderView.imageView = (ImageView) convertView.findViewById(R.id.hotle_img);
-            convertView.setTag(holderView);
-        } else {
-            holderView = (ViewHolder) convertView.getTag();
-        }
-        holderView.title.setText(mData.get(position).getTitle());
-        holderView.content.setText(mData.get(position).getContent());
-        holderView.address.setText(mData.get(position).getAddress());
-        holderView.imageView.setImageResource(mData.get(position).getIcon());
-        return convertView;
-    }
-
     class ViewHolder {
-        private TextView title, content,address;
+        private TextView title, content, address;
         private ImageView imageView;
     }
+
+    public HotleAdapter(Context context, ArrayList<HotleBean> mData) {
+        super(context, mData);
+        this.inflater = LayoutInflater.from(context);
+    }
+
 }
