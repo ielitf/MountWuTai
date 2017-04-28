@@ -95,6 +95,7 @@
                 android:paddingLeft="@dimen/guide_left"
                 android:paddingRight="20dp"
                 android:paddingTop="5dp"
+                android:layout_marginBottom="16dp"
                 android:textSize="@dimen/space_14" />
         </LinearLayout>
     </ScrollView>
