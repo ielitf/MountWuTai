@@ -68,4 +68,5 @@ dependencies {
     compile 'pub.devrel:easypermissions:0.2.1'
     compile 'com.android.support:support-v4:23.4.0'
     testCompile 'junit:junit:4.12'
+    compile project(':mylibrary')
 }

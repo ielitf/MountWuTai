@@ -1,0 +1,25 @@
+<com.bupt.mylibrary.SmartTab.SmartTabLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/viewpagertab"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/transparent"
+
+    app:stl_defaultTabTextColor="@color/custom_tab"
+    app:stl_distributeEvenly="true"
+    app:stl_defaultTabTextHorizontalPadding="5dp"
+    app:stl_indicatorColor="@color/top_back"
+    app:stl_indicatorCornerRadius="0dp"
+    app:stl_indicatorInterpolation="smart"
+    app:stl_indicatorThickness="3dp"
+    app:stl_defaultTabTextSize="13dp"
+    app:stl_dividerColor="@color/top_back"
+    app:stl_dividerThickness="1dp"
+    app:stl_overlineColor="@color/transparent"
+    app:stl_underlineColor="@color/top_back"
+    app:stl_underlineThickness="0.5dp"
+    app:stl_defaultTabBackground="@color/transparent"
+    />
+
+

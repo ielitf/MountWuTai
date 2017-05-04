@@ -1,41 +1,37 @@
 package com.bupt.mountwutai.ui.activity.buddhist;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.View;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
-import com.bupt.mountwutai.adapter.BuddhistViewpagerAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.CommonFragment;
 import com.bupt.mountwutai.ui.activity.service.GovernFragment;
 import com.bupt.mountwutai.ui.activity.service.MedicalRescueFragment;
 import com.bupt.mountwutai.ui.activity.service.ComplaintFragment;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.bupt.mylibrary.SmartTab.SmartTabLayout;
+import com.bupt.mylibrary.SmartTab.UtilsV4.v4.FragmentPagerItem;
+import com.bupt.mylibrary.SmartTab.UtilsV4.v4.FragmentPagerItemAdapter;
+import com.bupt.mylibrary.SmartTab.UtilsV4.v4.FragmentPagerItems;
 
 /**
  * 佛事,服务
  */
 
-public class BuddhistFragment extends BaseFragment implements View.OnClickListener {
+public class BuddhistFragment extends BaseFragment {
 
     private TextView titleTextView;
-    private TextView[] xians = new TextView[3];//导航条
-    private TextView[] titleTextViews = new TextView[3];//标题
     private String[] buddhisrTitles = {"佛教活动", "佛教知识", "在线礼佛"};//标题内容
     private String[] serviceTitles = {"政府机构", "医疗救援", "投诉建议"};
 
     private String[] titles = new String[3];
 
+    ViewGroup tab;//导航条
     private ViewPager viewPager;
-
-    private List<Fragment> fragments;//用于存储页面
-    private BuddhistViewpagerAdapter viewpagerAdapter;
 
     public BuddhistFragment() {
     }
@@ -59,29 +55,12 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
     @Override
     protected void initArgs() {
         super.initArgs();
-        type=getArguments().getString(CodeConstants.TYPE);
-        switch (type) {
-
-            case CodeConstants.BUDDHISTACTION:
-                titles = buddhisrTitles;
-                fragments = new ArrayList<>();
-                fragments.add(new BuddhistActivitiesFragment());
-                fragments.add(new BuddhistKnowledgeFragment());
-                fragments.add(CommonFragment.newFragment(CodeConstants.BUDDHA_ONLINE));
-                break;
-
-            case CodeConstants.SERVICE:
-                titles = serviceTitles;
-                fragments = new ArrayList<>();
-                fragments.add(new GovernFragment());
-                fragments.add(new MedicalRescueFragment());
-                fragments.add(new ComplaintFragment());
-                break;
-        }
+        type = getArguments().getString(CodeConstants.TYPE);
     }
 
     /**
      * 为true时，回到父类showPopWindow方法，在子类中重写该方法
+     *
      * @return
      */
     @Override
@@ -100,23 +79,38 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
     }
 
     private void initView() {
-
+        tab = (ViewGroup) findViewById(R.id.tab);
         titleTextView = (TextView) findViewById(R.id.top_name_text);
         viewPager = (ViewPager) findViewById(R.id.buddhist_viewpager);
-        xians[0] = (TextView) findViewById(R.id.buddhist_xian1);
-        xians[1] = (TextView) findViewById(R.id.buddhist_xian2);
-        xians[2] = (TextView) findViewById(R.id.buddhist_xian3);
-        titleTextViews[0] = (TextView) findViewById(R.id.buddhist_na1);
-        titleTextViews[1] = (TextView) findViewById(R.id.buddhist_na2);
-        titleTextViews[2] = (TextView) findViewById(R.id.buddhist_na3);
-        for (int i = 0; i < titleTextViews.length; i++) {
-            titleTextViews[i].setText(titles[i]);
-            titleTextViews[i].setOnClickListener(this);
+        tab.addView(LayoutInflater.from(activity).inflate(R.layout.tab_top_layout, tab, false));
+
+        SmartTabLayout viewPagerTab = (SmartTabLayout) findViewById(R.id.viewpagertab);
+        FragmentPagerItems pages = new FragmentPagerItems(activity);
+        switch (type) {
+
+            case CodeConstants.BUDDHISTACTION:
+                titles = buddhisrTitles;
+                pages.add(FragmentPagerItem.of(titles[0], BuddhistActivitiesFragment.class));
+                pages.add(FragmentPagerItem.of(titles[1], BuddhistKnowledgeFragment.class));
+                Bundle args = new Bundle();
+                args.putString(CodeConstants.TYPE, CodeConstants.BUDDHA_ONLINE);
+                pages.add(FragmentPagerItem.of(titles[2], CommonFragment.class, args));
+                break;
+
+            case CodeConstants.SERVICE:
+                titles = serviceTitles;
+                pages.add(FragmentPagerItem.of(titles[0], GovernFragment.class));
+                pages.add(FragmentPagerItem.of(titles[1], MedicalRescueFragment.class));
+                pages.add(FragmentPagerItem.of(titles[2], ComplaintFragment.class));
+                break;
         }
 
-        viewpagerAdapter = new BuddhistViewpagerAdapter(getChildFragmentManager(), fragments);
+        FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
+                getChildFragmentManager(), pages);
+
+        viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(3);
-        viewPager.setAdapter(viewpagerAdapter);
+        viewPagerTab.setViewPager(viewPager);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -125,7 +119,7 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
 
             @Override
             public void onPageSelected(int position) {
-                setXianBack(position);
+                titleTextView.setText(titles[position]);
             }
 
             @Override
@@ -135,34 +129,4 @@ public class BuddhistFragment extends BaseFragment implements View.OnClickListen
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.buddhist_na1:
-                viewPager.setCurrentItem(0);
-                setXianBack(0);
-                break;
-
-            case R.id.buddhist_na2:
-                viewPager.setCurrentItem(1);
-                setXianBack(1);
-                break;
-
-            case R.id.buddhist_na3:
-                viewPager.setCurrentItem(2);
-                setXianBack(2);
-                break;
-        }
-    }
-
-    private void setXianBack(int i) {
-        titleTextView.setText(titles[i]);
-        for (int j = 0; j < xians.length; j++) {
-            if (i == j) {
-                xians[j].setBackgroundColor(getResources().getColor(R.color.top_back));
-            } else {
-                xians[j].setBackgroundColor(getResources().getColor(R.color.transparent));
-            }
-        }
-    }
 }
