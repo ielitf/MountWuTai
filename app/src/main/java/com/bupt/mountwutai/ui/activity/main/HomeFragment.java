@@ -3,11 +3,14 @@ package com.bupt.mountwutai.ui.activity.main;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.ListView;
+
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.HomeListAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
 import com.bupt.mountwutai.customdata.SummaryData;
 import com.bupt.mountwutai.entity.CommonBean;
+import com.bupt.mountwutai.entity.mian.CustomBean;
+import com.bupt.mountwutai.entity.mian.SlidesEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,15 +28,46 @@ public class HomeFragment extends BaseFragment {
     ArrayList<CommonBean> commonBeanLists2 = new ArrayList<>();
     ArrayList<CommonBean> commonBeanLists3 = new ArrayList<>();
     private HomeListAdapter homeListAdapter;
+    HeaderPanel headerPanel;
+    SlidesPanel slidesPanel;
+    List<CustomBean> headers = new ArrayList<>();
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_home);
         context = getActivity();
         listView = (ListView) findViewById(R.id.home_list);
-        homeListAdapter = new HomeListAdapter(context,homeLists,nameList);
+        homeListAdapter = new HomeListAdapter(context, homeLists, nameList);
         listView.setAdapter(homeListAdapter);
         addData();
+        List<SlidesEntity> datas = new ArrayList<>();
+        datas.add(new SlidesEntity("", "title1"));
+        datas.add(new SlidesEntity("", "title2"));
+        datas.add(new SlidesEntity("", "title3"));
+        datas.add(new SlidesEntity("", "title4"));
+        slidesPanel = new SlidesPanel(activity);
+        slidesPanel.setData(datas);
+        slidesPanel.startLoop(3000);
+        initheader();
+        headerPanel = new HeaderPanel(activity);
+        headerPanel.setData(headers);
+        listView.addHeaderView(slidesPanel.getContentView());
+        listView.addHeaderView(headerPanel.getContentView());
+    }
+
+    private void initheader() {
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "概览", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "导游", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "佛事", false));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "服务", false));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "土特产", false));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "景区直播", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "广电中心", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政务公开", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政民互动", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "森林防火", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "文物保护", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "宗教事务", true));
     }
 
     private void addData() {
@@ -48,7 +82,17 @@ public class HomeFragment extends BaseFragment {
         homeLists.add(commonBeanLists1);
         homeLists.add(commonBeanLists2);
     }
+    @Override
+    public void onPause() {
+        super.onPause();
+        slidesPanel.stopLoop();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        slidesPanel.startLoop(3000);
+    }
     @Override
     protected boolean hasPopWindow() {
         return false;
