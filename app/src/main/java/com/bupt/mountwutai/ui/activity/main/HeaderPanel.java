@@ -12,7 +12,6 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.MyBaseAdapter;
 import com.bupt.mountwutai.base.BasePanel;
 import com.bupt.mountwutai.entity.mian.CustomBean;
-import com.bupt.mountwutai.entity.mian.SlidesEntity;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollGridView;
 
@@ -42,10 +41,14 @@ public class HeaderPanel extends BasePanel {
     /**
      * 设置展示数据
      *
-     * @param infoList List<SlidesEntity>
+     * @param infoList List<CustomBean>
      */
     public void setData(List<CustomBean> infoList) {
         adapter.addCollection(infoList);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void onResume(){
         adapter.notifyDataSetChanged();
     }
 
