@@ -22,7 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@mipmap/startimg" />
+            android:src="@mipmap/startimg"
+            android:visibility="gone"/>
     </FrameLayout>
 
     <LinearLayout
@@ -79,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb2"
                 android:layout_centerHorizontal="true"
-                android:text="导游"
+                android:text="分类"
                 android:textColor="@color/navigation_unselect"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
@@ -97,7 +98,7 @@
                 android:layout_width="33dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/buddhist_normal" />
+                android:background="@mipmap/specialty_normal" />
 
             <TextView
                 android:id="@+id/text3"
@@ -105,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb3"
                 android:layout_centerHorizontal="true"
-                android:text="佛事"
+                android:text="发现"
                 android:textColor="@color/navigation_unselect"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
@@ -123,7 +124,7 @@
                 android:layout_width="33dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/specialty_normal" />
+                android:background="@mipmap/buddhist_normal" />
 
             <TextView
                 android:id="@+id/text4"
@@ -131,36 +132,36 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb4"
                 android:layout_centerHorizontal="true"
-                android:text="土特产"
+                android:text="我的"
                 android:textColor="@color/navigation_unselect"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/service"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:onClick="navigation" >
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/service"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:clickable="true"-->
+            <!--android:onClick="navigation" >-->
 
-            <ImageView
-                android:id="@+id/rb5"
-                android:layout_width="33dp"
-                android:layout_height="20dp"
-                android:layout_centerHorizontal="true"
-                android:background="@mipmap/service_normal" />
+            <!--<ImageView-->
+                <!--android:id="@+id/rb5"-->
+                <!--android:layout_width="33dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:background="@mipmap/service_normal" />-->
 
-            <TextView
-                android:id="@+id/text5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/rb5"
-                android:layout_centerHorizontal="true"
-                android:text="服务"
-                android:textColor="@color/navigation_unselect"
-                android:textSize="@dimen/space_10" />
-        </RelativeLayout>
+            <!--<TextView-->
+                <!--android:id="@+id/text5"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/rb5"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:text="服务"-->
+                <!--android:textColor="@color/navigation_unselect"-->
+                <!--android:textSize="@dimen/space_10" />-->
+        <!--</RelativeLayout>-->
 
     </LinearLayout>
 

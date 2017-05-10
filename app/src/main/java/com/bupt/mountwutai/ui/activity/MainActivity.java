@@ -20,8 +20,8 @@ import com.bupt.mountwutai.util.LogUtil;
  */
 public class MainActivity extends BaseActivity {
 
-    private TextView[] textViews = new TextView[5];// 图标下面的文字
-    private ImageView[] imageButtons = new ImageView[5];// 显示图标
+    private TextView[] textViews = new TextView[4];// 图标下面的文字
+    private ImageView[] imageButtons = new ImageView[4];// 显示图标
 
     private FragmentManager fragmentManager;
     private SummaryFragment summaryFragment = null;
@@ -64,15 +64,13 @@ public class MainActivity extends BaseActivity {
         textViews[1] = (TextView) findViewById(R.id.text2);
         textViews[2] = (TextView) findViewById(R.id.text3);
         textViews[3] = (TextView) findViewById(R.id.text4);
-        textViews[4] = (TextView) findViewById(R.id.text5);
         imageButtons[0] = (ImageView) findViewById(R.id.rb1);
         imageButtons[1] = (ImageView) findViewById(R.id.rb2);
         imageButtons[2] = (ImageView) findViewById(R.id.rb3);
         imageButtons[3] = (ImageView) findViewById(R.id.rb4);
-        imageButtons[4] = (ImageView) findViewById(R.id.rb5);
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        //showFragment(transaction, R.id.summary);
+        showFragment(transaction, R.id.summary);
     }
 
     private void showFragment(FragmentTransaction transaction, int tag) {
@@ -85,9 +83,8 @@ public class MainActivity extends BaseActivity {
                 setBack(0);
                 imageButtons[0].setBackgroundResource(R.mipmap.summary_selected);
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
-                imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
                 if (summaryFragment == null) {
                     summaryFragment = new SummaryFragment();
                     transaction.add(R.id.container, summaryFragment);
@@ -96,13 +93,12 @@ public class MainActivity extends BaseActivity {
                 }
                 break;
 
-            case R.id.guide://导游
+            case R.id.guide://分类
                 setBack(1);
                 imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_selected);
-                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
-                imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
                 if (guideFragment == null) {
                     guideFragment = new GuideFragment();
                     transaction.add(R.id.container, guideFragment);
@@ -111,13 +107,12 @@ public class MainActivity extends BaseActivity {
                 }
                 break;
 
-            case R.id.buddhist://佛事
+            case R.id.buddhist://发现
                 setBack(2);
                 imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_selected);
-                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
-                imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.specialty_selected);
+                imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
                 if (buddhistFragment == null) {
                     buddhistFragment = BuddhistFragment.newFragment(CodeConstants.BUDDHISTACTION);
                     transaction.add(R.id.container, buddhistFragment);
@@ -126,13 +121,12 @@ public class MainActivity extends BaseActivity {
                 }
                 break;
 
-            case R.id.specialty://土特产
+            case R.id.specialty://我的
                 setBack(3);
                 imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.specialty_selected);
-                imageButtons[4].setBackgroundResource(R.mipmap.service_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.buddhist_selected);
                 if (productsFragment == null) {
                     productsFragment = CommonFragment.newFragment(CodeConstants.LOCAL_PRODUCTS);
                     transaction.add(R.id.container, productsFragment);
@@ -141,21 +135,21 @@ public class MainActivity extends BaseActivity {
                 }
                 break;
 
-            case R.id.service://服务
-                setBack(4);
-                imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
-                imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
-                imageButtons[4].setBackgroundResource(R.mipmap.service_selected);
-                if (serviceFragment == null) {
-//                    serviceFragment = new ServiceFragment();
-                    serviceFragment=BuddhistFragment.newFragment(CodeConstants.SERVICE);
-                    transaction.add(R.id.container, serviceFragment);
-                } else {
-                    transaction.show(serviceFragment);
-                }
-                break;
+//            case R.id.service://服务
+//                setBack(4);
+//                imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
+//                imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
+//                imageButtons[2].setBackgroundResource(R.mipmap.buddhist_normal);
+//                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+//                imageButtons[4].setBackgroundResource(R.mipmap.service_selected);
+//                if (serviceFragment == null) {
+////                    serviceFragment = new ServiceFragment();
+//                    serviceFragment=BuddhistFragment.newFragment(CodeConstants.SERVICE);
+//                    transaction.add(R.id.container, serviceFragment);
+//                } else {
+//                    transaction.show(serviceFragment);
+//                }
+//                break;
 
             default:
                 break;
