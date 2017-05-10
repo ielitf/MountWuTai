@@ -67,6 +67,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'pub.devrel:easypermissions:0.2.1'
     compile 'com.android.support:support-v4:23.4.0'
+    //轮播图库:[https://github.com/saiwu-bigkoo/Android-ConvenientBanner]
+    compile 'com.bigkoo:convenientbanner:2.0.5'
     testCompile 'junit:junit:4.12'
     compile project(':mylibrary')
 }
