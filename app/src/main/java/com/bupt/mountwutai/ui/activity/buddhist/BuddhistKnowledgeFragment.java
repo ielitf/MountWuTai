@@ -84,7 +84,7 @@ public class BuddhistKnowledgeFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        headerPanel.onResume();
+//        headerPanel.onResume();
         slidesPanel.startLoop(3000);
     }
 

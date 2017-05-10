@@ -28,7 +28,7 @@ public abstract class BasePanel {
     }
 
     public void setContentView(@LayoutRes int layoutID) {
-        contentView = LayoutInflater.from(context).inflate(layoutID, null);
+        contentView = LayoutInflater.from(context).inflate(layoutID, null, false);
     }
 
     public View getContentView() {
