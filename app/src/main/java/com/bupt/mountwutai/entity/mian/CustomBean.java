@@ -1,6 +1,4 @@
-package com.bupt.mountwutai.entity;
-
-import android.graphics.drawable.Drawable;
+package com.bupt.mountwutai.entity.mian;
 
 /**
  * Created by Administrator on 2017/5/10.

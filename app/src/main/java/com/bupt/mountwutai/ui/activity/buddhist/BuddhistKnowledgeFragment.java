@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
+import com.bupt.mountwutai.entity.CommonBean;
+import com.bupt.mountwutai.entity.mian.CustomBean;
 import com.bupt.mountwutai.entity.mian.SlidesEntity;
 import com.bupt.mountwutai.ui.activity.main.HeaderPanel;
 import com.bupt.mountwutai.ui.activity.main.SlidesPanel;
@@ -42,15 +44,21 @@ public class BuddhistKnowledgeFragment extends BaseFragment {
         adapter = new BuddhistKnowledgeAdapter();
         listView.setAdapter(adapter);
         List<SlidesEntity> datas = new ArrayList<>();
-        datas.add(new SlidesEntity("","hehe1"));
-        datas.add(new SlidesEntity("","hehe2"));
-        datas.add(new SlidesEntity("","hehe3"));
-        datas.add(new SlidesEntity("","hehe4"));
+        datas.add(new SlidesEntity("","title1"));
+        datas.add(new SlidesEntity("","title2"));
+        datas.add(new SlidesEntity("","title3"));
+        datas.add(new SlidesEntity("","title4"));
         SlidesPanel slidesPanel = new SlidesPanel(activity);
         slidesPanel.setData(datas);
         slidesPanel.startLoop(3000);
+
+        List<CustomBean> headers = new ArrayList<>();
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"概览",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"导游",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"佛事",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"服务",true));
         HeaderPanel headerPanel = new HeaderPanel(activity);
-        headerPanel.setData(datas);
+        headerPanel.setData(headers);
         listView.addHeaderView(slidesPanel.getContentView());
         listView.addHeaderView(headerPanel.getContentView());
     }

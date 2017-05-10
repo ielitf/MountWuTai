@@ -8,11 +8,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.MyBaseAdapter;
 import com.bupt.mountwutai.base.BasePanel;
-import com.bupt.mountwutai.entity.CommonBean;
+import com.bupt.mountwutai.entity.mian.CustomBean;
 import com.bupt.mountwutai.entity.mian.SlidesEntity;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollGridView;
@@ -34,7 +33,7 @@ public class HeaderPanel extends BasePanel {
         super(context);
         setContentView(R.layout.main_header_gride);
         noScrollGrideView = (NoScrollGridView) findViewById(R.id.main_header_gridId);
-        List<SlidesEntity> datas = new ArrayList<>();
+        List<CustomBean> datas = new ArrayList<>();
         adapter = new HeaderPanelAdapter(context,datas);
 
         noScrollGrideView.setAdapter(adapter);
@@ -45,14 +44,14 @@ public class HeaderPanel extends BasePanel {
      *
      * @param infoList List<SlidesEntity>
      */
-    public void setData(List<SlidesEntity> infoList) {
+    public void setData(List<CustomBean> infoList) {
         adapter.addCollection(infoList);
         adapter.notifyDataSetChanged();
     }
 
-    private class HeaderPanelAdapter extends MyBaseAdapter<SlidesEntity> {
+    private class HeaderPanelAdapter extends MyBaseAdapter<CustomBean> {
 
-        public HeaderPanelAdapter(Context context, List<SlidesEntity> mData) {
+        public HeaderPanelAdapter(Context context, List<CustomBean> mData) {
             super(context, mData);
         }
 
@@ -68,7 +67,7 @@ public class HeaderPanel extends BasePanel {
         }
 
         @Override
-        protected void bindView(final Context context, View view, int position, final SlidesEntity model) {
+        protected void bindView(final Context context, View view, int position, final CustomBean model) {
             ItemHolder holder = (ItemHolder) view.getTag();
             if (position == getCount() - 1) {
                 holder.image.setBackgroundResource(R.mipmap.ic_channel_add);
@@ -80,12 +79,12 @@ public class HeaderPanel extends BasePanel {
                     }
                 });
             } else {
-                holder.image.setBackgroundResource(R.mipmap.ic_launcher_round);
-                holder.title.setText(model.getDesc());
+                holder.image.setBackgroundResource(model.getPicture());
+                holder.title.setText(model.getTitle());
                 holder.item.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ToastUtil.show(context,model.getDesc());
+                        ToastUtil.show(context,model.getTitle());
                     }
                 });
             }

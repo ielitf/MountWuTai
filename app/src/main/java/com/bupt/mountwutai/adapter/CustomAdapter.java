@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
-import com.bupt.mountwutai.entity.CustomBean;
+import com.bupt.mountwutai.entity.mian.CustomBean;
 
 import java.util.ArrayList;
 
