@@ -1,9 +1,7 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -12,13 +10,9 @@ import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.CustomAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
-import com.bupt.mountwutai.consts.CodeConstants;
-import com.bupt.mountwutai.entity.CustomBean;
+import com.bupt.mountwutai.entity.mian.CustomBean;
 
-import java.sql.BatchUpdateException;
 import java.util.ArrayList;
-
-import static com.bupt.mountwutai.util.ChString.type;
 
 
 /**

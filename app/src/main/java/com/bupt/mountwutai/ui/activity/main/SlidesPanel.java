@@ -13,7 +13,7 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.holder.Holder;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BasePanel;
-import com.bupt.mountwutai.entity.mian.Slides;
+import com.bupt.mountwutai.entity.mian.SlidesEntity;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mylibrary.utils.ViewUtils;
 
@@ -44,9 +44,9 @@ public class SlidesPanel extends BasePanel {
     /**
      * 设置轮播图展示数据
      *
-     * @param infoList List<Slides>
+     * @param infoList List<SlidesEntity>
      */
-    public void setData(List<Slides> infoList) {
+    public void setData(List<SlidesEntity> infoList) {
         if (infoList == null || infoList.isEmpty()) return;
 
         convenientBanner.setPages(new CBViewHolderCreator<SlideshowHolder>() {
@@ -78,7 +78,7 @@ public class SlidesPanel extends BasePanel {
     /**
      * 轮播图item的holder
      */
-    public class SlideshowHolder implements Holder<Slides> {
+    public class SlideshowHolder implements Holder<SlidesEntity> {
 
         private ImageView img;
         private TextView txt;
@@ -93,7 +93,7 @@ public class SlidesPanel extends BasePanel {
         }
 
         @Override
-        public void UpdateUI(final Context context, final int position, final Slides data) {
+        public void UpdateUI(final Context context, final int position, final SlidesEntity data) {
 //            ImageLoader.loadCenterCrop(context, data.getImgUrl(), img);
             txt.setText(data.getDesc());
             inflate.setOnClickListener(new View.OnClickListener() {
