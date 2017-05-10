@@ -7,6 +7,7 @@ import android.widget.ListView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.HomeListAdapter;
 import com.bupt.mountwutai.base.BaseFragment;
+import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.customdata.SummaryData;
 import com.bupt.mountwutai.entity.CommonBean;
 import com.bupt.mountwutai.entity.mian.CustomBean;
@@ -56,8 +57,8 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initheader() {
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "概览", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "导游", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.summary, true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.guide, true));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "佛事", false));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "服务", false));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "土特产", false));

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.MyBaseAdapter;
 import com.bupt.mountwutai.base.BasePanel;
+import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.entity.mian.CustomBean;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollGridView;
@@ -48,7 +49,15 @@ public class HeaderPanel extends BasePanel {
                     intent.putExtra("customdate", (Serializable) customlist);
                     context.startActivity(intent);
                 } else {
-                    ToastUtil.show(context, adapter.getList().get(position).getTitle());
+                    switch (adapter.getList().get(position).getTitle()){
+                        case MainData.summary:
+                            context.startActivity(new Intent(context,SummaryActivity.class));
+                            break;
+
+                        default:
+                            ToastUtil.show(context, adapter.getList().get(position).getTitle());
+                            break;
+                    }
                 }
             }
         });
