@@ -46,6 +46,9 @@
         <activity
             android:name=".ui.activity.main.GuideActivity"
             android:label="@string/title_activity_guide"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".ui.activity.main.SummaryActivity" />
+        <activity android:name=".ui.activity.CommonActivity"></activity>
             android:theme="@style/AppTheme" />
         <activity android:name=".ui.activity.main.BuddhistActivity"></activity>
     </application>
