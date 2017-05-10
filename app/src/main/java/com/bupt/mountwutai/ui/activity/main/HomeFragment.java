@@ -59,7 +59,7 @@ public class HomeFragment extends BaseFragment {
     private void initheader() {
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.summary, true));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.guide, true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "佛事", false));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.buddhist, true));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "服务", false));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "土特产", false));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "景区直播", true));

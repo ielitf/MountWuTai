@@ -9,6 +9,9 @@ import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.util.ToastUtil;
 
+/**
+ * 导游
+ */
 public class GuideActivity extends BaseActivity implements View.OnClickListener{
 
     private RelativeLayout[] relativeLayouts = new RelativeLayout[6];

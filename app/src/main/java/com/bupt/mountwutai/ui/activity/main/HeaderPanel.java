@@ -49,13 +49,17 @@ public class HeaderPanel extends BasePanel {
                     intent.putExtra("customdate", (Serializable) customlist);
                     context.startActivity(intent);
                 } else {
-                    switch (adapter.getList().get(position).getTitle()){
+                    switch (adapter.getList().get(position).getTitle()) {
                         case MainData.summary:
-                            context.startActivity(new Intent(context,SummaryActivity.class));
+                            context.startActivity(new Intent(context, SummaryActivity.class));
                             break;
 
                         case MainData.guide:
-                            context.startActivity(new Intent(context,GuideActivity.class));
+                            context.startActivity(new Intent(context, GuideActivity.class));
+                            break;
+
+                        case MainData.buddhist:
+                            context.startActivity(new Intent(context, BuddhistActivity.class));
                             break;
 
                         default:
