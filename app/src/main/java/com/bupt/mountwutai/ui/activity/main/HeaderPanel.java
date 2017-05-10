@@ -1,6 +1,7 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.bupt.mountwutai.entity.mian.SlidesEntity;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollGridView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,7 @@ import java.util.List;
  */
 
 public class HeaderPanel extends BasePanel {
-
+    List<CustomBean> customlist=new ArrayList<>();
     private NoScrollGridView noScrollGrideView;
     HeaderPanelAdapter adapter;
 
@@ -45,7 +47,20 @@ public class HeaderPanel extends BasePanel {
      * @param infoList List<SlidesEntity>
      */
     public void setData(List<CustomBean> infoList) {
+        //跳转传递的数据
+        customlist=infoList;
+        //本页面显示数据
+        for (int i = 0; i < infoList.size(); i++) {
+            if (!infoList.get(i).getIsadd()){
+                infoList.remove(i);
+                i--;
+            }
+        }
         adapter.addCollection(infoList);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void onResume(){
         adapter.notifyDataSetChanged();
     }
 
@@ -75,7 +90,9 @@ public class HeaderPanel extends BasePanel {
                 holder.item.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ToastUtil.show(context,"next");
+                        Intent intent=new Intent(context,CustomActivity.class);
+                        intent.putExtra("customdate", (Serializable) customlist);
+                        context.startActivity(intent);
                     }
                 });
             } else {

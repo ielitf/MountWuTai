@@ -1,10 +1,12 @@
 package com.bupt.mountwutai.entity.mian;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/5/10.
  */
 
-public class CustomBean {
+public class CustomBean implements Serializable {
 
     private String title;
     private Boolean isadd;

@@ -28,6 +28,8 @@ import java.util.List;
 
 public class BuddhistKnowledgeFragment extends BaseFragment {
 
+    List<CustomBean> headers = new ArrayList<>();
+    HeaderPanel headerPanel;
     private NoScrollListView listView;
     private BuddhistKnowledgeAdapter adapter;
     private String[] contents = {"1.请香：在别的地方买东西可以称作买，但到了寺院买香请称作“请”；",
@@ -51,16 +53,26 @@ public class BuddhistKnowledgeFragment extends BaseFragment {
         slidesPanel = new SlidesPanel(activity);
         slidesPanel.setData(datas);
         slidesPanel.startLoop(3000);
-
-        List<CustomBean> headers = new ArrayList<>();
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"概览",true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"导游",true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"佛事",true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"服务",true));
-        HeaderPanel headerPanel = new HeaderPanel(activity);
+        initheader();
+        headerPanel = new HeaderPanel(activity);
         headerPanel.setData(headers);
         listView.addHeaderView(slidesPanel.getContentView());
         listView.addHeaderView(headerPanel.getContentView());
+    }
+
+    private void initheader() {
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"概览",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"导游",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"佛事",false));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"服务",false));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"土特产",false));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"景区直播",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"广电中心",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"政务公开",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"政民互动",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"森林防火",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"文物保护",true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round,"宗教事务",true));
     }
 
     @Override
@@ -72,6 +84,7 @@ public class BuddhistKnowledgeFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        headerPanel.onResume();
         slidesPanel.startLoop(3000);
     }
 
