@@ -41,6 +41,8 @@
         <activity android:name=".ui.activity.main.CustomActivity" />
         <activity android:name=".ui.activity.main.CommonDetailActivity" />
         <activity android:name=".ui.activity.main.HomeMoreActivity"></activity>
+        <activity android:name=".ui.activity.main.CustomActivity" />
+        <activity android:name=".ui.activity.main.SummaryActivity"></activity>
     </application>
 
 </manifest>

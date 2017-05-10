@@ -54,13 +54,7 @@ public class CustomActivity extends BaseActivity {
 
     private void addData() {
         mData=new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            if (i%2==0){
-                mData.add(new CustomBean(R.mipmap.amap_bus, "呵呵", true));
-            }else{
-                mData.add(new CustomBean(R.mipmap.amap_bus, "呵呵", false));
-            }
-        }
+        mData= (ArrayList<CustomBean>) getIntent().getSerializableExtra("customdate");
     }
 
     @Override
