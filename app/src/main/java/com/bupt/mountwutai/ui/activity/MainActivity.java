@@ -12,6 +12,7 @@ import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.buddhist.BuddhistFragment;
 import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
+import com.bupt.mountwutai.ui.activity.main.HomeFragment;
 import com.bupt.mountwutai.ui.activity.summary.SummaryFragment;
 import com.bupt.mountwutai.util.LogUtil;
 
@@ -24,7 +25,7 @@ public class MainActivity extends BaseActivity {
     private ImageView[] imageButtons = new ImageView[4];// 显示图标
 
     private FragmentManager fragmentManager;
-    private SummaryFragment summaryFragment = null;
+    private HomeFragment summaryFragment = null;
     private GuideFragment guideFragment = null;
     private BuddhistFragment buddhistFragment = null;
     private BuddhistFragment serviceFragment=null;
@@ -86,7 +87,7 @@ public class MainActivity extends BaseActivity {
                 imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
                 imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
                 if (summaryFragment == null) {
-                    summaryFragment = new SummaryFragment();
+                    summaryFragment = new HomeFragment();
                     transaction.add(R.id.container, summaryFragment);
                 } else {
                     transaction.show(summaryFragment);
