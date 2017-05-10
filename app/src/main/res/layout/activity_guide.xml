@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bupt.mountwutai.ui.activity.main.GuideActivity">
+
+    <include layout="@layout/main_top" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px90_dp"
+        android:layout_marginRight="@dimen/px90_dp"
+        android:layout_marginTop="@dimen/px150_dp">
+
+
+        <RelativeLayout
+            android:id="@+id/travel_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/travel_guide_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="行程规划"
+                android:textColor="@color/black"
+                android:textSize="@dimen/space_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/travel_guide_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px10_dp"
+                android:background="@mipmap/ic_launcher_round" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ticket_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/ticket_list_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="门票一览"
+                android:textColor="@color/black"
+                android:textSize="@dimen/space_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ticket_list_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px10_dp"
+                android:background="@mipmap/ic_launcher_round" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px90_dp"
+        android:layout_marginRight="@dimen/px90_dp"
+        android:layout_marginTop="@dimen/px80_dp">
+
+        <RelativeLayout
+            android:id="@+id/hotel_reserve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/hotel_reserve_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="酒店预订"
+                android:textColor="@color/black"
+                android:textSize="@dimen/space_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hotel_reserve_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px10_dp"
+                android:background="@mipmap/ic_launcher_round" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/recipes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/recipes_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="五台食谱"
+                android:textColor="@color/black"
+                android:textSize="@dimen/space_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recipes_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px10_dp"
+                android:background="@mipmap/ic_launcher_round" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px90_dp"
+        android:layout_marginRight="@dimen/px90_dp"
+        android:layout_marginTop="@dimen/px80_dp">
+        <RelativeLayout
+            android:id="@+id/traffic_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/traffic_guide_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="交通指南"
+                android:textColor="@color/black"
+                android:textSize="@dimen/space_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traffic_guide_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px10_dp"
+                android:background="@mipmap/ic_launcher_round" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/travel_strategy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/travel_strategy_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="朝台攻略"
+                android:textColor="@color/black"
+                android:textSize="@dimen/space_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/travel_strategy_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px10_dp"
+                android:background="@mipmap/ic_launcher_round" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

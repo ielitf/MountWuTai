@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
+import com.bupt.mountwutai.customdata.MainData;
 
 /**
  * 概览
@@ -33,6 +34,6 @@ public class SummaryActivity extends BaseActivity {
 
     @Override
     protected String getTopbarTitle() {
-        return "概览";
+        return MainData.summary;
     }
 }

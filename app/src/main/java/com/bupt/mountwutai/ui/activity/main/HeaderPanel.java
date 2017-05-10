@@ -54,6 +54,10 @@ public class HeaderPanel extends BasePanel {
                             context.startActivity(new Intent(context,SummaryActivity.class));
                             break;
 
+                        case MainData.guide:
+                            context.startActivity(new Intent(context,GuideActivity.class));
+                            break;
+
                         default:
                             ToastUtil.show(context, adapter.getList().get(position).getTitle());
                             break;
