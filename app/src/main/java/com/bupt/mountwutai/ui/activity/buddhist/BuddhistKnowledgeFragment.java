@@ -12,7 +12,13 @@ import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseFragment;
+import com.bupt.mountwutai.entity.mian.SlidesEntity;
+import com.bupt.mountwutai.ui.activity.main.HeaderPanel;
+import com.bupt.mountwutai.ui.activity.main.SlidesPanel;
 import com.bupt.mountwutai.widget.NoScrollListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 佛教知识
@@ -35,6 +41,18 @@ public class BuddhistKnowledgeFragment extends BaseFragment {
         listView = (NoScrollListView) findViewById(R.id.buddhist_knowledge_listview);
         adapter = new BuddhistKnowledgeAdapter();
         listView.setAdapter(adapter);
+        List<SlidesEntity> datas = new ArrayList<>();
+        datas.add(new SlidesEntity("","hehe1"));
+        datas.add(new SlidesEntity("","hehe2"));
+        datas.add(new SlidesEntity("","hehe3"));
+        datas.add(new SlidesEntity("","hehe4"));
+        SlidesPanel slidesPanel = new SlidesPanel(activity);
+        slidesPanel.setData(datas);
+        slidesPanel.startLoop(3000);
+        HeaderPanel headerPanel = new HeaderPanel(activity);
+        headerPanel.setData(datas);
+        listView.addHeaderView(slidesPanel.getContentView());
+        listView.addHeaderView(headerPanel.getContentView());
     }
 
     @Override
