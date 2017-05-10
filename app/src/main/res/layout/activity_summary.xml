@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/main_back"
     android:orientation="vertical"
-    tools:context="com.bupt.mountwutai.ui.activity.main.SummaryActivity">
+    >
 
     <include layout="@layout/main_top"/>
+
+    <TextView
+        android:id="@+id/buddhist_holy_land"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="佛教圣地"
+        android:layout_marginTop="@dimen/space_30"
+        android:drawableBottom="@mipmap/ic_launcher"
+        />
+    <TextView
+        android:id="@+id/temple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="寺庙导览"
+        android:layout_marginTop="@dimen/space_30"
+        android:drawableBottom="@mipmap/ic_launcher"
+        />
+    <TextView
+        android:id="@+id/localCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="地方风情"
+        android:layout_marginTop="@dimen/space_30"
+        android:drawableBottom="@mipmap/ic_launcher"
+        />
+    <TextView
+        android:id="@+id/historic_legends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="历史传说"
+        android:layout_marginTop="@dimen/space_30"
+        android:drawableBottom="@mipmap/ic_launcher"
+        />
+
 
 </LinearLayout>
