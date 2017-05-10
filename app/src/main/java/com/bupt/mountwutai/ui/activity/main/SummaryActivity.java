@@ -9,6 +9,7 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.CommonActivity;
+import com.bupt.mountwutai.customdata.MainData;
 
 /**
  * 概览
@@ -45,7 +46,7 @@ public class SummaryActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected String getTopbarTitle() {
-        return "概览";
+        return MainData.summary;
     }
 
     @Override

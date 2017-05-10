@@ -43,6 +43,11 @@
         <activity android:name=".ui.activity.main.HomeMoreActivity" />
         <activity android:name=".ui.activity.main.CustomActivity" />
         <activity android:name=".ui.activity.main.SummaryActivity" />
+        <activity
+            android:name=".ui.activity.main.GuideActivity"
+            android:label="@string/title_activity_guide"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".ui.activity.main.SummaryActivity" />
         <activity android:name=".ui.activity.CommonActivity"></activity>
     </application>
 
