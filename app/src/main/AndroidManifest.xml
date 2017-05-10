@@ -41,13 +41,11 @@
         <activity android:name=".ui.activity.main.CustomActivity" />
         <activity android:name=".ui.activity.main.CommonDetailActivity" />
         <activity android:name=".ui.activity.main.HomeMoreActivity" />
-        <activity android:name=".ui.activity.main.CustomActivity" />
         <activity android:name=".ui.activity.main.SummaryActivity" />
         <activity
             android:name=".ui.activity.main.GuideActivity"
             android:label="@string/title_activity_guide"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name=".ui.activity.main.SummaryActivity" />
         <activity android:name=".ui.activity.CommonActivity"></activity>
             android:theme="@style/AppTheme" />
         <activity android:name=".ui.activity.main.BuddhistActivity"></activity>

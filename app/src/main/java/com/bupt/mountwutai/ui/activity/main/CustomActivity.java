@@ -59,7 +59,7 @@ public class CustomActivity extends BaseActivity {
 
     @Override
     protected boolean isNeedInitBack() {
-        return false;
+        return true;
     }
 
     @Override
