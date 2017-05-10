@@ -36,7 +36,7 @@ public class BuddhistKnowledgeFragment extends BaseFragment {
             "4.左右：请用左手请香火，佛教认为左手是最干净的，然后，恭恭敬敬的用右手插在香炉中；",
             "5.许愿：通常你要记得告诉佛祖你叫什么，家住何处，有何事相求，事成后何处还原；大多数信士不管来到哪个殿前直接就磕头许愿，实不知佛菩萨有求必应，有求才有应。如果问们都不知道自己求的是哪位破菩萨，那么佛菩萨该怎么应呢？所以当自己跪拜时请先了解佛菩萨名号；",
             "6.法器：佛门中有很多法器，诸如木鱼，凳几，拜完佛祖后，可以稍稍抚摸，以求点佛气。不多千万注意，别摸在我佛贵体上哦。"};
-
+    SlidesPanel slidesPanel;
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_buddhist_knowledge);
@@ -48,7 +48,7 @@ public class BuddhistKnowledgeFragment extends BaseFragment {
         datas.add(new SlidesEntity("","title2"));
         datas.add(new SlidesEntity("","title3"));
         datas.add(new SlidesEntity("","title4"));
-        SlidesPanel slidesPanel = new SlidesPanel(activity);
+        slidesPanel = new SlidesPanel(activity);
         slidesPanel.setData(datas);
         slidesPanel.startLoop(3000);
 
@@ -61,6 +61,18 @@ public class BuddhistKnowledgeFragment extends BaseFragment {
         headerPanel.setData(headers);
         listView.addHeaderView(slidesPanel.getContentView());
         listView.addHeaderView(headerPanel.getContentView());
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        slidesPanel.stopLoop();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        slidesPanel.startLoop(3000);
     }
 
     @Override
