@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.entity.CommonBean;
+import com.bupt.mountwutai.ui.activity.main.CommonDetailActivity;
+import com.bupt.mountwutai.ui.activity.main.HomeMoreActivity;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollListView;
 import java.util.ArrayList;
@@ -78,18 +80,18 @@ public class HomeListAdapter extends BaseAdapter {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int p,
                                     long id) {
-//                Intent intent = new Intent();
-//                mContext.startActivity(intent);
-                ToastUtil.show(mContext,"帅哥，你要点我？^_^");
+                Intent intent = new Intent();
+                intent.setClass(mContext, CommonDetailActivity.class);
+                mContext.startActivity(intent);
             }
         });
         holder.moreButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent();
-//                mContext.startActivity(intent);
-                ToastUtil.show(mContext,"帅哥，点我一个还不够？~~~~(>_<)~~~~");
+                Intent intent = new Intent();
+                intent.setClass(mContext, HomeMoreActivity.class);
+                mContext.startActivity(intent);
             }
         });
         return convertView;
