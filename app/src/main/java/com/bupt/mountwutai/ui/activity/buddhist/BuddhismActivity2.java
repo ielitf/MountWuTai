@@ -20,7 +20,7 @@ import com.bupt.mylibrary.SmartTab.UtilsV4.v4.FragmentPagerItems;
 
 public class BuddhismActivity2 extends BaseActivity {
     private TextView titleTextView;
-    private String[] buddhisrTitles = {"佛教活动", "佛教知识", "在线礼佛"};//标题内容
+    private String[] buddhisrTitles = {"佛事活动", "佛教知识", "在线礼佛"};//标题内容
     private String[] serviceTitles = {"政府机构", "医疗救援", "投诉建议"};
 
     private String[] titles = new String[3];
