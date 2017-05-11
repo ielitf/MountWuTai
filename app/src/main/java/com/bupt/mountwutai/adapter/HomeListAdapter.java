@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import com.bupt.mountwutai.R;
+import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.entity.CommonBean;
 import com.bupt.mountwutai.ui.activity.main.CommonDetailActivity;
 import com.bupt.mountwutai.ui.activity.main.HomeMoreActivity;
@@ -82,6 +83,7 @@ public class HomeListAdapter extends BaseAdapter {
                                     long id) {
                 Intent intent = new Intent();
                 intent.setClass(mContext, CommonDetailActivity.class);
+                intent.putExtra(CodeConstants.TYPE,CodeConstants.HISTORIC_LEGENDS);
                 mContext.startActivity(intent);
             }
         });
