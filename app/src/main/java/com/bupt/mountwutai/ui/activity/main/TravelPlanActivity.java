@@ -34,7 +34,7 @@ public class TravelPlanActivity extends BaseActivity {
     protected void initView() {
         Bundle extras = getIntent().getExtras();
         String type = extras.getString(CodeConstants.TYPE);
-        title = extras.getString(CodeConstants.ID);;
+        title = extras.getString(CodeConstants.ID);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         switch (type){
