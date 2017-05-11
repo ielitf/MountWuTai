@@ -1,18 +1,11 @@
 package com.bupt.mountwutai.ui.activity.main;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.CommonAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
-import com.bupt.mountwutai.consts.CodeConstants;
-import com.bupt.mountwutai.customdata.LocalProductsData;
-import com.bupt.mountwutai.customdata.OnlineData;
 import com.bupt.mountwutai.customdata.SummaryData;
-import com.bupt.mountwutai.customdata.WutaiData;
 import com.bupt.mountwutai.entity.CommonBean;
 
 import java.util.ArrayList;
@@ -37,7 +30,7 @@ public class HomeMoreActivity extends BaseActivity {
 
     @Override
     protected boolean isNeedInitBack() {
-        return false;
+        return true;
     }
 
     @Override
