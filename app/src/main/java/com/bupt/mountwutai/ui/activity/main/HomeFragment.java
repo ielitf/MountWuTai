@@ -66,9 +66,9 @@ public class HomeFragment extends BaseFragment {
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "广电中心", true));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政务公开", true));
         headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政民互动", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "森林防火", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "文物保护", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "宗教事务", true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.forestFire, true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.relicsProtect, true));
+        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.religiousAffairs, true));
     }
 
     private void addData() {

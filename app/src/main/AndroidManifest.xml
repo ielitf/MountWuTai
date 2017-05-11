@@ -49,7 +49,8 @@
         <activity android:name=".ui.activity.CommonActivity" />
         android:theme="@style/AppTheme" />
         <activity android:name=".ui.activity.main.BuddhistActivity" />
-        <activity android:name=".ui.activity.main.ReligiousAffairsActivity"></activity>
+        <activity android:name=".ui.activity.main.ReligiousAffairsActivity" />
+        <activity android:name=".ui.activity.main.TravelPlanActivity"></activity>
     </application>
 
 </manifest>
