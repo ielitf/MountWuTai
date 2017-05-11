@@ -43,15 +43,20 @@
         <activity android:name=".ui.activity.main.HomeMoreActivity" />
         <activity android:name=".ui.activity.main.SummaryActivity" />
         <activity
-            android:name=".ui.activity.main.GuideActivity"
-            android:label="@string/title_activity_guide"
-            android:theme="@style/AppTheme" />
+            android:name=".ui.activity.main.GuideActivity" />
         <activity android:name=".ui.activity.CommonActivity" />
         <activity android:name=".ui.activity.main.BuddhistActivity" />
         <activity android:name=".ui.activity.buddhist.BuddhismActivity2" />
         <activity android:name=".ui.activity.main.ReligiousAffairsActivity" />
         <activity android:name=".ui.activity.main.TravelPlanActivity" />
         <activity android:name=".ui.activity.main.LiveActivity"></activity>
+        <activity android:name=".ui.activity.buddhist.BuddhistActivity" />
+        <activity android:name=".ui.activity.main.ReligiousAffairsActivity" />
+        <activity android:name=".ui.activity.main.TravelPlanActivity" />
+        <activity android:name=".ui.activity.main.TicketlistActivity" />
+        <activity android:name=".ui.activity.main.PoliticsActivity"></activity>
+        <activity android:name=".ui.activity.main.TicketlistActivity" />
+        <activity android:name=".ui.activity.buddhist.BuddhismDetailActivity"></activity>
     </application>
 
 </manifest>

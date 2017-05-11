@@ -5,11 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/main_back"
-    tools:context="com.bupt.mountwutai.ui.activity.main.TravelPlanActivity">
-    <include layout="@layout/main_top" />
+    tools:context="com.bupt.mountwutai.ui.activity.main.TicketlistActivity">
 
-    <RelativeLayout
-        android:id="@+id/travel_plan_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <include layout="@layout/main_top"/>
+
 </LinearLayout>

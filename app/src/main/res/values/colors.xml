@@ -31,7 +31,7 @@
     <!-- 交通导航栏背景颜色 -->
     <color name="traffic_item_color">#f4eadd</color>
 
-
+    <color name="button_back">#00FF9E</color>
     <color name="test1">#537edc</color>
     <color name="test2">#990033</color>
 </resources>

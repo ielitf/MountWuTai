@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/main_back"
+    android:layout_height="match_parent"
+    tools:context="com.bupt.mountwutai.ui.activity.main.PoliticsActivity">
+
+    <include layout="@layout/main_top"/>
+
+    <GridView
+        android:id="@+id/politics_grid"
+        android:numColumns="4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/px75_dp"
+        android:layout_marginLeft="@dimen/px70_dp"
+        android:layout_marginRight="@dimen/px70_dp">
+
+    </GridView>
+
+</LinearLayout>

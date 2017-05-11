@@ -2,7 +2,6 @@ package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import com.bupt.mountwutai.base.BasePanel;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.entity.mian.CustomBean;
+import com.bupt.mountwutai.ui.activity.buddhist.BuddhistActivity;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollGridView;
 
@@ -30,7 +30,7 @@ import java.util.List;
  */
 
 public class HeaderPanel extends BasePanel {
-    List<CustomBean> customlist=new ArrayList<>();
+    List<CustomBean> customlist = new ArrayList<>();
     private NoScrollGridView noScrollGrideView;
     HeaderPanelAdapter adapter;
 
@@ -61,29 +61,66 @@ public class HeaderPanel extends BasePanel {
                             break;
 
                         case MainData.buddhist:
-                            context.startActivity(new Intent(context, BuddhistActivity.class));
+                            Intent intent_buddhist = new Intent(context,BuddhistActivity.class);
+                            intent_buddhist.putExtra(CodeConstants.TYPE,CodeConstants.BUDDHISTACTION);
+                            context.startActivity(intent_buddhist);
                             break;
 
                         case MainData.religiousAffairs:
                             Intent intent = new Intent(context, ReligiousAffairsActivity.class);
-                            intent.putExtra(CodeConstants.TYPE,CodeConstants.RELIGIOUSAFFAIRS);
-                            intent.putExtra(CodeConstants.ID,MainData.religiousAffairs);
+                            intent.putExtra(CodeConstants.TYPE, CodeConstants.RELIGIOUSAFFAIRS);
+                            intent.putExtra(CodeConstants.ID, MainData.religiousAffairs);
                             context.startActivity(intent);
                             break;
 
                         case MainData.relicsProtect:
                             Intent relicsProtectintent = new Intent(context, ReligiousAffairsActivity.class);
-                            relicsProtectintent.putExtra(CodeConstants.TYPE,CodeConstants.RELICSPROTECT);
-                            relicsProtectintent.putExtra(CodeConstants.ID,MainData.relicsProtect);
+                            relicsProtectintent.putExtra(CodeConstants.TYPE, CodeConstants.RELICSPROTECT);
+                            relicsProtectintent.putExtra(CodeConstants.ID, MainData.relicsProtect);
                             context.startActivity(relicsProtectintent);
                             break;
 
                         case MainData.forestFire:
                             Intent forestFireintent = new Intent(context, ReligiousAffairsActivity.class);
-                            forestFireintent.putExtra(CodeConstants.TYPE,CodeConstants.FORESTFIRE);
-                            forestFireintent.putExtra(CodeConstants.ID,MainData.forestFire);
+                            forestFireintent.putExtra(CodeConstants.TYPE, CodeConstants.FORESTFIRE);
+                            forestFireintent.putExtra(CodeConstants.ID, MainData.forestFire);
                             context.startActivity(forestFireintent);
                             break;
+
+                        case MainData.service:
+                            Intent serviceintent = new Intent(context, BuddhistActivity.class);
+                            serviceintent.putExtra(CodeConstants.TYPE, CodeConstants.SERVICE);
+                            context.startActivity(serviceintent);
+                            break;
+
+                        case MainData.localproducts:
+                            Intent localproductsintent = new Intent(context, TravelPlanActivity.class);
+                            localproductsintent.putExtra(CodeConstants.TYPE, CodeConstants.LOCAL_PRODUCTS);
+                            localproductsintent.putExtra(CodeConstants.ID, MainData.localproducts);
+                            context.startActivity(localproductsintent);
+                            break;
+
+                        case MainData.politicsopen:
+                            Intent politicsopenintent = new Intent(context, PoliticsActivity.class);
+                            politicsopenintent.putExtra(CodeConstants.TYPE, CodeConstants.POLITICS_OPEN);
+                            politicsopenintent.putExtra(CodeConstants.ID, MainData.politicsopen);
+                            context.startActivity(politicsopenintent);
+                            break;
+
+                        case MainData.politics_interaction:
+                            Intent politics_interactionintent = new Intent(context, PoliticsActivity.class);
+                            politics_interactionintent.putExtra(CodeConstants.TYPE, CodeConstants.POLITICS_INTERACTION);
+                            politics_interactionintent.putExtra(CodeConstants.ID, MainData.politics_interaction);
+                            context.startActivity(politics_interactionintent);
+                            break;
+
+                        case MainData.broadcasting_center:
+                            Intent broadcasting_centerintent = new Intent(context, PoliticsActivity.class);
+                            broadcasting_centerintent.putExtra(CodeConstants.TYPE, CodeConstants.BROADCAST_CENTER);
+                            broadcasting_centerintent.putExtra(CodeConstants.ID, MainData.broadcasting_center);
+                            context.startActivity(broadcasting_centerintent);
+                            break;
+
                         case MainData.live://直播
                             context.startActivity(new Intent(context, LiveActivity.class));
                             break;
@@ -115,7 +152,6 @@ public class HeaderPanel extends BasePanel {
         adapter.addCollection(infoList);
         adapter.notifyDataSetChanged();
     }
-
     private class HeaderPanelAdapter extends MyBaseAdapter<CustomBean> {
 
         public HeaderPanelAdapter(Context context, List<CustomBean> mData) {
@@ -161,5 +197,4 @@ public class HeaderPanel extends BasePanel {
             RelativeLayout item;
         }
     }
-
 }

@@ -1,7 +1,6 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -13,7 +12,7 @@ import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.customdata.SummaryData;
 import com.bupt.mountwutai.entity.CommonBean;
 import com.bupt.mountwutai.entity.mian.CustomBean;
-import com.bupt.mountwutai.entity.mian.SlidesEntity;
+import com.bupt.mountwutai.entity.mian.SlidesBean;
 import com.bupt.mylibrary.utils.ViewUtils;
 
 import org.json.JSONArray;
@@ -22,8 +21,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by litf on 2017/5/10.
@@ -44,18 +41,18 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
-        Log.i("share","onCreateView");
+        Log.i("share", "onCreateView");
         setContentView(R.layout.fragment_home);
         context = getActivity();
         listView = (ListView) findViewById(R.id.home_list);
         homeListAdapter = new HomeListAdapter(context, homeLists, nameList);
         listView.setAdapter(homeListAdapter);
         addData();
-        List<SlidesEntity> datas = new ArrayList<>();
-        datas.add(new SlidesEntity("", "title1"));
-        datas.add(new SlidesEntity("", "title2"));
-        datas.add(new SlidesEntity("", "title3"));
-        datas.add(new SlidesEntity("", "title4"));
+        List<SlidesBean> datas = new ArrayList<>();
+        datas.add(new SlidesBean("", "title1"));
+        datas.add(new SlidesBean("", "title2"));
+        datas.add(new SlidesBean("", "title3"));
+        datas.add(new SlidesBean("", "title4"));
         slidesPanel = new SlidesPanel(activity);
         slidesPanel.setData(datas);
         slidesPanel.startLoop(3000);
@@ -67,44 +64,43 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initheader() {
-        if (ViewUtils.getData(activity,"0").equals("hehe")){
+        if (ViewUtils.getData(activity, "0").equals("hehe")) {
             headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.summary, true));
             headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.guide, true));
             headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.buddhist, true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "服务", true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "土特产", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.service, true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.localproducts, true));
             headers.add(new CustomBean(R.mipmap.ic_launcher_round, "景区直播", true));
             headers.add(new CustomBean(R.mipmap.ic_launcher_round, "广电中心", true));
             headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政务公开", true));
             headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政民互动", true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "森林防火", true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "文物保护", true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "宗教事务", true));
-            JSONArray array=new JSONArray();
-            for (int i = 0; i <headers.size() ; i++) {
-                JSONObject observeO= new JSONObject();
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.forestFire, true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.relicsProtect, true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.religiousAffairs, true));
+            JSONArray array = new JSONArray();
+            for (int i = 0; i < headers.size(); i++) {
+                JSONObject observeO = new JSONObject();
                 try {
-                    observeO.put("title",headers.get(i).getTitle());
-                    observeO.put("isadd",headers.get(i).getIsadd());
-                    observeO.put("picture",headers.get(i).getPicture());
-                    ViewUtils.setData(activity,""+i,observeO.toString());
+                    observeO.put("title", headers.get(i).getTitle());
+                    observeO.put("isadd", headers.get(i).getIsadd());
+                    observeO.put("picture", headers.get(i).getPicture());
+                    ViewUtils.setData(activity, "" + i, observeO.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 array.put(observeO);
             }
-        }else{
-            for (int i = 0; i <12 ; i++) {
-                JSONObject oj= null;
+        } else {
+            for (int i = 0; i < 12; i++) {
+                JSONObject oj = null;
                 try {
-                    oj = new JSONObject(ViewUtils.getData(activity,i+""));
-                    headers.add(new CustomBean(oj.getInt("picture"),oj.getString("title"),oj.getBoolean("isadd")));
+                    oj = new JSONObject(ViewUtils.getData(activity, i + ""));
+                    headers.add(new CustomBean(oj.getInt("picture"), oj.getString("title"), oj.getBoolean("isadd")));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         }
-
 
 
     }
@@ -121,6 +117,7 @@ public class HomeFragment extends BaseFragment {
         homeLists.add(commonBeanLists1);
         homeLists.add(commonBeanLists2);
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -130,13 +127,13 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (!ViewUtils.getData(activity,"0").equals("hehe")){
+        if (!ViewUtils.getData(activity, "0").equals("hehe")) {
             headers.clear();
-            for (int i = 0; i <12 ; i++) {
-                JSONObject oj= null;
+            for (int i = 0; i < 12; i++) {
+                JSONObject oj = null;
                 try {
-                    oj = new JSONObject(ViewUtils.getData(activity,i+""));
-                    headers.add(new CustomBean(oj.getInt("picture"),oj.getString("title"),oj.getBoolean("isadd")));
+                    oj = new JSONObject(ViewUtils.getData(activity, i + ""));
+                    headers.add(new CustomBean(oj.getInt("picture"), oj.getString("title"), oj.getBoolean("isadd")));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -145,6 +142,7 @@ public class HomeFragment extends BaseFragment {
         }
         slidesPanel.startLoop(3000);
     }
+
     @Override
     protected boolean hasPopWindow() {
         return false;
