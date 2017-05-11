@@ -249,16 +249,16 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         if (aMap == null) {
             aMap = mapView.getMap();
             if (!PermissionHelper.getHelper().checkPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
-                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.ACCESS_FINE_LOCATION, RC_FINE_LOCA_PER);
+                PermissionHelper.getHelper().getPermission(this, Manifest.permission.ACCESS_FINE_LOCATION, RC_FINE_LOCA_PER);
                 return;
             }
             if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_EXTERNAL_STORAGE, RC_READ_EXTERNAL_STORAGE_PER);
+                PermissionHelper.getHelper().getPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE, RC_READ_EXTERNAL_STORAGE_PER);
                 return;
             }
 
             if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_PHONE_STATE)) {
-                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
+                PermissionHelper.getHelper().getPermission(this, Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
                 return;
             }
             setUpMap();
@@ -815,11 +815,11 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         if (requestCode == RC_FINE_LOCA_PER) {
 
             if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_EXTERNAL_STORAGE, RC_READ_EXTERNAL_STORAGE_PER);
+                PermissionHelper.getHelper().getPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE, RC_READ_EXTERNAL_STORAGE_PER);
             } else {
 
                 if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_PHONE_STATE)) {
-                    PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
+                    PermissionHelper.getHelper().getPermission(this, Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
                 } else {
                     if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                         setUpMap();
@@ -828,7 +828,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
 
         } else if (requestCode == RC_READ_EXTERNAL_STORAGE_PER) {
             if (!PermissionHelper.getHelper().checkPermission(activity, Manifest.permission.READ_PHONE_STATE)) {
-                PermissionHelper.getHelper().getPermission(getParentFragment(), Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
+                PermissionHelper.getHelper().getPermission(this, Manifest.permission.READ_PHONE_STATE, RC_READ_PHONE_STATE_PER);
             } else {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     setUpMap();

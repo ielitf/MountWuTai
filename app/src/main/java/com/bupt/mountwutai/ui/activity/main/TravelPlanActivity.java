@@ -1,6 +1,7 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
@@ -86,5 +87,12 @@ public class TravelPlanActivity extends BaseActivity {
     @Override
     protected String getTopbarTitle() {
         return title;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        //travelPlanFragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+         //getSupportFragmentManager().getFragments().get(0).onRequestPermissionsResult(requestCode,permissions,grantResults);
     }
 }
