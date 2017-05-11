@@ -62,6 +62,10 @@ public class HeaderPanel extends BasePanel {
                             context.startActivity(new Intent(context, BuddhistActivity.class));
                             break;
 
+                        case MainData.ReligiousAffairs:
+                            context.startActivity(new Intent(context, ReligiousAffairsActivity.class));
+                            break;
+
                         default:
                             ToastUtil.show(context, adapter.getList().get(position).getTitle());
                             break;
