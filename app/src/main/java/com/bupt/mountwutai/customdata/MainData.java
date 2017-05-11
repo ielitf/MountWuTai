@@ -11,4 +11,6 @@ public class MainData {
     public static final String religiousAffairs = "宗教事务";
     public static final String relicsProtect = "文物保护";
     public static final String forestFire = "森林防火";
+    public static final String service = "服务";
+    public static final String localproducts ="土特产";
 }

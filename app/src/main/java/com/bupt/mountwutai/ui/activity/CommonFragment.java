@@ -71,8 +71,8 @@ public class CommonFragment extends BaseFragment implements AdapterView.OnItemCl
                 }
                 break;
             case CodeConstants.LOCAL_PRODUCTS://土特产
-                fragmentTop.setVisibility(View.VISIBLE);
-                fragmentTopName.setText("土特产");
+//                fragmentTop.setVisibility(View.VISIBLE);
+//                fragmentTopName.setText("土特产");
                 for (int i = 0; i < LocalProductsData.product_icon.length; i++) {
                     mData.add(new CommonBean(LocalProductsData.product_icon[i], LocalProductsData.product_title[i], LocalProductsData.product_content[i]));
                 }

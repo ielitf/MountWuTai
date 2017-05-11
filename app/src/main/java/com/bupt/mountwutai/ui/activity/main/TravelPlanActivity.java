@@ -35,6 +35,7 @@ public class TravelPlanActivity extends BaseActivity {
     private TravelPlanFragment travelPlanFragment = null;
     private HotleFragment hotleFragment = null;
     private CommonFragment commonFragment = null;//五台食谱
+    private CommonFragment localFragment = null;//土特产
 
     @Override
     protected void initView() {
@@ -67,6 +68,11 @@ public class TravelPlanActivity extends BaseActivity {
             case CodeConstants.TRAVEL_STRATEGY:
                 travelStrategyFragment = new TravelStrategyFragment();
                 transaction.add(R.id.travel_plan_container, travelStrategyFragment);
+                break;
+
+            case CodeConstants.LOCAL_PRODUCTS:
+                localFragment = CommonFragment.newFragment(CodeConstants.LOCAL_PRODUCTS);
+                transaction.add(R.id.travel_plan_container, localFragment);
                 break;
         }
         transaction.commitAllowingStateLoss();
