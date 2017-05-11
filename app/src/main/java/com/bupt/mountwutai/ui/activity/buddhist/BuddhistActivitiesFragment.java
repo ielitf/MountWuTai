@@ -2,6 +2,8 @@ package com.bupt.mountwutai.ui.activity.buddhist;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.BuddhismActivityAdapter;
@@ -27,6 +29,12 @@ public class BuddhistActivitiesFragment extends BaseFragment {
         addDatas();
         adapter = new BuddhismActivityAdapter(context,mData);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
     }
 
     private void addDatas() {

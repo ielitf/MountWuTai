@@ -16,7 +16,7 @@ import com.bupt.mountwutai.base.BasePanel;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.entity.mian.CustomBean;
-import com.bupt.mountwutai.ui.activity.buddhist.BuddhismActivity2;
+import com.bupt.mountwutai.ui.activity.buddhist.BuddhistActivity;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollGridView;
 
@@ -63,7 +63,9 @@ public class HeaderPanel extends BasePanel {
                             break;
 
                         case MainData.buddhist:
-                            context.startActivity(new Intent(context, BuddhistActivity.class));
+                            Intent intent_buddhist = new Intent(context,BuddhistActivity.class);
+                            intent_buddhist.putExtra(CodeConstants.TYPE,CodeConstants.BUDDHISTACTION);
+                            context.startActivity(intent_buddhist);
                             break;
 
                         case MainData.religiousAffairs:
@@ -88,7 +90,7 @@ public class HeaderPanel extends BasePanel {
                             break;
 
                         case MainData.service:
-                            Intent serviceintent = new Intent(context, BuddhismActivity2.class);
+                            Intent serviceintent = new Intent(context, BuddhistActivity.class);
                             serviceintent.putExtra(CodeConstants.TYPE, CodeConstants.SERVICE);
                             context.startActivity(serviceintent);
                             break;
