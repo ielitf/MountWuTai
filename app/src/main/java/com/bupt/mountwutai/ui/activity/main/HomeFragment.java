@@ -1,7 +1,6 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -13,7 +12,7 @@ import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.customdata.SummaryData;
 import com.bupt.mountwutai.entity.CommonBean;
 import com.bupt.mountwutai.entity.mian.CustomBean;
-import com.bupt.mountwutai.entity.mian.SlidesEntity;
+import com.bupt.mountwutai.entity.mian.SlidesBean;
 import com.bupt.mylibrary.utils.ViewUtils;
 
 import org.json.JSONArray;
@@ -22,8 +21,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by litf on 2017/5/10.
@@ -51,11 +48,11 @@ public class HomeFragment extends BaseFragment {
         homeListAdapter = new HomeListAdapter(context, homeLists, nameList);
         listView.setAdapter(homeListAdapter);
         addData();
-        List<SlidesEntity> datas = new ArrayList<>();
-        datas.add(new SlidesEntity("", "title1"));
-        datas.add(new SlidesEntity("", "title2"));
-        datas.add(new SlidesEntity("", "title3"));
-        datas.add(new SlidesEntity("", "title4"));
+        List<SlidesBean> datas = new ArrayList<>();
+        datas.add(new SlidesBean("", "title1"));
+        datas.add(new SlidesBean("", "title2"));
+        datas.add(new SlidesBean("", "title3"));
+        datas.add(new SlidesBean("", "title4"));
         slidesPanel = new SlidesPanel(activity);
         slidesPanel.setData(datas);
         slidesPanel.startLoop(3000);
