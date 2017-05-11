@@ -9,6 +9,7 @@ public class CodeConstants {
     public static final String TAB_INDEX = "tabIndex";
     //做一些标签
     public static final String TYPE = "type";
+    public static final String BUDDHISTACTIONTYPE = "buddhist_action_type";//佛事类型：佛事活动，在线礼佛，佛教知识
     public static final String ID="id";
 
     //概览
