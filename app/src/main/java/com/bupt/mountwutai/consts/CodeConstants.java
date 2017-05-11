@@ -25,6 +25,9 @@ public class CodeConstants {
     public static final String HOTLE_RESVER = "hotel_resver";//酒店预订
     public static final String TRAVEL_PLAN = "travel_plan";//行程规划
     public static final String WUTAI_RECIPES = "wutai_recipes";//五台食谱
+    public static final String TRAFFIC_GUIDE = "traffic_guide";//交通指南
+    public static final String TRAVEL_STRATEGY = "travel_strategy";//朝台攻略
+
     public static final String BUDDHISTACTION = "BUDDHISTACTION";//佛事
     public static final String SERVICE = "SERVICE";//服务
     public static final String LOCAL_PRODUCTS = "local_products";//土特产

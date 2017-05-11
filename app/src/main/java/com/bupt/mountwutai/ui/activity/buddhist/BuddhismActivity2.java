@@ -37,7 +37,7 @@ public class BuddhismActivity2 extends BaseActivity {
     @Override
     protected void initView() {
         type = getIntent().getStringExtra(CodeConstants.TYPE);
-        buddhist_action_type = getIntent().getIntExtra(CodeConstants.BUDDHISTACTIONTYPE,1);
+        buddhist_action_type = getIntent().getIntExtra(CodeConstants.BUDDHISTACTIONTYPE, 1);
         tab = (ViewGroup) findViewById(R.id.tab);
         titleTextView = (TextView) findViewById(R.id.top_name_text);
         viewPager = (ViewPager) findViewById(R.id.buddhist_viewpager);
@@ -70,15 +70,15 @@ public class BuddhismActivity2 extends BaseActivity {
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(3);
         viewPagerTab.setViewPager(viewPager);
-        switch (buddhist_action_type){
+        switch (buddhist_action_type) {
             case 1:
-                viewPager.setCurrentItem(0,true);
+                viewPager.setCurrentItem(0, true);
                 break;
             case 2:
-                viewPager.setCurrentItem(1,true);
+                viewPager.setCurrentItem(1, true);
                 break;
             case 3:
-                viewPager.setCurrentItem(2,true);
+                viewPager.setCurrentItem(2, true);
                 break;
         }
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -106,6 +106,9 @@ public class BuddhismActivity2 extends BaseActivity {
 
     @Override
     protected String getTopbarTitle() {
-        return "佛事";
+        if (type.equals(CodeConstants.SERVICE)) {
+            return serviceTitles[0];
+        }
+        return buddhisrTitles[buddhist_action_type - 1];
     }
 }

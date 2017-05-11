@@ -2,7 +2,6 @@ package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import com.bupt.mountwutai.base.BasePanel;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.entity.mian.CustomBean;
+import com.bupt.mountwutai.ui.activity.buddhist.BuddhismActivity2;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollGridView;
 
@@ -24,13 +24,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.bupt.mountwutai.customdata.MainData.localproducts;
+
 /**
  * 九宫格
  * Created by Wyf on 2017/5/10.
  */
 
 public class HeaderPanel extends BasePanel {
-    List<CustomBean> customlist=new ArrayList<>();
+    List<CustomBean> customlist = new ArrayList<>();
     private NoScrollGridView noScrollGrideView;
     HeaderPanelAdapter adapter;
 
@@ -66,23 +68,36 @@ public class HeaderPanel extends BasePanel {
 
                         case MainData.religiousAffairs:
                             Intent intent = new Intent(context, ReligiousAffairsActivity.class);
-                            intent.putExtra(CodeConstants.TYPE,CodeConstants.RELIGIOUSAFFAIRS);
-                            intent.putExtra(CodeConstants.ID,MainData.religiousAffairs);
+                            intent.putExtra(CodeConstants.TYPE, CodeConstants.RELIGIOUSAFFAIRS);
+                            intent.putExtra(CodeConstants.ID, MainData.religiousAffairs);
                             context.startActivity(intent);
                             break;
 
                         case MainData.relicsProtect:
                             Intent relicsProtectintent = new Intent(context, ReligiousAffairsActivity.class);
-                            relicsProtectintent.putExtra(CodeConstants.TYPE,CodeConstants.RELICSPROTECT);
-                            relicsProtectintent.putExtra(CodeConstants.ID,MainData.relicsProtect);
+                            relicsProtectintent.putExtra(CodeConstants.TYPE, CodeConstants.RELICSPROTECT);
+                            relicsProtectintent.putExtra(CodeConstants.ID, MainData.relicsProtect);
                             context.startActivity(relicsProtectintent);
                             break;
 
                         case MainData.forestFire:
                             Intent forestFireintent = new Intent(context, ReligiousAffairsActivity.class);
-                            forestFireintent.putExtra(CodeConstants.TYPE,CodeConstants.FORESTFIRE);
-                            forestFireintent.putExtra(CodeConstants.ID,MainData.forestFire);
+                            forestFireintent.putExtra(CodeConstants.TYPE, CodeConstants.FORESTFIRE);
+                            forestFireintent.putExtra(CodeConstants.ID, MainData.forestFire);
                             context.startActivity(forestFireintent);
+                            break;
+
+                        case MainData.service:
+                            Intent serviceintent = new Intent(context, BuddhismActivity2.class);
+                            serviceintent.putExtra(CodeConstants.TYPE, CodeConstants.SERVICE);
+                            context.startActivity(serviceintent);
+                            break;
+
+                        case localproducts:
+                            Intent localproductsintent = new Intent(context, TravelPlanActivity.class);
+                            localproductsintent.putExtra(CodeConstants.TYPE, CodeConstants.LOCAL_PRODUCTS);
+                            localproductsintent.putExtra(CodeConstants.ID,MainData.localproducts);
+                            context.startActivity(localproductsintent);
                             break;
 
                         default:
