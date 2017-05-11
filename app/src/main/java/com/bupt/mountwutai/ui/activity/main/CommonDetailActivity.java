@@ -47,7 +47,7 @@ public class CommonDetailActivity extends BaseActivity {
 
     @Override
     protected boolean isNeedInitBack() {
-        return false;
+        return true;
     }
 
     @Override
