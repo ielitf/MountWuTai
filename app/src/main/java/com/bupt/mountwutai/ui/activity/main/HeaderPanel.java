@@ -24,8 +24,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.bupt.mountwutai.customdata.MainData.localproducts;
-
 /**
  * 九宫格
  * Created by Wyf on 2017/5/10.
@@ -93,11 +91,32 @@ public class HeaderPanel extends BasePanel {
                             context.startActivity(serviceintent);
                             break;
 
-                        case localproducts:
+                        case MainData.localproducts:
                             Intent localproductsintent = new Intent(context, TravelPlanActivity.class);
                             localproductsintent.putExtra(CodeConstants.TYPE, CodeConstants.LOCAL_PRODUCTS);
-                            localproductsintent.putExtra(CodeConstants.ID,MainData.localproducts);
+                            localproductsintent.putExtra(CodeConstants.ID, MainData.localproducts);
                             context.startActivity(localproductsintent);
+                            break;
+
+                        case MainData.politicsopen:
+                            Intent politicsopenintent = new Intent(context, PoliticsActivity.class);
+                            politicsopenintent.putExtra(CodeConstants.TYPE, CodeConstants.POLITICS_OPEN);
+                            politicsopenintent.putExtra(CodeConstants.ID, MainData.politicsopen);
+                            context.startActivity(politicsopenintent);
+                            break;
+
+                        case MainData.politics_interaction:
+                            Intent politics_interactionintent = new Intent(context, PoliticsActivity.class);
+                            politics_interactionintent.putExtra(CodeConstants.TYPE, CodeConstants.POLITICS_INTERACTION);
+                            politics_interactionintent.putExtra(CodeConstants.ID, MainData.politics_interaction);
+                            context.startActivity(politics_interactionintent);
+                            break;
+
+                        case MainData.broadcasting_center:
+                            Intent broadcasting_centerintent = new Intent(context, PoliticsActivity.class);
+                            broadcasting_centerintent.putExtra(CodeConstants.TYPE, CodeConstants.BROADCAST_CENTER);
+                            broadcasting_centerintent.putExtra(CodeConstants.ID, MainData.broadcasting_center);
+                            context.startActivity(broadcasting_centerintent);
                             break;
 
                         default:
@@ -128,7 +147,6 @@ public class HeaderPanel extends BasePanel {
         adapter.addCollection(infoList);
         adapter.notifyDataSetChanged();
     }
-
     private class HeaderPanelAdapter extends MyBaseAdapter<CustomBean> {
 
         public HeaderPanelAdapter(Context context, List<CustomBean> mData) {
@@ -174,5 +192,4 @@ public class HeaderPanel extends BasePanel {
             RelativeLayout item;
         }
     }
-
 }

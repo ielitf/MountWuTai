@@ -28,6 +28,10 @@ public class CodeConstants {
     public static final String TRAFFIC_GUIDE = "traffic_guide";//交通指南
     public static final String TRAVEL_STRATEGY = "travel_strategy";//朝台攻略
 
+    public static final String POLITICS_OPEN = "politicsopen";//政务公开
+    public static final String POLITICS_INTERACTION = "politics_interaction";//政民互动
+    public static final String BROADCAST_CENTER = "broadcasting_center";//广电中心
+
     public static final String BUDDHISTACTION = "BUDDHISTACTION";//佛事
     public static final String SERVICE = "SERVICE";//服务
     public static final String LOCAL_PRODUCTS = "local_products";//土特产
