@@ -56,32 +56,40 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.travel_guide://行程规划
                 bundle = new Bundle();
-                bundle.putString(CodeConstants.TYPE,CodeConstants.TRAVEL_PLAN);
-                bundle.putString(CodeConstants.ID,"行程规划");
-                break;
-
-            case R.id.ticket_list://门票一览
-                ToastUtil.show(this, "门票一览");
+                bundle.putString(CodeConstants.TYPE, CodeConstants.TRAVEL_PLAN);
+                bundle.putString(CodeConstants.ID, "行程规划");
                 break;
 
             case R.id.hotel_reserve://酒店预订
                 bundle = new Bundle();
-                bundle.putString(CodeConstants.TYPE,CodeConstants.HOTLE_RESVER);
-                bundle.putString(CodeConstants.ID,"酒店预订");
+                bundle.putString(CodeConstants.TYPE, CodeConstants.HOTLE_RESVER);
+                bundle.putString(CodeConstants.ID, "酒店预订");
                 break;
 
             case R.id.recipes://五台食谱
-                ToastUtil.show(this, "五台食谱");
+                bundle = new Bundle();
+                bundle.putString(CodeConstants.TYPE, CodeConstants.WUTAI_RECIPES);
+                bundle.putString(CodeConstants.ID, "五台食谱");
                 break;
 
             case R.id.traffic_guide://交通指南
-                ToastUtil.show(this, "交通指南");
+                bundle = new Bundle();
+                bundle.putString(CodeConstants.TYPE, CodeConstants.TRAFFIC_GUIDE);
+                bundle.putString(CodeConstants.ID, "交通指南");
                 break;
 
             case R.id.travel_strategy://朝台攻略
-                ToastUtil.show(this, "朝台攻略");
+                bundle = new Bundle();
+                bundle.putString(CodeConstants.TYPE, CodeConstants.TRAVEL_STRATEGY);
+                bundle.putString(CodeConstants.ID, "朝台攻略");
+                break;
+            case R.id.ticket_list://门票一览
                 break;
         }
-        intent2Activity(TravelPlanActivity.class, bundle);
+        if (bundle != null) {
+            intent2Activity(TravelPlanActivity.class, bundle);
+        } else {
+            intent2Activity(TicketlistActivity.class);
+        }
     }
 }

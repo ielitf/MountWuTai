@@ -7,11 +7,14 @@ import android.support.v4.app.FragmentTransaction;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.ui.activity.CommonFragment;
 import com.bupt.mountwutai.ui.activity.guide.HotleFragment;
+import com.bupt.mountwutai.ui.activity.guide.TrafficGuideFragment;
 import com.bupt.mountwutai.ui.activity.guide.TravelPlanFragment;
+import com.bupt.mountwutai.ui.activity.guide.TravelStrategyFragment;
 
 /**
- * 行程规划
+ * 行程规划等页面
  */
 public class TravelPlanActivity extends BaseActivity {
 
@@ -27,8 +30,11 @@ public class TravelPlanActivity extends BaseActivity {
 
     private String title;
 
-    TravelPlanFragment travelPlanFragment = null;
-    HotleFragment hotleFragment = null;
+    private TravelStrategyFragment travelStrategyFragment = null;
+    private TrafficGuideFragment trafficGuideFragment = null;
+    private TravelPlanFragment travelPlanFragment = null;
+    private HotleFragment hotleFragment = null;
+    private CommonFragment commonFragment = null;//五台食谱
 
     @Override
     protected void initView() {
@@ -46,6 +52,21 @@ public class TravelPlanActivity extends BaseActivity {
             case CodeConstants.HOTLE_RESVER:
                 hotleFragment = new HotleFragment();
                 transaction.add(R.id.travel_plan_container, hotleFragment);
+                break;
+
+            case CodeConstants.WUTAI_RECIPES:
+                commonFragment = CommonFragment.newFragment(CodeConstants.WUTAI_RECIPES);
+                transaction.add(R.id.travel_plan_container, commonFragment);
+                break;
+
+            case CodeConstants.TRAFFIC_GUIDE:
+                trafficGuideFragment = new TrafficGuideFragment();
+                transaction.add(R.id.travel_plan_container, trafficGuideFragment);
+                break;
+
+            case CodeConstants.TRAVEL_STRATEGY:
+                travelStrategyFragment = new TravelStrategyFragment();
+                transaction.add(R.id.travel_plan_container, travelStrategyFragment);
                 break;
         }
         transaction.commitAllowingStateLoss();
