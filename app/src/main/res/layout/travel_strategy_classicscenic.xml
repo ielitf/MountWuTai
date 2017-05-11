@@ -14,6 +14,7 @@
         android:clickable="true">
 
         <TextView
+            android:id="@+id/travel_strategy_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -44,6 +45,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/traffic_title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -53,6 +55,7 @@
             android:textSize="@dimen/space_18" />
 
         <TextView
+            android:id="@+id/traffic_content1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/guide_left"
@@ -62,6 +65,7 @@
             android:textSize="@dimen/space_14" />
 
         <TextView
+            android:id="@+id/traffic_title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -71,6 +75,7 @@
             android:textSize="@dimen/space_15" />
 
         <TextView
+            android:id="@+id/traffic_content2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/guide_left"
