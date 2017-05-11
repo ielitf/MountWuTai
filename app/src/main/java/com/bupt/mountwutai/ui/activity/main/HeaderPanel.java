@@ -84,7 +84,9 @@ public class HeaderPanel extends BasePanel {
                             forestFireintent.putExtra(CodeConstants.ID,MainData.forestFire);
                             context.startActivity(forestFireintent);
                             break;
-
+                        case MainData.live://直播
+                            context.startActivity(new Intent(context, LiveActivity.class));
+                            break;
                         default:
                             ToastUtil.show(context, adapter.getList().get(position).getTitle());
                             break;

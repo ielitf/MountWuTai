@@ -48,9 +48,10 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".ui.activity.CommonActivity" />
         <activity android:name=".ui.activity.main.BuddhistActivity" />
-        <activity android:name=".ui.activity.buddhist.BuddhismActivity2"></activity>
-        <activity android:name=".ui.activity.main.ReligiousAffairsActivity"></activity>
-        <activity android:name=".ui.activity.main.TravelPlanActivity"/>
+        <activity android:name=".ui.activity.buddhist.BuddhismActivity2" />
+        <activity android:name=".ui.activity.main.ReligiousAffairsActivity" />
+        <activity android:name=".ui.activity.main.TravelPlanActivity" />
+        <activity android:name=".ui.activity.main.LiveActivity"></activity>
     </application>
 
 </manifest>
