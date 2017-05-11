@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
+import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.util.LogUtil;
 
 //以下为RxJava 2.x.y 版本
@@ -23,8 +24,6 @@ import com.bupt.mountwutai.util.LogUtil;
 //import io.reactivex.schedulers.Schedulers;
 
 
-
-
 /**
  * Created by joycezhao on 16/10/21.
  */
@@ -33,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
 
     public MyApplication application;
     public AppCompatActivity activity;
-//    public FragmentActivity activity;
+    //    public FragmentActivity activity;
     protected String TAG;
     private ProgressDialog progressDialog;
 //    private CompositeSubscription mCompositeSubscription;
@@ -78,10 +77,12 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
         progressDialog.setCancelable(true);
         progressDialog.setMessage("正在搜索");
     }
-    protected void initArgs(){
+
+    protected void initArgs() {
     }
 
     abstract protected void setLayout();
+
     abstract protected void initView();
 
     abstract protected boolean isNeedInitBack();
@@ -118,6 +119,19 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
         Intent intent = new Intent(this, tarActivity);
         startActivity(intent);
     }
+
+    /**
+     * 跳转页面
+     *
+     * @param tarActivity 目标页面
+     */
+    public void intent2Activity(Class<? extends Activity> tarActivity, Bundle bundle) {
+        Intent intent = new Intent(this, tarActivity);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
 //    public void intent2Activity(Class<? extends Activity> tarActivity,Bundle bundle){
 //        Intent intent=new Intent(this,tarActivity);
 //        intent.putExtra(CodeConstants.BUNDLE_KEY,bundle);
@@ -137,7 +151,7 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
     }
 
     public void dismissProgressDialog() {
-        if (progressDialog!=null&&progressDialog.isShowing())
+        if (progressDialog != null && progressDialog.isShowing())
             progressDialog.dismiss();
     }
 

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.MyBaseAdapter;
 import com.bupt.mountwutai.base.BasePanel;
+import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.entity.mian.CustomBean;
 import com.bupt.mountwutai.util.ToastUtil;
@@ -61,6 +62,27 @@ public class HeaderPanel extends BasePanel {
 
                         case MainData.buddhist:
                             context.startActivity(new Intent(context, BuddhistActivity.class));
+                            break;
+
+                        case MainData.religiousAffairs:
+                            Intent intent = new Intent(context, ReligiousAffairsActivity.class);
+                            intent.putExtra(CodeConstants.TYPE,CodeConstants.RELIGIOUSAFFAIRS);
+                            intent.putExtra(CodeConstants.ID,MainData.religiousAffairs);
+                            context.startActivity(intent);
+                            break;
+
+                        case MainData.relicsProtect:
+                            Intent relicsProtectintent = new Intent(context, ReligiousAffairsActivity.class);
+                            relicsProtectintent.putExtra(CodeConstants.TYPE,CodeConstants.RELICSPROTECT);
+                            relicsProtectintent.putExtra(CodeConstants.ID,MainData.relicsProtect);
+                            context.startActivity(relicsProtectintent);
+                            break;
+
+                        case MainData.forestFire:
+                            Intent forestFireintent = new Intent(context, ReligiousAffairsActivity.class);
+                            forestFireintent.putExtra(CodeConstants.TYPE,CodeConstants.FORESTFIRE);
+                            forestFireintent.putExtra(CodeConstants.ID,MainData.forestFire);
+                            context.startActivity(forestFireintent);
                             break;
 
                         default:
