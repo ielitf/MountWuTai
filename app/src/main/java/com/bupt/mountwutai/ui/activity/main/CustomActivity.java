@@ -1,6 +1,7 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -11,6 +12,11 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.CustomAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.entity.mian.CustomBean;
+import com.bupt.mylibrary.utils.ViewUtils;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -54,7 +60,14 @@ public class CustomActivity extends BaseActivity {
 
     private void addData() {
         mData=new ArrayList<>();
-        mData= (ArrayList<CustomBean>) getIntent().getSerializableExtra("customdate");
+        try {
+            for (int i = 0; i <12 ; i++) {
+                JSONObject oj=new JSONObject(ViewUtils.getData(activity,i+""));
+                mData.add(new CustomBean(oj.getInt("picture"),oj.getString("title"),oj.getBoolean("isadd")));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

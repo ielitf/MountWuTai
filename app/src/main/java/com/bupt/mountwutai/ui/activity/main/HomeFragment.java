@@ -1,7 +1,9 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.bupt.mountwutai.R;
@@ -12,9 +14,16 @@ import com.bupt.mountwutai.customdata.SummaryData;
 import com.bupt.mountwutai.entity.CommonBean;
 import com.bupt.mountwutai.entity.mian.CustomBean;
 import com.bupt.mountwutai.entity.mian.SlidesEntity;
+import com.bupt.mylibrary.utils.ViewUtils;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by litf on 2017/5/10.
@@ -35,6 +44,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
+        Log.i("share","onCreateView");
         setContentView(R.layout.fragment_home);
         context = getActivity();
         listView = (ListView) findViewById(R.id.home_list);
@@ -57,18 +67,46 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initheader() {
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.summary, true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.guide, true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.buddhist, true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "服务", false));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "土特产", false));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "景区直播", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "广电中心", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政务公开", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政民互动", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "森林防火", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "文物保护", true));
-        headers.add(new CustomBean(R.mipmap.ic_launcher_round, "宗教事务", true));
+        if (ViewUtils.getData(activity,"0").equals("hehe")){
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.summary, true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.guide, true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.buddhist, true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "服务", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "土特产", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "景区直播", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "广电中心", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政务公开", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政民互动", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "森林防火", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "文物保护", true));
+            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "宗教事务", true));
+            JSONArray array=new JSONArray();
+            for (int i = 0; i <headers.size() ; i++) {
+                JSONObject observeO= new JSONObject();
+                try {
+                    observeO.put("title",headers.get(i).getTitle());
+                    observeO.put("isadd",headers.get(i).getIsadd());
+                    observeO.put("picture",headers.get(i).getPicture());
+                    ViewUtils.setData(activity,""+i,observeO.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                array.put(observeO);
+            }
+        }else{
+            for (int i = 0; i <12 ; i++) {
+                JSONObject oj= null;
+                try {
+                    oj = new JSONObject(ViewUtils.getData(activity,i+""));
+                    headers.add(new CustomBean(oj.getInt("picture"),oj.getString("title"),oj.getBoolean("isadd")));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+
     }
 
     private void addData() {
@@ -92,6 +130,19 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        if (!ViewUtils.getData(activity,"0").equals("hehe")){
+            headers.clear();
+            for (int i = 0; i <12 ; i++) {
+                JSONObject oj= null;
+                try {
+                    oj = new JSONObject(ViewUtils.getData(activity,i+""));
+                    headers.add(new CustomBean(oj.getInt("picture"),oj.getString("title"),oj.getBoolean("isadd")));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            headerPanel.setData(headers);
+        }
         slidesPanel.startLoop(3000);
     }
     @Override

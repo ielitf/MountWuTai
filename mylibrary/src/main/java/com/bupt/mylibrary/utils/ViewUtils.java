@@ -3,10 +3,12 @@ package com.bupt.mylibrary.utils;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
+import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;
@@ -202,6 +204,23 @@ public class ViewUtils {
     @SuppressWarnings({"unchecked", "UnusedDeclaration"})
     public static <T extends View> T findById(Activity activity, int id) {
         return (T) activity.findViewById(id);
+    }
+
+    public static void setData(Context context, String id,String value) {
+        SharedPreferences preferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(id, value).commit();
+    }
+
+    public static String getData(Context context,String id) {
+        SharedPreferences preferences = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        if (preferences.getString(id, "").isEmpty()){
+            return "hehe";
+        }
+
+        return preferences.getString(id, "");
     }
 
 }

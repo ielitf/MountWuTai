@@ -2,6 +2,7 @@ package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ import java.util.List;
  */
 
 public class HeaderPanel extends BasePanel {
-    List<CustomBean> customlist = new ArrayList<>();
+    List<CustomBean> customlist=new ArrayList<>();
     private NoScrollGridView noScrollGrideView;
     HeaderPanelAdapter adapter;
 
@@ -78,14 +79,15 @@ public class HeaderPanel extends BasePanel {
      */
     public void setData(List<CustomBean> infoList) {
         //跳转传递的数据
-        customlist = infoList;
         //本页面显示数据
         for (int i = 0; i < infoList.size(); i++) {
+            customlist.add(infoList.get(i));
             if (!infoList.get(i).getIsadd()) {
                 infoList.remove(i);
                 i--;
             }
         }
+        adapter.clear();
         adapter.addCollection(infoList);
         adapter.notifyDataSetChanged();
     }
