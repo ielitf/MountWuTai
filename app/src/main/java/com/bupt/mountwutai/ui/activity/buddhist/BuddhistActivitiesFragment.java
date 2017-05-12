@@ -1,6 +1,7 @@
 package com.bupt.mountwutai.ui.activity.buddhist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,7 +33,9 @@ public class BuddhistActivitiesFragment extends BaseFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(context,BuddhismDetailActivity.class);
+                intent.putExtra("position",position);
+                startActivity(intent);
             }
         });
     }
