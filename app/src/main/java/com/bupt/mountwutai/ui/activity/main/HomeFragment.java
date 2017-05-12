@@ -65,18 +65,18 @@ public class HomeFragment extends BaseFragment {
 
     private void initheader() {
         if (ViewUtils.getData(activity, "0").equals("hehe")) {
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.summary, true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.guide, true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.buddhist, true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.service, true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.localproducts, true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "景区直播", true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "广电中心", true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政务公开", true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, "政民互动", true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.forestFire, true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.relicsProtect, true));
-            headers.add(new CustomBean(R.mipmap.ic_launcher_round, MainData.religiousAffairs, true));
+            headers.add(new CustomBean(R.mipmap.survey, MainData.summary, true));
+            headers.add(new CustomBean(R.mipmap.guide, MainData.guide, true));
+            headers.add(new CustomBean(R.mipmap.buddhist, MainData.buddhist, true));
+            headers.add(new CustomBean(R.mipmap.service, MainData.service, true));
+            headers.add(new CustomBean(R.mipmap.localproducts, MainData.localproducts, true));
+            headers.add(new CustomBean(R.mipmap.live, MainData.live, true));
+            headers.add(new CustomBean(R.mipmap.broadcastingcenter, MainData.broadcasting_center, true));
+            headers.add(new CustomBean(R.mipmap.politicsopen, MainData.politicsopen, true));
+            headers.add(new CustomBean(R.mipmap.politicsinteraction, MainData.politics_interaction, true));
+            headers.add(new CustomBean(R.mipmap.forestfire, MainData.forestFire, true));
+            headers.add(new CustomBean(R.mipmap.relicsprotect, MainData.relicsProtect, true));
+            headers.add(new CustomBean(R.mipmap.religiousaffairs, MainData.religiousAffairs, true));
             JSONArray array = new JSONArray();
             for (int i = 0; i < headers.size(); i++) {
                 JSONObject observeO = new JSONObject();
@@ -101,8 +101,6 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         }
-
-
     }
 
     private void addData() {

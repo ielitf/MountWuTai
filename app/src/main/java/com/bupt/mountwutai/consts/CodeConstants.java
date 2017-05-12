@@ -20,7 +20,7 @@ public class CodeConstants {
     public static final String HISTORIC_LEGENDS = " historic_legends";//历史传说
 
     public static final String FORESTFIRE= "forestFire";//森林防火
-    public static final String RELICSPROTECT = "relicsProtect";//文物保护
+    public static final String RELICSPROTECT = "relicsprotect";//文物保护
     public static final String RELIGIOUSAFFAIRS = "ReligiousAffairs";//佛教活动
     public static final String HOTLE_RESVER = "hotel_resver";//酒店预订
     public static final String TRAVEL_PLAN = "travel_plan";//行程规划

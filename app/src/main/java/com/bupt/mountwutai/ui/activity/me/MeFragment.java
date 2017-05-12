@@ -20,7 +20,11 @@ public class MeFragment extends BaseFragment {
     private NoScrollListView listView;
     private MeAdapter adapter;
     private List<MeItemBean> datas;
-    private String[] titles = {"消息推送","我的监控","我的收藏","清除缓存","用户反馈","版本信息","关于我们"};
+
+    private String[] titles = {"消息推送", "我的监控", "我的收藏", "清除缓存", "用户反馈", "版本信息", "关于我们"};
+    private int[] icons = {R.mipmap.message, R.mipmap.monitor,
+            R.mipmap.collect, R.mipmap.clear, R.mipmap.userback,
+            R.mipmap.version, R.mipmap.aboutus};
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
@@ -38,7 +42,7 @@ public class MeFragment extends BaseFragment {
 
     private void getdata() {
         for (int i = 0; i < titles.length; i++) {
-            datas.add(new MeItemBean(R.mipmap.ic_launcher_round,titles[i]));
+            datas.add(new MeItemBean(icons[i], titles[i]));
         }
     }
 
