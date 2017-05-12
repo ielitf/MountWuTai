@@ -131,6 +131,18 @@ public class LiveActivity extends BaseActivity {
                 new Consumption(R.mipmap.amap_car,"游客中心"),
                 new Consumption(R.mipmap.ic_launcher,"塔院寺"),
                 new Consumption(R.mipmap.amap_bus,"五爷庙"),
+                new Consumption(R.mipmap.amap_car,"游客中心"),
+                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
+                new Consumption(R.mipmap.amap_bus,"五爷庙"),
+                new Consumption(R.mipmap.amap_car,"游客中心"),
+                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
+                new Consumption(R.mipmap.amap_bus,"五爷庙"),
+                new Consumption(R.mipmap.amap_car,"游客中心"),
+                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
+                new Consumption(R.mipmap.amap_bus,"五爷庙"),
+                new Consumption(R.mipmap.amap_car,"游客中心"),
+                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
+                new Consumption(R.mipmap.amap_bus,"五爷庙"),
                 new Consumption(R.mipmap.amap_car,"游客中心")
         };
     }

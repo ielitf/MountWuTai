@@ -232,4 +232,15 @@ public class ViewUtils {
         return (int) (pxValue / scale + 0.5f);
     }
 
+    public static int getWidthPixel(Activity activity) {
+        DisplayMetrics localDisplayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
+        return localDisplayMetrics.widthPixels;
+    }
+
+    public static int getHeightPixel(Activity activity) {
+        DisplayMetrics localDisplayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
+        return localDisplayMetrics.heightPixels;
+    }
 }

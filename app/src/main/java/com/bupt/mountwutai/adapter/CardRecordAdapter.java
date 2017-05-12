@@ -11,13 +11,15 @@ import cn.lemon.view.adapter.RecyclerAdapter;
 
 
 public  class CardRecordAdapter extends RecyclerAdapter<Consumption> {
+    public Context context;
 
     public CardRecordAdapter(Context context) {
         super(context);
+        this.context=context;
     }
 
     @Override
     public BaseViewHolder<Consumption> onCreateBaseViewHolder(ViewGroup parent, int viewType) {
-        return new CardRecordHolder(parent);
+        return new CardRecordHolder(parent,context);
     }
 }

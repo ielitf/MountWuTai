@@ -1,1 +1,1 @@
-include ':app', ':mylibrary', ':RefreshRecyclerView'
+include ':app', ':mylibrary', ':RefreshRecyclerView', ':Vitamio'
