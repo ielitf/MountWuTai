@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bupt.mountwutai.ui.activity.me.MeFragment">
+
+    <include layout="@layout/main_top" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/me_item"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="@color/me_gap" />
+
+            <LinearLayout
+                android:id="@+id/me_top"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/me_top_touxiang"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="26dp"
+                    android:background="@mipmap/ic_launcher_round"
+                    android:scaleType="centerInside" />
+
+                <TextView
+                    android:id="@+id/me_top_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:text="用户名"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/space_14" />
+
+                <TextView
+                    android:id="@+id/me_top_btn"
+                    style="@style/textview_styles" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="@color/me_gap" />
+
+            <com.bupt.mountwutai.widget.NoScrollListView
+                android:id="@+id/me_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:divider="@color/transparent"
+                android:dividerHeight="@dimen/px1_dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -13,6 +13,7 @@ import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.buddhist.BuddhistFragment;
 import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
 import com.bupt.mountwutai.ui.activity.main.HomeFragment;
+import com.bupt.mountwutai.ui.activity.me.MeFragment;
 import com.bupt.mountwutai.ui.activity.summary.SummaryFragment;
 import com.bupt.mountwutai.util.LogUtil;
 
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity {
     private BuddhistFragment buddhistFragment = null;
     private BuddhistFragment serviceFragment=null;
     private CommonFragment productsFragment = null;
+    private MeFragment meFragment = null;
     private ImageView start_img;
 
     @Override
@@ -128,12 +130,18 @@ public class MainActivity extends BaseActivity {
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
                 imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
                 imageButtons[3].setBackgroundResource(R.mipmap.buddhist_selected);
-                if (productsFragment == null) {
-                    productsFragment = CommonFragment.newFragment(CodeConstants.LOCAL_PRODUCTS);
-                    transaction.add(R.id.container, productsFragment);
+                if (meFragment == null) {
+                    meFragment = new MeFragment();
+                    transaction.add(R.id.container, meFragment);
                 } else {
-                    transaction.show(productsFragment);
+                    transaction.show(meFragment);
                 }
+//                if (productsFragment == null) {
+//                    productsFragment = CommonFragment.newFragment(CodeConstants.LOCAL_PRODUCTS);
+//                    transaction.add(R.id.container, productsFragment);
+//                } else {
+//                    transaction.show(productsFragment);
+//                }
                 break;
 
 //            case R.id.service://服务
@@ -172,8 +180,8 @@ public class MainActivity extends BaseActivity {
         if (serviceFragment != null) {
             transaction.hide(serviceFragment);
         }
-        if (productsFragment != null) {
-            transaction.hide(productsFragment);
+        if (meFragment != null) {
+            transaction.hide(meFragment);
         }
     }
 
