@@ -3,10 +3,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@mipmap/main_back"
-    tools:context="com.bupt.mountwutai.ui.activity.main.TicketlistActivity">
+    android:orientation="vertical"
+    tools:context="com.bupt.mountwutai.ui.activity.guide.TicketlistActivity">
 
-    <include layout="@layout/main_top"/>
+    <include layout="@layout/main_top" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/traffic_layout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/traffic_item_color">
+
+                <TextView
+                    android:id="@+id/traffic_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:text="进山票"
+                    android:textColor="@color/navigation_select"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/traffic_img1"
+                    android:layout_width="10dp"
+                    android:layout_height="6dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/trafficup" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/traffic_content1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:src="@mipmap/t_jinshan"
+                android:scaleType="fitXY"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/traffic_layout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/traffic_item_color">
+
+                <TextView
+                    android:id="@+id/traffic_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:text="索道票"
+                    android:textColor="@color/navigation_select"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/traffic_img2"
+                    android:layout_width="10dp"
+                    android:layout_height="6dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/trafficdown" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/traffic_content2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:src="@mipmap/t_suodao"
+                android:scaleType="fitXY"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/traffic_layout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/traffic_item_color">
+
+                <TextView
+                    android:id="@+id/traffic_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:text="演出票"
+                    android:textColor="@color/navigation_select"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/traffic_img3"
+                    android:layout_width="10dp"
+                    android:layout_height="6dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/trafficdown" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/traffic_content3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:src="@mipmap/t_yanchu"
+                android:scaleType="fitXY"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

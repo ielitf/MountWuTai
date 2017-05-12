@@ -10,7 +10,7 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.MainData;
-import com.bupt.mountwutai.util.ToastUtil;
+import com.bupt.mountwutai.ui.activity.guide.TicketlistActivity;
 
 /**
  * 导游
