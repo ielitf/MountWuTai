@@ -28,4 +28,12 @@ public class MeItemBean {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    @Override
+    public String toString() {
+        return "MeItemBean{" +
+                "icon=" + icon +
+                ", title='" + title + '\'' +
+                '}';
+    }
 }
