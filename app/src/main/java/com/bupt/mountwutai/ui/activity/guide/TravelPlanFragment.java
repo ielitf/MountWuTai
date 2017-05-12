@@ -236,8 +236,7 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
     public void onMapLoaded() {
 //        setUpMap();
         showToast("onMapLoade is called");
-        addMarkersToMap();
-        addKeywordFence();
+
     }
 
     /**
@@ -290,6 +289,8 @@ public class TravelPlanFragment extends BaseFragment implements View.OnClickList
         myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATE);
         aMap.setMyLocationStyle(myLocationStyle);
         aMap.setMyLocationEnabled(true);
+        addMarkersToMap();
+        addKeywordFence();
 
     }
 
