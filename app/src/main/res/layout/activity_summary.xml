@@ -2,48 +2,110 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/main_back"
+    android:background="@mipmap/second_back"
     android:orientation="vertical"
     >
 
     <include layout="@layout/main_top"/>
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/buddhist_holy_land"
+        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="佛教圣地"
-        android:layout_marginTop="@dimen/space_30"
-        android:drawableBottom="@mipmap/ic_launcher"
-        />
-    <TextView
-        android:id="@+id/temple"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="寺庙导览"
-        android:layout_marginTop="@dimen/space_30"
-        android:drawableBottom="@mipmap/ic_launcher"
-        />
-    <TextView
-        android:id="@+id/localCustom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="地方风情"
-        android:layout_marginTop="@dimen/space_30"
-        android:drawableBottom="@mipmap/ic_launcher"
-        />
-    <TextView
-        android:id="@+id/historic_legends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="历史传说"
-        android:layout_marginTop="@dimen/space_30"
-        android:drawableBottom="@mipmap/ic_launcher"
-        />
+        android:layout_marginTop="@dimen/px100_dp">
 
+        <TextView
+            android:id="@+id/buddhist_holy_land_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="佛教圣地"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_14" />
+
+        <ImageView
+            android:layout_width="@dimen/px360_dp"
+            android:layout_height="@dimen/px150_dp"
+            android:layout_below="@id/buddhist_holy_land_text"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/left_subscript" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/temple"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px40_dp">
+
+        <TextView
+            android:id="@+id/temple_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="寺庙导览"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_14" />
+
+        <ImageView
+            android:layout_width="@dimen/px360_dp"
+            android:layout_height="@dimen/px150_dp"
+            android:layout_below="@id/temple_text"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/left_subscript" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/localCustom"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px40_dp">
+
+        <TextView
+            android:id="@+id/localCustom_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="地方风情"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_14" />
+
+        <ImageView
+            android:layout_width="@dimen/px360_dp"
+            android:layout_height="@dimen/px150_dp"
+            android:layout_below="@id/localCustom_text"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/left_subscript" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/historic_legends"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px40_dp">
+
+        <TextView
+            android:id="@+id/historic_legends_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="历史传说"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_14" />
+
+        <ImageView
+            android:layout_width="@dimen/px360_dp"
+            android:layout_height="@dimen/px150_dp"
+            android:layout_below="@id/historic_legends_text"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/left_subscript" />
+
+    </RelativeLayout>
 
 </LinearLayout>

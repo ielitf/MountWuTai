@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/main_back"
+    android:background="@mipmap/second_back"
     tools:context="com.bupt.mountwutai.ui.activity.main.GuideActivity">
 
     <include layout="@layout/main_top" />
@@ -12,9 +12,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/px90_dp"
-        android:layout_marginRight="@dimen/px90_dp"
-        android:layout_marginTop="@dimen/px150_dp">
+        android:layout_marginLeft="@dimen/px150_dp"
+        android:layout_marginRight="@dimen/px150_dp"
+        android:layout_marginTop="@dimen/px200_dp">
 
 
         <RelativeLayout
@@ -32,12 +32,11 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/px360_dp"
+                android:layout_height="@dimen/px150_dp"
                 android:layout_below="@id/travel_guide_text"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/px10_dp"
-                android:background="@mipmap/ic_launcher_round" />
+                android:background="@mipmap/left_subscript" />
 
         </RelativeLayout>
 
@@ -57,12 +56,11 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/px360_dp"
+                android:layout_height="@dimen/px150_dp"
                 android:layout_below="@id/ticket_list_text"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/px10_dp"
-                android:background="@mipmap/ic_launcher_round" />
+                android:background="@mipmap/right_subscript" />
 
         </RelativeLayout>
     </RelativeLayout>
@@ -70,8 +68,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/px90_dp"
-        android:layout_marginRight="@dimen/px90_dp"
+        android:layout_marginLeft="@dimen/px150_dp"
+        android:layout_marginRight="@dimen/px150_dp"
         android:layout_marginTop="@dimen/px80_dp">
 
         <RelativeLayout
@@ -89,12 +87,11 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/px360_dp"
+                android:layout_height="@dimen/px150_dp"
                 android:layout_below="@id/hotel_reserve_text"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/px10_dp"
-                android:background="@mipmap/ic_launcher_round" />
+                android:background="@mipmap/left_subscript" />
 
         </RelativeLayout>
 
@@ -114,12 +111,11 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/px360_dp"
+                android:layout_height="@dimen/px150_dp"
                 android:layout_below="@id/recipes_text"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/px10_dp"
-                android:background="@mipmap/ic_launcher_round" />
+                android:background="@mipmap/right_subscript" />
 
         </RelativeLayout>
 
@@ -128,8 +124,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/px90_dp"
-        android:layout_marginRight="@dimen/px90_dp"
+        android:layout_marginLeft="@dimen/px150_dp"
+        android:layout_marginRight="@dimen/px150_dp"
         android:layout_marginTop="@dimen/px80_dp">
         <RelativeLayout
             android:id="@+id/traffic_guide"
@@ -146,12 +142,11 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/px360_dp"
+                android:layout_height="@dimen/px150_dp"
                 android:layout_below="@id/traffic_guide_text"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/px10_dp"
-                android:background="@mipmap/ic_launcher_round" />
+                android:background="@mipmap/left_subscript" />
 
         </RelativeLayout>
 
@@ -171,12 +166,11 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/px360_dp"
+                android:layout_height="@dimen/px150_dp"
                 android:layout_below="@id/travel_strategy_text"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/px10_dp"
-                android:background="@mipmap/ic_launcher_round" />
+                android:background="@mipmap/right_subscript" />
 
         </RelativeLayout>
 
