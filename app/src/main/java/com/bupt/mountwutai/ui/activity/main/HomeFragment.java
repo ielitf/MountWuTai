@@ -1,9 +1,11 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.HomeListAdapter;
@@ -61,6 +63,8 @@ public class HomeFragment extends BaseFragment {
         headerPanel.setData(headers);
         listView.addHeaderView(slidesPanel.getContentView());
         listView.addHeaderView(headerPanel.getContentView());
+        TextView titleText= (TextView) contentView.findViewById(R.id.top_name_text);
+        titleText.setTypeface(Typeface.createFromAsset(context.getAssets(), "font/li2.ttf"));
     }
 
     private void initheader() {

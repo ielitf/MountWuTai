@@ -21,7 +21,7 @@
             android:layout_centerHorizontal="true"
             android:text="佛教圣地"
             android:textColor="@color/black"
-            android:textSize="@dimen/space_14" />
+            android:textSize="@dimen/space_20" />
 
         <ImageView
             style="@style/imageview_styles"
@@ -44,7 +44,7 @@
             android:layout_centerHorizontal="true"
             android:text="寺庙导览"
             android:textColor="@color/black"
-            android:textSize="@dimen/space_14" />
+            android:textSize="@dimen/space_20" />
 
         <ImageView
             style="@style/imageview_styles"
@@ -67,7 +67,7 @@
             android:layout_centerHorizontal="true"
             android:text="地方风情"
             android:textColor="@color/black"
-            android:textSize="@dimen/space_14" />
+            android:textSize="@dimen/space_20" />
 
         <ImageView
             style="@style/imageview_styles"
@@ -90,7 +90,7 @@
             android:layout_centerHorizontal="true"
             android:text="历史传说"
             android:textColor="@color/black"
-            android:textSize="@dimen/space_14" />
+            android:textSize="@dimen/space_20" />
 
         <ImageView
             style="@style/imageview_styles"
