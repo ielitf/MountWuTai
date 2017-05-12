@@ -106,11 +106,11 @@ public class HomeFragment extends BaseFragment {
     private void addData() {
         nameList.add("推荐");
         nameList.add("佛事");
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             commonBeanLists1.add(new CommonBean(SummaryData.temple_icon[i], SummaryData.temple_title[i], SummaryData.temple_content[i]));
         }
-        for (int i = 0; i < 3; i++) {
-            commonBeanLists2.add(new CommonBean(SummaryData.temple_icon[i], SummaryData.temple_title[i], SummaryData.temple_content[i]));
+        for (int i = 0; i < SummaryData.buddhist_main_img.length; i++) {
+            commonBeanLists2.add(new CommonBean(SummaryData.buddhist_main_img[i], SummaryData.buddhist_main_title[i], SummaryData.buddhist_main_text[i]));
         }
         homeLists.add(commonBeanLists1);
         homeLists.add(commonBeanLists2);

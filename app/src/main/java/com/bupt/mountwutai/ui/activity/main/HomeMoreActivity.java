@@ -43,5 +43,8 @@ public class HomeMoreActivity extends BaseActivity {
         for (int i = 0; i < SummaryData.temple_icon.length; i++) {
             mData.add(new CommonBean(SummaryData.temple_icon[i], SummaryData.temple_title[i], SummaryData.temple_content[i]));
         }
+        for (int i = 0; i < SummaryData.temple_icon.length; i++) {
+            mData.add(new CommonBean(SummaryData.temple_icon[i], SummaryData.temple_title[i], SummaryData.temple_content[i]));
+        }
     }
 }
