@@ -1,9 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bupt.mountwutai.ui.activity.buddhist.BuddhismDetailActivity">
+    android:background="@mipmap/main_back"
+    android:orientation="vertical"
+    >
+    <include
+        android:id="@+id/common_top"
+        layout="@layout/main_top"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/space_8"
+        android:paddingRight="@dimen/space_8"
+        android:scrollbars="none"
+        android:fillViewport="true">
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/common_deail_title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="6dp"
+                android:textSize="@dimen/px52_sp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/space_8"/>
+            <TextView
+                android:id="@+id/common_deail_tvContent1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="6dp"
+                android:layout_marginTop="@dimen/space_8"/>
+            <ImageView
+                android:id="@+id/common_deail_imag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:scaleType="centerInside"/>
+            <TextView
+                android:id="@+id/common_deail_title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="6dp"
+                android:textSize="@dimen/px52_sp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/space_8"/>
+
+            <TextView
+                android:id="@+id/common_deail_tvContent2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="6dp"
+                android:layout_marginTop="@dimen/space_8"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
