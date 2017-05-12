@@ -4,10 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.entity.classification.ClassificationBean;
+import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mountwutai.widget.NoScrollGridView;
 
 import java.util.Collection;
@@ -36,10 +38,16 @@ public class ClassificationAdapter extends MyBaseAdapter<ClassificationBean> {
     }
 
     @Override
-    protected void bindView(Context context, View view, int position, ClassificationBean model) {
+    protected void bindView(final Context context, View view, int position, final ClassificationBean model) {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
         PoliticsAdapter adapter = new PoliticsAdapter(context, model.getBeanList());
         viewHolder.noScrollGridView.setAdapter(adapter);
+        viewHolder.noScrollGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ToastUtil.show(context, model.getBeanList().get(position).getTitle());
+            }
+        });
         viewHolder.titleTextView.setText(model.getTitle());
 
     }
