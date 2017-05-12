@@ -1,26 +1,14 @@
 [
     {
-        "merged": "D:\\Studio\\StudioSpace\\Chshtv2\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\layout_controller_title.xml",
-        "source": "D:\\Studio\\StudioSpace\\Chshtv2\\Vitamio\\res\\layout\\layout_controller_title.xml"
+        "merged": "D:\\studiowk\\MountWuTai\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\mediacontroller.xml",
+        "source": "D:\\studiowk\\MountWuTai\\Vitamio\\res\\layout\\mediacontroller.xml"
     },
     {
-        "merged": "D:\\Studio\\StudioSpace\\MountWuTai\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\mediacontroller.xml",
-        "source": "D:\\Studio\\StudioSpace\\MountWuTai\\Vitamio\\res\\layout\\mediacontroller.xml"
+        "merged": "D:\\studiowk\\MountWuTai\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\layout_controller_title.xml",
+        "source": "D:\\studiowk\\MountWuTai\\Vitamio\\res\\layout\\layout_controller_title.xml"
     },
     {
-        "merged": "D:\\Studio\\StudioSpace\\MountWuTai\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\layout_controller_title.xml",
-        "source": "D:\\Studio\\StudioSpace\\MountWuTai\\Vitamio\\res\\layout\\layout_controller_title.xml"
-    },
-    {
-        "merged": "D:\\Studio\\StudioSpace\\Chshtv2\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\layout_controller_bar.xml",
-        "source": "D:\\Studio\\StudioSpace\\Chshtv2\\Vitamio\\res\\layout\\layout_controller_bar.xml"
-    },
-    {
-        "merged": "D:\\Studio\\StudioSpace\\MountWuTai\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\layout_controller_bar.xml",
-        "source": "D:\\Studio\\StudioSpace\\MountWuTai\\Vitamio\\res\\layout\\layout_controller_bar.xml"
-    },
-    {
-        "merged": "D:\\Studio\\StudioSpace\\Chshtv2\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\mediacontroller.xml",
-        "source": "D:\\Studio\\StudioSpace\\Chshtv2\\Vitamio\\res\\layout\\mediacontroller.xml"
+        "merged": "D:\\studiowk\\MountWuTai\\Vitamio\\build\\intermediates\\res\\merged\\release\\layout\\layout_controller_bar.xml",
+        "source": "D:\\studiowk\\MountWuTai\\Vitamio\\res\\layout\\layout_controller_bar.xml"
     }
 ]
