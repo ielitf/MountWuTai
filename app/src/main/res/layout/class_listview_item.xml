@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/me_gap"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:background="@color/top_back" />
+
+        <TextView
+            android:id="@+id/class_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="题目"
+            android:textColor="@color/black"
+            android:textSize="@dimen/space_16" />
+
+    </LinearLayout>
+
+    <com.bupt.mountwutai.widget.NoScrollGridView
+        android:id="@+id/class_item_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/px75_dp"
+        android:layout_marginTop="@dimen/px75_dp"
+        android:numColumns="3" />
+
+</LinearLayout>

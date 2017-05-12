@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bupt.mountwutai.ui.activity.classification.ClassificationFragment">
+
+    <include layout="@layout/main_top" />
+
+    <ListView
+        android:id="@+id/class_listview"
+        android:background="@color/me_item"
+        android:dividerHeight="@dimen/space_divide_list"
+        android:divider="@color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+</LinearLayout>
