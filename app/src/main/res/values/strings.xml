@@ -251,4 +251,7 @@
     <string name="style_custom_on">开启个性化地图</string>
     <string name="style_custom_off">关闭个性化地图</string>
     <string name="title_activity_guide">GuideActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

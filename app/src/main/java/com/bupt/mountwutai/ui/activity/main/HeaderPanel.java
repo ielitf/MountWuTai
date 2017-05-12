@@ -121,6 +121,9 @@ public class HeaderPanel extends BasePanel {
                             context.startActivity(broadcasting_centerintent);
                             break;
 
+                        case MainData.live://直播
+                            context.startActivity(new Intent(context, LiveActivity.class));
+                            break;
                         default:
                             ToastUtil.show(context, adapter.getList().get(position).getTitle());
                             break;

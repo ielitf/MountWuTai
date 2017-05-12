@@ -16,4 +16,5 @@ public class MainData {
     public static final String broadcasting_center = "广电中心";
     public static final String service = "服务";
     public static final String localproducts ="土特产";
+    public static final String live = "景区直播";
 }
