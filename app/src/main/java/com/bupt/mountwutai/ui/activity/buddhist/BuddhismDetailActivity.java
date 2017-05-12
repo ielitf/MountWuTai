@@ -38,6 +38,11 @@ public class BuddhismDetailActivity extends BaseActivity {
                 content1.setText(BuddhismData.buddhism_detail_content[1]);
                 break;
             case 1:
+                imageView.setImageResource(BuddhismData.buddhism_detail_icon[1]);
+                title1.setText(BuddhismData.buddhism_detail_content2[0]);
+                content1.setText(BuddhismData.buddhism_detail_content2[1]);
+                title2.setText(BuddhismData.buddhism_detail_content2[2]);
+                content2.setText(BuddhismData.buddhism_detail_content2[3]);
                 break;
             case 2:
                 break;
