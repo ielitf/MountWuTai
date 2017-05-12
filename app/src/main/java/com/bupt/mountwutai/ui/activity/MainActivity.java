@@ -11,6 +11,7 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.ui.activity.buddhist.BuddhistFragment;
+import com.bupt.mountwutai.ui.activity.classification.ClassificationFragment;
 import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
 import com.bupt.mountwutai.ui.activity.main.HomeFragment;
 import com.bupt.mountwutai.ui.activity.me.MeFragment;
@@ -27,11 +28,12 @@ public class MainActivity extends BaseActivity {
 
     private FragmentManager fragmentManager;
     private HomeFragment summaryFragment = null;
-    private GuideFragment guideFragment = null;
+//    private GuideFragment guideFragment = null;
     private BuddhistFragment buddhistFragment = null;
-    private BuddhistFragment serviceFragment=null;
-    private CommonFragment productsFragment = null;
+//    private BuddhistFragment serviceFragment=null;
+//    private CommonFragment productsFragment = null;
     private MeFragment meFragment = null;
+    private ClassificationFragment classificationFragment = null;
     private ImageView start_img;
 
     @Override
@@ -102,11 +104,11 @@ public class MainActivity extends BaseActivity {
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_selected);
                 imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
                 imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
-                if (guideFragment == null) {
-                    guideFragment = new GuideFragment();
-                    transaction.add(R.id.container, guideFragment);
+                if (classificationFragment == null) {
+                    classificationFragment = new ClassificationFragment();
+                    transaction.add(R.id.container, classificationFragment);
                 } else {
-                    transaction.show(guideFragment);
+                    transaction.show(classificationFragment);
                 }
                 break;
 
@@ -171,15 +173,15 @@ public class MainActivity extends BaseActivity {
         if (summaryFragment != null) {
             transaction.hide(summaryFragment);
         }
-        if (guideFragment != null) {
-            transaction.hide(guideFragment);
+        if (classificationFragment != null) {
+            transaction.hide(classificationFragment);
         }
         if (buddhistFragment != null) {
             transaction.hide(buddhistFragment);
         }
-        if (serviceFragment != null) {
-            transaction.hide(serviceFragment);
-        }
+//        if (serviceFragment != null) {
+//            transaction.hide(serviceFragment);
+//        }
         if (meFragment != null) {
             transaction.hide(meFragment);
         }
