@@ -2,6 +2,7 @@ package com.bupt.mountwutai.ui.activity.buddhist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,6 +46,11 @@ public class BuddhismDetailActivity extends BaseActivity {
                 content2.setText(BuddhismData.buddhism_detail_content2[3]);
                 break;
             case 2:
+                title1.setVisibility(View.GONE);
+                content1.setVisibility(View.GONE);
+                imageView.setImageResource(BuddhismData.buddhism_detail_icon[2]);
+                title2.setText(BuddhismData.buddhism_detail_content3[0]);
+                content2.setText(BuddhismData.buddhism_detail_content3[1]);
                 break;
         }
     }
