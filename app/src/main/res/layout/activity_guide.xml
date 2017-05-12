@@ -32,10 +32,8 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="@dimen/px360_dp"
-                android:layout_height="@dimen/px150_dp"
+                style="@style/imageview_styles"
                 android:layout_below="@id/travel_guide_text"
-                android:layout_centerHorizontal="true"
                 android:background="@mipmap/left_subscript" />
 
         </RelativeLayout>
@@ -56,10 +54,8 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="@dimen/px360_dp"
-                android:layout_height="@dimen/px150_dp"
+                style="@style/imageview_styles"
                 android:layout_below="@id/ticket_list_text"
-                android:layout_centerHorizontal="true"
                 android:background="@mipmap/right_subscript" />
 
         </RelativeLayout>
@@ -87,10 +83,8 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="@dimen/px360_dp"
-                android:layout_height="@dimen/px150_dp"
+                style="@style/imageview_styles"
                 android:layout_below="@id/hotel_reserve_text"
-                android:layout_centerHorizontal="true"
                 android:background="@mipmap/left_subscript" />
 
         </RelativeLayout>
@@ -111,10 +105,8 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="@dimen/px360_dp"
-                android:layout_height="@dimen/px150_dp"
+                style="@style/imageview_styles"
                 android:layout_below="@id/recipes_text"
-                android:layout_centerHorizontal="true"
                 android:background="@mipmap/right_subscript" />
 
         </RelativeLayout>
@@ -142,10 +134,8 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="@dimen/px360_dp"
-                android:layout_height="@dimen/px150_dp"
+                style="@style/imageview_styles"
                 android:layout_below="@id/traffic_guide_text"
-                android:layout_centerHorizontal="true"
                 android:background="@mipmap/left_subscript" />
 
         </RelativeLayout>
@@ -166,10 +156,8 @@
                 android:textSize="@dimen/space_14" />
 
             <ImageView
-                android:layout_width="@dimen/px360_dp"
-                android:layout_height="@dimen/px150_dp"
+                style="@style/imageview_styles"
                 android:layout_below="@id/travel_strategy_text"
-                android:layout_centerHorizontal="true"
                 android:background="@mipmap/right_subscript" />
 
         </RelativeLayout>
