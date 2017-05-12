@@ -1,8 +1,10 @@
 package com.bupt.mountwutai.ui.activity.main;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
@@ -16,6 +18,7 @@ import com.bupt.mountwutai.util.ToastUtil;
 public class GuideActivity extends BaseActivity implements View.OnClickListener {
 
     private RelativeLayout[] relativeLayouts = new RelativeLayout[6];
+    private TextView[] textViews = new TextView[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,14 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener 
         relativeLayouts[3] = (RelativeLayout) findViewById(R.id.recipes);
         relativeLayouts[4] = (RelativeLayout) findViewById(R.id.traffic_guide);
         relativeLayouts[5] = (RelativeLayout) findViewById(R.id.travel_strategy);
+        textViews[0] = (TextView) findViewById(R.id.travel_guide_text);
+        textViews[1] = (TextView) findViewById(R.id.ticket_list_text);
+        textViews[2] = (TextView) findViewById(R.id.hotel_reserve_text);
+        textViews[3] = (TextView) findViewById(R.id.recipes_text);
+        textViews[4] = (TextView) findViewById(R.id.traffic_guide_text);
+        textViews[5] = (TextView) findViewById(R.id.travel_strategy_text);
         for (int i = 0; i < relativeLayouts.length; i++) {
+            textViews[i].setTypeface(Typeface.createFromAsset(getAssets(), "font/li2.ttf"));
             relativeLayouts[i].setOnClickListener(this);
         }
     }

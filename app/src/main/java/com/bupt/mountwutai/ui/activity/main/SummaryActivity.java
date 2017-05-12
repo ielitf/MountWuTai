@@ -1,9 +1,11 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
@@ -15,7 +17,8 @@ import com.bupt.mountwutai.customdata.MainData;
  * 概览
  */
 public class SummaryActivity extends BaseActivity implements View.OnClickListener{
-    private RelativeLayout textView1,textView2,textView3,textView4;
+    private RelativeLayout[] relativeLayouts = new RelativeLayout[4];
+    private TextView[] textViews = new TextView[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +32,18 @@ public class SummaryActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initView() {
-        textView1 = (RelativeLayout) findViewById(R.id.buddhist_holy_land);
-        textView2 = (RelativeLayout) findViewById(R.id.temple);
-        textView3 = (RelativeLayout) findViewById(R.id.localCustom);
-        textView4 = (RelativeLayout) findViewById(R.id.historic_legends);
-        textView1.setOnClickListener(this);
-        textView2.setOnClickListener(this);
-        textView3.setOnClickListener(this);
-        textView4.setOnClickListener(this);
+        textViews[0] = (TextView) findViewById(R.id.buddhist_holy_land_text);
+        textViews[1] = (TextView) findViewById(R.id.temple_text);
+        textViews[2] = (TextView) findViewById(R.id.localCustom_text);
+        textViews[3] = (TextView) findViewById(R.id.historic_legends_text);
+        relativeLayouts[0] = (RelativeLayout) findViewById(R.id.buddhist_holy_land);
+        relativeLayouts[1] = (RelativeLayout) findViewById(R.id.temple);
+        relativeLayouts[2] = (RelativeLayout) findViewById(R.id.localCustom);
+        relativeLayouts[3] = (RelativeLayout) findViewById(R.id.historic_legends);
+        for (int i = 0; i < relativeLayouts.length; i++) {
+            textViews[i].setTypeface(Typeface.createFromAsset(getAssets(), "font/li2.ttf"));
+            relativeLayouts[i].setOnClickListener(this);
+        }
     }
 
     @Override
