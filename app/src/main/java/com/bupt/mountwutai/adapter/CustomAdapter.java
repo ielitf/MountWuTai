@@ -46,14 +46,20 @@ public class CustomAdapter extends MyBaseAdapter<CustomBean> {
         holderView.custom_imageView.setImageResource(model.getPicture());
         if (model.getIsadd()){
             holderView.custom_button.setText("关闭");
+            holderView.custom_button.setTextColor(context.getResources().getColor(R.color.white));
+            holderView.custom_button.setBackgroundResource(R.drawable.custom_button_style2);
         }else{
             holderView.custom_button.setText("开启");
+            holderView.custom_button.setTextColor(context.getResources().getColor(R.color.top_back));
+            holderView.custom_button.setBackgroundResource(R.drawable.custom_button_style);
         }
         holderView.custom_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (model.getIsadd()){
                     holderView.custom_button.setText("开启");
+                    holderView.custom_button.setTextColor(context.getResources().getColor(R.color.top_back));
+                    holderView.custom_button.setBackgroundResource(R.drawable.custom_button_style);
                     model.setIsadd(false);
                     JSONObject jsonObject=new JSONObject();
                     try {
@@ -66,6 +72,8 @@ public class CustomAdapter extends MyBaseAdapter<CustomBean> {
                     }
                 }else{
                     holderView.custom_button.setText("关闭");
+                    holderView.custom_button.setTextColor(context.getResources().getColor(R.color.white));
+                    holderView.custom_button.setBackgroundResource(R.drawable.custom_button_style2);
                     model.setIsadd(true);
                     JSONObject jsonObject=new JSONObject();
                     try {
