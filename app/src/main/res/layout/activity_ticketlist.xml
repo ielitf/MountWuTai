@@ -53,11 +53,11 @@
             <ImageView
                 android:id="@+id/traffic_content1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="900dp"
                 android:paddingTop="5dp"
                 android:src="@mipmap/t_jinshan"
-                android:scaleType="fitXY"
-                android:visibility="gone" />
+                android:scaleType="centerInside"
+                 />
 
             <RelativeLayout
                 android:id="@+id/traffic_layout2"
@@ -93,10 +93,10 @@
             <ImageView
                 android:id="@+id/traffic_content2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="650dp"
                 android:paddingTop="5dp"
                 android:src="@mipmap/t_suodao"
-                android:scaleType="fitXY"
+                android:scaleType="centerInside"
                 android:visibility="gone" />
 
             <RelativeLayout
@@ -133,10 +133,10 @@
             <ImageView
                 android:id="@+id/traffic_content3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="600dp"
                 android:paddingTop="5dp"
                 android:src="@mipmap/t_yanchu"
-                android:scaleType="fitXY"
+                android:scaleType="centerInside"
                 android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
