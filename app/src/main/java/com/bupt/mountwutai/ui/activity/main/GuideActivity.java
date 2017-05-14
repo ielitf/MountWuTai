@@ -67,31 +67,31 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener 
             case R.id.travel_guide://行程规划
                 bundle = new Bundle();
                 bundle.putString(CodeConstants.TYPE, CodeConstants.TRAVEL_PLAN);
-                bundle.putString(CodeConstants.ID, "行程规划");
+                bundle.putString(CodeConstants.ID, MainData.TRAVELPLAN);
                 break;
 
             case R.id.hotel_reserve://酒店预订
                 bundle = new Bundle();
                 bundle.putString(CodeConstants.TYPE, CodeConstants.HOTLE_RESVER);
-                bundle.putString(CodeConstants.ID, "酒店预订");
+                bundle.putString(CodeConstants.ID, MainData.HOTLERESVER);
                 break;
 
             case R.id.recipes://五台食谱
                 bundle = new Bundle();
                 bundle.putString(CodeConstants.TYPE, CodeConstants.WUTAI_RECIPES);
-                bundle.putString(CodeConstants.ID, "五台食谱");
+                bundle.putString(CodeConstants.ID, MainData.WUTAIRECIPES);
                 break;
 
             case R.id.traffic_guide://交通指南
                 bundle = new Bundle();
                 bundle.putString(CodeConstants.TYPE, CodeConstants.TRAFFIC_GUIDE);
-                bundle.putString(CodeConstants.ID, "交通指南");
+                bundle.putString(CodeConstants.ID, MainData.TRAFFICGUIDE);
                 break;
 
             case R.id.travel_strategy://朝台攻略
                 bundle = new Bundle();
                 bundle.putString(CodeConstants.TYPE, CodeConstants.TRAVEL_STRATEGY);
-                bundle.putString(CodeConstants.ID, "朝台攻略");
+                bundle.putString(CodeConstants.ID, MainData.TRAVELSTRATEGY);
                 break;
             case R.id.ticket_list://门票一览
                 break;

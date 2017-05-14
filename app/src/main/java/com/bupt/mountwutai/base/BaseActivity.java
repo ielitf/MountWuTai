@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.util.ActivityUtils;
 import com.bupt.mountwutai.util.LogUtil;
 
 //以下为RxJava 2.x.y 版本
@@ -116,8 +117,7 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
      * @param tarActivity 目标页面
      */
     public void intent2Activity(Class<? extends Activity> tarActivity) {
-        Intent intent = new Intent(this, tarActivity);
-        startActivity(intent);
+        ActivityUtils.intent2Activity(activity, tarActivity);
     }
 
     /**
@@ -126,11 +126,7 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
      * @param tarActivity 目标页面
      */
     public void intent2Activity(Class<? extends Activity> tarActivity, Bundle bundle) {
-        Intent intent = new Intent(this, tarActivity);
-        if (bundle != null) {
-            intent.putExtras(bundle);
-        }
-        startActivity(intent);
+        ActivityUtils.intent2Activity(activity, tarActivity, bundle);
     }
 //    public void intent2Activity(Class<? extends Activity> tarActivity,Bundle bundle){
 //        Intent intent=new Intent(this,tarActivity);

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
+import com.bupt.mountwutai.util.ActivityUtils;
 import com.bupt.mountwutai.util.LogUtil;
 
 import java.lang.reflect.Field;
@@ -42,7 +43,7 @@ public abstract class BaseFragment extends Fragment {
             return super.onCreateView(inflater, container, savedInstanceState);
         if (contentView != null) {
             if (!TextUtils.isEmpty(getTopbarTitle())) {
-                final TextView titleText= (TextView) contentView.findViewById(R.id.top_name_text);
+                final TextView titleText = (TextView) contentView.findViewById(R.id.top_name_text);
                 titleText.setText(getTopbarTitle());
                 if (hasPopWindow()) {
                     final LinearLayout myPopLayout = (LinearLayout) contentView.findViewById(R.id.my_pop_layout);
@@ -51,7 +52,7 @@ public abstract class BaseFragment extends Fragment {
                     myPopLayout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            showPopWindow(myPopLayout,titleText,popImage);
+                            showPopWindow(myPopLayout, titleText, popImage);
                         }
                     });
                 }
@@ -93,8 +94,11 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected void intent2Activity(Class<? extends Activity> tarActivity) {
-        Intent intent = new Intent(activity, tarActivity);
-        startActivity(intent);
+        ActivityUtils.intent2Activity(activity, tarActivity);
+    }
+
+    protected void intent2Activity(Class<? extends Activity> tarActivity, Bundle bundle) {
+        ActivityUtils.intent2Activity(activity, tarActivity, bundle);
     }
 
     protected void showToast(String msg) {
@@ -178,7 +182,8 @@ public abstract class BaseFragment extends Fragment {
 //        mCompositeSubscription = null;
         super.onDestroy();
     }
-//    abstract protected void setLayout();
+
+    //    abstract protected void setLayout();
     abstract protected boolean hasPopWindow();
 
     abstract protected boolean isNeedInitBack();
@@ -189,8 +194,10 @@ public abstract class BaseFragment extends Fragment {
         activity.finish();
     }
 
-    protected void showPopWindow(LinearLayout myPopLayout,TextView titleText,ImageView popImage) {
+    protected void showPopWindow(LinearLayout myPopLayout, TextView titleText, ImageView popImage) {
     }
-    protected void initArgs(){}
+
+    protected void initArgs() {
+    }
 }
 

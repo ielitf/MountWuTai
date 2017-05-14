@@ -17,4 +17,11 @@ public class MainData {
     public static final String service = "服务";
     public static final String localproducts ="土特产";
     public static final String live = "景区直播";
+
+    public static final String TRAVELPLAN = "行程规划";
+    public static final String HOTLERESVER = "酒店预订";
+    public static final String WUTAIRECIPES = "五台食谱";
+    public static final String TRAFFICGUIDE = "交通指南";
+    public static final String TRAVELSTRATEGY = "朝台攻略";
+    public static final String TICKETLIST = "门票预售";
 }

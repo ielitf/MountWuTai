@@ -1,15 +1,14 @@
 package com.bupt.mountwutai.ui.activity.guide;
 
 import android.os.Bundle;
-import android.text.util.Linkify;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
+import com.bupt.mountwutai.customdata.MainData;
 
-import java.util.regex.Pattern;
 
 /**
  * 门票一览
@@ -59,7 +58,7 @@ public class TicketlistActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected String getTopbarTitle() {
-        return "门票一览";
+        return MainData.TICKETLIST;
     }
 
     @Override
