@@ -24,7 +24,7 @@ public class ClassificationFragment extends BaseFragment {
     private ClassificationAdapter classificationAdapter;
 
     private String[] services = {"天气预报", "汽车时刻", "火车时刻",
-            "航班动态", MainData.HOTLERESVER, "医疗救援", MainData.TICKETLIST, MainData.TRAVELPLAN, "佛事活动"};
+            "航班动态", MainData.HOTLERESVER, "医疗救援", MainData.TICKETLIST, MainData.TRAVELPLAN, MainData.BuddhistActivities};
     private int[] servicesIcon = {R.mipmap.classificate_weather, R.mipmap.classificate_bus,
             R.mipmap.classificate_train, R.mipmap.classificate_fly, R.mipmap.classificate_hotel,
             R.mipmap.classificate_help, R.mipmap.classificate_ticket, R.mipmap.classificate_guide,

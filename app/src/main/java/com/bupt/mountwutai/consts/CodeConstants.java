@@ -34,6 +34,7 @@ public class CodeConstants {
 
     public static final String BUDDHISTACTION = "BUDDHISTACTION";//佛事
     public static final String SERVICE = "SERVICE";//服务
+    public static final String SERVICE2 = "SERVICE2";//服务-医疗救援
     public static final String LOCAL_PRODUCTS = "local_products";//土特产
     public static final String BUDDHA_ONLINE = "Buddha_Online";//在线礼佛
 

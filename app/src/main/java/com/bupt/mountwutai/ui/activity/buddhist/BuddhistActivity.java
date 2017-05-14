@@ -56,13 +56,22 @@ public class BuddhistActivity extends BaseActivity {
                 pages.add(FragmentPagerItem.of(titles[1], MedicalRescueFragment.class));
                 pages.add(FragmentPagerItem.of(titles[2], ComplaintFragment.class));
                 break;
+            case CodeConstants.SERVICE2:
+                titles = serviceTitles;
+                pages.add(FragmentPagerItem.of(titles[0], GovernFragment.class));
+                pages.add(FragmentPagerItem.of(titles[1], MedicalRescueFragment.class));
+                pages.add(FragmentPagerItem.of(titles[2], ComplaintFragment.class));
+                break;
         }
-
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(), pages);
 
         viewPager.setAdapter(adapter);
+        if (type.equals(CodeConstants.SERVICE2)) {
+            viewPager.setCurrentItem(1);
+        }
         viewPager.setOffscreenPageLimit(3);
+
         viewPagerTab.setViewPager(viewPager);
     }
 

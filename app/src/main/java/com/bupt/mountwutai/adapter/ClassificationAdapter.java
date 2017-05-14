@@ -1,6 +1,7 @@
 package com.bupt.mountwutai.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.entity.classification.ClassificationBean;
+import com.bupt.mountwutai.ui.activity.buddhist.BuddhistActivity;
 import com.bupt.mountwutai.ui.activity.guide.TicketlistActivity;
 import com.bupt.mountwutai.ui.activity.main.TravelPlanActivity;
 import com.bupt.mountwutai.util.ActivityUtils;
@@ -73,6 +75,16 @@ public class ClassificationAdapter extends MyBaseAdapter<ClassificationBean> {
 
                     case MainData.TICKETLIST://门票一览
                         ActivityUtils.intent2Activity(context, TicketlistActivity.class, bundle);
+                        break;
+                    case MainData.MedicalRescue://医疗救援
+                        Intent intent = new Intent(context, BuddhistActivity.class);
+                        intent.putExtra(CodeConstants.TYPE, CodeConstants.SERVICE2);
+                        context.startActivity(intent);
+                        break;
+                    case MainData.BuddhistActivities://佛事活动
+                        Intent intent2 = new Intent(context, BuddhistActivity.class);
+                        intent2.putExtra(CodeConstants.TYPE, CodeConstants.BUDDHISTACTION);
+                        context.startActivity(intent2);
                         break;
                     default:
                         ToastUtil.show(context, model.getBeanList().get(position).getTitle());
