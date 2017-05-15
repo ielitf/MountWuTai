@@ -35,7 +35,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="26dp"
-                    android:background="@mipmap/ic_launcher_round"
+                    android:background="@mipmap/guide"
                     android:scaleType="centerInside" />
 
                 <TextView

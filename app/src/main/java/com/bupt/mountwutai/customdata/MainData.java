@@ -23,7 +23,7 @@ public class MainData {
     public static final String WUTAIRECIPES = "五台食谱";
     public static final String TRAFFICGUIDE = "交通指南";
     public static final String TRAVELSTRATEGY = "朝台攻略";
-    public static final String TICKETLIST = "门票预售";
+    public static final String TICKETLIST = "门票一览";
     public static final String BuddhistActivities = "佛事活动";
     public static final String MedicalRescue = "医疗救援";
 }

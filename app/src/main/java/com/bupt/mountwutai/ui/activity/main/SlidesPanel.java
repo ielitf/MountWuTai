@@ -17,6 +17,7 @@ import com.bupt.mountwutai.entity.mian.SlidesBean;
 import com.bupt.mountwutai.util.ToastUtil;
 import com.bupt.mylibrary.utils.ViewUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -58,6 +59,7 @@ public class SlidesPanel extends BasePanel {
                 infoList)
                 .setPageIndicator(new int[]{R.mipmap.bg_slide_point_normal, R.mipmap.bg_slide_point_choose})//设置选中指示器
                 .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL);//设置指示器位置
+
     }
 
     /**
@@ -96,6 +98,7 @@ public class SlidesPanel extends BasePanel {
         public void UpdateUI(final Context context, final int position, final SlidesBean data) {
 //            ImageLoader.loadCenterCrop(context, data.getImgUrl(), img);
             txt.setText(data.getDesc());
+            img.setImageResource(data.getImgUrl());
             inflate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

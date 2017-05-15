@@ -51,10 +51,10 @@ public class HomeFragment extends BaseFragment {
         listView.setAdapter(homeListAdapter);
         addData();
         List<SlidesBean> datas = new ArrayList<>();
-        datas.add(new SlidesBean("", "title1"));
-        datas.add(new SlidesBean("", "title2"));
-        datas.add(new SlidesBean("", "title3"));
-        datas.add(new SlidesBean("", "title4"));
+        datas.add(new SlidesBean(R.mipmap.slides_picture2, "智慧五台欢迎你"));
+        datas.add(new SlidesBean(R.mipmap.slides_picture3, "智慧五台欢迎你"));
+        datas.add(new SlidesBean(R.mipmap.slides_picture2, "智慧五台欢迎你"));
+        //datas.add(new SlidesBean(R.mipmap.slides_picture, "智慧五台欢迎你"));
         slidesPanel = new SlidesPanel(activity);
         slidesPanel.setData(datas);
         slidesPanel.startLoop(3000);
@@ -63,8 +63,8 @@ public class HomeFragment extends BaseFragment {
         headerPanel.setData(headers);
         listView.addHeaderView(slidesPanel.getContentView());
         listView.addHeaderView(headerPanel.getContentView());
-        TextView titleText= (TextView) contentView.findViewById(R.id.top_name_text);
-        titleText.setTypeface(Typeface.createFromAsset(context.getAssets(), "font/li2.ttf"));
+        //TextView titleText= (TextView) contentView.findViewById(R.id.top_name_text);
+        //titleText.setTypeface(Typeface.createFromAsset(context.getAssets(), "font/li2.ttf"));
     }
 
     private void initheader() {

@@ -83,7 +83,9 @@ public class BuddhistActivity extends BaseActivity {
     @Override
     protected String getTopbarTitle() {
         if (type.equals(CodeConstants.SERVICE)) {
-            return serviceTitles[0];
+            return "服务";
+        }else if(type.equals(CodeConstants.SERVICE2)){
+            return "服务";
         }
         return "佛事";
     }

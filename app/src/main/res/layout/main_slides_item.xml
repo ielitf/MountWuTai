@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@mipmap/default_pic" />
+        android:src="@mipmap/slides_picture" />
 
     <TextView
         android:id="@+id/txt"

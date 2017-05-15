@@ -31,7 +31,6 @@ public class LiveActivity extends BaseActivity {
 
     private RelativeLayout liveTop;
     private TextView liveName;
-    private ImageButton livebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +41,6 @@ public class LiveActivity extends BaseActivity {
     protected void initView() {
         liveTop = (RelativeLayout) findViewById(R.id.live_top);
         liveName = (TextView) findViewById(R.id.top_name_text);
-        livebutton= (ImageButton) findViewById(R.id.top_back_btn);
-        livebutton.setVisibility(View.VISIBLE);
-        livebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         liveTop.setVisibility(View.VISIBLE);
         liveName.setText("景区直播");
 
@@ -62,17 +53,17 @@ public class LiveActivity extends BaseActivity {
         textView.setTextSize(16);
         textView.setGravity(Gravity.CENTER);
         textView.setText("下拉刷新");
-        mAdapter.setHeader(textView);
+        //mAdapter.setHeader(textView);
         //添加footer
         final TextView footer = new TextView(this);
         footer.setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewUtils.dip2px(activity,48)));
         footer.setTextSize(16);
         footer.setGravity(Gravity.CENTER);
         footer.setText("上拉加载");
-        mAdapter.setFooter(footer);
+        //mAdapter.setFooter(footer);
         mRecyclerView = (RefreshRecyclerView) findViewById(R.id.recycler_view);
         mRecyclerView.setSwipeRefreshColors(0xFF437845, 0xFFE44F98, 0xFF2FAC21);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
         mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.setRefreshAction(new Action() {
@@ -123,27 +114,16 @@ public class LiveActivity extends BaseActivity {
 
     public Consumption[] getVirtualData() {
         return new Consumption[]{
-                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
-                new Consumption(R.mipmap.amap_bus,"五爷庙"),
-                new Consumption(R.mipmap.amap_car,"游客中心"),
-                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
-                new Consumption(R.mipmap.amap_bus,"五爷庙"),
-                new Consumption(R.mipmap.amap_car,"游客中心"),
-                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
-                new Consumption(R.mipmap.amap_bus,"五爷庙"),
-                new Consumption(R.mipmap.amap_car,"游客中心"),
-                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
-                new Consumption(R.mipmap.amap_bus,"五爷庙"),
-                new Consumption(R.mipmap.amap_car,"游客中心"),
-                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
-                new Consumption(R.mipmap.amap_bus,"五爷庙"),
-                new Consumption(R.mipmap.amap_car,"游客中心"),
-                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
-                new Consumption(R.mipmap.amap_bus,"五爷庙"),
-                new Consumption(R.mipmap.amap_car,"游客中心"),
-                new Consumption(R.mipmap.ic_launcher,"塔院寺"),
-                new Consumption(R.mipmap.amap_bus,"五爷庙"),
-                new Consumption(R.mipmap.amap_car,"游客中心")
+                new Consumption(R.mipmap.tayuansi,"塔院寺"),
+                new Consumption(R.mipmap.wuyemiao,"五爷庙"),
+                new Consumption(R.mipmap.tayuansi,"塔院寺"),
+                new Consumption(R.mipmap.wuyemiao,"五爷庙"),
+                new Consumption(R.mipmap.tayuansi,"塔院寺"),
+                new Consumption(R.mipmap.wuyemiao,"五爷庙"),
+                new Consumption(R.mipmap.tayuansi,"塔院寺"),
+                new Consumption(R.mipmap.wuyemiao,"五爷庙"),
+                new Consumption(R.mipmap.tayuansi,"塔院寺"),
+                new Consumption(R.mipmap.wuyemiao,"五爷庙")
         };
     }
 
@@ -151,7 +131,7 @@ public class LiveActivity extends BaseActivity {
 
     @Override
     protected boolean isNeedInitBack() {
-        return false;
+        return true;
     }
 
     @Override

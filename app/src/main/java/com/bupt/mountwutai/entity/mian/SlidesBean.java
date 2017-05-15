@@ -6,19 +6,19 @@ package com.bupt.mountwutai.entity.mian;
  */
 public class SlidesBean {
 
-    private String imgUrl;
+    private int imgUrl;
     private String desc;
 
-    public SlidesBean(String imgUrl, String desc) {
+    public SlidesBean(int imgUrl, String desc) {
         this.imgUrl = imgUrl;
         this.desc = desc;
     }
 
-    public String getImgUrl() {
+    public int getImgUrl() {
         return imgUrl;
     }
 
-    public void setImgUrl(String imgUrl) {
+    public void setImgUrl(int imgUrl) {
         this.imgUrl = imgUrl;
     }
 

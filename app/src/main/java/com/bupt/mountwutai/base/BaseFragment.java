@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
@@ -58,7 +59,7 @@ public abstract class BaseFragment extends Fragment {
                 }
             }
             if (isNeedInitBack()) {
-                ImageButton backBtn = (ImageButton) contentView.findViewById(R.id.top_back_btn);
+                RelativeLayout backBtn = (RelativeLayout) contentView.findViewById(R.id.top_back_btn);
                 backBtn.setVisibility(View.VISIBLE);
                 backBtn.setOnClickListener(new View.OnClickListener() {
                     @Override

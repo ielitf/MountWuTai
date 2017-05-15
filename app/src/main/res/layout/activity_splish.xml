@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/splish"
+    android:background="@mipmap/splish2"
     tools:context="com.bupt.mountwutai.ui.activity.SplishActivity">
 
 </android.support.constraint.ConstraintLayout>

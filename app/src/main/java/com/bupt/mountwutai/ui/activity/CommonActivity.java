@@ -61,7 +61,7 @@ public class CommonActivity extends BaseActivity {
         mData = new ArrayList<>();
         switch (type) {
             case CodeConstants.TEPMLE_SUMMARY://寺庙一览
-                title = "寺庙一览";
+                title = "寺庙导览";
                 for (int i = 0; i < SummaryData.temple_icon.length; i++) {
                     mData.add(new CommonBean(SummaryData.temple_icon[i], SummaryData.temple_title[i], SummaryData.temple_content[i]));
                 }

@@ -28,7 +28,6 @@ public class CustomActivity extends BaseActivity {
 
     private RelativeLayout customTop;
     private TextView customName;
-    private ImageButton custombutton;
     private ArrayList<CustomBean> mData;
     private ListView listView;
     private CustomAdapter adapter;
@@ -42,14 +41,6 @@ public class CustomActivity extends BaseActivity {
     protected void initView() {
         customTop = (RelativeLayout) findViewById(R.id.custom_fragment_top);
         customName = (TextView) findViewById(R.id.top_name_text);
-        custombutton= (ImageButton) findViewById(R.id.top_back_btn);
-        custombutton.setVisibility(View.VISIBLE);
-        custombutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         customTop.setVisibility(View.VISIBLE);
         customName.setText("自定义");
         listView = (ListView) findViewById(R.id.custom_list);

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.ui.activity.buddhist.BuddhistActivitiesFragment;
 import com.bupt.mountwutai.ui.activity.buddhist.BuddhistFragment;
 import com.bupt.mountwutai.ui.activity.classification.ClassificationFragment;
 import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
@@ -29,7 +30,7 @@ public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private HomeFragment summaryFragment = null;
 //    private GuideFragment guideFragment = null;
-    private BuddhistFragment buddhistFragment = null;
+    private BuddhistActivitiesFragment buddhistFragment = null;
 //    private BuddhistFragment serviceFragment=null;
 //    private CommonFragment productsFragment = null;
     private MeFragment meFragment = null;
@@ -119,7 +120,7 @@ public class MainActivity extends BaseActivity {
                 imageButtons[2].setBackgroundResource(R.mipmap.specialty_selected);
                 imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
                 if (buddhistFragment == null) {
-                    buddhistFragment = BuddhistFragment.newFragment(CodeConstants.BUDDHISTACTION);
+                    buddhistFragment = BuddhistActivitiesFragment.newFragment("1");
                     transaction.add(R.id.container, buddhistFragment);
                 } else {
                     transaction.show(buddhistFragment);

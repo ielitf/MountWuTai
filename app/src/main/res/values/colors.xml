@@ -34,6 +34,9 @@
     <color name="traffic_item_color">#f4eadd</color>
 
     <color name="button_back">#00FF9E</color>
+    <color name="button_back2">#5c78a2</color>
     <color name="test1">#537edc</color>
     <color name="test2">#990033</color>
+    <color name="buddist">#f8f2e9</color>
+
 </resources>

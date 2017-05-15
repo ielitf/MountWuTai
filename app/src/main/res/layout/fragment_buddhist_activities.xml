@@ -5,7 +5,13 @@
     android:background="@mipmap/main_back"
     android:orientation="vertical">
 
+    <include
+        android:visibility="gone"
+        android:id="@+id/top"
+        layout="@layout/main_top"/>
+
     <ListView
+        android:layout_marginTop="@dimen/px30_dp"
         android:id="@+id/common_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

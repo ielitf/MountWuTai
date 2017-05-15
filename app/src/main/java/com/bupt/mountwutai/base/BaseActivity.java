@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bupt.mountwutai.R;
@@ -56,7 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity/*FragmentActivity*/
             titleTv.setText(getTopbarTitle());
         }
         if (isNeedInitBack()) {
-            ImageButton backBtn = (ImageButton) findViewById(R.id.top_back_btn);
+            RelativeLayout backBtn = (RelativeLayout) findViewById(R.id.top_back_btn);
             backBtn.setVisibility(View.VISIBLE);
             backBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

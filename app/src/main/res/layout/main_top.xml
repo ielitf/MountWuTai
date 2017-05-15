@@ -28,34 +28,43 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:src="@mipmap/down"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </LinearLayout>
 
-    <ImageButton
+    <RelativeLayout
         android:id="@+id/top_back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/base_back_icon"
-        android:gravity="center_vertical"
-        android:visibility="gone"/>
-   <!-- <RelativeLayout
-        android:id="@+id/top_back"
-        android:clickable="true"
-        android:layout_width="40dp"
         android:visibility="gone"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_height="40dp">
-        <TextView
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:background="@mipmap/back" />
+        android:gravity="center">
 
-    </RelativeLayout>-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/base_back_icon"
+            android:gravity="center_vertical" />
+    </RelativeLayout>
+    <!-- <RelativeLayout
+         android:id="@+id/top_back"
+         android:clickable="true"
+         android:layout_width="40dp"
+         android:visibility="gone"
+         android:layout_alignParentLeft="true"
+         android:layout_centerVertical="true"
+         android:layout_height="40dp">
+         <TextView
+             android:layout_width="12dp"
+             android:layout_height="12dp"
+             android:layout_centerVertical="true"
+             android:layout_marginLeft="20dp"
+             android:background="@mipmap/back" />
+
+     </RelativeLayout>-->
 </RelativeLayout>
