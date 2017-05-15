@@ -27,7 +27,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="行程规划"
                 android:textColor="@color/black"
                 android:textSize="@dimen/space_20" />
 
@@ -49,7 +48,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="门票一览"
                 android:textColor="@color/black"
                 android:textSize="@dimen/space_20" />
 
@@ -78,7 +76,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="酒店预订"
                 android:textColor="@color/black"
                 android:textSize="@dimen/space_20" />
 
@@ -100,7 +97,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="五台食谱"
                 android:textColor="@color/black"
                 android:textSize="@dimen/space_20" />
 
@@ -129,7 +125,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="交通指南"
                 android:textColor="@color/black"
                 android:textSize="@dimen/space_20" />
 
@@ -151,7 +146,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="朝台攻略"
                 android:textColor="@color/black"
                 android:textSize="@dimen/space_20" />
 

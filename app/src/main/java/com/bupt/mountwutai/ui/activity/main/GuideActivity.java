@@ -19,6 +19,8 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener 
 
     private RelativeLayout[] relativeLayouts = new RelativeLayout[6];
     private TextView[] textViews = new TextView[6];
+    private String[] contents = {MainData.TRAVELPLAN, MainData.TICKETLIST, MainData.HOTLERESVER,
+            MainData.WUTAIRECIPES, MainData.TRAFFICGUIDE, MainData.TRAVELSTRATEGY};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener 
         textViews[4] = (TextView) findViewById(R.id.traffic_guide_text);
         textViews[5] = (TextView) findViewById(R.id.travel_strategy_text);
         for (int i = 0; i < relativeLayouts.length; i++) {
+            textViews[i].setText(contents[i]);
             textViews[i].setTypeface(Typeface.createFromAsset(getAssets(), "font/li2.ttf"));
             relativeLayouts[i].setOnClickListener(this);
         }
