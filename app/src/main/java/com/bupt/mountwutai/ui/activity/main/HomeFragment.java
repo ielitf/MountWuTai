@@ -72,6 +72,7 @@ public class HomeFragment extends BaseFragment {
             headers.add(new CustomBean(R.mipmap.survey, MainData.summary, true));
             headers.add(new CustomBean(R.mipmap.guide, MainData.guide, true));
             headers.add(new CustomBean(R.mipmap.buddhist, MainData.buddhist, true));
+            headers.add(new CustomBean(R.mipmap.party_construction, MainData.partyconstruction, true));
             headers.add(new CustomBean(R.mipmap.service, MainData.service, true));
             headers.add(new CustomBean(R.mipmap.localproducts, MainData.localproducts, true));
             headers.add(new CustomBean(R.mipmap.live, MainData.live, true));
@@ -95,7 +96,7 @@ public class HomeFragment extends BaseFragment {
                 array.put(observeO);
             }
         } else {
-            for (int i = 0; i < 12; i++) {
+            for (int i = 0; i < 13; i++) {
                 JSONObject oj = null;
                 try {
                     oj = new JSONObject(ViewUtils.getData(activity, i + ""));
@@ -131,7 +132,7 @@ public class HomeFragment extends BaseFragment {
         super.onResume();
         if (!ViewUtils.getData(activity, "0").equals("hehe")) {
             headers.clear();
-            for (int i = 0; i < 12; i++) {
+            for (int i = 0; i < 13; i++) {
                 JSONObject oj = null;
                 try {
                     oj = new JSONObject(ViewUtils.getData(activity, i + ""));
