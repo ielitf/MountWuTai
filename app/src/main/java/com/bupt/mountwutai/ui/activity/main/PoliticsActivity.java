@@ -64,7 +64,6 @@ public class PoliticsActivity extends BaseActivity {
                 politicsBeanList.add(new PoliticsBean(R.mipmap.tvask, "电视点播"));
                 politicsBeanList.add(new PoliticsBean(R.mipmap.businesshall, "营业厅"));
                 break;
-
         }
     }
 

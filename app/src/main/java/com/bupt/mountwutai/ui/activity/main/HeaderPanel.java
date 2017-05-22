@@ -120,13 +120,14 @@ public class HeaderPanel extends BasePanel {
                             broadcasting_centerintent.putExtra(CodeConstants.ID, MainData.broadcasting_center);
                             context.startActivity(broadcasting_centerintent);
                             break;
+                        case MainData.partyconstruction:
+                            Intent partycon_structionintent = new Intent(context, PartyActivity.class);
+                            partycon_structionintent.putExtra(CodeConstants.ID, MainData.partyconstruction);
+                            context.startActivity(partycon_structionintent);
+                            break;
 
                         case MainData.live://直播
                             context.startActivity(new Intent(context, LiveActivity.class));
-                            break;
-                        case MainData.partyconstruction://直播
-                            ToastUtil.show(context,"党建服务");
-                            //context.startActivity(new Intent(context, LiveActivity.class));
                             break;
                         default:
                             ToastUtil.show(context, adapter.getList().get(position).getTitle());

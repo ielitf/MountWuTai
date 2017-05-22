@@ -31,6 +31,7 @@ public class CodeConstants {
     public static final String POLITICS_OPEN = "politicsopen";//政务公开
     public static final String POLITICS_INTERACTION = "politics_interaction";//政民互动
     public static final String BROADCAST_CENTER = "broadcasting_center";//广电中心
+    public static final String PARTY_CONSTRUCTION = "party_construction";//党建服务
 
     public static final String BUDDHISTACTION = "BUDDHISTACTION";//佛事
     public static final String SERVICE = "SERVICE";//服务

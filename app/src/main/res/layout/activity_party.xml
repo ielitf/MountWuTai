@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/main_back"
+    android:orientation="vertical"
+    tools:context="com.bupt.mountwutai.ui.activity.main.PartyActivity">
+
+    <include layout="@layout/main_top" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <GridView
+                android:id="@+id/party_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px70_dp"
+                android:layout_marginRight="@dimen/px70_dp"
+                android:layout_marginTop="@dimen/px30_dp"
+                android:numColumns="4" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_divide_list"
+                android:layout_marginLeft="@dimen/px60_dp"
+                android:layout_marginRight="@dimen/px60_dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/divider_list"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px70_dp"
+                android:layout_marginRight="@dimen/px70_dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/top_back" />
+
+                <TextView
+                    android:id="@+id/party_name1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="党建瞭望"
+                    android:textColor="@color/title_gray"
+                    android:textSize="@dimen/space_16" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/party_img1"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:layout_marginLeft="@dimen/px70_dp"
+                android:layout_marginRight="@dimen/px70_dp"
+                android:src="@mipmap/slides_picture" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_divide_list"
+                android:layout_marginTop="@dimen/px60_dp"
+                android:layout_marginLeft="@dimen/px60_dp"
+                android:layout_marginRight="@dimen/px60_dp"
+                android:background="@color/divider_list"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px70_dp"
+                android:layout_marginRight="@dimen/px70_dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/top_back" />
+
+                <TextView
+                    android:id="@+id/party_name2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="组工动态"
+                    android:textColor="@color/title_gray"
+                    android:textSize="@dimen/space_16" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/party_img2"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="@dimen/px70_dp"
+                android:layout_marginLeft="@dimen/px70_dp"
+                android:layout_marginRight="@dimen/px70_dp"
+                android:src="@mipmap/slides_picture" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
