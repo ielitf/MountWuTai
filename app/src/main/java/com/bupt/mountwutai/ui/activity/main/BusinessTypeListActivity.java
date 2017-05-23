@@ -7,6 +7,7 @@ import com.bupt.mountwutai.adapter.BusinessTypeListAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.customdata.BroadcastingCenterDate;
 import com.bupt.mountwutai.entity.mian.BusinessTypeListBean;
+import com.bupt.mountwutai.util.Utils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -30,8 +31,10 @@ public class BusinessTypeListActivity extends BaseActivity {
     @Override
     protected void initView() {
         businessTypeListView = (ListView) findViewById(R.id.addr_info_listview);
-        List<BusinessTypeListBean> beanList = new Gson().fromJson(BroadcastingCenterDate.tv_service, new TypeToken<List<BusinessTypeListBean>>() {
-        }.getType());
+        List<BusinessTypeListBean> beanList = (List<BusinessTypeListBean>)
+                Utils.parseData(BroadcastingCenterDate.tv_service, new Gson(),
+                        new TypeToken<List<BusinessTypeListBean>>() {
+                        });
         for (int i = 0; i < beanList.size(); i++) {
             beanList.get(i).setIcon(icons[i]);
         }

@@ -9,6 +9,7 @@ import com.bupt.mountwutai.adapter.AddrInfoAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.customdata.BroadcastingCenterDate;
 import com.bupt.mountwutai.entity.mian.AddrInforBean;
+import com.bupt.mountwutai.util.Utils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -36,8 +37,10 @@ public class AddrInfoActivity extends BaseActivity {
     protected void initView() {
         addrListView = (ListView) findViewById(R.id.addr_info_listview);
         Gson gson = new Gson();
-        List<AddrInforBean> beanList = gson.fromJson(BroadcastingCenterDate.business_net, new TypeToken<List<AddrInforBean>>() {
-        }.getType());
+        List<AddrInforBean> beanList = (List<AddrInforBean>)
+                Utils.parseData(BroadcastingCenterDate.business_net, gson,
+                        new TypeToken<List<AddrInforBean>>() {
+                        });
         for (AddrInforBean bean : beanList
                 ) {
             bean.setIcon(R.mipmap.default_pic);
