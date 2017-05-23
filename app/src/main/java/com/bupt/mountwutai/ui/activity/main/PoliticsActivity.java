@@ -48,6 +48,11 @@ public class PoliticsActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (adapter.getList().get(position).getTitle()) {
+
+                    case "营业网点":
+                        intent2Activity(AddrInfoActivity.class);
+                        break;
+
                     default:
                         ToastUtil.show(PoliticsActivity.this, adapter.getList().get(position).getTitle());
                         break;
