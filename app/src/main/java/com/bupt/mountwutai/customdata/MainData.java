@@ -12,6 +12,13 @@ public class MainData {
     public static final String partyconstruction = "党建服务";
     public static final String party1construction1 = "党建瞭望";
     public static final String party2construction2 = "组工动态";
+    public static final String[] party2construction3 = new String[]{"党员服务","党建资料","先进表彰","党建频道","交党费"};
+    public static final String party1 = "党员服务";
+    public static final String party2 = "党建资料";
+    public static final String party3 = "先进表彰";
+    public static final String party4 = "党建频道";
+    public static final String party5 = "交党费";
+
 
     public static final String relicsProtect = "文物保护";
     public static final String forestFire = "森林防火";

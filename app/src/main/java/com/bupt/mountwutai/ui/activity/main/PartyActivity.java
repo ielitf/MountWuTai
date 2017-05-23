@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -18,7 +19,7 @@ import com.bupt.mountwutai.widget.NoScrollGridView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PartyActivity extends BaseActivity {
+public class PartyActivity extends BaseActivity{
 
     private NoScrollGridView gridView;
     List<PoliticsBean> politicsBeanList;
@@ -56,6 +57,16 @@ public class PartyActivity extends BaseActivity {
         initData();
         adapter = new PoliticsAdapter(this, politicsBeanList);
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i!=4){
+                    partyintent(MainData.party2construction3[i]);
+                }else{
+
+                }
+            }
+        });
     }
 
     private void initData() {

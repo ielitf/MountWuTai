@@ -48,6 +48,11 @@ public class CommonAdapter extends MyBaseAdapter<CommonBean> {
             holderView.price.setVisibility(View.VISIBLE);
             holderView.price.setText("￥" + model.getPrice());
         }
+        if (model.getTitle().equals("")){
+            holderView.title.setVisibility(View.GONE);
+        }else{
+            holderView.title.setVisibility(View.VISIBLE);
+        }
         holderView.title.setText(model.getTitle());
         holderView.content.setText(model.getContent());
         holderView.imageView.setImageResource(model.getIcon());

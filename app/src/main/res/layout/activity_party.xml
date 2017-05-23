@@ -71,7 +71,7 @@
                 android:scaleType="centerCrop"
                 android:layout_marginLeft="@dimen/px70_dp"
                 android:layout_marginRight="@dimen/px70_dp"
-                android:src="@mipmap/slides_picture" />
+                android:src="@mipmap/party1" />
 
             <View
                 android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                 android:layout_marginBottom="@dimen/px70_dp"
                 android:layout_marginLeft="@dimen/px70_dp"
                 android:layout_marginRight="@dimen/px70_dp"
-                android:src="@mipmap/slides_picture" />
+                android:src="@mipmap/party2" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
