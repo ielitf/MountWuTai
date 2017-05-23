@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class CommonAdapter extends MyBaseAdapter<CommonBean> {
 
     private LayoutInflater inflater;
+
     private boolean isOnline = false;//判断是不是在线礼佛
 
     public CommonAdapter(Context context, ArrayList<CommonBean> mData) {
