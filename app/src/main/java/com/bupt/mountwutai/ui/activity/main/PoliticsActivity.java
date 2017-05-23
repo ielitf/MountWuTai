@@ -62,7 +62,14 @@ public class PoliticsActivity extends BaseActivity {
             case CodeConstants.BROADCAST_CENTER:
                 politicsBeanList.add(new PoliticsBean(R.mipmap.tvlive, "电视直播"));
                 politicsBeanList.add(new PoliticsBean(R.mipmap.tvask, "电视点播"));
-                politicsBeanList.add(new PoliticsBean(R.mipmap.businesshall, "营业厅"));
+                politicsBeanList.add(new PoliticsBean(R.mipmap.businesshall, "营业网点"));
+                politicsBeanList.add(new PoliticsBean(R.mipmap.business_tv_icon, "电视业务"));
+                politicsBeanList.add(new PoliticsBean(R.mipmap.business_new_icon, "新装业务"));
+                politicsBeanList.add(new PoliticsBean(R.mipmap.business_hui_icon, "优惠活动"));
+                politicsBeanList.add(new PoliticsBean(R.mipmap.business_mac_icon, "宽带业务"));
+                politicsBeanList.add(new PoliticsBean(R.mipmap.business_fix_icon, "故障报修"));
+                politicsBeanList.add(new PoliticsBean(R.mipmap.business_survey_icon, "在线调查"));
+                politicsBeanList.add(new PoliticsBean(R.mipmap.business_preview_icon, "节目预告"));
                 break;
         }
     }
