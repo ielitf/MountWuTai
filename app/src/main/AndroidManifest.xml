@@ -61,7 +61,8 @@
         </activity>
         <activity android:name=".ui.activity.main.PartyActivity" />
         <activity android:name=".ui.activity.main.Party2Activity" />
-        <activity android:name=".ui.activity.main.AddrInfoActivity"></activity>
+        <activity android:name=".ui.activity.main.AddrInfoActivity"/>
+        <activity android:name=".ui.activity.main.BusinessTypeListActivity"/>
     </application>
 
 </manifest>

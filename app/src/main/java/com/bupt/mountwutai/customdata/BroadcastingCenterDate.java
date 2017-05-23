@@ -6,33 +6,27 @@ package com.bupt.mountwutai.customdata;
 
 public class BroadcastingCenterDate {
     //电视业务
-    public static String tv_service="{" +
-            "  \"result\": [" +
-            "    {" +
-            "      \"date\": \"2016-12-06 14:24:11\"," +
-            "      \"posterUrl\": \"static/titleImage/1482802802457-26475.jpg\"," +
-            "      \"id\": \"91933\"," +
-            "      \"title\": \"电视互动及置换业务\"," +
-            "      \"isHot\": \"0\"" +
-            "    }," +
-            "    {" +
-            "      \"date\": \"2016-12-06 14:26:06\"," +
-            "      \"posterUrl\": \"static/titleImage/1482802809649-32986.jpg\"," +
-            "      \"id\": \"91934\"," +
-            "      \"title\": \"高清节目产品\"," +
-            "      \"isHot\": \"0\"" +
-            "    }," +
-            "    {" +
-            "      \"date\": \"2016-12-06 14:26:26\"," +
-            "      \"posterUrl\": \"static/titleImage/1482802816009-81117.jpg\"," +
-            "      \"id\": \"91935\"," +
-            "      \"title\": \"标清节目产品\"," +
-            "      \"isHot\": \"0\"" +
-            "    }" +
-            "  ]," +
-            "  \"returnCode\": 0," +
-            "  \"returnMsg\": \"成功\"" +
-            "}";
+    public static String tv_service="[{" +
+            "    \"date\": \"2016-12-06 14:24:11\"," +
+            "    \"posterUrl\": \"static/titleImage/1482802802457-26475.jpg\"," +
+            "    \"id\": \"91933\"," +
+            "    \"title\": \"电视互动及置换业务\"," +
+            "    \"isHot\": \"0\"" +
+            "}," +
+            "{" +
+            "    \"date\": \"2016-12-06 14:26:06\"," +
+            "    \"posterUrl\": \"static/titleImage/1482802809649-32986.jpg\"," +
+            "    \"id\": \"91934\"," +
+            "    \"title\": \"高清节目产品\"," +
+            "    \"isHot\": \"0\"" +
+            "}," +
+            "{" +
+            "    \"date\": \"2016-12-06 14:26:26\"," +
+            "    \"posterUrl\": \"static/titleImage/1482802816009-81117.jpg\"," +
+            "    \"id\": \"91935\"," +
+            "    \"title\": \"标清节目产品\"," +
+            "    \"isHot\": \"0\"" +
+            "}]";
     //新装业务
     public static String new_clothes_business="{" +
             "  \"result\": [" +

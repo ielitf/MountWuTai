@@ -53,6 +53,10 @@ public class PoliticsActivity extends BaseActivity {
                         intent2Activity(AddrInfoActivity.class);
                         break;
 
+                    case "电视业务":
+                        intent2Activity(BusinessTypeListActivity.class);
+                        break;
+
                     default:
                         ToastUtil.show(PoliticsActivity.this, adapter.getList().get(position).getTitle());
                         break;
