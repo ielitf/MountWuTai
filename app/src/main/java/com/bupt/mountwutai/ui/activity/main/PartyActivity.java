@@ -13,13 +13,14 @@ import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.MainData;
 import com.bupt.mountwutai.entity.mian.PoliticsBean;
+import com.bupt.mountwutai.widget.NoScrollGridView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PartyActivity extends BaseActivity {
 
-    private GridView gridView;
+    private NoScrollGridView gridView;
     List<PoliticsBean> politicsBeanList;
     PoliticsAdapter adapter;
     ImageView imageView1, imageView2;
@@ -36,7 +37,7 @@ public class PartyActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        gridView = (GridView) findViewById(R.id.party_grid);
+        gridView = (NoScrollGridView) findViewById(R.id.party_grid);
         imageView1 = (ImageView) findViewById(R.id.party_img1);
         imageView2 = (ImageView) findViewById(R.id.party_img2);
         imageView1.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +64,7 @@ public class PartyActivity extends BaseActivity {
         politicsBeanList.add(new PoliticsBean(R.mipmap.party_materials, "党建资料"));
         politicsBeanList.add(new PoliticsBean(R.mipmap.advanced_commendation, "先进表彰"));
         politicsBeanList.add(new PoliticsBean(R.mipmap.party_channel, "党建频道"));
-
+        politicsBeanList.add(new PoliticsBean(R.mipmap.party_pay, "交党费"));
     }
 
     @Override
