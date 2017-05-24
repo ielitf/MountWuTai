@@ -49,6 +49,10 @@ public class PoliticsActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (adapter.getList().get(position).getTitle()) {
 
+                    case "电视直播":
+                        intent2Activity(LiveContentActivity.class);
+                        break;
+
                     case "营业网点":
                         intent2Activity(AddrInfoActivity.class);
                         break;

@@ -51,7 +51,7 @@ public class AddrInfoAdapter extends MyBaseAdapter<AddrInforBean>{
         return position;
     }
 
-    class ViewHolder {
+    private class ViewHolder {
          ImageView imageView;
          TextView nameText;
          TextView addrText;
