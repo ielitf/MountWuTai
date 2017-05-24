@@ -1,6 +1,5 @@
 package com.bupt.mountwutai.ui.activity.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -62,19 +61,19 @@ public class PoliticsActivity extends BaseActivity {
                         intent2Activity(BusinessTypeListActivity.class);
                         break;
                     case "新装业务":
-                        Intent intent_x = new Intent(PoliticsActivity.this,ServiceCommonListActivity.class);
-                        intent_x.putExtra(CodeConstants.TYPE,CodeConstants.BUSINESS_NEW);
-                        startActivity(intent_x);
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putString(CodeConstants.TYPE,CodeConstants.BUSINESS_NEW);
+                        intent2Activity(ServiceCommonListActivity.class,bundle1);
                         break;
                     case "优惠活动":
-                        Intent intent_y = new Intent(PoliticsActivity.this,ServiceCommonListActivity.class);
-                        intent_y.putExtra(CodeConstants.TYPE,CodeConstants.BUSINESS_SALES);
-                        startActivity(intent_y);
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putString(CodeConstants.TYPE,CodeConstants.BUSINESS_SALES);
+                        intent2Activity(ServiceCommonListActivity.class,bundle2);
                         break;
                     case "宽带业务":
-                        Intent intent_k = new Intent(PoliticsActivity.this,ServiceCommonListActivity.class);
-                        intent_k.putExtra(CodeConstants.TYPE,CodeConstants.BUSINESS_MAC);
-                        startActivity(intent_k);
+                        Bundle bundle3 = new Bundle();
+                        bundle3.putString(CodeConstants.TYPE,CodeConstants.BUSINESS_MAC);
+                        intent2Activity(ServiceCommonListActivity.class,bundle3);
                         break;
 
                     case "故障报修":

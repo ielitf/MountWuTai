@@ -1,10 +1,14 @@
 package com.bupt.mountwutai.ui.activity.main;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.BusinessTypeListAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
+import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.BroadcastingCenterDate;
 import com.bupt.mountwutai.entity.mian.BusinessTypeListBean;
 import com.bupt.mountwutai.util.Utils;
@@ -40,6 +44,25 @@ public class BusinessTypeListActivity extends BaseActivity {
         }
         adapter = new BusinessTypeListAdapter(BusinessTypeListActivity.this, beanList);
         businessTypeListView.setAdapter(adapter);
+        businessTypeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                bundle.putString(CodeConstants.ID, adapter.getList().get(position).getTitle());
+                switch (position) {
+                    case 0:
+                        bundle.putString(CodeConstants.TYPE, CodeConstants.BUSINESS_TV1);
+                        break;
+                    case 1:
+                        bundle.putString(CodeConstants.TYPE, CodeConstants.BUSINESS_TV2);
+                        break;
+                    case 2:
+                        bundle.putString(CodeConstants.TYPE, CodeConstants.BUSINESS_TV3);
+                        break;
+                }
+                intent2Activity(ServiceCommonListActivity.class, bundle);
+            }
+        });
     }
 
     @Override
