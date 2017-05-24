@@ -63,6 +63,7 @@
         <activity android:name=".ui.activity.main.Party2Activity" />
         <activity android:name=".ui.activity.main.AddrInfoActivity"/>
         <activity android:name=".ui.activity.main.BusinessTypeListActivity"/>
+        <activity android:name=".ui.activity.main.FaultRepairActivity"/>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.widget.Switch;
 
 import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.CommonAdapter;
+import com.bupt.mountwutai.adapter.PartyAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.customdata.LocalProductsData;
@@ -23,7 +24,7 @@ public class Party2Activity extends BaseActivity {
 
     private ArrayList<CommonBean> mData;
     private ListView listView;
-    private CommonAdapter adapter;
+    private PartyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class Party2Activity extends BaseActivity {
     protected void initView() {
         listView = (ListView) findViewById(R.id.party_list);
         addData();
-        adapter = new CommonAdapter(activity, mData);
+        adapter = new PartyAdapter(activity, mData);
         listView.setAdapter(adapter);
 
     }

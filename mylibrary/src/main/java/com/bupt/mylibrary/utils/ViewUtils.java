@@ -15,6 +15,8 @@ import android.view.Display;
 import android.view.View;
 
 import java.lang.reflect.Method;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * view操作工具类
@@ -242,5 +244,12 @@ public class ViewUtils {
         DisplayMetrics localDisplayMetrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
         return localDisplayMetrics.heightPixels;
+    }
+
+    /** 对电话号码进行正则匹配 */
+    public static boolean isMobileNO(String mobiles) {// 177
+        Pattern p = Pattern.compile("[1][3578]\\d{9}");
+        Matcher m = p.matcher(mobiles);
+        return m.matches();
     }
 }

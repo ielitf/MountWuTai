@@ -57,6 +57,10 @@ public class PoliticsActivity extends BaseActivity {
                         intent2Activity(BusinessTypeListActivity.class);
                         break;
 
+                    case "故障报修":
+                        intent2Activity(FaultRepairActivity.class);
+                        break;
+
                     default:
                         ToastUtil.show(PoliticsActivity.this, adapter.getList().get(position).getTitle());
                         break;
