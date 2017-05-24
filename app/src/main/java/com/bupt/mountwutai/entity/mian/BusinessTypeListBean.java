@@ -6,19 +6,16 @@ package com.bupt.mountwutai.entity.mian;
 
 public class BusinessTypeListBean {
 
-    /**
-     * date : 2016-12-06 14:24:11
-     * posterUrl : static/titleImage/1482802802457-26475.jpg
-     * id : 91933
-     * title : 电视互动及置换业务
-     * isHot : 0
-     */
-
     private String date;
     private String posterUrl;
     private String id;
     private String title;
+    private String content;
     private String isHot;
+    private String address;
+    private String phone;
+    private String fee;
+    private String modName;
     private int icon;
 
     public int getIcon() {
@@ -61,12 +58,52 @@ public class BusinessTypeListBean {
         this.title = title;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String getIsHot() {
         return isHot;
     }
 
     public void setIsHot(String isHot) {
         this.isHot = isHot;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getFee() {
+        return fee;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public String getModName() {
+        return modName;
+    }
+
+    public void setModName(String modName) {
+        this.modName = modName;
     }
 
     @Override
@@ -76,8 +113,12 @@ public class BusinessTypeListBean {
                 ", posterUrl='" + posterUrl + '\'' +
                 ", id='" + id + '\'' +
                 ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
                 ", isHot='" + isHot + '\'' +
-                ", icon=" + icon +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", fee='" + fee + '\'' +
+                ", modName='" + modName + '\'' +
                 '}';
     }
 }

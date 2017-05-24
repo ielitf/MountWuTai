@@ -43,7 +43,7 @@ public class AddrInfoActivity extends BaseActivity {
                         });
         for (AddrInforBean bean : beanList
                 ) {
-            bean.setIcon(R.mipmap.default_pic);
+            bean.setIcon(R.mipmap.yyt_net);
         }
 //        Log.i(TAG, "beanList: "+ beanList.toString());
         adapter = new AddrInfoAdapter(AddrInfoActivity.this, beanList);
