@@ -61,11 +61,12 @@
         </activity>
         <activity android:name=".ui.activity.main.PartyActivity" />
         <activity android:name=".ui.activity.main.Party2Activity" />
-        <activity android:name=".ui.activity.main.AddrInfoActivity"/>
-        <activity android:name=".ui.activity.main.BusinessTypeListActivity"/>
-        <activity android:name=".ui.activity.main.ServiceCommonListActivity"/>
-        <activity android:name=".ui.activity.main.FaultRepairActivity"/>
-        <activity android:name=".ui.activity.main.LiveContentActivity"/>
+        <activity android:name=".ui.activity.main.AddrInfoActivity" />
+        <activity android:name=".ui.activity.main.BusinessTypeListActivity" />
+        <activity android:name=".ui.activity.main.ServiceCommonListActivity" />
+        <activity android:name=".ui.activity.main.FaultRepairActivity" />
+        <activity android:name=".ui.activity.main.LiveContentActivity" />
+        <activity android:name=".ui.activity.main.ProgramReviewActivity"></activity>
     </application>
 
 </manifest>
