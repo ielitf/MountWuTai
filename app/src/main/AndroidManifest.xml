@@ -64,6 +64,7 @@
         <activity android:name=".ui.activity.main.AddrInfoActivity"/>
         <activity android:name=".ui.activity.main.BusinessTypeListActivity"/>
         <activity android:name=".ui.activity.main.FaultRepairActivity"/>
+        <activity android:name=".ui.activity.main.LiveContentActivity"/>
     </application>
 
 </manifest>
