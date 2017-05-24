@@ -42,5 +42,8 @@ public class CodeConstants {
     public static final String BUSINESS_MAC = "macBusiness";//宽带业务
     public static final String BUSINESS_NEW = "newBusiness";//新装业务
     public static final String BUSINESS_SALES = "salesBusiness";//优惠活动
+    public static final String BUSINESS_TV1 = "tvBusiness1";//电视业务
+    public static final String BUSINESS_TV2 = "tvBusiness2";
+    public static final String BUSINESS_TV3 = "tvBusiness3";
 
 }
