@@ -39,4 +39,8 @@ public class CodeConstants {
     public static final String LOCAL_PRODUCTS = "local_products";//土特产
     public static final String BUDDHA_ONLINE = "Buddha_Online";//在线礼佛
 
+    public static final String BUSINESS_MAC = "macBusiness";//宽带业务
+    public static final String BUSINESS_NEW = "newBusiness";//新装业务
+    public static final String BUSINESS_SALES = "salesBusiness";//优惠活动
+
 }
