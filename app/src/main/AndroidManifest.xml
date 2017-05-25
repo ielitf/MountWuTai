@@ -67,9 +67,9 @@
         <activity android:name=".ui.activity.main.FaultRepairActivity" />
         <activity android:name=".ui.activity.main.LiveContentActivity" />
         <activity android:name=".ui.activity.main.ProgramReviewActivity" />
-        <activity android:name=".ui.activity.main.RequstTvActivity"></activity>
-        <activity android:name=".ui.activity.main.ProgramReviewActivity" />
-        <activity android:name=".ui.activity.main.BusinessDetailActivity"></activity>
+        <activity android:name=".ui.activity.main.ProgramReview2Activity"/>
+        <activity android:name=".ui.activity.main.RequstTvActivity" />
+        <activity android:name=".ui.activity.main.BusinessDetailActivity" />
     </application>
 
 </manifest>

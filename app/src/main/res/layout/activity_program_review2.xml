@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/main_back"
+    tools:context="com.bupt.mountwutai.ui.activity.main.ProgramReview2Activity">
+
+    <include
+        android:id="@+id/pro_review_top"
+        layout="@layout/main_top"
+        />
+    <ListView
+        android:id="@+id/pro_review2_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/divider_list"
+        android:dividerHeight="@dimen/space_divide_list"
+        android:scrollbars="none">
+    </ListView>
+</LinearLayout>

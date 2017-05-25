@@ -1,8 +1,8 @@
 package com.bupt.mountwutai.ui.activity.main;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -11,11 +11,12 @@ import com.bupt.mountwutai.R;
 import com.bupt.mountwutai.adapter.PopAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
+import com.bupt.mountwutai.util.ToastUtil;
+import com.bupt.mountwutai.util.Utils;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ProgramReviewActivity extends BaseActivity {
+public class ProgramReview2Activity extends BaseActivity {
 
     private PopAdapter adapter;
     private ListView listView;
@@ -41,21 +42,17 @@ public class ProgramReviewActivity extends BaseActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(ProgramReviewActivity.this, ProgramReview2Activity.class);
-                intent.putExtra(CodeConstants.ID, list.get(i));
-                startActivity(intent);
+                ToastUtil.show(ProgramReview2Activity.this,"频道正在布置中");
             }
         });
     }
 
     private void addDate() {
         list = new ArrayList<>();
-        list.add("央视");
-        list.add("卫视");
-        list.add("高清");
-        list.add("山西");
-        list.add("五台山");
-        list.add("其他");
+        for (int i = 0; i <16 ; i++) {
+
+            list.add("频道"+i);
+        }
     }
 
     @Override
@@ -65,6 +62,6 @@ public class ProgramReviewActivity extends BaseActivity {
 
     @Override
     protected String getTopbarTitle() {
-        return "频道";
+        return getIntent().getStringExtra(CodeConstants.ID);
     }
 }
