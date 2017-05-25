@@ -1,5 +1,6 @@
 package com.bupt.mountwutai.ui.activity.main;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -82,7 +83,7 @@ public class ServiceCommonListActivity extends BaseActivity implements AdapterVi
                         Utils.parseData(BroadcastingCenterDate.new_clothes_business, new Gson(),
                                 new TypeToken<List<BusinessTypeListBean>>() {
                                 });
-                icons=icons_x;
+                icons = icons_x;
                 break;
             case CodeConstants.BUSINESS_SALES://优惠活动
                 title = "优惠活动";
@@ -121,6 +122,8 @@ public class ServiceCommonListActivity extends BaseActivity implements AdapterVi
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        ToastUtil.show(ServiceCommonListActivity.this, "进入详情页\n此功能稍后上线");
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(CodeConstants.ID, adapter.getList().get(position));
+        intent2Activity(BusinessDetailActivity.class, bundle);
     }
 }
