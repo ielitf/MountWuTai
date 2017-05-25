@@ -1,8 +1,6 @@
 package com.bupt.mountwutai.ui.activity.main;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,7 +10,6 @@ import com.bupt.mountwutai.adapter.PopAdapter;
 import com.bupt.mountwutai.base.BaseActivity;
 import com.bupt.mountwutai.consts.CodeConstants;
 import com.bupt.mountwutai.util.ToastUtil;
-import com.bupt.mountwutai.util.Utils;
 
 import java.util.ArrayList;
 

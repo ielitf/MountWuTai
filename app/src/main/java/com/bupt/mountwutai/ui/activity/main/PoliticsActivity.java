@@ -84,6 +84,10 @@ public class PoliticsActivity extends BaseActivity {
                         intent2Activity(FaultRepairActivity.class);
                         break;
 
+                    case "在线调查":
+                        intent2Activity(OnlineSearchActivity.class);
+                        break;
+
                     case "节目预告":
                         intent2Activity(ProgramReviewActivity.class);
                         break;
