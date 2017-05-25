@@ -68,6 +68,8 @@
         <activity android:name=".ui.activity.main.LiveContentActivity" />
         <activity android:name=".ui.activity.main.ProgramReviewActivity" />
         <activity android:name=".ui.activity.main.RequstTvActivity"></activity>
+        <activity android:name=".ui.activity.main.ProgramReviewActivity" />
+        <activity android:name=".ui.activity.main.BusinessDetailActivity"></activity>
     </application>
 
 </manifest>

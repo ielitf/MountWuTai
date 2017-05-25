@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorAccent">@color/top_back</item>
+        <item name="colorButtonNormal">@color/top_back</item>
     </style>
 
     <style name="center_textview_styles" parent="@android:style/Widget.TextView">

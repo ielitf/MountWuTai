@@ -1,10 +1,13 @@
 package com.bupt.mountwutai.entity.mian;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  *
  */
 
-public class BusinessTypeListBean {
+public class BusinessTypeListBean implements Parcelable{
 
     private String date;
     private String posterUrl;
@@ -17,6 +20,52 @@ public class BusinessTypeListBean {
     private String fee;
     private String modName;
     private int icon;
+
+    protected BusinessTypeListBean(Parcel in) {
+        date = in.readString();
+        posterUrl = in.readString();
+        id = in.readString();
+        title = in.readString();
+        content = in.readString();
+        isHot = in.readString();
+        address = in.readString();
+        phone = in.readString();
+        fee = in.readString();
+        modName = in.readString();
+        icon = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(date);
+        dest.writeString(posterUrl);
+        dest.writeString(id);
+        dest.writeString(title);
+        dest.writeString(content);
+        dest.writeString(isHot);
+        dest.writeString(address);
+        dest.writeString(phone);
+        dest.writeString(fee);
+        dest.writeString(modName);
+        dest.writeInt(icon);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<BusinessTypeListBean> CREATOR = new Creator<BusinessTypeListBean>() {
+        @Override
+        public BusinessTypeListBean createFromParcel(Parcel in) {
+            return new BusinessTypeListBean(in);
+        }
+
+        @Override
+        public BusinessTypeListBean[] newArray(int size) {
+            return new BusinessTypeListBean[size];
+        }
+    };
 
     public int getIcon() {
         return icon;
