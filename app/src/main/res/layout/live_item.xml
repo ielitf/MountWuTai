@@ -8,8 +8,9 @@
 
     <ImageView
         android:id="@+id/live_img"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="15dp"
         android:layout_marginLeft="30dp"
         android:scaleType="fitCenter" />
 

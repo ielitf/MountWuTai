@@ -3,6 +3,7 @@ package com.bupt.mountwutai.widget;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class CardRecordHolder extends BaseViewHolder<Consumption> {
     private ImageView live_img;
     private TextView live_text;
     private Context context;
+    private String title="";
 
     public CardRecordHolder(ViewGroup parent, Context context) {
         super(parent, R.layout.holder_consume);
@@ -31,8 +33,16 @@ public class CardRecordHolder extends BaseViewHolder<Consumption> {
     @Override
     public void setData(final Consumption object) {
         super.setData(object);
+        title=object.getLivetext();
+        if (object.getLivetext().equals("")){
+            live_text.setVisibility(View.GONE);
+            live_img.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        }else {
+            live_text.setVisibility(View.VISIBLE);
+            live_text.setText(object.getLivetext());
+            live_img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        }
         live_img.setImageResource(object.getLivepic());
-        live_text.setText(object.getLivetext());
     }
 
     @Override
@@ -47,7 +57,12 @@ public class CardRecordHolder extends BaseViewHolder<Consumption> {
         super.onItemViewClick(object);
         //点击事件
         Intent intent=new Intent(context, LivingActivity.class);
-        intent.putExtra("livingtitle",object.getLivetext());
+        if (title.equals("")){
+            intent.putExtra("livingtitle","点播详情");
+        }else{
+
+            intent.putExtra("livingtitle",object.getLivetext());
+        }
         context.startActivity(intent);
     }
 }

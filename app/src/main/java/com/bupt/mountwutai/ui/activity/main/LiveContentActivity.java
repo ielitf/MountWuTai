@@ -30,8 +30,8 @@ public class LiveContentActivity extends BaseActivity {
     protected void initView() {
         listView = (ListView) findViewById(R.id.addr_info_listview);
         List<Consumption> consumptions = new ArrayList<>();
-        consumptions.add(new Consumption(R.mipmap.ic_launcher_round, "中央一套"));
-        consumptions.add(new Consumption(R.mipmap.ic_launcher_round, "中央二套"));
+        consumptions.add(new Consumption(R.mipmap.logo, "五台山一套"));
+        consumptions.add(new Consumption(R.mipmap.logo, "五台山二套"));
         adapter = new LiveAdapter(LiveContentActivity.this, consumptions);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

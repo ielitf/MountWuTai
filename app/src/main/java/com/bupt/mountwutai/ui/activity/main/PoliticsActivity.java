@@ -53,6 +53,10 @@ public class PoliticsActivity extends BaseActivity {
                         intent2Activity(LiveContentActivity.class);
                         break;
 
+                    case "电视点播":
+                        intent2Activity(RequstTvActivity.class);
+                        break;
+
                     case "营业网点":
                         intent2Activity(AddrInfoActivity.class);
                         break;
