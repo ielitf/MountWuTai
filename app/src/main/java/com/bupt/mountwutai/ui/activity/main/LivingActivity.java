@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -55,6 +56,21 @@ public class LivingActivity extends BaseActivity implements MediaController.OnCo
 
         downloadRateView = (TextView) findViewById(R.id.download_rate);
         loadRateView = (TextView) findViewById(R.id.load_rate);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (null != mVideoView && mVideoView.isPlaying()) {
+//            mPosition = mVideoView.getCurrentPosition();
+            mVideoView.pause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mVideoView.resume();
     }
 
     @Override
@@ -148,7 +164,8 @@ public class LivingActivity extends BaseActivity implements MediaController.OnCo
             mc.setLockShow(true);
             LinearLayout.LayoutParams fl_lp = new LinearLayout.LayoutParams(
                     ViewUtils.getHeightPixel(LivingActivity.this),
-                    ViewUtils.getWidthPixel(LivingActivity.this) - ViewUtils.getStatusBarHeight(LivingActivity.this)
+//                    ViewUtils.getWidthPixel(LivingActivity.this) - ViewUtils.getStatusBarHeight(LivingActivity.this)
+                    ViewUtils.getWidthPixel(LivingActivity.this)
             );
 
             fl_controller.setLayoutParams(fl_lp);
@@ -160,6 +177,19 @@ public class LivingActivity extends BaseActivity implements MediaController.OnCo
 
             halfScreen();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (!isPortrait) {
+                if (!isLock) {
+                    halfScreen();
+                }
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
@@ -192,11 +222,34 @@ public class LivingActivity extends BaseActivity implements MediaController.OnCo
 
     @Override
     public void onBufferingUpdate(MediaPlayer mp, int percent) {
-
+        loadRateView.setText(percent + "%");
     }
 
     @Override
     public boolean onInfo(MediaPlayer mp, int what, int extra) {
-        return false;
+        switch (what) {
+            case MediaPlayer.MEDIA_INFO_BUFFERING_START:
+                if (mVideoView.isPlaying()) {
+                    mc.show(4000);
+                    mVideoView.pause();
+                    pb.setVisibility(View.VISIBLE);
+                    downloadRateView.setText("");
+                    loadRateView.setText("");
+                    downloadRateView.setVisibility(View.VISIBLE);
+                    loadRateView.setVisibility(View.VISIBLE);
+
+                }
+                break;
+            case MediaPlayer.MEDIA_INFO_BUFFERING_END:
+                mVideoView.start();
+                pb.setVisibility(View.GONE);
+                downloadRateView.setVisibility(View.GONE);
+                loadRateView.setVisibility(View.GONE);
+                break;
+            case MediaPlayer.MEDIA_INFO_DOWNLOAD_RATE_CHANGED:
+                downloadRateView.setText("" + extra + "kb/s" + "  ");
+                break;
+        }
+        return true;
     }
 }
