@@ -15,6 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:padding="10dp">
 
             <LinearLayout
@@ -71,10 +73,10 @@
             <ImageView
                 android:id="@+id/product_pic"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 android:layout_marginTop="10dp"
-                android:scaleType="fitXY" />
+                android:scaleType="fitCenter" />
 
             <Button
                 android:id="@+id/order_btn"
@@ -83,6 +85,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="15dp"
                 android:text="订购"
+                android:textColor="@color/white"
                 android:textSize="@dimen/space_18" />
         </LinearLayout>
     </ScrollView>
