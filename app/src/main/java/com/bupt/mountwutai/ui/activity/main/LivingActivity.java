@@ -243,6 +243,8 @@ public class LivingActivity extends BaseActivity implements MediaController.OnCo
             case MediaPlayer.MEDIA_INFO_BUFFERING_END:
                 mVideoView.start();
                 pb.setVisibility(View.GONE);
+                mc.updatePausePlay();
+                mVideoView.setPressed(true);
                 downloadRateView.setVisibility(View.GONE);
                 loadRateView.setVisibility(View.GONE);
                 break;

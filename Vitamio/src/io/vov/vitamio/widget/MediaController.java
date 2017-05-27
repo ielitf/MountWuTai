@@ -715,7 +715,7 @@ public class MediaController extends FrameLayout {
         return super.dispatchKeyEvent(event);
     }
 
-    private void updatePausePlay() {
+    public void updatePausePlay() {
         if (mRoot == null || mPauseButton == null)
             return;
 
