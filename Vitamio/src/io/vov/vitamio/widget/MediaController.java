@@ -392,24 +392,24 @@ public class MediaController extends FrameLayout {
 
             @Override
             public void onHorizontalScrolled(float x) {//进度条
-                isHorizontalScroll=true;
-                myprogress = mProgress.getProgress();
-                if (!isLocked) {
-                    if (!isShowing()) {
-                        show();
-                    }
-                    long nowprogress = (long) (x + myprogress);
-                    android.util.Log.i("yidong", "nowprogress" + nowprogress);
-                    nowposition = (nowprogress * mDuration) / 1000;
-                    String time = StringUtils.generateTime(nowposition);
-                    if (mInstantSeeking)
-                        mProgress.setProgress((int) nowprogress);
-                    mPlayer.seekTo(nowposition);
-                    if (mInfoView != null)
-                        mInfoView.setText(time);
-                    if (mCurrentTime != null)
-                        mCurrentTime.setText(time);
-                }
+//                isHorizontalScroll=true;
+//                myprogress = mProgress.getProgress();
+//                if (!isLocked) {
+//                    if (!isShowing()) {
+//                        show();
+//                    }
+//                    long nowprogress = (long) (x + myprogress);
+//                    android.util.Log.i("yidong", "nowprogress" + nowprogress);
+//                    nowposition = (nowprogress * mDuration) / 1000;
+//                    String time = StringUtils.generateTime(nowposition);
+//                    if (mInstantSeeking)
+//                        mProgress.setProgress((int) nowprogress);
+//                    mPlayer.seekTo(nowposition);
+//                    if (mInfoView != null)
+//                        mInfoView.setText(time);
+//                    if (mCurrentTime != null)
+//                        mCurrentTime.setText(time);
+//                }
             }
 
             @Override
