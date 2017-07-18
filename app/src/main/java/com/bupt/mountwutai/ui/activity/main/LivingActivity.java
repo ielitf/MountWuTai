@@ -103,7 +103,8 @@ public class LivingActivity extends BaseActivity implements MediaController.OnCo
                 videoHeight
         );
         fl_controller.setLayoutParams(fl_lp);
-        uri = Uri.parse("http://zv.3gv.ifeng.com/live/zhongwen800k.m3u8");
+        //uri = Uri.parse("http://zv.3gv.ifeng.com/live/zhongwen800k.m3u8");
+        uri = Uri.parse("http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8");
 
         mVideoView.setVideoURI(uri);
         mc = new MediaController(this, true, fl_controller);

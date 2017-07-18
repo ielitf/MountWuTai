@@ -52,7 +52,7 @@ public class CustomActivity extends BaseActivity {
     private void addData() {
         mData=new ArrayList<>();
         try {
-            for (int i = 0; i <12 ; i++) {
+            for (int i = 0; i <13 ; i++) {
                 JSONObject oj=new JSONObject(ViewUtils.getData(activity,i+""));
                 mData.add(new CustomBean(oj.getInt("picture"),oj.getString("title"),oj.getBoolean("isadd")));
             }
