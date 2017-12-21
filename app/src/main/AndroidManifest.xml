@@ -52,13 +52,13 @@
         <activity android:name=".ui.activity.main.PoliticsActivity" />
         <activity android:name=".ui.activity.buddhist.BuddhismDetailActivity" />
         <activity
-            android:name=".ui.activity.main.LivingActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
-        </activity>
+        android:name=".ui.activity.main.LivingActivity"
+        android:configChanges="orientation|keyboardHidden|screenSize">
+        <intent-filter>
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+        </intent-filter>
+    </activity>
         <activity android:name=".ui.activity.main.PartyActivity" />
         <activity android:name=".ui.activity.main.Party2Activity" />
         <activity android:name=".ui.activity.main.AddrInfoActivity" />

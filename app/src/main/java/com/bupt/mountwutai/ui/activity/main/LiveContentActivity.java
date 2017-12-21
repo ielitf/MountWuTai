@@ -18,6 +18,7 @@ import java.util.List;
 
 public class LiveContentActivity extends BaseActivity {
 
+
     private ListView listView;
     LiveAdapter adapter;
 
