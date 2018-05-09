@@ -42,17 +42,17 @@
             android:onClick="navigation" >
 
             <ImageView
-                android:id="@+id/rb1"
+                android:id="@+id/rb0"
                 android:layout_width="33dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/summary_normal" />
 
             <TextView
-                android:id="@+id/text1"
+                android:id="@+id/text0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rb1"
+                android:layout_below="@id/rb0"
                 android:layout_centerHorizontal="true"
                 android:text="首页"
                 android:textColor="@color/navigation_unselect"
@@ -68,11 +68,37 @@
             android:onClick="navigation" >
 
             <ImageView
-                android:id="@+id/rb2"
+                android:id="@+id/rb1"
                 android:layout_width="33dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
                 android:background="@mipmap/guide_normal" />
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb1"
+                android:layout_centerHorizontal="true"
+                android:text="分类"
+                android:textColor="@color/navigation_unselect"
+                android:textSize="@dimen/space_10" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/VR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:onClick="navigation" >
+
+            <ImageView
+                android:id="@+id/rb2"
+                android:layout_width="33dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/vr_normal" />
 
             <TextView
                 android:id="@+id/text2"
@@ -80,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb2"
                 android:layout_centerHorizontal="true"
-                android:text="分类"
+                android:text="VR"
                 android:textColor="@color/navigation_unselect"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
@@ -136,32 +162,6 @@
                 android:textColor="@color/navigation_unselect"
                 android:textSize="@dimen/space_10" />
         </RelativeLayout>
-
-        <!--<RelativeLayout-->
-            <!--android:id="@+id/service"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:clickable="true"-->
-            <!--android:onClick="navigation" >-->
-
-            <!--<ImageView-->
-                <!--android:id="@+id/rb5"-->
-                <!--android:layout_width="33dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:background="@mipmap/service_normal" />-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/text5"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_below="@id/rb5"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:text="服务"-->
-                <!--android:textColor="@color/navigation_unselect"-->
-                <!--android:textSize="@dimen/space_10" />-->
-        <!--</RelativeLayout>-->
 
     </LinearLayout>
 

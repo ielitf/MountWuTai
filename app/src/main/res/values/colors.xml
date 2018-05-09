@@ -31,6 +31,8 @@
     <color name="top_back">#845a33</color>
     <!-- 导航栏字体选中颜色 -->
     <color name="navigation_select">#3b240f</color>
+    <!-- 导航栏字体VR选中颜色 -->
+    <color name="navigation_vr_select">#eb8921</color>
     <!-- 交通导航栏背景颜色 -->
     <color name="traffic_item_color">#f4eadd</color>
 

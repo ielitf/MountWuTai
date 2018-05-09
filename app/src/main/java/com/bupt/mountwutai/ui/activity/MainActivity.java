@@ -17,6 +17,7 @@ import com.bupt.mountwutai.ui.activity.guide.GuideFragment;
 import com.bupt.mountwutai.ui.activity.main.HomeFragment;
 import com.bupt.mountwutai.ui.activity.me.MeFragment;
 import com.bupt.mountwutai.ui.activity.summary.SummaryFragment;
+import com.bupt.mountwutai.ui.activity.vr.VRFragment;
 import com.bupt.mountwutai.util.LogUtil;
 
 /**
@@ -24,14 +25,15 @@ import com.bupt.mountwutai.util.LogUtil;
  */
 public class MainActivity extends BaseActivity {
 
-    private TextView[] textViews = new TextView[4];// 图标下面的文字
-    private ImageView[] imageButtons = new ImageView[4];// 显示图标
+    private TextView[] textViews = new TextView[5];// 图标下面的文字
+    private ImageView[] imageButtons = new ImageView[5];// 显示图标
 
     private FragmentManager fragmentManager;
     private HomeFragment summaryFragment = null;
-//    private GuideFragment guideFragment = null;
+    //    private GuideFragment guideFragment = null;
+    private VRFragment vrFragment = null;
     private BuddhistActivitiesFragment buddhistFragment = null;
-//    private BuddhistFragment serviceFragment=null;
+    //    private BuddhistFragment serviceFragment=null;
 //    private CommonFragment productsFragment = null;
     private MeFragment meFragment = null;
     private ClassificationFragment classificationFragment = null;
@@ -54,7 +56,11 @@ public class MainActivity extends BaseActivity {
         for (int i = 0; i < textViews.length; i++) {
             int color;
             if (i == x) {
-                color = R.color.navigation_select;
+                if (x == 2){
+                    color = R.color.navigation_vr_select;
+                }else{
+                    color = R.color.navigation_select;
+                }
             } else {
                 color = R.color.navigation_unselect;
             }
@@ -66,14 +72,16 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         start_img= (ImageView) findViewById(R.id.start_img);
-        textViews[0] = (TextView) findViewById(R.id.text1);
-        textViews[1] = (TextView) findViewById(R.id.text2);
-        textViews[2] = (TextView) findViewById(R.id.text3);
-        textViews[3] = (TextView) findViewById(R.id.text4);
-        imageButtons[0] = (ImageView) findViewById(R.id.rb1);
-        imageButtons[1] = (ImageView) findViewById(R.id.rb2);
-        imageButtons[2] = (ImageView) findViewById(R.id.rb3);
-        imageButtons[3] = (ImageView) findViewById(R.id.rb4);
+        textViews[0] = (TextView) findViewById(R.id.text0);
+        textViews[1] = (TextView) findViewById(R.id.text1);
+        textViews[2] = (TextView) findViewById(R.id.text2);
+        textViews[3] = (TextView) findViewById(R.id.text3);
+        textViews[4] = (TextView) findViewById(R.id.text4);
+        imageButtons[0] = (ImageView) findViewById(R.id.rb0);
+        imageButtons[1] = (ImageView) findViewById(R.id.rb1);
+        imageButtons[2] = (ImageView) findViewById(R.id.rb2);
+        imageButtons[3] = (ImageView) findViewById(R.id.rb3);
+        imageButtons[4] = (ImageView) findViewById(R.id.rb4);
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         showFragment(transaction, R.id.summary);
@@ -89,8 +97,9 @@ public class MainActivity extends BaseActivity {
                 setBack(0);
                 imageButtons[0].setBackgroundResource(R.mipmap.summary_selected);
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.vr_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[4].setBackgroundResource(R.mipmap.buddhist_normal);
                 if (summaryFragment == null) {
                     summaryFragment = new HomeFragment();
                     transaction.add(R.id.container, summaryFragment);
@@ -103,8 +112,9 @@ public class MainActivity extends BaseActivity {
                 setBack(1);
                 imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_selected);
-                imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.vr_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[4].setBackgroundResource(R.mipmap.buddhist_normal);
                 if (classificationFragment == null) {
                     classificationFragment = new ClassificationFragment();
                     transaction.add(R.id.container, classificationFragment);
@@ -113,12 +123,28 @@ public class MainActivity extends BaseActivity {
                 }
                 break;
 
-            case R.id.buddhist://发现
+            case R.id.VR://VR
                 setBack(2);
                 imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.specialty_selected);
-                imageButtons[3].setBackgroundResource(R.mipmap.buddhist_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.vr_selected);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[4].setBackgroundResource(R.mipmap.buddhist_normal);
+                if (vrFragment == null) {
+                    vrFragment = VRFragment.newFragment();
+                    transaction.add(R.id.container, vrFragment);
+                } else {
+                    transaction.show(vrFragment);
+                }
+                break;
+
+            case R.id.buddhist://发现
+                setBack(3);
+                imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
+                imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
+                imageButtons[2].setBackgroundResource(R.mipmap.vr_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_selected);
+                imageButtons[4].setBackgroundResource(R.mipmap.buddhist_normal);
                 if (buddhistFragment == null) {
                     buddhistFragment = BuddhistActivitiesFragment.newFragment("1");
                     transaction.add(R.id.container, buddhistFragment);
@@ -128,11 +154,12 @@ public class MainActivity extends BaseActivity {
                 break;
 
             case R.id.specialty://我的
-                setBack(3);
+                setBack(4);
                 imageButtons[0].setBackgroundResource(R.mipmap.summary_normal);
                 imageButtons[1].setBackgroundResource(R.mipmap.guide_normal);
-                imageButtons[2].setBackgroundResource(R.mipmap.specialty_normal);
-                imageButtons[3].setBackgroundResource(R.mipmap.buddhist_selected);
+                imageButtons[2].setBackgroundResource(R.mipmap.vr_normal);
+                imageButtons[3].setBackgroundResource(R.mipmap.specialty_normal);
+                imageButtons[4].setBackgroundResource(R.mipmap.buddhist_selected);
                 if (meFragment == null) {
                     meFragment = new MeFragment();
                     transaction.add(R.id.container, meFragment);
@@ -180,9 +207,9 @@ public class MainActivity extends BaseActivity {
         if (buddhistFragment != null) {
             transaction.hide(buddhistFragment);
         }
-//        if (serviceFragment != null) {
-//            transaction.hide(serviceFragment);
-//        }
+        if (vrFragment != null) {
+            transaction.hide(vrFragment);
+        }
         if (meFragment != null) {
             transaction.hide(meFragment);
         }

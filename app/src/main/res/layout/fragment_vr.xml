@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/main_back"
+    android:orientation="vertical"
+    >
+    <include
+        android:id="@+id/top"
+        android:visibility="visible"
+        layout="@layout/main_top"/>
+
+    <ListView
+        android:id="@+id/vr_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@color/transparent"
+        android:dividerHeight="@dimen/space_listview"
+        android:scrollbars="none"
+        android:paddingLeft="@dimen/space_listview"
+        android:paddingRight="@dimen/space_listview"
+        />
+
+</LinearLayout>
